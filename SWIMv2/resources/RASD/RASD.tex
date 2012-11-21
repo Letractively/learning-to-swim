@@ -1,0 +1,219 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage{scrextend}
+\changefontsizes[16pt]{16pt}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage[italian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+
+\usepackage{titlesec} 
+\titleformat{\section} {\color{black}\normalfont\sffamily\Large\bfseries} {\color{black}\thesection}{1em}{} 
+\usepackage{titlesec}
+\titleformat{\subsection} {\color{black}\normalfont\sffamily\large\bfseries} {\color{black}\thesubsection}{1em}{} 
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\pdfinfo{%
+  /Title    (Titolo di prova)
+  /Author   (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
+  /Creator  (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
+  /Producer (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
+  /Subject  (Pagina di prova)
+  /Keywords ()
+}
+
+\newcommand{\teacher}{
+{
+\large
+\begin{flushleft}
+\centerline{Teacher: Prof.ssa Raffaela Mirandola}
+\end{flushleft}}
+}
+
+
+\newcommand{\newmaketitle}{
+  \maketitle
+}
+
+\title{{\includegraphics[scale=0.2]{polimi} \linebreak \Large SOFTWARE ENGINEERING 2 PROJECT ``SWIMv2''}}
+\author{Emanuele Uliana \\ 799256 \and Gabriele Rufolo \\ 743695 \and Walter Rubino \\ 742519} %COMPLETATE 
+
+\date{21/11/2012}
+
+\begin{document}
+\newmaketitle
+\vfill
+\begin{center}
+\Huge \textcolor{blue} {RASD}
+\end{center}
+\vfill
+\teacher
+%\vfill
+{\large 
+\begin{flushleft}
+Version 1.0
+\end{flushleft}}
+\clearpage
+
+	    \vspace*{\fill}
+	\tableofcontents
+	    \vspace*{\fill}
+
+\clearpage
+
+\section{Descrizione}
+Si vuol sviluppare un social network che consenta agli utenti di aiutarsi reciprocamente inviando richieste di supporto e/o fornendo egli stesso aiuto.
+L’utente non registrato (ospite) ha la sola facoltà di lettura dei quesiti, delle risposte e delle soluzioni ma senza possibilità di interagire con alcuno dei soggetti interessati.
+Il sistema deve permettere la creazione di nuovi utenti tramite l’immissione di credenziali di accesso quali l’email e la password. Una volta registrato l’utente potrà non solo leggere le risposte ai problemi già noti (pubblicati da terzi) ma anche contribuire sia alla soluzione del problema sia ponendo nuove domande.
+Il sistema implementa anche un sistema di gestione dei feedback con il quale è possibile valutare l’operato di chi ha fornito aiuto creando così un forte ed efficiente sistema di collaborazione.
+I quesiti possono essere posti sia in privato tramite l’utilizzo di messaggi privati tra due utenti che immissione di domande nella bacheca pubblica e quindi visibile da tutti gli internauti (anche ai non registrati, vedi sopra).
+
+\clearpage
+
+\section{Introduzione}
+\subsection{Glossario}
+Al fine di migliorare la comprensione del seguente documento si riportano qui sotto alcune tra le principali definizioni dei termini usati all’interno dello stesso:
+\begin{itemize}
+\item {\bfseries Abilità}:
+è un abilità posseduta dall’utente e può riferirsi ad esempio a conoscenze in ambito culinario, sportivo, professionale, accademico, scolastico, hobbistico etc.
+\item {\bfseries Account}: vedi profilo
+\item {\bfseries Argomento}: vedi thread
+\item {\bfseries Bacheca}:
+con bacheca intendiamo l’insieme totale dei messaggi pubblici presenti sulla piattaforma SWIMv2
+\item {\bfseries Messaggio privato}:
+è uno strumento che consente agli utenti di inviarsi messaggi tra loro privatamente per chiedere aiuto e/o rispondere a richieste di aiuto ricevute
+\item {\bfseries Feedback}:
+è la possibilità di esprimere un giudizio sull’operato di un utente
+\item {\bfseries Post}:
+è il singolo messaggio scritto da un utente, esso può contenere un domanda, un messaggio di risposta o anche una soluzione
+\item {\bfseries Profilo}:
+è l’insieme delle informazioni presenti nel sistema relative ad un determinato utente. Comprende il nome e cognome, un indirizzo email per effettuare l’accesso e per essere contattato, un feedback assegnatogli dagli utenti del sistema, un’immagine di profilo
+\item {\bfseries Thread}:
+contiene il quesito posto dall’utente in bacheca, con i post di risposta e la soluzione (se esiste)
+\end{itemize}
+
+\clearpage
+
+\subsection{Obiettivi}
+La piattaforma sviluppata ha per obiettivi:
+\begin{itemize}
+\item Fornire una piattaforma di supporto agli utenti
+\item Valutare l’operato degli utenti con il sistema del feedback
+\item Condividere conoscenze e quindi creare collaborazione tra gli internauti
+\item Garantire l’iscrizione da parte di nuovi utenti
+\item Possibilità di immettere nel sistema nuove abilità
+\item Consentire agli utenti non registrati l’accesso al sistema in sola lettura
+\item Favorire la collaborazione tra utenti (con suggerimenti di amicizie)
+\end{itemize}
+
+\clearpage
+
+\section{La piattaforma SWIMv2}
+Il nuovo sistema realizzato consiste in una piattaforma web accessibile dai vari utenti via Web che offrirà servizi mirati alle varie tipologie di uteti collegati.
+I membri del sistema hanno facoltà di accedere alla pagina del proprio profilo, aggiornare i propri dati, leggere i messaggi privati, rispondere alle richieste di supporto, scrivere in bacheca, valutare gli altri utenti con un feedback. Possono anche, in base al gruppo di appartenenza, visionare le richieste d’inserimento di nuove abilità e poter decidere se accettarle o meno.
+Il sistema mette inoltre a disposizione un meccanismo di friends suggestion con il quale i membri possono suggerire nuove amicizie ai propri contatti.
+\subsection{Identificazione degli attori}
+Dopo un’accurata analisi del problema si è provveduto a determinare i protagonisti principali del sistema e le relative funzionalità, riportate qui di seguito:
+\begin{enumerate}
+\item Ospite: Non ha alcun potere di interagire attivamente con il sistema, può solamente cercare nella bacheca pubblica i quesiti (con relative risposte) condivise da altri utenti con lo stesso problema o quantomeno simile.
+\item Utente registrato: Usa il sistema per inviare nuove richieste di supporto e per interagire con gli altri utenti. Può formulare domande sia sulla bacheca pubblica che inviare messaggi privati agli altri utenti. Ha facoltà di rispondere alle domande poste dagli altri utenti, può accettare nuove richieste di amicizia, inviarne di nuove e suggerire nuove abilità all’amministratore di sistema. Ha facoltà di valutare gli altri utenti tramite un sistema di feedback.
+\item Amministratore: Ha il controllo sul sistema. Può aggiungere o rimuovere abilità, accettare o rifiutare richieste di nuove funzionalità.
+\end{enumerate}
+
+\clearpage
+
+\section{Considerazioni preliminari}
+Nella specifica in nostro possesso sono state rilevate alcune lacune e imprecisioni riguardo le funzionalità del sistema.
+Qui di seguito esporremo le assunzioni da noi fatte per ovviare a tali ambiguità.
+\begin{itemize}
+\item Interazioni tra utenti: abbiamo assunto che tale attività potesse avvenire tramite una bacheca pubblica o tramite messaggi privati.
+\item Suddivisione dei messaggi: ogni singolo messaggio (post) ha un suo contenitore padre (thread) il quale identifica l’argomento trattato. Il thread può essere stato pubblicato o sulla bacheca pubblica o sulla casella messaggi privati di un utente.
+\item Richieste di amicizia: uno tra gli aspetti sicuramente più ambigui e probabilmente errati presenti nella specifica è certamente quello concernente la gestione delle amicizie; l’esistenza di un’amicizia di classe “A” e una “B” risulta non solo di dubbia definizione ma anche totalmente inutile.
+\item Coerenza di dominio: Si precisa infine che non è possibile suggerire a un proprio amico di stringere amicizia con un contatto non presente nella propria cerchia di contatti.
+\item Ricerca degli utenti: si può effettuare la ricerca all’interno della piattaforma per abilità possedute dai membri e/o per nickname.
+\item Ricerca degli argomenti: si possono individuare i thread tramite una ricerca basata sulla categoria appartenente o direttamente tramite il titolo.
+\item Definizione delle abilità: il sistema è dotato di un insieme di abilità predefinite che può essere arricchito grazie ai suggerimenti dei membri tramite un’esatta procedura.
+\item Gestione delle categorie: gli amministratori possono creare, rinominare, eliminare categorie; Le categorie hanno nomi quali “Informatica”, “Motori”, “Hobbistica” e così via.
+\item Stato dei thread: i messaggi presenti in bacheca hanno uno stato che può essere “Attivo”, “Risolto”, “Invalido” ed una relativa icona, ogni amministratore può cambiare lo stato in qualsiasi momento. Un thread può inoltre risultare “Aperto” o “Chiuso” cioè vi è la possibilità di continuare una discussione o meno.
+\end{itemize}
+
+
+\section{Requisiti funzionali}
+Vengono riportate qui di seguito alcune specifiche che consentono il mantenimento dei requisiti da parte della piattaforma sviluppata:
+\begin{itemize}
+\item Gli amministratori hanno l’abilità di aggiungere nuove abilità tra quelle predefinite, approvare richieste (ricevute dagli utenti) di inserimento di nuove abilità
+\item Le abilità inserite da un amministratore nel sistema saranno visibili a tutti gli utenti che potranno decidere se abilitarle o meno sul loro profilo
+\item Gli amministratori hanno un superset di abilità rispetto a quello posseduto dagli utenti registrati. Essi infatti possono svolgere tutte le azioni che svolgono quest’ultimi: rispondere a richieste di aiuto, inviare e ricevere feedback etc.
+\item Ogni utente registrato può richiedere aiuto pubblicamente (sulla bacheca) o privatamente (via messaggio privato)
+\item Un utente può suggerire ad un suo amico di stringere amicizia con un terzo 
+\item L’utente possono definire il proprio set di abilità scegliendo tra quelli predefiniti
+\item Ogni utente può proporre nuove abilità da inserire anche qualora non siano già presenti tra quelle predefinite dal sistema
+\item L’utente può pubblicare un feedback sull’aiuto ricevuto
+\item Ogni utente può inviare o rispondere a richieste di amicizia
+\item Ogni ospite può cercare risposte ai suoi problemi senza però poter scrivere
+\item Ogni problema ha un autore, un insieme di risposte e di soluzioni proposte e un stato che può essere Attivo, Invalido, Risolto
+\item Ogni profilo contiene: il nome dell’utente, una casella di messaggi privati, un indicatore di punteggio relativo al feedback ricevuto
+\item Ogni utente può cancellare il suo profilo in qualsiasi momento ma i messaggi pubblici, le relative risposte e la soluzioni non verranno rimossi restando così visibili
+\end{itemize}
+
+\section{Requisiti non funzionali}
+Sistema usato per il backup, gruppo di continuità…
+fornire un’interfaccia aggiuntiva a quella degli utenti registrati nella quale è possibile visionare le richieste di inserimento di nuove abilità e poter decidere se accettarle o meno.
+\subsection{Documentazione}
+\begin{itemize}
+\item Project Plan, per stabilire gli obiettivi e le tempistiche del progetto
+\item Requirements Analysis Specification Document, per definire il progetto nei suoi requisiti e procedendo con l’analisi delle specifiche
+\item Design Document (DD), per definire il design del progetto
+\item Commenti nel codice
+\item Testing Document
+\end{itemize}
+
+\clearpage
+
+\section{Identificazione degli scenari}
+\textbf{Scenario}: un utente si registra con l'intenzione di cercare aiuto \\
+\textbf{Attori}: Cloud Strife \\
+Cloud Strife è un appassionato di spade antiche e ha intenzione di iscriversi a SWIMv2 per trovare un arrotino che possa fare il filo alla sua “buster sword”. Di conseguenza segue la procedura guidata  e completa la registrazione; in particolare risulta residente a Nibelheim e il suo set di abilità include “negoziazioni con le compagnie energetiche”, “maestro di scherma (specialità spada)” e “superatleta”. \\[1em]
+\textbf{Scenario}: un utente dà un feedback negativo \\
+\textbf{Attori}: Felice Evacuo, Edward Late \\
+L'utente Felice Evacuo ha richesto tramite messaggio un aiuto al suo amico inglese Edward Late, ma quest'ultimo per un mese non si è fatto sentire; di conseguenza il signor Evacuo decide di assegnare a mr Late un feedback negativo tramite l'apposita funzionalità presente sulla pagina personale di quest'ultimo. \\[1em]
+\textbf{Scenario}: un utente risponde ad una richiesta di aiuto \\
+\textbf{Attori}: Gabriel Zufolo, Orazio Cane \\
+L'utente Gabriel Zufolo, appassionato di musica ha ricevuto una richesta di aiuto da parte del suo amico Orazio Cane, un commissario di polizia che è da qualche mese sulle tracce di una banda. Tale banda, con la copertura dei concerti da essa tenuti, in realtà permette a dei complici di svaligiare le case degli ignari spettatori. Cane ha chiesto a Zufolo di dargli delle lezioni di flauto per potersi infiltrare nella banda come musicista e investigare. Zufolo risponde e si dichiara disponibile a collaborare con la polizia, lasciando il proprio numero di telefono per ulteriori contatti. \\[1em]
+\textbf{Scenario}: un team di specialisti hardware cerca un esperto in compilatori \\
+\textbf{Attori}: Bobby Bianchetti e Stephen Ricci \\
+Bobby Bianchetti, specialista in microprocessori, in particolare ricercatore sulle pipeline, decide di integrare nel suo gruppo anche uno specialista in compilatori. Egli, in quanto non è registrato su SWIM, pubblica sulla bacheca un messaggio in cui chiede a chiunque sia esperto in compilazione e sia interessato alla proposta di lavoro contenuta nel corpo del post di rispondere e lasciare un recapito per essere ricontattati. Stephen Ricci, brillante neolaureato in Ingegneria Informatica al Politecnico di Milano con 110 e lode, ritiene di essere interessato e risponde con un messaggio sempre sulla bacheca pubblica.  \\[1em]
+\textbf{Scenario}: un calciatore tedesco cerca un preparatore atletico per la riabilitazione dopo l'ennesimo infortunio \\
+\textbf{Attori}: Thomas Strunz, Johannes Trapp \\
+Thomas Strunz, calciatore tedesco militante nella squadra dell'oratorio della cattedrale di Monaco di Baviera, si è infortunato per la quarta volta in un anno e decide di cambiare preparatore atletico. Dato che è da tempo un utente registrato su SWIM e si ricorda che un suo vecchio compagno di classe, che ha come amico sul social network, gli aveva parlato di un amico italo-tedesco che aveva intenzione di diventare un preparatore atletico, chiede al suo amico tramite messaggio il nome di costui e, ricevendo come risposta Johannes Trapp, lo cerca tra gli amici dell'ex compagno di classe e, una volta trovatolo, gli chiede l'amicizia. \\[1em]
+\textbf{Scenario}: lo stesso calciatore invia all'amministratore Emanuele Uliana un messaggio di lamentela \\
+\textbf{Attori}: Emanuele Uliana, Thomas Strunz, Johannes Trapp \\
+Thomas Strunz, dopo un iniziale impegno a tempo pieno nella riabilitazione, per negligenze proprie trascura la seconda fase degli esercizi e decide di rientrare in campo troppo presto, rompendosi alla prima partita il legamento crociato anteriore. A questo punto Johannes Trapp gli invia un messaggio: “Hai visto? Certo che il tuo cognome è prorpio un presagio del tuo carattere!” Strunz, si ritiene offeso e invia all'amministratore Emanuele Uliana un messaggio in cui riporta le parole del preparatore atletico e chiede provvedimenti. \\[1em]
+\textbf{Scenario}: un rappresentante della nazionale piloti cerca un allenatore in vista della sfida di beneficienza contro la nazionale cantanti, ma riesce solo al secondo tentativo \\
+\textbf{Attori}: Michele Lumache, Giuseppe Morino, Antonio Marchese \\
+Michele Lumache, esponente di spicco della nazionale calcistica dei piloti di formula 1, e utente registrato su SWIM, è alla ricerca di un allenatore per la squadra che consenta di arrivare preparati alla sfida di beneficienza contro la nazionale cantanti. Inizialmente pensa di aver trovato la persona giusta in Giuseppe Morino, tuttavia dopo la richiesta di amicizia e il primo scambio di messaggi, Michele si accorge che i metodi di Giuseppe non sono troppo ortodossi, in quanto si basano sulla corruzione arbitrale e sull'arroganza nei confronti degli avversari. Di conseguenza di rivolge ad un brillante neoallenatore di nome Antonio Marchese che, grazie alla sua professionalità, convince Michele. \\[1em]
+\textbf{Scenario}: un utente è costretto alla cancellazione coatta da parte del suo datore di lavoro \\
+\textbf{Attori}: Montgomery Arde, Smith ER. S. \\
+Montgomery Arde è il capo di una società energetica americana a cui è stata commissionata l'apertura di una centrale nucleare in Namibia. Non potendo trattare di persona con gli indigeni del posto, decide di inviare il suo fedele assistente Smith ER. S. in sua vece. Tuttavia Smith ha un piccolo difetto: se non lo si distoglie a forza dal social network SWIM (su cui è iscritto in quanto “grande esperto di lingue autoctone dell'africa subsaariana” e “ottimo mediatore con i selvaggi Boscimani”), ci passa tutta la giornata. Di conseguenza mr Arde gli impone di disiscriversi, promettendogli uno stipendio di 1201 dollari al mese contro i 1200 che già guadagnava. Smith fedelmente segue la procedura guidata e cancella il proprio account, allettato dalla straordinaria offerta economica del suo capo. \\[1em]
+\textbf{Scenario}: un utente chiede informazioni sulle domande che Google effettua durante i colloqui di lavoro \\
+\textbf{Attori}: Lorenzo Pagina, Giorgia Angurie \\
+Giorgia Angurie è una abile organizzatrice di eventi con esperienze politiche alle spalle e vorrebbe diventare parte della famosa azienda di Mountain View. Tra i suoi amici su SWIM ce n'è uno che come abilità ha “esperto in colloqui di lavoro impossibili” e “ex dipendente di google”: si chiama Lorenzo Pagina. Giorgia chiede a Lorenzo se può inviarle qualche fac-simile delle domande dei colloqui di Google. Lorenzo risponde con tre delle domande che ha visto fare agli aspiranti lavoratori: 1) Sei ridotto alle dimensioni di una moneta e anche la tua massa viene ridimensionata per mantenere la tua densità al livello che avevi prima e vieni gettato in un frullatore che tra 60 secondi entrerà in funzione. Che cosa faresti?  2) Quanto dovresti pagare per lavare tutte le finestre di Seattle?  3) Quante palline da golf ci stanno in uno scuolabus? \\[1em]
+\textbf{Scenario}: un utente chiede di modificare il proprio set di abilità \\
+\textbf{Attori}: Walter Rubino, Gabriele Rufolo, Alex Ziggie \\
+Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abilità le seguenti: “venditore di aria fritta” e “capacità di apparire dal nulla” e, a tal proposito invia un messaggio all'amministratore Walter Rubino per la prima e all'amministratore Gabriele Rufolo per la seconda. Walter ritiene che la richiesta a lui pervenuta non rispetti il vincolo di realtà delle abilità: dubita infatti che una miscela di gas possa essere fritta a mo' di patatine; Gabriele per lo stesso motivo boccia la seconda richiesta. Entrambi notificano ad Alex il fatto che le sue richieste non possano essere accolte.
+
+\clearpage
+
+\section{Modello UML}
+\section{Modello Alloy}
+
+\end{document}
