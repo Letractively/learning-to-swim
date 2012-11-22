@@ -21,6 +21,9 @@
 \lhead{Emanuele Uliana, Gabriele Rufolo, Walter Rubino}
 \rhead{RASD}
 
+%Set paragraphs indentation to 0 points
+\setlength{\parindent}{0pt}
+
 %Sections and subsections' style
 \usepackage{titlesec} 
 \titleformat{\section} {\color{black}\normalfont\sffamily\Large\bfseries} {\color{black}\thesection}{20pt}{} 
@@ -237,11 +240,180 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \end{enumerate}
 \\
 \hline 
-\end{tabularx} 
-
+\end{tabularx}
 \clearpage
-
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un ospite effettua il login \\
+\hline Attori & Ospite \\ 
+\hline Condizione di entrata & L'ospite clicca sul pulsante “Login” \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em 
+\item L'ospite inserisce negli appositi campi il suo username e la sua password.
+\item L'ospite preme il pulsante di conferma.
+\item Il sistema effettua una query nel database con i dati inseriti e, in caso la query ritorni un valore non vuoto, visualizza la pagina personale dell'utente corrispondente.
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & L'utente si trova nella sua pagina personale \\
+\hline Eccezioni & La query del sistema ritorna null
+\\
+\hline 
+\end{tabularx} \\[1\baselineskip]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente modifica il proprio set di abilità \\
+\hline Attori & Utente \\ 
+\hline Condizione di entrata & L'utente clicca sul pulsante di modifica del set di abilità presente nella sua home \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em 
+\item L'utente eventualmente (non è obligato a farlo) toglie il flag da una o più abilità che ha e mette il flag su una o più nuove abilità. (Non c'è limite al numero di abilità possedibili ed è possibile avere zero abilità)
+\item L'utente clicca sul pulsante di conferma.
+\item Il sistema aggiorna il database
+\item Il sistema notifica all'utente il successo dell'operazione e lo reindirizza alla sua pagina personale
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & L'utente si ritrova nella sua pagina personale e il suo set è modificato correttamente \\
+\hline Eccezioni & Nessuna: gli unici errori possono essere dovuti a guasti non deterministici della macchina o a cadute della connessione internet
+\\
+\hline 
+\end{tabularx} \clearpage
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente pubblica una richiesta di aiuto sulla bacheca pubblica \\
+\hline Attori & Utente \\ 
+\hline Condizione di entrata & L' utente clicca sul pulsante “Inserisci messaggio” presente sulla bacheca pubblica \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em 
+\item L utente compone il messaggio
+\item L' utente clicca sul pulsante di pubblicazione del messaggio
+\item Il sistema fa in modo che il messaggio diventi visibile a chiunque
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & Il messaggio è visibile in bacheca \\
+\hline Eccezioni & Nessuna, vedi caso precedente
+\\
+\hline 
+\end{tabularx} \\[1\baselineskip]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un ospite effettua una ricerca su tutto l'insieme di utenti di SWIM \\
+\hline Attori & Ospite \\ 
+\hline Condizione di entrata & L'ospite clicca sul pulsante di ricerca \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em 
+\item L'ospite riempie almeno uno dei seguenti campi: “nome e cognome”, “città” e/o seleziona almeno un'abilità dalla scroll-list.
+\item L'ospite clicca sul pulsante di conferma.
+\item Il sistema effettua una query con i dati ricevuti.
+\item Il sistema mostra una finestra con una lista (eventualmente vuota) di risultati
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & La finestra dei risultati è visibile \\
+\hline Eccezioni &
+\begin{enumerate}
+\itemsep0em
+\item Viene effettuata una ricerca senza parametri.
+\item I dati inseriti contengono caratteri non consentiti.
+\end{enumerate}
+\\
+\hline 
+\end{tabularx} \clearpage
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente chiede ad un amministratore di aggiungere una nuova abilità al set predefinito di sistema \\
+\hline Attori & Utente, Amministratore \\ 
+\hline Condizione di entrata & L'utente clicca sul pulsante “Invia messaggio” dal profilo pubblica dell'amministratore \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em
+\item L'utente compone il corpo del messaggio includendo una chiara descrizione della nuova abilità, il suo nome e le motivazioni per cui ha proposto di aggiungerla.
+\item L'utente clicca sul pulsante di invio messaggio.
+\item Il sistema invia il messaggio all'amministratore e fa comparire una notifica sulla sua pagina personale.
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & Il messaggio è inviato correttamente e sulla pagina dell'amministratore compare una notifica \\
+\hline Eccezioni & Nessuna
+\\
+\hline 
+\end{tabularx} \\[1\baselineskip]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente invia una richiesta di amicizia ad un altro utente senza passare dai suggerimenti \\
+\hline Attori & Utente A, Utente B \\ 
+\hline Condizione di entrata & L'utente A clicca sul pulsante “Aggiungi” dalla pagina pubblica dell'utente B \\
+\hline Flusso degli eventi & Il sistema notifica all'utente B che l'utente A gli ha inviato una richiesta di amicizia.
+ \\ 
+\hline Condizione di uscita & All'utente B è arrivata la notifica \\
+\hline Eccezioni & Nessuna
+\\
+\hline 
+\end{tabularx} \\[1\baselineskip]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente risponde positivamente ad una richiesta di amicizia \\
+\hline Attori & Utente C, Utente D \\ 
+\hline Condizione di entrata & L'utente C clicca su “Conferma” dalla notifica della richiesta \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em 
+\item Il sistema aggiunge D agli amici di C e viceversa.
+\item Il sistema notifica C del buon fine dell'azione e D del fatto che C abbia accettato la sua richiesta.
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & Le notifiche sono state spedite agli utenti coinvolti \\
+\hline Eccezioni & Nessuna
+\\
+\hline 
+\end{tabularx}
+\clearpage
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente dà un feedback \\
+\hline Attori & Utente A, Utente B \\ 
+\hline Condizione di entrata & L'utente A ha ricevuto un messaggio di risposta dall'utente B \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em 
+\item L'utente A clicca sul pulsante “Dai feedback” contenuto nel messaggio di risposta di B.
+\item L'utente A seleziona il livello del feedback (da 1 a 10) dal popup che il sistema ha aperto
+\item L'utente clicca su “Conferma”.
+\item Il sistema notifica B del feedback ricevuto con un messaggio automatico e aggiorna la media dei suoi feedback.
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & La media è correttamente aggiornata \\
+\hline Eccezioni & Nessuna
+\\
+\hline 
+\end{tabularx} \\[1\baselineskip]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente cancella il proprio account \\
+\hline Attori & Utente \\ 
+\hline Condizione di entrata & L'utente preme il pulsante “Cancella account” dalla propria pagina personale \\
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em
+\item L'utente conferma la volontà di cancellazione dal popup che il sistema apre.
+\item Il sistema slogga l'utente, cancella tutti i suoi legami di amicizia (il che vuol dire che rimuove tutti i suoi amici e dalle loro liste di amici rimuove l'utente stesso) e cancella i suoi dati dal database.
+\item Il sistema notifica con un popup l'avvenuta cancellazione e reindirizza alla pagina principale di SWIM.
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & Il sistema ha notificato l'avvenuta cancellazione \\
+\hline Eccezioni & Nessuna
+\\
+\hline 
+\end{tabularx}
+\clearpage
 \section{Modelli UML}
+\subsection{Sequence diagrams}
+\begin{flushleft}
+\includegraphics[scale=0.8]{sDiagrams/creazioneUtente.jpg}
+
+\includegraphics[scale=0.8]{sDiagrams/login.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/modificaAbilita.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/creazioneThread.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/ricercaUtenti.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/invioMessaggio.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/richiestaAmicizia.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/accettazioneAmicizia.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/invioFeedback.jpg} \\[2\baselineskip]
+\includegraphics[scale=0.8]{sDiagrams/cancellazioneAccount.jpg} \\[2\baselineskip]
+\end{flushleft}
+
 \section{Modello Alloy}
 
 \end{document}
