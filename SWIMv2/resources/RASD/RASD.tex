@@ -2,7 +2,7 @@
 %\documentclass[a4paper,10pt]{scrartcl}
 
 \usepackage{scrextend}
-\changefontsizes[16pt]{16pt}
+\changefontsizes[14pt]{14pt}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -13,55 +13,50 @@
 \usepackage{booktabs}
 \usepackage{colortbl}
 \usepackage[italian]{babel}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[margin=2cm]{geometry}
 
+%Header and footer of pages
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Emanuele Uliana, Gabriele Rufolo, Walter Rubino}
+\rhead{RASD}
+
+%Sections and subsections' style
 \usepackage{titlesec} 
-\titleformat{\section} {\color{black}\normalfont\sffamily\Large\bfseries} {\color{black}\thesection}{1em}{} 
+\titleformat{\section} {\color{black}\normalfont\sffamily\Large\bfseries} {\color{black}\thesection}{20pt}{} 
 \usepackage{titlesec}
-\titleformat{\subsection} {\color{black}\normalfont\sffamily\large\bfseries} {\color{black}\thesubsection}{1em}{} 
+\titleformat{\subsection} {\color{black}\normalfont\sffamily\large\bfseries\itshape} {\color{black}\thesubsection}{18pt}{} 
 
+%Document default font family
 \renewcommand{\familydefault}{\sfdefault}
+\renewcommand*\arraystretch{1.5}
 
 \pdfinfo{%
-  /Title    (Titolo di prova)
+  /Title    (SWIMv2 - RASD)
   /Author   (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
   /Creator  (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
   /Producer (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
-  /Subject  (Pagina di prova)
+  /Subject  (RASD)
   /Keywords ()
 }
 
-\newcommand{\teacher}{
-{
-\large
-\begin{flushleft}
-\centerline{Teacher: Prof.ssa Raffaela Mirandola}
-\end{flushleft}}
-}
-
-
-\newcommand{\newmaketitle}{
-  \maketitle
-}
-
-\title{{\includegraphics[scale=0.2]{polimi} \linebreak \Large SOFTWARE ENGINEERING 2 PROJECT ``SWIMv2''}}
-\author{Emanuele Uliana \\ 799256 \and Gabriele Rufolo \\ 743695 \and Walter Rubino \\ 742519} %COMPLETATE 
-
-\date{21/11/2012}
-
 \begin{document}
-\newmaketitle
-\vfill
 \begin{center}
-\Huge \textcolor{blue} {RASD}
+\vfill
+\includegraphics[scale=0.3]{polimi} \\ \\ \\ \\
+\Large \textbf{SOFTWARE ENGINEERING 2 PROJECT ``SWIMv2''} \\
+\end{center}
+\begin{flushright}
+Emanuele Uliana, matr. 799256 \\
+Gabriele Rufolo, matr. 743695 \\
+Walter Rubino, matr.742519
+\end{flushright}
+\begin{center}
+{\Huge \textcolor{blue} {\textbf{RASD}}} \\
+Version 1.0 - 22/11/2012 \\
+Teacher: Prof.ssa Raffaela Mirandola
 \end{center}
 \vfill
-\teacher
-%\vfill
-{\large 
-\begin{flushleft}
-Version 1.0
-\end{flushleft}}
 \clearpage
 
 	    \vspace*{\fill}
@@ -71,10 +66,10 @@ Version 1.0
 \clearpage
 
 \section{Descrizione}
-Si vuol sviluppare un social network che consenta agli utenti di aiutarsi reciprocamente inviando richieste di supporto e/o fornendo egli stesso aiuto.
-L’utente non registrato (ospite) ha la sola facoltà di lettura dei quesiti, delle risposte e delle soluzioni ma senza possibilità di interagire con alcuno dei soggetti interessati.
-Il sistema deve permettere la creazione di nuovi utenti tramite l’immissione di credenziali di accesso quali l’email e la password. Una volta registrato l’utente potrà non solo leggere le risposte ai problemi già noti (pubblicati da terzi) ma anche contribuire sia alla soluzione del problema sia ponendo nuove domande.
-Il sistema implementa anche un sistema di gestione dei feedback con il quale è possibile valutare l’operato di chi ha fornito aiuto creando così un forte ed efficiente sistema di collaborazione.
+Si vuol sviluppare un social network che consenta agli utenti di aiutarsi reciprocamente inviando richieste di supporto e/o fornendo egli stesso aiuto. \\ \\
+L’utente non registrato (ospite) ha la sola facoltà di lettura dei quesiti, delle risposte e delle soluzioni ma senza possibilità di interagire con alcuno dei soggetti interessati. \\ \\
+Il sistema deve permettere la creazione di nuovi utenti tramite l’immissione di credenziali di accesso quali l’email e la password. Una volta registrato l’utente potrà non solo leggere le risposte ai problemi già noti (pubblicati da terzi) ma anche contribuire sia alla soluzione del problema sia ponendo nuove domande. \\ \\
+Il sistema implementa anche un sistema di gestione dei feedback con il quale è possibile valutare l’operato di chi ha fornito aiuto creando così un forte ed efficiente sistema di collaborazione. \\ \\
 I quesiti possono essere posti sia in privato tramite l’utilizzo di messaggi privati tra due utenti che immissione di domande nella bacheca pubblica e quindi visibile da tutti gli internauti (anche ai non registrati, vedi sopra).
 
 \clearpage
@@ -146,6 +141,7 @@ Qui di seguito esporremo le assunzioni da noi fatte per ovviare a tali ambiguit�
 \item Stato dei thread: i messaggi presenti in bacheca hanno uno stato che può essere “Attivo”, “Risolto”, “Invalido” ed una relativa icona, ogni amministratore può cambiare lo stato in qualsiasi momento. Un thread può inoltre risultare “Aperto” o “Chiuso” cioè vi è la possibilità di continuare una discussione o meno.
 \end{itemize}
 
+\clearpage
 
 \section{Requisiti funzionali}
 Vengono riportate qui di seguito alcune specifiche che consentono il mantenimento dei requisiti da parte della piattaforma sviluppata:
