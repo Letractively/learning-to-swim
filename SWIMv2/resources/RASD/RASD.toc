@@ -1,0 +1,14 @@
+\select@language {italian}
+\contentsline {section}{\numberline {1}Descrizione}{3}
+\contentsline {section}{\numberline {2}Introduzione}{4}
+\contentsline {subsection}{\numberline {2.1}Glossario}{4}
+\contentsline {subsection}{\numberline {2.2}Obiettivi}{5}
+\contentsline {section}{\numberline {3}La piattaforma SWIMv2}{6}
+\contentsline {subsection}{\numberline {3.1}Identificazione degli attori}{6}
+\contentsline {section}{\numberline {4}Considerazioni preliminari}{7}
+\contentsline {section}{\numberline {5}Requisiti funzionali}{8}
+\contentsline {section}{\numberline {6}Requisiti non funzionali}{9}
+\contentsline {subsection}{\numberline {6.1}Documentazione}{9}
+\contentsline {section}{\numberline {7}Identificazione degli scenari}{10}
+\contentsline {section}{\numberline {8}Modello UML}{13}
+\contentsline {section}{\numberline {9}Modello Alloy}{14}
