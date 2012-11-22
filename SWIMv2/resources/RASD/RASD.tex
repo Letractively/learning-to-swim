@@ -211,9 +211,35 @@ Giorgia Angurie è una abile organizzatrice di eventi con esperienze politiche a
 \textbf{Attori}: Walter Rubino, Gabriele Rufolo, Alex Ziggie \\
 Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abilità le seguenti: “venditore di aria fritta” e “capacità di apparire dal nulla” e, a tal proposito invia un messaggio all'amministratore Walter Rubino per la prima e all'amministratore Gabriele Rufolo per la seconda. Walter ritiene che la richiesta a lui pervenuta non rispetti il vincolo di realtà delle abilità: dubita infatti che una miscela di gas possa essere fritta a mo' di patatine; Gabriele per lo stesso motivo boccia la seconda richiesta. Entrambi notificano ad Alex il fatto che le sue richieste non possano essere accolte.
 
-\clearpage
-
 \section{Modello UML}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline Nome del caso & Un utente si registra \\ 
+\hline Attori & Ospite \\ 
+\hline Condizione di entrata & L'ospite clicca sul pulsante “Registrati” \\ 
+\hline Flusso degli eventi & 
+\begin{enumerate}
+\itemsep0em 
+\item L'ospite inserisce negli appositi campi i suoi dati anagrafici (nome, cognome, città), il suo indirizzo mail, il suo username e la sua password (gli ultimi due scelti sul momento).
+\item L'ospite seleziona dal set predefinito le abilità che ritiene di possedere.
+\item L'ospite clicca sul pulsante di conferma.
+\item Il sistema effettua apposite query sul database per verificare che non esistano già la mail e lo username indicati ed effettua un controllo sulla password per verificare che abbia la lunghezza minima e contenga solo caratteri permessi.
+\item Il sistema inserisce nel database i dati del neo-utente ma non mette il flag nel campo corrispondente all'attributo “confermato”
+\item Il sistema invia una mail all'indirizzo fornito dall'utente con un link di conferma.
+\item L'utente apre la mail e clicca sul link di conferma.
+\item Il sistema mette il flag nel campo di cui sopra.
+\item Il sistema mostra la pagina di avvenuta registrazione (il login comunque non è ancora stato effettuato.
+\end{enumerate}
+ \\ 
+\hline Condizione di uscita & Il sistema ha mostrato la pagina di avvenuta registrazione \\
+\hline Eccezioni & 
+\begin{enumerate}
+\itemsep0em 
+\item Lo username o la mail inseriti dall'utente esistono già nel database
+\item La password è lunga meno di 8 caratteri o contiene caratteri diversi da lettere, numeri o underscore.
+\end{enumerate}
+\\
+\hline 
+\end{tabularx} 
 \section{Modello Alloy}
 
 \end{document}
