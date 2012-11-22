@@ -41,22 +41,23 @@
 }
 
 \begin{document}
+\vspace*{\fill}
 \begin{center}
-\vfill
-\includegraphics[scale=0.3]{polimi} \\ \\ \\ \\
-\Large \textbf{SOFTWARE ENGINEERING 2 PROJECT ``SWIMv2''} \\
+{\fontsize{28}{10} \selectfont Progetto di Ingegneria del Software 2 \\[2\baselineskip]} {\fontsize{42}{10} \selectfont {\bfseries SWIMv2}} \\[4\baselineskip]
+\includegraphics[scale=0.4]{polimi} \\[4\baselineskip]
+{\fontsize{28}{10} \selectfont {\bfseries Requirements Analysis Specification Document} \\[2\baselineskip] A.A. 2012/2013}
 \end{center}
-\begin{flushright}
-Emanuele Uliana, matr. 799256 \\
-Gabriele Rufolo, matr. 743695 \\
-Walter Rubino, matr.742519
-\end{flushright}
+\begin{flushleft}
+{\fontsize{18}{10}
+{\bfseries Autori}: \\ Emanuele Uliana (799256), Gabriele Rufolo (743695), Walter Rubino (742519) \\[1\baselineskip]
+{\bfseries Docente}: \\ Prof.ssa Raffaela Mirandola
+}
+\end{flushleft}
+\vspace*{\fill}
 \begin{center}
-{\Huge \textcolor{blue} {\textbf{RASD}}} \\
-Version 1.0 - 22/11/2012 \\
-Teacher: Prof.ssa Raffaela Mirandola
+Versione 1.0 del 22/11/2012 \\
 \end{center}
-\vfill
+
 \clearpage
 
 	    \vspace*{\fill}
@@ -175,7 +176,8 @@ fornire un’interfaccia aggiuntiva a quella degli utenti registrati nella quale
 
 \clearpage
 
-\section{Identificazione degli scenari}
+\section{Identificazione degli scenari e casi d'uso}
+\subsection{Scenari}
 \textbf{Scenario}: un utente si registra con l'intenzione di cercare aiuto \\
 \textbf{Attori}: Cloud Strife \\
 Cloud Strife è un appassionato di spade antiche e ha intenzione di iscriversi a SWIMv2 per trovare un arrotino che possa fare il filo alla sua “buster sword”. Di conseguenza segue la procedura guidata  e completa la registrazione; in particolare risulta residente a Nibelheim e il suo set di abilità include “negoziazioni con le compagnie energetiche”, “maestro di scherma (specialità spada)” e “superatleta”. \\[1em]
@@ -207,7 +209,7 @@ Giorgia Angurie è una abile organizzatrice di eventi con esperienze politiche a
 \textbf{Attori}: Walter Rubino, Gabriele Rufolo, Alex Ziggie \\
 Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abilità le seguenti: “venditore di aria fritta” e “capacità di apparire dal nulla” e, a tal proposito invia un messaggio all'amministratore Walter Rubino per la prima e all'amministratore Gabriele Rufolo per la seconda. Walter ritiene che la richiesta a lui pervenuta non rispetti il vincolo di realtà delle abilità: dubita infatti che una miscela di gas possa essere fritta a mo' di patatine; Gabriele per lo stesso motivo boccia la seconda richiesta. Entrambi notificano ad Alex il fatto che le sue richieste non possano essere accolte.
 
-\section{Modello UML}
+\subsection{Casi d'uso}
 \begin{tabularx}{\textwidth}{|l|X|}
 \hline Nome del caso & Un utente si registra \\ 
 \hline Attori & Ospite \\ 
@@ -236,6 +238,10 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \\
 \hline 
 \end{tabularx} 
+
+\clearpage
+
+\section{Modelli UML}
 \section{Modello Alloy}
 
 \end{document}

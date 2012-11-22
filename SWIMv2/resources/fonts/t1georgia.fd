@@ -1,3 +1,0 @@
-\ProvidesFile{t1georgia.fd}[Georgia Font]
-\DeclareFontFamily{T1}{georgia}{}
-\DeclareFontShape{T1}{georgia}{m}{n}{ <-> georgia}{}
