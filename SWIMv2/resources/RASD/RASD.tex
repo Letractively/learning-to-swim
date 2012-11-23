@@ -165,24 +165,27 @@ Vengono riportate qui di seguito alcune specifiche che consentono il manteniment
 \item Ogni profilo contiene: il nome dell’utente, una casella di messaggi privati, un indicatore di punteggio relativo al feedback ricevuto
 \item Ogni utente può cancellare il suo profilo in qualsiasi momento ma i messaggi pubblici, le relative risposte e la soluzioni non verranno rimossi restando così visibili
 \end{itemize}
-
+\clearpage
 \subsection{Non funzionali}
-Sistema usato per il backup, gruppo di continuità…
-fornire un’interfaccia aggiuntiva a quella degli utenti registrati nella quale è possibile visionare le richieste di inserimento di nuove abilità e poter decidere se accettarle o meno.
+\subsubsection{Interfacce e usabilità}
+Il sistema sarà in tutto e per tutto web-oriented consentendo la massima facilità d'uso possibile e rispettando i più recenti standard web quali HTML4.0, XHTML1.1, CSS2/3, ECMAScript permettendo inoltre sia la massima compatibilità con i browser e i sistemi operativi ad oggi più comuni sia il miglior risultato in termini di affidabilità e robustezza del prodotto stesso.
 
 \subsubsection{Struttura del sistema}
 Il sistema userà la tecnologia J2EE per la presentazione e la gestione delle web pages; mentre verrà fatto uso del linguaggio MySQL per la manipolazione e l'estrazione dei dati presenti sul database. \\[1\baselineskip]
 Requisito fondamentale per l'utilizzo della piattaforma SWIM è una connessione a larga banda. Il server centrale e tutti i suoi servizi saranno accessibili all'utente attraverso i comuni web brower quali Mozilla Firefox, Google Chrome, Apple Safari purchè abilitati alla tecnologia Javascript.
 
 \subsubsection{Hardware}
-
+Il server del sistema monterà hard disk in configurazione RAID 1 al fine di scongiurare la perdita dei dati presenti. Il sistema RAID 1 creerà una copia esatta (mirror) di tutti i dati su due o più dischi. \\[1\baselineskip]
+Il server sarà dotato di un microprocessore della famiglia Intel Xeon migliorando così le prestazioni permettendo l'esecuzione di più task contemporaneamente e in modo più efficiente e rapido.
 
 \subsubsection{Performance}
-
+Il sistema, oltre a montare un adeguato microprocessore (come già sopra riportato) dovrà godere di una buona ventilazione del locale nel quale è installato consentendo così di non degradare le prestazioni. \\[1\baselineskip]
+Il server avrà anche bisogno di una connessione internet a larga banda con un throughput proporzionato al carico di lavoro previsto.
 
 \subsubsection{Sicurezza}
 La password non verrà salvata in chiaro all'interno del database ma verrà usata una funzione di hash per criptarla e rendere quindi inutile ogni tentativo di furto da parte di malintenzionati. Così facendo gli utenti del sistema avranno la garanzia della sicurezza e della protezione dei loro dati sensibili. \\[1\baselineskip]
-Il server di sistema verrà installato all'interno di un locale appositamente adibito a tale scopo ed opportunamente protetto da sistemi di antifurto, antintrusione e antincendio oltre che ad un meccanismo di backup giornaliero (incrementale) e settimanale (completo dei dischi) che verrà eseguito preferibilmente off site.
+Il server di sistema verrà installato all'interno di un locale appositamente adibito a tale scopo ed opportunamente protetto da sistemi di antifurto, antintrusione e antincendio oltre che ad un meccanismo di backup giornaliero (incrementale) e settimanale (completo dei dischi) che verrà eseguito preferibilmente off site. \\[1\baselineskip]
+Per garantire la continuità del servizio anche in caso di black out di energia elettrica, il sistema dovrà essere dotato di un gruppo di continuità opportunamente dimensionato.
 
 \subsubsection{Documentazione}
 Il gruppo di progetto e sviluppo del sistema provvederà a produrre la seguente documentazione al committente:
