@@ -85,8 +85,8 @@ Al fine di migliorare la comprensione del seguente documento si riportano qui so
 \itemsep0em
 \item {\bfseries Abilità}:
 è un abilità posseduta dall’utente e può riferirsi ad esempio a conoscenze in ambito culinario, sportivo, professionale, accademico, scolastico, hobbistico etc.
-\item {\bfseries Account}: vedi profilo
-\item {\bfseries Argomento}: vedi thread
+\item {\bfseries Account}: vedi \textit{profilo}
+\item {\bfseries Argomento}: vedi \textit{thread}
 \item {\bfseries Bacheca}:
 con bacheca intendiamo l’insieme totale dei messaggi pubblici presenti sulla piattaforma SWIMv2
 \item {\bfseries Messaggio privato}:
@@ -147,7 +147,8 @@ Qui di seguito esporremo le assunzioni da noi fatte per ovviare a tali ambiguit�
 
 \clearpage
 
-\section{Requisiti funzionali}
+\section{Requisiti}
+\subsection{Funzionali}
 Vengono riportate qui di seguito alcune specifiche che consentono il mantenimento dei requisiti da parte della piattaforma sviluppata:
 \begin{itemize}
 \item Gli amministratori hanno l’abilità di aggiungere nuove abilità tra quelle predefinite, approvare richieste (ricevute dagli utenti) di inserimento di nuove abilità
@@ -165,10 +166,26 @@ Vengono riportate qui di seguito alcune specifiche che consentono il manteniment
 \item Ogni utente può cancellare il suo profilo in qualsiasi momento ma i messaggi pubblici, le relative risposte e la soluzioni non verranno rimossi restando così visibili
 \end{itemize}
 
-\section{Requisiti non funzionali}
+\subsection{Non funzionali}
 Sistema usato per il backup, gruppo di continuità…
 fornire un’interfaccia aggiuntiva a quella degli utenti registrati nella quale è possibile visionare le richieste di inserimento di nuove abilità e poter decidere se accettarle o meno.
-\subsection{Documentazione}
+
+\subsubsection{Struttura del sistema}
+Il sistema userà la tecnologia J2EE per la presentazione e la gestione delle web pages; mentre verrà fatto uso del linguaggio MySQL per la manipolazione e l'estrazione dei dati presenti sul database. \\[1\baselineskip]
+Requisito fondamentale per l'utilizzo della piattaforma SWIM è una connessione a larga banda. Il server centrale e tutti i suoi servizi saranno accessibili all'utente attraverso i comuni web brower quali Mozilla Firefox, Google Chrome, Apple Safari purchè abilitati alla tecnologia Javascript.
+
+\subsubsection{Hardware}
+
+
+\subsubsection{Performance}
+
+
+\subsubsection{Sicurezza}
+La password non verrà salvata in chiaro all'interno del database ma verrà usata una funzione di hash per criptarla e rendere quindi inutile ogni tentativo di furto da parte di malintenzionati. Così facendo gli utenti del sistema avranno la garanzia della sicurezza e della protezione dei loro dati sensibili. \\[1\baselineskip]
+Il server di sistema verrà installato all'interno di un locale appositamente adibito a tale scopo ed opportunamente protetto da sistemi di antifurto, antintrusione e antincendio oltre che ad un meccanismo di backup giornaliero (incrementale) e settimanale (completo dei dischi) che verrà eseguito preferibilmente off site.
+
+\subsubsection{Documentazione}
+Il gruppo di progetto e sviluppo del sistema provvederà a produrre la seguente documentazione al committente:
 \begin{itemize}
 \item Project Plan, per stabilire gli obiettivi e le tempistiche del progetto
 \item Requirements Analysis Specification Document, per definire il progetto nei suoi requisiti e procedendo con l’analisi delle specifiche
@@ -176,7 +193,6 @@ fornire un’interfaccia aggiuntiva a quella degli utenti registrati nella quale
 \item Commenti nel codice
 \item Testing Document
 \end{itemize}
-
 \clearpage
 
 \section{Identificazione degli scenari e casi d'uso}
@@ -406,21 +422,25 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/accettazioneAmicizia.jpg} \\
 \caption{Accettazione di una richiesta di amicizia} \\
+\clearpage
 \includegraphics[scale=0.6]{sDiagrams/login.jpg} \\
 \caption{Login di un utente} \\
 \vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/modificaAbilita.jpg} \\
 \caption{Modifica del set di abilità} \\
+\clearpage
 \includegraphics[scale=0.6]{sDiagrams/creazioneThread.jpg} \\
 \caption{Invio di un nuovo messaggio sulla bacheca pubblica} \\
 \vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/ricercaUtenti.jpg} \\
 \caption{Ricerca di un utente} \\
+\clearpage
 \includegraphics[scale=0.6]{sDiagrams/invioMessaggio.jpg} \\
 \caption{Invio di un messaggio privato} \\
 \vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/richiestaAmicizia.jpg} \\
 \caption{Invio di una richiesta di amicizia} \\
+\clearpage
 \includegraphics[scale=0.6]{sDiagrams/invioFeedback.jpg} \\
 \caption{Invio di un feedback} \\
 \vspace*{\fill}
@@ -429,5 +449,11 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \end{center}
 \clearpage
 \section{Modello Alloy}
-
+\section{Strumenti utilizzati}
+\begin{enumerate}
+\itemsep0em
+\item \textbf{\LaTeX}: TeXstudio, Kile e MacTeX
+\item \textbf{Alloy Analizer 4.2}: per la gestione delle specifiche scritte in Alloy
+\item \textbf{Umlet}: per la gestione dei grafici e dei diagrammi UML
+\end{enumerate}
 \end{document}
