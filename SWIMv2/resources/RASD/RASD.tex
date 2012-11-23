@@ -82,6 +82,7 @@ I quesiti possono essere posti sia in privato tramite l’utilizzo di messaggi p
 \subsection{Glossario}
 Al fine di migliorare la comprensione del seguente documento si riportano qui sotto alcune tra le principali definizioni dei termini usati all’interno dello stesso:
 \begin{itemize}
+\itemsep0em
 \item {\bfseries Abilità}:
 è un abilità posseduta dall’utente e può riferirsi ad esempio a conoscenze in ambito culinario, sportivo, professionale, accademico, scolastico, hobbistico etc.
 \item {\bfseries Account}: vedi profilo
@@ -100,11 +101,10 @@ con bacheca intendiamo l’insieme totale dei messaggi pubblici presenti sulla p
 contiene il quesito posto dall’utente in bacheca, con i post di risposta e la soluzione (se esiste)
 \end{itemize}
 
-\clearpage
-
 \subsection{Obiettivi}
 La piattaforma sviluppata ha per obiettivi:
 \begin{itemize}
+\itemsep0em
 \item Fornire una piattaforma di supporto agli utenti
 \item Valutare l’operato degli utenti con il sistema del feedback
 \item Condividere conoscenze e quindi creare collaborazione tra gli internauti
@@ -117,8 +117,8 @@ La piattaforma sviluppata ha per obiettivi:
 \clearpage
 
 \section{La piattaforma SWIMv2}
-Il nuovo sistema realizzato consiste in una piattaforma web accessibile dai vari utenti via Web che offrirà servizi mirati alle varie tipologie di uteti collegati.
-I membri del sistema hanno facoltà di accedere alla pagina del proprio profilo, aggiornare i propri dati, leggere i messaggi privati, rispondere alle richieste di supporto, scrivere in bacheca, valutare gli altri utenti con un feedback. Possono anche, in base al gruppo di appartenenza, visionare le richieste d’inserimento di nuove abilità e poter decidere se accettarle o meno.
+Il nuovo sistema realizzato consiste in una piattaforma web accessibile dai vari utenti via Web che offrirà servizi mirati alle varie tipologie di uteti collegati. \\
+I membri del sistema hanno facoltà di accedere alla pagina del proprio profilo, aggiornare i propri dati, leggere i messaggi privati, rispondere alle richieste di supporto, scrivere in bacheca, valutare gli altri utenti con un feedback. Possono anche, in base al gruppo di appartenenza, visionare le richieste d’inserimento di nuove abilità e poter decidere se accettarle o meno. \\
 Il sistema mette inoltre a disposizione un meccanismo di friends suggestion con il quale i membri possono suggerire nuove amicizie ai propri contatti.
 \subsection{Identificazione degli attori}
 Dopo un’accurata analisi del problema si è provveduto a determinare i protagonisti principali del sistema e le relative funzionalità, riportate qui di seguito:
@@ -134,15 +134,15 @@ Dopo un’accurata analisi del problema si è provveduto a determinare i protago
 Nella specifica in nostro possesso sono state rilevate alcune lacune e imprecisioni riguardo le funzionalità del sistema.
 Qui di seguito esporremo le assunzioni da noi fatte per ovviare a tali ambiguità.
 \begin{itemize}
-\item Interazioni tra utenti: abbiamo assunto che tale attività potesse avvenire tramite una bacheca pubblica o tramite messaggi privati.
-\item Suddivisione dei messaggi: ogni singolo messaggio (post) ha un suo contenitore padre (thread) il quale identifica l’argomento trattato. Il thread può essere stato pubblicato o sulla bacheca pubblica o sulla casella messaggi privati di un utente.
-\item Richieste di amicizia: uno tra gli aspetti sicuramente più ambigui e probabilmente errati presenti nella specifica è certamente quello concernente la gestione delle amicizie; l’esistenza di un’amicizia di classe “A” e una “B” risulta non solo di dubbia definizione ma anche totalmente inutile.
-\item Coerenza di dominio: Si precisa infine che non è possibile suggerire a un proprio amico di stringere amicizia con un contatto non presente nella propria cerchia di contatti.
-\item Ricerca degli utenti: si può effettuare la ricerca all’interno della piattaforma per abilità possedute dai membri e/o per nickname.
-\item Ricerca degli argomenti: si possono individuare i thread tramite una ricerca basata sulla categoria appartenente o direttamente tramite il titolo.
-\item Definizione delle abilità: il sistema è dotato di un insieme di abilità predefinite che può essere arricchito grazie ai suggerimenti dei membri tramite un’esatta procedura.
-\item Gestione delle categorie: gli amministratori possono creare, rinominare, eliminare categorie; Le categorie hanno nomi quali “Informatica”, “Motori”, “Hobbistica” e così via.
-\item Stato dei thread: i messaggi presenti in bacheca hanno uno stato che può essere “Attivo”, “Risolto”, “Invalido” ed una relativa icona, ogni amministratore può cambiare lo stato in qualsiasi momento. Un thread può inoltre risultare “Aperto” o “Chiuso” cioè vi è la possibilità di continuare una discussione o meno.
+\item \textit{Interazioni tra utenti}: abbiamo assunto che tale attività potesse avvenire tramite una bacheca pubblica o tramite messaggi privati.
+\item \textit{Suddivisione dei messaggi}: ogni singolo messaggio (post) ha un suo contenitore padre (thread) il quale identifica l’argomento trattato. Il thread può essere stato pubblicato o sulla bacheca pubblica o sulla casella messaggi privati di un utente.
+\item \textit{Richieste di amicizia}: uno tra gli aspetti sicuramente più ambigui e probabilmente errati presenti nella specifica è certamente quello concernente la gestione delle amicizie; l’esistenza di un’amicizia di classe “A” e una “B” risulta non solo di dubbia definizione ma anche totalmente inutile.
+\item \textit{Coerenza di dominio}: Si precisa infine che non è possibile suggerire a un proprio amico di stringere amicizia con un contatto non presente nella propria cerchia di contatti.
+\item \textit{Ricerca degli utenti}: si può effettuare la ricerca all’interno della piattaforma per abilità possedute dai membri e/o per nickname.
+\item \textit{Ricerca degli argomenti}: si possono individuare i thread tramite una ricerca basata sulla categoria appartenente o direttamente tramite il titolo.
+\item \textit{Definizione delle abilità}: il sistema è dotato di un insieme di abilità predefinite che può essere arricchito grazie ai suggerimenti dei membri tramite un’esatta procedura.
+\item \textit{Gestione delle categorie}: gli amministratori possono creare, rinominare, eliminare categorie; Le categorie hanno nomi quali “Informatica”, “Motori”, “Hobbistica” e così via.
+\item \textit{Stato dei thread}: i messaggi presenti in bacheca hanno uno stato che può essere “Attivo”, “Risolto”, “Invalido” ed una relativa icona, ogni amministratore può cambiare lo stato in qualsiasi momento. Un thread può inoltre risultare “Aperto” o “Chiuso” cioè vi è la possibilità di continuare una discussione o meno.
 \end{itemize}
 
 \clearpage
@@ -403,22 +403,27 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \begin{center}
 \includegraphics[scale=0.6]{sDiagrams/creazioneUtente.jpg} \\
 \caption{Creazione di un utente} \\
+\vspace*{\fill}
+\includegraphics[scale=0.6]{sDiagrams/accettazioneAmicizia.jpg} \\
+\caption{Accettazione di una richiesta di amicizia} \\
 \includegraphics[scale=0.6]{sDiagrams/login.jpg} \\
 \caption{Login di un utente} \\
+\vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/modificaAbilita.jpg} \\
 \caption{Modifica del set di abilità} \\
 \includegraphics[scale=0.6]{sDiagrams/creazioneThread.jpg} \\
 \caption{Invio di un nuovo messaggio sulla bacheca pubblica} \\
+\vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/ricercaUtenti.jpg} \\
 \caption{Ricerca di un utente} \\
 \includegraphics[scale=0.6]{sDiagrams/invioMessaggio.jpg} \\
 \caption{Invio di un messaggio privato} \\
+\vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/richiestaAmicizia.jpg} \\
 \caption{Invio di una richiesta di amicizia} \\
-\includegraphics[scale=0.6]{sDiagrams/accettazioneAmicizia.jpg} \\
-\caption{Accettazione di una richiesta di amicizia} \\
 \includegraphics[scale=0.6]{sDiagrams/invioFeedback.jpg} \\
 \caption{Invio di un feedback} \\
+\vspace*{\fill}
 \includegraphics[scale=0.6]{sDiagrams/cancellazioneAccount.jpg} \\
 \caption{Cancellazione dell'account}
 \end{center}
