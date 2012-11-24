@@ -7,7 +7,7 @@
       <x>290</x>
       <y>210</y>
       <w>20</w>
-      <h>340</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>bg=blue
 </panel_attributes>
@@ -19,7 +19,7 @@
       <x>550</x>
       <y>210</y>
       <w>20</w>
-      <h>340</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>bg=blue</panel_attributes>
     <additional_attributes/>
@@ -76,7 +76,7 @@ bg=gray</panel_attributes>
       <x>810</x>
       <y>210</y>
       <w>20</w>
-      <h>340</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>bg=blue</panel_attributes>
     <additional_attributes/>
@@ -96,7 +96,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>280</x>
-      <y>480</y>
+      <y>460</y>
       <w>290</w>
       <h>70</h>
     </coordinates>
@@ -108,7 +108,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>540</x>
-      <y>470</y>
+      <y>450</y>
       <w>290</w>
       <h>70</h>
     </coordinates>
@@ -120,7 +120,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>540</x>
-      <y>410</y>
+      <y>400</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
@@ -132,7 +132,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
       <x>620</x>
-      <y>440</y>
+      <y>430</y>
       <w>110</w>
       <h>40</h>
     </coordinates>

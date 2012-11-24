@@ -7,7 +7,7 @@
       <x>310</x>
       <y>110</y>
       <w>20</w>
-      <h>500</h>
+      <h>400</h>
     </coordinates>
     <panel_attributes>bg=blue
 </panel_attributes>
@@ -19,7 +19,7 @@
       <x>680</x>
       <y>110</y>
       <w>20</w>
-      <h>500</h>
+      <h>400</h>
     </coordinates>
     <panel_attributes>bg=blue</panel_attributes>
     <additional_attributes/>
@@ -28,7 +28,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>300</x>
-      <y>90</y>
+      <y>80</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
@@ -40,7 +40,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>300</x>
-      <y>340</y>
+      <y>300</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
@@ -52,7 +52,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>300</x>
-      <y>150</y>
+      <y>130</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
@@ -98,7 +98,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>300</x>
-      <y>400</y>
+      <y>350</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
@@ -110,7 +110,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>300</x>
-      <y>460</y>
+      <y>400</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
@@ -122,7 +122,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>300</x>
-      <y>540</y>
+      <y>450</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
@@ -134,7 +134,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>300</x>
-      <y>210</y>
+      <y>180</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
@@ -146,7 +146,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>670</x>
-      <y>240</y>
+      <y>210</y>
       <w>90</w>
       <h>90</h>
     </coordinates>
@@ -158,7 +158,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>670</x>
-      <y>300</y>
+      <y>270</y>
       <w>90</w>
       <h>90</h>
     </coordinates>
@@ -170,7 +170,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
       <x>740</x>
-      <y>330</y>
+      <y>300</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -182,7 +182,7 @@ nel database</panel_attributes>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
       <x>740</x>
-      <y>280</y>
+      <y>240</y>
       <w>100</w>
       <h>20</h>
     </coordinates>
@@ -193,19 +193,19 @@ nel database</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>670</x>
-      <y>500</y>
+      <y>430</y>
       <w>90</w>
-      <h>90</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 </panel_attributes>
-    <additional_attributes>30;70;70;70;70;30;30;30</additional_attributes>
+    <additional_attributes>30;60;70;60;70;30;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.custom.Text</type>
     <coordinates>
       <x>740</x>
-      <y>520</y>
+      <y>450</y>
       <w>120</w>
       <h>60</h>
     </coordinates>
