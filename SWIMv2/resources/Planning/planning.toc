@@ -1,0 +1,14 @@
+\select@language {italian}
+\contentsline {section}{\numberline {1}Project description and deadlines}{3}
+\contentsline {subsection}{\numberline {1.1}Deliveries}{3}
+\contentsline {section}{\numberline {2}Who is this project for? Who are the stakeholders?}{4}
+\contentsline {section}{\numberline {3}About the team}{4}
+\contentsline {section}{\numberline {4}Development}{5}
+\contentsline {subsection}{\numberline {4.1}Developing plan}{5}
+\contentsline {subsection}{\numberline {4.2}How do we work?}{5}
+\contentsline {subsection}{\numberline {4.3}About the technologies we use}{5}
+\contentsline {subsection}{\numberline {4.4}About the machines and the tools}{6}
+\contentsline {subsection}{\numberline {4.5}Time estimation}{6}
+\contentsline {subsection}{\numberline {4.6}Useful knowledges we have and we use in the project}{7}
+\contentsline {section}{\numberline {5}Risks}{8}
+\contentsline {section}{\numberline {6}Various and personal thoughts and considerations about the project}{9}
