@@ -14,21 +14,25 @@
 \usepackage{colortbl}
 \usepackage[italian]{babel}
 \usepackage[margin=2cm]{geometry}
+\usepackage{color}
+\definecolor{mygrey}{gray}{0.4}
+\definecolor{light-blue}{rgb}{0.8,0.85,1}
+\usepackage{booktabs}
 
 %Header and footer of pages
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Emanuele Uliana, Gabriele Rufolo, Walter Rubino}
-\rhead{Planning Document}
+\lhead{\textcolor{mygrey}{Emanuele Uliana, Gabriele Rufolo, Walter Rubino}}
+\rhead{\textcolor{mygrey}{Planning Document}}
 
 %Set paragraphs indentation to 0 points
 \setlength{\parindent}{0pt}
 
 %Sections and subsections' style
 \usepackage{titlesec} 
-\titleformat{\section} {\color{black}\normalfont\sffamily\Large\bfseries} {\color{black}\thesection}{20pt}{} 
+\titleformat{\section} {\color{blue}\normalfont\sffamily\Large\bfseries} {\color{blue}\thesection}{20pt}{} 
 \usepackage{titlesec}
-\titleformat{\subsection} {\color{black}\normalfont\sffamily\large\bfseries\itshape} {\color{black}\thesubsection}{18pt}{} 
+\titleformat{\subsection} {\color{blue}\normalfont\sffamily\large\bfseries\itshape} {\color{blue}\thesubsection}{18pt}{} 
 
 %Document default font family
 \renewcommand{\familydefault}{\sfdefault}
@@ -36,19 +40,20 @@
 
 \pdfinfo{%
   /Title    (SWIMv2 - Planning Document)
-  /Author   (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
+  /Author  (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
   /Creator  (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
   /Producer (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
   /Subject  (Planning Document)
   /Keywords ()
+
 }
 
 \begin{document}
 \vspace*{\fill}
 \begin{center}
-{\fontsize{28}{10} \selectfont Progetto di Ingegneria del Software 2 \\[2\baselineskip]} {\fontsize{42}{10} \selectfont {\bfseries SWIMv2}} \\[4\baselineskip]
+{\fontsize{28}{10} \selectfont \textcolor{mygrey}{Progetto di Ingegneria del Software 2} \\[2\baselineskip]} {\fontsize{42}{10} \selectfont {\bfseries SWIMv2}} \\[4\baselineskip]
 \includegraphics[scale=0.4]{polimi} \\[4\baselineskip]
-{\fontsize{28}{10} \selectfont {\bfseries Planning Document} \\[2\baselineskip] A.A. 2012/2013}
+{\fontsize{28}{10} \selectfont {\bfseries \textcolor{blue}{Planning Document}} \\[2\baselineskip] A.A. 2012/2013}
 \end{center}
 \begin{flushleft}
 {\fontsize{18}{10}
@@ -74,14 +79,16 @@ The goal of the project is to build up a social network where people can, after 
 
 \subsection{Deliveries}
 \begin{center}
-\begin{tabular}{l|l}
-\hline \textbf{Deadline} & \textbf{Delivery} \\
-\hline 27 October 2012 & Planning Document \\
-\hline 24 November 2012 & RASD \\ 
-\hline 22 December 2012 & Design Document \\
-\hline 26 January 2013 & Implementation \\
-\hline 2 February 2013 & Testing \\
-\hline 
+
+\arrayrulecolor{cyan}
+\begin{tabular}{ll}
+\rowcolor[gray]{.8}\toprule \textbf{Deadline} & \textbf{Delivery} \\
+\midrule 27 October 2012 & Planning Document \\
+\midrule 24 November 2012 & RASD \\ 
+\midrule 22 December 2012 & Design Document \\
+\midrule 26 January 2013 & Implementation \\
+\midrule 2 February 2013 & Testing \\
+\bottomrule
 \end{tabular}
 \end{center}
 
@@ -129,13 +136,15 @@ Emanuele has an Asus laptop with GNU / Linux OS, Gabriele has a laptop with Wind
 The graphic below represents an estimation of the hours of work. Our convention is: when we work together we count the hours only one time; when we work independently from the others at home, everyone counts the hours he worked on the project. So if a day Emanuele works from 15.00 to 19.00, Gabriele from 15.00 to 19.00 and Walter from 15.00 to 19.00 too, and everybody is at home, the total hours counted are 12.\\[1\baselineskip]In this 1.2 version we have to say that we have almost no elements to estimate the final number of hours of work, so we rely on Statistics: we have a graphic with the number of hours of various projects made by other students last year; we eliminate from the sample the groups which ended in less than 150 hours, because we think they meant by that value the number of man hours (basically the real number of hours divided by two or three), and the groups which ended in more than 800 hours, because we think that, even working 8 hoursperday they would have needed more than three months to reach that value and if we consider that the total time for the project is slightly less than four months and almost every morning (and a good part of the afternoon) is not available because of the lessons of the other courses, either they worked during the night, or the estimation they made is not good.\\[1\baselineskip]Anyway, after this we have our sample; the situation is that we don’t know a parameter which is the expected value and the statistics says that the best estimator for it is the sample mean. So the only reasonable way for us to estimate the total is to take the sample mean of the data we have.\\[1\baselineskip]We understand that the estimator is very likely to be biased, expecially because the project of this year is different, the approach will necessarily be different (due to the fact that people are different) and the risk factors (they are not obviously equal to the last year ones) probably will play an important role, but I repeat, we have no other choice.\\[1\baselineskip]In the last version we will include the real number of hours we used for the whole project; for now, along with this document, in the google code repo can be found a Gantt diagram not so precise (basically it says everyone is going to do everything).
 
 \begin{center}
+\setlength\arrayrulewidth{0.5mm}
 \begin{tabular}{|l|l|}
+\rowcolor[gray]{.8}
 \hline \textbf{Task} & \textbf{Hours} \\
 \hline Requirements & 60 \\
 \hline Design & 70 \\
 \hline Implementation & 240 \\
 \hline Testing & 30 \\
-\hline Total & 400 \\
+\hline \textcolor{red}{Total} & \textcolor{red}{400} \\
 \hline 
 \end{tabular}
 \end{center}
@@ -155,9 +164,10 @@ The graphic below represents an estimation of the hours of work. Our convention 
 \section{Risks}
 Of course no project is risk-free and ours is no exception: many unwanted things can happens and delay some phases of the work; we divided these risks in two categories: human risks and software risks.\\[1\baselineskip]The first group contains all the problems that might rise up among the team: misunderstandigs between the components, a sudden illness of one of them, a low capability to cooperate, a low productivity when working alone, ecc.\\[1\baselineskip]The second group contains all the issues linked to the hardware/software: a computer might break down, there may be problems while installing/using all the software needed (and we were told form prof. Mirandola that in the past this happened several times, so, even if we can’t say it for sure, we can expect we will be facing these problems) and there may also be portability problems, mainly connected to Java and to the web browsers.\\[1\baselineskip]
 
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline \textbf{Type of risk} & \textbf{Description}\\
-\hline Human &
+\setlength\arrayrulewidth{0.6mm}
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.85}\toprule \textbf{Type of risk} & \textbf{Description} \\
+\rowcolor[gray]{.85} \midrule   Human  &
 \begin{itemize}
 \itemsep0em 
 \item Misunderstandings
@@ -167,7 +177,7 @@ Of course no project is risk-free and ours is no exception: many unwanted things
 \item Group size
 \end{itemize}
 \\
-\hline Computer &
+\rowcolor[gray]{.85}\midrule Computer &
 \begin{itemize}
 \itemsep0em 
 \item Phisical vulnerabilities
@@ -176,9 +186,8 @@ Of course no project is risk-free and ours is no exception: many unwanted things
 \item Bugs
 \end{itemize}
 \\ 
-\hline 
+\bottomrule
 \end{tabularx}
-
 \clearpage
 
 \section{Various and personal thoughts and considerations about the project}
