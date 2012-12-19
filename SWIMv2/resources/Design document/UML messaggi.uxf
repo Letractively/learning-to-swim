@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>400</x>
+      <y>70</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>/AbstractClass/
+Messaggio
+--
+-mittente: String
+-data:
+-contenuto</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>160</y>
+      <w>50</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>220</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;190;30;190;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>520</x>
+      <y>300</y>
+      <w>250</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>MessaggiPubblici
+--
+
+-indiceGradimento: int
+-migliorRisposta: booolean
+-luminescenza:color</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>290</x>
+      <y>300</y>
+      <w>170</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MessaggiPrivati
+--
+-destinatario: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>310</x>
+      <y>220</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;80;30;30;170;30;50;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>570</x>
+      <y>360</y>
+      <w>122</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+è parte di</panel_attributes>
+    <additional_attributes>70;120;70;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>520</x>
+      <y>480</y>
+      <w>250</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Thread
+--
+-titolo: String
+-post: List&lt;MessaggiPubblici&gt;
+-stato:String
+-icona: int(per ora)
+--
++cambiaStato(String):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>80</x>
+      <y>0</y>
+      <w>850</w>
+      <h>840</h>
+    </coordinates>
+    <panel_attributes>
+Package:messaggi
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>570</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30;80;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>520</x>
+      <y>650</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Categorie
+--
+-nome:String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
