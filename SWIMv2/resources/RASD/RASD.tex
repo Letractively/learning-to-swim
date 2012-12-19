@@ -14,21 +14,26 @@
 \usepackage{colortbl}
 \usepackage[italian]{babel}
 \usepackage[margin=2cm]{geometry}
+\usepackage{color}
+\definecolor{mygrey}{gray}{0.4}
+\definecolor{light-blue}{rgb}{0.4,0.5,1}
+\usepackage{booktabs}
+
 
 %Header and footer of pages
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Emanuele Uliana, Gabriele Rufolo, Walter Rubino}
-\rhead{RASD}
+\lhead{\textcolor{mygrey}{Emanuele Uliana, Gabriele Rufolo, Walter Rubino}}
+\rhead{\textcolor{mygrey}{RASD}}
 
 %Set paragraphs indentation to 0 points
 \setlength{\parindent}{0pt}
 
 %Sections and subsections' style
 \usepackage{titlesec} 
-\titleformat{\section} {\color{black}\normalfont\sffamily\Large\bfseries} {\color{black}\thesection}{20pt}{} 
+\titleformat{\section} {\color{blue}\normalfont\sffamily\Large\bfseries} {\color{blue}\thesection}{20pt}{} 
 \usepackage{titlesec}
-\titleformat{\subsection} {\color{black}\normalfont\sffamily\large\bfseries\itshape} {\color{black}\thesubsection}{18pt}{} 
+\titleformat{\subsection} {\color{light-blue}\normalfont\sffamily\large\bfseries\itshape} {\color{light-blue}\thesubsection}{18pt}{} 
 
 %Document default font family
 \renewcommand{\familydefault}{\sfdefault}
@@ -46,9 +51,9 @@
 \begin{document}
 \vspace*{\fill}
 \begin{center}
-{\fontsize{28}{10} \selectfont Progetto di Ingegneria del Software 2 \\[2\baselineskip]} {\fontsize{42}{10} \selectfont {\bfseries SWIMv2}} \\[4\baselineskip]
+{\fontsize{28}{10} \selectfont \textcolor{mygrey}{Progetto di Ingegneria del Software 2} \\[2\baselineskip]} {\fontsize{42}{10} \selectfont {\bfseries SWIMv2}} \\[4\baselineskip]
 \includegraphics[scale=0.4]{polimi} \\[4\baselineskip]
-{\fontsize{28}{10} \selectfont {\bfseries Requirements Analysis Specification Document} \\[2\baselineskip] A.A. 2012/2013}
+{\fontsize{28}{10} \selectfont {\bfseries \textcolor{blue}{Requirements Analysis Specification Document}} \\[2\baselineskip] A.A. 2012/2013}
 \end{center}
 \begin{flushleft}
 {\fontsize{18}{10}
@@ -232,11 +237,13 @@ Giorgia Angurie è una abile organizzatrice di eventi con esperienze politiche a
 Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abilità le seguenti: “venditore di aria fritta” e “capacità di apparire dal nulla” e, a tal proposito invia un messaggio all'amministratore Walter Rubino per la prima e all'amministratore Gabriele Rufolo per la seconda. Walter ritiene che la richiesta a lui pervenuta non rispetti il vincolo di realtà delle abilità: dubita infatti che una miscela di gas possa essere fritta a mo' di patatine; Gabriele per lo stesso motivo boccia la seconda richiesta. Entrambi notificano ad Alex il fatto che le sue richieste non possano essere accolte.
 
 \subsection{Casi d'uso}
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente si registra \\ 
-\hline Attori & Ospite \\ 
-\hline Condizione di entrata & L'ospite clicca sul pulsante “Registrati” \\ 
-\hline Flusso degli eventi & 
+\arrayrulecolor{cyan}
+\setlength\arrayrulewidth{0.8mm}
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline \textbf{Nome del caso} & Un utente si registra \\ 
+\rowcolor[gray]{.9}\hline \textbf{Attori} & Ospite \\ 
+\rowcolor[gray]{.9}\hline \textbf{Condizione di entrata} & L'ospite clicca sul pulsante “Registrati” \\ 
+\rowcolor[gray]{.9}\hline\raisebox{-27ex}[0pt][0pt]{\textbf{Flusso degli eventi}}& 
 \begin{enumerate}
 \itemsep0em 
 \item L'ospite inserisce negli appositi campi i suoi dati anagrafici (nome, cognome, città), il suo indirizzo mail, il suo username e la sua password (gli ultimi due scelti sul momento).
@@ -250,8 +257,8 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema mostra la pagina di avvenuta registrazione (il login comunque non è ancora stato effettuato.
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & Il sistema ha mostrato la pagina di avvenuta registrazione \\
-\hline Eccezioni & 
+\rowcolor[gray]{.85}\hline\raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di uscita}} & Il sistema ha mostrato la pagina di avvenuta registrazione \\
+\rowcolor[gray]{.85}\hline\raisebox{-6ex}[0pt][0pt] {\textbf{Eccezioni}} & 
 \begin{enumerate}
 \itemsep0em 
 \item Lo username o la mail inseriti dall'utente esistono già nel database
@@ -261,11 +268,11 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \hline 
 \end{tabularx}
 \clearpage
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un ospite effettua il login \\
-\hline Attori & Ospite \\ 
-\hline Condizione di entrata & L'ospite clicca sul pulsante “Login” \\
-\hline Flusso degli eventi & 
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline \textbf{Nome del caso} & Un ospite effettua il login \\
+\rowcolor[gray]{.9}\hline \textbf{Attori} & Ospite \\ 
+\rowcolor[gray]{.9}\hline \textbf{Condizione di entrata} & L'ospite clicca sul pulsante “Login” \\
+\rowcolor[gray]{.9}\hline \raisebox{-10ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em 
 \item L'ospite inserisce negli appositi campi il suo username e la sua password.
@@ -273,16 +280,16 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema effettua una query nel database con i dati inseriti e, in caso la query ritorni un valore non vuoto, visualizza la pagina personale dell'utente corrispondente.
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & L'utente si trova nella sua pagina personale \\
-\hline Eccezioni & La query del sistema ritorna null
+\rowcolor[gray]{.9}\hline \textbf{Condizione di uscita} & L'utente si trova nella sua pagina personale \\
+\rowcolor[gray]{.9}\hline \textbf{Eccezioni} & La query del sistema ritorna null
 \\
 \hline 
 \end{tabularx} \\[1\baselineskip]
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente modifica il proprio set di abilità \\
-\hline Attori & Utente \\ 
-\hline Condizione di entrata & L'utente clicca sul pulsante di modifica del set di abilità presente nella sua home \\
-\hline Flusso degli eventi & 
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline  \textbf{Nome del caso} & Un utente modifica il proprio set di abilità \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente \\ 
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L'utente clicca sul pulsante di modifica del set di abilità presente nella sua home \\
+\rowcolor[gray]{.9}\hline \raisebox{-11ex}[0pt][0pt]{ \textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em 
 \item L'utente eventualmente (non è obligato a farlo) toglie il flag da una o più abilità che ha e mette il flag su una o più nuove abilità. (Non c'è limite al numero di abilità possedibili ed è possibile avere zero abilità)
@@ -291,16 +298,16 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema notifica all'utente il successo dell'operazione e lo reindirizza alla sua pagina personale
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & L'utente si ritrova nella sua pagina personale e il suo set è modificato correttamente \\
-\hline Eccezioni & Nessuna: gli unici errori possono essere dovuti a guasti non deterministici della macchina o a cadute della connessione internet
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di uscita}} & L'utente si ritrova nella sua pagina personale e il suo set è modificato correttamente \\
+\rowcolor[gray]{.9}\hline \raisebox{-2ex}[0pt][0pt]{ \textbf{Eccezioni}} & Nessuna: gli unici errori possono essere dovuti a guasti non deterministici della macchina o a cadute della connessione internet
 \\
 \hline 
 \end{tabularx} \clearpage
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente pubblica una richiesta di aiuto sulla bacheca pubblica \\
-\hline Attori & Utente \\ 
-\hline Condizione di entrata & L' utente clicca sul pulsante “Inserisci messaggio” presente sulla bacheca pubblica \\
-\hline Flusso degli eventi & 
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Nome del caso}} & Un utente pubblica una richiesta di aiuto sulla bacheca pubblica \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente \\ 
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L' utente clicca sul pulsante “Inserisci messaggio” presente sulla bacheca pubblica \\
+\rowcolor[gray]{.9}\hline  \raisebox{-8ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em 
 \item L utente compone il messaggio
@@ -308,16 +315,16 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema fa in modo che il messaggio diventi visibile a chiunque
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & Il messaggio è visibile in bacheca \\
-\hline Eccezioni & Nessuna, vedi caso precedente
+\rowcolor[gray]{.9}\hline \textbf{Condizione di uscita} & Il messaggio è visibile in bacheca \\
+\rowcolor[gray]{.9}\hline \textbf{Eccezioni} & Nessuna, vedi caso precedente
 \\
 \hline 
 \end{tabularx} \\[1\baselineskip]
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un ospite effettua una ricerca su tutto l'insieme di utenti di SWIM \\
-\hline Attori & Ospite \\ 
-\hline Condizione di entrata & L'ospite clicca sul pulsante di ricerca \\
-\hline Flusso degli eventi & 
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Nome del caso}} & Un ospite effettua una ricerca su tutto l'insieme di utenti di SWIM \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Ospite \\ 
+\rowcolor[gray]{.9}\hline  \textbf{Condizione di entrata} & L'ospite clicca sul pulsante di ricerca \\
+\rowcolor[gray]{.9}\hline \raisebox{-10ex}[0pt][0pt]{ \textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em 
 \item L'ospite riempie almeno uno dei seguenti campi: “nome e cognome”, “città” e/o seleziona almeno un'abilità dalla scroll-list.
@@ -326,8 +333,8 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema mostra una finestra con una lista (eventualmente vuota) di risultati
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & La finestra dei risultati è visibile \\
-\hline Eccezioni &
+\rowcolor[gray]{.9}\hline  \textbf{Condizione di uscita} & La finestra dei risultati è visibile \\
+\rowcolor[gray]{.9}\hline  \raisebox{-4ex}[0pt][0pt]{\textbf{Eccezioni} }&
 \begin{enumerate}
 \itemsep0em
 \item Viene effettuata una ricerca senza parametri.
@@ -336,11 +343,11 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \\
 \hline 
 \end{tabularx} \clearpage
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente chiede ad un amministratore di aggiungere una nuova abilità al set predefinito di sistema \\
-\hline Attori & Utente, Amministratore \\ 
-\hline Condizione di entrata & L'utente clicca sul pulsante “Invia messaggio” dal profilo pubblica dell'amministratore \\
-\hline Flusso degli eventi & 
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Nome del caso}} & Un utente chiede ad un amministratore di aggiungere una nuova abilità al set predefinito di sistema \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente, Amministratore \\ 
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L'utente clicca sul pulsante “Invia messaggio” dal profilo pubblica dell'amministratore \\
+\rowcolor[gray]{.9}\hline  \raisebox{-10ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em
 \item L'utente compone il corpo del messaggio includendo una chiara descrizione della nuova abilità, il suo nome e le motivazioni per cui ha proposto di aggiungerla.
@@ -348,44 +355,45 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema invia il messaggio all'amministratore e fa comparire una notifica sulla sua pagina personale.
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & Il messaggio è inviato correttamente e sulla pagina dell'amministratore compare una notifica \\
-\hline Eccezioni & Nessuna
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Condizione di uscita}} & Il messaggio è inviato correttamente e sulla pagina dell'amministratore compare una notifica \\
+\rowcolor[gray]{.9}\hline  \textbf{Eccezioni} & Nessuna
 \\
 \hline 
 \end{tabularx} \\[1\baselineskip]
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente invia una richiesta di amicizia ad un altro utente senza passare dai suggerimenti \\
-\hline Attori & Utente A, Utente B \\ 
-\hline Condizione di entrata & L'utente A clicca sul pulsante “Aggiungi” dalla pagina pubblica dell'utente B \\
-\hline Flusso degli eventi & Il sistema notifica all'utente B che l'utente A gli ha inviato una richiesta di amicizia.
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Nome del caso}} & Un utente invia una richiesta di amicizia ad un altro utente senza passare dai suggerimenti \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente A, Utente B \\ 
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L'utente A clicca sul pulsante “Aggiungi” dalla pagina pubblica dell'utente B \\
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & Il sistema notifica all'utente B che l'utente A gli ha inviato una richiesta di amicizia.
  \\ 
-\hline Condizione di uscita & All'utente B è arrivata la notifica \\
-\hline Eccezioni & Nessuna
+\rowcolor[gray]{.9}\hline  \textbf{Condizione di uscita} & All'utente B è arrivata la notifica \\
+\rowcolor[gray]{.9}\hline  \textbf{Eccezioni} & Nessuna
 \\
 \hline 
 \end{tabularx} \\[1\baselineskip]
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente risponde positivamente ad una richiesta di amicizia \\
-\hline Attori & Utente C, Utente D \\ 
-\hline Condizione di entrata & L'utente C clicca su “Conferma” dalla notifica della richiesta \\
-\hline Flusso degli eventi & 
+
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Nome del caso}} & Un utente risponde positivamente ad una richiesta di amicizia \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente C, Utente D \\ 
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Condizione di entrata}} & L'utente C clicca su “Conferma” dalla notifica della richiesta \\
+\rowcolor[gray]{.9}\hline  \raisebox{-5.5ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em 
 \item Il sistema aggiunge D agli amici di C e viceversa.
 \item Il sistema notifica C del buon fine dell'azione e D del fatto che C abbia accettato la sua richiesta.
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & Le notifiche sono state spedite agli utenti coinvolti \\
-\hline Eccezioni & Nessuna
+\rowcolor[gray]{.9}\hline  \textbf{Condizione di uscita} & Le notifiche sono state spedite agli utenti coinvolti \\
+\rowcolor[gray]{.9}\hline  \textbf{Eccezioni}& Nessuna
 \\
 \hline 
 \end{tabularx}
 \clearpage
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente dà un feedback \\
-\hline Attori & Utente A, Utente B \\ 
-\hline Condizione di entrata & L'utente A ha ricevuto un messaggio di risposta dall'utente B \\
-\hline Flusso degli eventi & 
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline  \textbf{Nome del caso} & Un utente dà un feedback \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente A, Utente B \\ 
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Condizione di entrata}} & L'utente A ha ricevuto un messaggio di risposta dall'utente B \\
+\rowcolor[gray]{.9}\hline  \raisebox{-12ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em 
 \item L'utente A clicca sul pulsante “Dai feedback” contenuto nel messaggio di risposta di B.
@@ -394,16 +402,16 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema notifica B del feedback ricevuto con un messaggio automatico e aggiorna la media dei suoi feedback.
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & La media è correttamente aggiornata \\
-\hline Eccezioni & Nessuna
+\rowcolor[gray]{.9}\hline  \textbf{Condizione di uscita} & La media è correttamente aggiornata \\
+\rowcolor[gray]{.9}\hline  \textbf{Eccezioni} & Nessuna
 \\
 \hline 
 \end{tabularx} \\[1\baselineskip]
-\begin{tabularx}{\textwidth}{|l|X|}
-\hline Nome del caso & Un utente cancella il proprio account \\
-\hline Attori & Utente \\ 
-\hline Condizione di entrata & L'utente preme il pulsante “Cancella account” dalla propria pagina personale \\
-\hline Flusso degli eventi & 
+\begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline  \textbf{Nome del caso} & Un utente cancella il proprio account \\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente \\ 
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Condizione di entrata}} & L'utente preme il pulsante “Cancella account” dalla propria pagina personale \\
+\rowcolor[gray]{.9}\hline  \raisebox{-12ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em
 \item L'utente conferma la volontà di cancellazione dal popup che il sistema apre.
@@ -411,8 +419,8 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \item Il sistema notifica con un popup l'avvenuta cancellazione e reindirizza alla pagina principale di SWIM.
 \end{enumerate}
  \\ 
-\hline Condizione di uscita & Il sistema ha notificato l'avvenuta cancellazione \\
-\hline Eccezioni & Nessuna
+\rowcolor[gray]{.9}\hline  \textbf{Condizione di uscita} & Il sistema ha notificato l'avvenuta cancellazione \\
+\rowcolor[gray]{.9}\hline  \textbf{Eccezioni} & Nessuna
 \\
 \hline 
 \end{tabularx}
@@ -421,34 +429,34 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \subsection{Sequence diagrams}
 \begin{center}
 \includegraphics[scale=0.75]{sDiagrams/creazioneUtente.jpg}
-\caption{Creazione di un utente}
+%\caption{Creazione di un utente}
 \vspace*{\fill}
 \includegraphics[scale=0.75]{sDiagrams/accettazioneAmicizia.jpg} \\
-\caption{Accettazione di una richiesta di amicizia} \\
+%\caption{Accettazione di una richiesta di amicizia} \\
 \clearpage
 \includegraphics[scale=0.75]{sDiagrams/login.jpg} \\
-\caption{Login di un utente} \\
+%\caption{Login di un utente} \\
 \vspace*{\fill}
 \includegraphics[scale=0.75]{sDiagrams/modificaAbilita.jpg} \\
-\caption{Modifica del set di abilità} \\
+%\caption{Modifica del set di abilità} \\
 \clearpage
 \includegraphics[scale=0.75]{sDiagrams/richiestaAmicizia.jpg} \\
-\caption{Invio di una richiesta di amicizia} \\
+%\caption{Invio di una richiesta di amicizia} \\
 \vspace*{\fill}
 \includegraphics[scale=0.75]{sDiagrams/creazioneThread.jpg} \\
-\caption{Invio di un nuovo messaggio sulla bacheca pubblica} \\
+%\caption{Invio di un nuovo messaggio sulla bacheca pubblica} \\
 \clearpage
 \includegraphics[scale=0.75]{sDiagrams/ricercaUtenti.jpg} \\
-\caption{Ricerca di un utente} \\
+%\caption{Ricerca di un utente} \\
 \vspace*{\fill}
 \includegraphics[scale=0.75]{sDiagrams/invioMessaggio.jpg} \\
-\caption{Invio di un messaggio privato} \\
+%\caption{Invio di un messaggio privato} \\
 \clearpage
 \includegraphics[scale=0.75]{sDiagrams/invioFeedback.jpg} \\
-\caption{Invio di un feedback} \\
+%\caption{Invio di un feedback} \\
 \vspace*{\fill}
 \includegraphics[scale=0.75]{sDiagrams/cancellazioneAccount.jpg} \\
-\caption{Cancellazione dell'account} \\
+%\caption{Cancellazione dell'account} \\
 \end{center}
 \clearpage
 \subsection{Statechart}
