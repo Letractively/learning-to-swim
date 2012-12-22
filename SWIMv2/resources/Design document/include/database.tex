@@ -37,7 +37,7 @@ Il progetto logico consiste nell'insieme di tabelle che compongono il database, 
 UTENTE({\bfseries ID},NOME,COGNOME,EMAIL,{\bfseries USERNAME},PASSWORD,ADMIN)\\
 ABILITA'({\bfseries NOME},DESCRIZIONE)\\
 ABILITA'UTENTI({\bfseries UTENTE,ABILITA'})\\
-MESSAGGIO({\bfseries MITTENTE,DESTINATARIO,CORPO})\\
+MESSAGGIO({\bfseries ID,MITTENTE,DESTINATARIO},CORPO)\\
 AMICIZIA({\bfseries UTENTE1,UTENTE2})\\
 FEEDBACK({\bfseries ID, UTENTE1, UTENTE2}, VOTO)\\
 
@@ -46,3 +46,7 @@ in cui in ABILITA'UTENTI.NOME si riferisce a UTENTE.USERNAME, ABILITA'UTENTI.ABI
 AMICIZIA.UTENTE2, FEEDBACK.UTENTE1 e FEEDBACK.UTENTE2 si riferiscono tutti a UTENTE.USERNAME. Le chiavi primarie sono in grassetto.
 
 \subsection{Vista Logica}
+L'ultimo diagramma relativo al database è la vista logica delle tabelle del database:
+\begin{center}
+ \includegraphics[width=1\columnwidth]{logico.png}
+\end{center}
