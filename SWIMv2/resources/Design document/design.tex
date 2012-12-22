@@ -77,13 +77,18 @@ Versione 1.0 del 22/12/2012 \\
 \section{Panoramica della piattaforma}
 La piattaforma sviluppata ha il compito di promuovere, tramite l’utilizzo di una web application, la collaborazione e la condivisione di informazioni utili alla risoluzione di problemi tra gli utenti.\\[1\baselineskip]Nel dettaglio, il presente documento di Design definisce la struttura concettuale e funzionale fornendo una precisa descrizione delle guidelines che saranno seguite nello sviluppo e nel deployment dell’applicazione.\\[1\baselineskip]Il documento è inoltre conforme con le specifiche presenti nel RASD.\\[1\baselineskip]Il sistema è utilizzato da tre categorie di utenti: gli ospiti, gli utenti registrati e gli amministratori. Tramite un sistema di autenticazione il sistema controlla chi può svolgere determinate azioni in base al proprio ruolo.\\[1\baselineskip]Per evitare l’accesso a servizi non consentiti si è deciso di utilizzare il Role-Based Access Control. Con tale sistema di autenticazione si consentirà di usufruire solamente dei servizi specifici per il proprio ruolo.
 
-\section{Descrizione del problema}
+\section{Descrizione del sistema}
 Il sistema è composto da varie pagine HTML ognuna delle quali fornisce uno specifico servizio al cliente. Ogni webpage include la tecnologia Javascript che consente non solo di migliorare l’interfaccia stessa della pagine ma permette anche di ottimizzare la facilità di navigazione.\\[1\baselineskip]Per sviluppare il sistema sono stati usati i seguenti tool:
 \begin{itemize}
 \item WaveMaker, per creare l’interfaccia grafica;
 \item Eclipse Juno, per creare la logica di business;
 \item Mysql, per gestire la base di dati.
 \end{itemize}
+
+\subsection{L'architettura del sistema}
+\begin{center}
+\includegraphics[scale=0.75]{tierdesign.png}
+\end{center}
 
 La piattaforma SWIMv2 è un applicazione multi-tier composta dai seguenti livelli:
 \begin{itemize}
@@ -104,6 +109,12 @@ Sistemi che compongono l’applicazione: a noi servirà il login, i sottosistemi
 \end{itemize}
 
 L’esistenza dei sottosistemi dell’utenza di SWIM è giustificata dalla loro diversa interazione con l’archivio.\\[1\baselineskip]Gli amministratori potranno modificare le tabelle all’interno del DBMS, gli utenti registrati interagiranno con l’archiviazione dei messaggi e infine gli ospiti potranno visualizzare il contenuto di una parte dei dati senza poter apportare nessuna modifica.\\[1\baselineskip]Per gestire tale meccanismo abbiamo scelto una soluzione che prevede di sfruttare la logica dell’applicazione, essa sarà in un certo senso intelligente e secondo l’appartenenza di classe renderà possibili le corrispettive interazioni con il database.
+
+\clearpage
+
+\begin{center}
+\includegraphics[scale=0.75]{sottosistemi.png}
+\end{center}
 
 \clearpage
 

@@ -1,7 +1,8 @@
 \select@language {italian}
 \contentsline {section}{\numberline {1}Panoramica della piattaforma}{3}
-\contentsline {section}{\numberline {2}Descrizione del problema}{3}
-\contentsline {subsection}{\numberline {2.1}Sottosistemi}{4}
-\contentsline {section}{\numberline {3}Design del Database}{5}
-\contentsline {subsection}{\numberline {3.1}Modello concettuale}{5}
-\contentsline {subsection}{\numberline {3.2}Modello logico}{6}
+\contentsline {section}{\numberline {2}Descrizione del sistema}{3}
+\contentsline {subsection}{\numberline {2.1}L'architettura del sistema}{4}
+\contentsline {subsection}{\numberline {2.2}Sottosistemi}{5}
+\contentsline {section}{\numberline {3}Design del Database}{7}
+\contentsline {subsection}{\numberline {3.1}Modello concettuale}{7}
+\contentsline {subsection}{\numberline {3.2}Modello logico}{8}
