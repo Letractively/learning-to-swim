@@ -17,5 +17,6 @@
 \contentsline {section}{\numberline {6}Design}{11}
 \contentsline {subsection}{\numberline {6.1}UXDiagram}{11}
 \contentsline {subsubsection}{\numberline {6.1.1}UX per un ospite}{11}
-\contentsline {subsubsection}{\numberline {6.1.2}UX per un utente registrato}{11}
-\contentsline {subsubsection}{\numberline {6.1.3}UX per un amministratore}{11}
+\contentsline {subsubsection}{\numberline {6.1.2}UX per un utente registrato}{12}
+\contentsline {subsubsection}{\numberline {6.1.3}UX per un amministratore}{13}
+\contentsline {section}{\numberline {7}Sicurezza}{14}
