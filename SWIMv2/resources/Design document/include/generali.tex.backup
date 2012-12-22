@@ -44,29 +44,11 @@ In questo documento vengono usate le seguenti sigle/abbreviazioni:
  \item RASD: Requirements Analysis and Specification Document
  \item DB: Database
  \item J2EE: Java Enterprise Edition
- \item UX: User Experience (diagram)
+ \item UX: User Experience (model)
  \item DBMS: DataBase Management System
- \item AS: Application Server
 \end{itemize}
 Sono tutte sigle abbastanza note, ma, a scanso di equivoci è sempre meglio precisare (a cominciare dal fatto che questa sezione non è un filler, ma ha una sua utilità).
 
 
 
 \section{Software impiegato per il documento e per il sistema}
-Per scrivere questo documento sono stati impiegati i seguenti software:
-\begin{itemize}
- \item Kile, un editor per scrivere in \LaTeX, e compilare il sorgente in un file PDF
- \item LiveTex, una distribuzione di \TeX , senza cui Kile non può compilare
- \item JDER, un editor di diagrammi E-R
- \item Mysql Workbench per il diagramma di vista logica del database
- \item !!!TODO : ciò che ho usato per lo UX !!!
-\end{itemize}
-Invece per lo sviluppo di SWIMv2 sono stati impiegati i seguenti software e le seguenti tecnologie:
-\begin{itemize}
- \item Eclipse Juno per J2EE per la scrittura del codice java/jsp
- \item Openjdk 1.7 come versione di java, senza cui Eclipse non può nemmeno partire
- \item Mysql Server come server per il DB
- \item JBoss AS 5 come server locale su cui far girare il sistema
- \item WaveMaker !!!O chi per lui !!! per disegnare l'interfaccia grafica
-\end{itemize}
-
