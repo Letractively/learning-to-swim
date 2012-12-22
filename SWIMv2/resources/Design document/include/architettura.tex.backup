@@ -1,0 +1,4 @@
+\section{Architettura del sistema}
+Il sistema è stato sviluppato secondo l'architettura client-server, e quest'ultimo secondo il pattern MVC, in modo da tenere nettamente separati lo stato del sistema, la logica di business
+e l'interfaccia grafica. In particolare, per quanto riguarda il client, possiamo immaginare che esso sia un comunissimo browser che manda delle richieste ad un server ed elabora le sue
+risposte, mostrando all'utente le informazioni desiderate tramite la view che gli viene passata. Il server invece è locale (

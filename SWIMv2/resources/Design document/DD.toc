@@ -1,3 +1,4 @@
+\select@language {italian}
 \contentsline {section}{\numberline {1}Generali}{2}
 \contentsline {subsection}{\numberline {1.1}Breve Panoramica del sistema}{2}
 \contentsline {subsection}{\numberline {1.2}Scopo di questo documento}{2}
@@ -6,16 +7,16 @@
 \contentsline {section}{\numberline {2}Software impiegato per il documento e per il sistema}{4}
 \contentsline {section}{\numberline {3}Architettura del sistema}{5}
 \contentsline {section}{\numberline {4}Scomposizione in sottosistemi}{6}
-\contentsline {section}{\numberline {5}Gestione del Database}{7}
-\contentsline {subsection}{\numberline {5.1}Diagramma E-R}{7}
-\contentsline {subsubsection}{\numberline {5.1.1}Entit\'a}{7}
-\contentsline {subsubsection}{\numberline {5.1.2}Relazioni}{7}
-\contentsline {subsection}{\numberline {5.2}Progetto Logico}{7}
-\contentsline {subsubsection}{\numberline {5.2.1}Aggiustamenti all'E-R}{7}
-\contentsline {subsubsection}{\numberline {5.2.2}Tabelle risultanti}{7}
-\contentsline {subsection}{\numberline {5.3}Vista Logica}{7}
-\contentsline {section}{\numberline {6}Design}{8}
-\contentsline {subsection}{\numberline {6.1}UXDiagram}{8}
-\contentsline {subsubsection}{\numberline {6.1.1}UX per un ospite}{8}
-\contentsline {subsubsection}{\numberline {6.1.2}UX per un utente registrato}{8}
-\contentsline {subsubsection}{\numberline {6.1.3}UX per un amministratore}{8}
+\contentsline {section}{\numberline {5}Gestione del Database}{8}
+\contentsline {subsection}{\numberline {5.1}Diagramma E-R}{8}
+\contentsline {subsubsection}{\numberline {5.1.1}Entit\'a}{8}
+\contentsline {subsubsection}{\numberline {5.1.2}Relazioni}{8}
+\contentsline {subsection}{\numberline {5.2}Progetto Logico}{8}
+\contentsline {subsubsection}{\numberline {5.2.1}Aggiustamenti all'E-R}{8}
+\contentsline {subsubsection}{\numberline {5.2.2}Tabelle risultanti}{8}
+\contentsline {subsection}{\numberline {5.3}Vista Logica}{8}
+\contentsline {section}{\numberline {6}Design}{9}
+\contentsline {subsection}{\numberline {6.1}UXDiagram}{9}
+\contentsline {subsubsection}{\numberline {6.1.1}UX per un ospite}{9}
+\contentsline {subsubsection}{\numberline {6.1.2}UX per un utente registrato}{9}
+\contentsline {subsubsection}{\numberline {6.1.3}UX per un amministratore}{9}
