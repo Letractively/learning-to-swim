@@ -10,13 +10,12 @@
 \contentsline {section}{\numberline {5}Gestione del Database}{8}
 \contentsline {subsection}{\numberline {5.1}Diagramma E-R}{8}
 \contentsline {subsubsection}{\numberline {5.1.1}Entit\'a}{8}
-\contentsline {subsubsection}{\numberline {5.1.2}Relazioni}{8}
-\contentsline {subsection}{\numberline {5.2}Progetto Logico}{8}
-\contentsline {subsubsection}{\numberline {5.2.1}Aggiustamenti all'E-R}{8}
-\contentsline {subsubsection}{\numberline {5.2.2}Tabelle risultanti}{8}
-\contentsline {subsection}{\numberline {5.3}Vista Logica}{8}
-\contentsline {section}{\numberline {6}Design}{9}
-\contentsline {subsection}{\numberline {6.1}UXDiagram}{9}
-\contentsline {subsubsection}{\numberline {6.1.1}UX per un ospite}{9}
-\contentsline {subsubsection}{\numberline {6.1.2}UX per un utente registrato}{9}
-\contentsline {subsubsection}{\numberline {6.1.3}UX per un amministratore}{9}
+\contentsline {subsubsection}{\numberline {5.1.2}Relazioni}{9}
+\contentsline {subsection}{\numberline {5.2}Progetto Logico}{9}
+\contentsline {subsubsection}{\numberline {5.2.1}Tabelle risultanti}{9}
+\contentsline {subsection}{\numberline {5.3}Vista Logica}{10}
+\contentsline {section}{\numberline {6}Design}{11}
+\contentsline {subsection}{\numberline {6.1}UXDiagram}{11}
+\contentsline {subsubsection}{\numberline {6.1.1}UX per un ospite}{11}
+\contentsline {subsubsection}{\numberline {6.1.2}UX per un utente registrato}{11}
+\contentsline {subsubsection}{\numberline {6.1.3}UX per un amministratore}{11}
