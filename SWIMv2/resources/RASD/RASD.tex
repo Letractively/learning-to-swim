@@ -172,26 +172,28 @@ Vengono riportate qui di seguito alcune specifiche che consentono il manteniment
 \end{itemize}
 \clearpage
 \subsection{Non funzionali}
+\vfill{}
 \subsubsection{Interfacce e usabilità}
 Il sistema sarà in tutto e per tutto web-oriented consentendo la massima facilità d'uso possibile e rispettando i più recenti standard web quali HTML4.0, XHTML1.1, CSS2/3, ECMAScript permettendo inoltre sia la massima compatibilità con i browser e i sistemi operativi ad oggi più comuni sia il miglior risultato in termini di affidabilità e robustezza del prodotto stesso.
-
+\\[1.5em]
 \subsubsection{Struttura del sistema}
 Il sistema userà la tecnologia J2EE per la presentazione e la gestione delle web pages; mentre verrà fatto uso del linguaggio MySQL per la manipolazione e l'estrazione dei dati presenti sul database. \\[1\baselineskip]
 Requisito fondamentale per l'utilizzo della piattaforma SWIM è una connessione a larga banda. Il server centrale e tutti i suoi servizi saranno accessibili all'utente attraverso i comuni web brower quali Mozilla Firefox, Google Chrome, Apple Safari purchè abilitati alla tecnologia Javascript.
-
+\\[1.5em]
 \subsubsection{Hardware}
 Il server del sistema monterà hard disk in configurazione RAID 1 al fine di scongiurare la perdita dei dati presenti. Il sistema RAID 1 creerà una copia esatta (mirror) di tutti i dati su due o più dischi. \\[1\baselineskip]
 Il server sarà dotato di un microprocessore della famiglia Intel Xeon migliorando così le prestazioni permettendo l'esecuzione di più task contemporaneamente e in modo più efficiente e rapido.
-
+\\[1.5em]
 \subsubsection{Performance}
 Il sistema, oltre a montare un adeguato microprocessore (come già sopra riportato) dovrà godere di una buona ventilazione del locale nel quale è installato consentendo così di non degradare le prestazioni. \\[1\baselineskip]
 Il server avrà anche bisogno di una connessione internet a larga banda con un throughput proporzionato al carico di lavoro previsto.
-
+\vfill{}
+\clearpage
 \subsubsection{Sicurezza}
 La password non verrà salvata in chiaro all'interno del database ma verrà usata una funzione di hash per criptarla e rendere quindi inutile ogni tentativo di furto da parte di malintenzionati. Così facendo gli utenti del sistema avranno la garanzia della sicurezza e della protezione dei loro dati sensibili. \\[1\baselineskip]
 Il server di sistema verrà installato all'interno di un locale appositamente adibito a tale scopo ed opportunamente protetto da sistemi di antifurto, antintrusione e antincendio oltre che ad un meccanismo di backup giornaliero (incrementale) e settimanale (completo dei dischi) che verrà eseguito preferibilmente off site. \\[1\baselineskip]
 Per garantire la continuità del servizio anche in caso di black out di energia elettrica, il sistema dovrà essere dotato di un gruppo di continuità opportunamente dimensionato.
-
+\\[1.5em]
 \subsubsection{Documentazione}
 Il gruppo di progetto e sviluppo del sistema provvederà a produrre la seguente documentazione al committente:
 \begin{itemize}
@@ -207,31 +209,34 @@ Il gruppo di progetto e sviluppo del sistema provvederà a produrre la seguente 
 \subsection{Scenari}
 \textbf{Scenario}: un utente si registra con l'intenzione di cercare aiuto \\
 \textbf{Attori}: Cloud Strife \\
-Cloud Strife è un appassionato di spade antiche e ha intenzione di iscriversi a SWIMv2 per trovare un arrotino che possa fare il filo alla sua “buster sword”. Di conseguenza segue la procedura guidata  e completa la registrazione; in particolare risulta residente a Nibelheim e il suo set di abilità include “negoziazioni con le compagnie energetiche”, “maestro di scherma (specialità spada)” e “superatleta”. \\[1em]
+Cloud Strife è un appassionato di spade antiche e ha intenzione di iscriversi a SWIMv2 per trovare un arrotino che possa fare il filo alla sua “buster sword”. Di conseguenza segue la procedura guidata  e completa la registrazione; in particolare risulta residente a Nibelheim e il suo set di abilità include “negoziazioni con le compagnie energetiche”, “maestro di scherma (specialità spada)” e “superatleta”. \\[1.5em]
 \textbf{Scenario}: un utente dà un feedback negativo \\
 \textbf{Attori}: Felice Evacuo, Edward Late \\
-L'utente Felice Evacuo ha richesto tramite messaggio un aiuto al suo amico inglese Edward Late, ma quest'ultimo per un mese non si è fatto sentire; di conseguenza il signor Evacuo decide di assegnare a mr Late un feedback negativo tramite l'apposita funzionalità presente sulla pagina personale di quest'ultimo. \\[1em]
+L'utente Felice Evacuo ha richiesto tramite messaggio un aiuto al suo amico inglese Edward Late, ma quest'ultimo per un mese non si è fatto sentire; di conseguenza il signor Evacuo decide di assegnare a mr Late un feedback negativo tramite l'apposita funzionalità presente sulla pagina personale di quest'ultimo. \\[1.5em]
 \textbf{Scenario}: un utente risponde ad una richiesta di aiuto \\
-\textbf{Attori}: Gabriel Zufolo, Orazio Cane \\
-L'utente Gabriel Zufolo, appassionato di musica ha ricevuto una richesta di aiuto da parte del suo amico Orazio Cane, un commissario di polizia che è da qualche mese sulle tracce di una banda. Tale banda, con la copertura dei concerti da essa tenuti, in realtà permette a dei complici di svaligiare le case degli ignari spettatori. Cane ha chiesto a Zufolo di dargli delle lezioni di flauto per potersi infiltrare nella banda come musicista e investigare. Zufolo risponde e si dichiara disponibile a collaborare con la polizia, lasciando il proprio numero di telefono per ulteriori contatti. \\[1em]
+\textbf{Attori}: Gabriel Zufolo, Horatio Caine \\
+L'utente Gabriel Zufolo, appassionato di musica ha ricevuto una richiesta di aiuto da parte del suo amico Horatio Caine, un commissario di polizia che è da qualche mese sulle tracce di una banda. Tale banda, con la copertura dei concerti da essa tenuti, in realtà permette a dei complici di svaligiare le case degli ignari spettatori. Caine ha chiesto a Zufolo di dargli delle lezioni di flauto per potersi infiltrare nella banda come musicista e investigare. Zufolo risponde e si dichiara disponibile a collaborare con la polizia, lasciando il proprio numero di telefono per ulteriori contatti. \\[1.5em]
 \textbf{Scenario}: un team di specialisti hardware cerca un esperto in compilatori \\
-\textbf{Attori}: Bobby Bianchetti e Stephen Ricci \\
-Bobby Bianchetti, specialista in microprocessori, in particolare ricercatore sulle pipeline, decide di integrare nel suo gruppo anche uno specialista in compilatori. Egli, in quanto non è registrato su SWIM, pubblica sulla bacheca un messaggio in cui chiede a chiunque sia esperto in compilazione e sia interessato alla proposta di lavoro contenuta nel corpo del post di rispondere e lasciare un recapito per essere ricontattati. Stephen Ricci, brillante neolaureato in Ingegneria Informatica al Politecnico di Milano con 110 e lode, ritiene di essere interessato e risponde con un messaggio sempre sulla bacheca pubblica.  \\[1em]
+\textbf{Attori}: Bobby Bianchetti \\
+Bobby Bianchetti, specialista in microprocessori, in particolare ricercatore sulle pipeline, decide di integrare nel suo gruppo anche uno specialista in compilatori. Egli non è registrato su SWIM e sebbene provi a scrivere sulla bacheca pubblica riceve in risposta dall'applicazione un popup che gli ricorda di non essere abilitato alla scrittura all'interno di SWIM e l'ho invita a registrarsi.   \\[1.5em]
+\textbf{Scenario}: un gruppo di utenti cerca un esperto nella gestione di database per realizzare il loro social network \\
+\textbf{Attori}: Mark Westfold, Michael Sommer \\
+Mark Westfold, programmatore esperto, nello specifico membro di un team di utenti di SWIM che vorrebbero realizzare un loro social network dedicato all'hacking puro, si incarica di cercare una figura capace di gestire in maniera ottimale il database dell'applicazione, decide quindi di pubblicare nella categoria informatica un thread dove esplicita tale richiesta di aiuto. MIchael Sommer, informatico capace e gestore di diversi database presenti in applicazioni a carattere industriale, risponde a tale richiesta mostrandosi notevolmente interessato.    \\[3em]
 \textbf{Scenario}: un calciatore tedesco cerca un preparatore atletico per la riabilitazione dopo l'ennesimo infortunio \\
 \textbf{Attori}: Thomas Strunz, Johannes Trapp \\
-Thomas Strunz, calciatore tedesco militante nella squadra dell'oratorio della cattedrale di Monaco di Baviera, si è infortunato per la quarta volta in un anno e decide di cambiare preparatore atletico. Dato che è da tempo un utente registrato su SWIM e si ricorda che un suo vecchio compagno di classe, che ha come amico sul social network, gli aveva parlato di un amico italo-tedesco che aveva intenzione di diventare un preparatore atletico, chiede al suo amico tramite messaggio il nome di costui e, ricevendo come risposta Johannes Trapp, lo cerca tra gli amici dell'ex compagno di classe e, una volta trovatolo, gli chiede l'amicizia. \\[1em]
+Thomas Strunz, calciatore tedesco militante nella squadra dell'oratorio della cattedrale di Monaco di Baviera, si è infortunato per la quarta volta in un anno e decide di cambiare preparatore atletico. Dato che è da tempo un utente registrato su SWIM e si ricorda che un suo vecchio compagno di classe, presente nella sua lista amici del social network, gli aveva parlato di un amico italo-tedesco che aveva intenzione di diventare un preparatore atletico, chiede a costui tramite messaggio il nome del preparatore e, ricevendo come risposta Johannes Trapp, lo cerca tra gli amici dell'ex compagno di classe e, una volta trovatolo, gli invia la richiesta di amicizia. \\[1.5em]
 \textbf{Scenario}: lo stesso calciatore invia all'amministratore Emanuele Uliana un messaggio di lamentela \\
 \textbf{Attori}: Emanuele Uliana, Thomas Strunz, Johannes Trapp \\
-Thomas Strunz, dopo un iniziale impegno a tempo pieno nella riabilitazione, per negligenze proprie trascura la seconda fase degli esercizi e decide di rientrare in campo troppo presto, rompendosi alla prima partita il legamento crociato anteriore. A questo punto Johannes Trapp gli invia un messaggio: “Hai visto? Certo che il tuo cognome è prorpio un presagio del tuo carattere!” Strunz, si ritiene offeso e invia all'amministratore Emanuele Uliana un messaggio in cui riporta le parole del preparatore atletico e chiede provvedimenti. \\[1em]
-\textbf{Scenario}: un rappresentante della nazionale piloti cerca un allenatore in vista della sfida di beneficienza contro la nazionale cantanti, ma riesce solo al secondo tentativo \\
+Thomas Strunz, dopo un iniziale impegno a tempo pieno nella riabilitazione, per negligenze proprie trascura la seconda fase degli esercizi e decide di rientrare in campo troppo presto, rompendosi alla prima partita il legamento crociato anteriore. A questo punto Johannes Trapp gli invia un messaggio: “Hai visto? Certo che il tuo cognome è prorpio un presagio del tuo carattere!” Strunz, si ritiene offeso e invia all'amministratore Emanuele Uliana un messaggio in cui riporta le parole del preparatore atletico e chiede provvedimenti. \\[1.5em]
+\textbf{Scenario}: un rappresentante della nazionale piloti cerca un allenatore in vista della sfida di beneficenza contro la nazionale cantanti, ma riesce solo al secondo tentativo \\
 \textbf{Attori}: Michele Lumache, Giuseppe Morino, Antonio Marchese \\
-Michele Lumache, esponente di spicco della nazionale calcistica dei piloti di formula 1, e utente registrato su SWIM, è alla ricerca di un allenatore per la squadra che consenta di arrivare preparati alla sfida di beneficienza contro la nazionale cantanti. Inizialmente pensa di aver trovato la persona giusta in Giuseppe Morino, tuttavia dopo la richiesta di amicizia e il primo scambio di messaggi, Michele si accorge che i metodi di Giuseppe non sono troppo ortodossi, in quanto si basano sulla corruzione arbitrale e sull'arroganza nei confronti degli avversari. Di conseguenza di rivolge ad un brillante neoallenatore di nome Antonio Marchese che, grazie alla sua professionalità, convince Michele. \\[1em]
+Michele Lumache, esponente di spicco della nazionale calcistica dei piloti di formula 1, e utente registrato su SWIM, è alla ricerca di un allenatore per la squadra che consenta di arrivare preparati alla sfida di beneficenza contro la nazionale cantanti. Inizialmente pensa di aver trovato la persona giusta in Giuseppe Morino, tuttavia dopo la richiesta di amicizia e il primo scambio di messaggi, Michele si accorge che i metodi di Giuseppe non sono troppo ortodossi, in quanto si basano sulla corruzione arbitrale e sull'arroganza nei confronti degli avversari. Di conseguenza di rivolge ad un brillante neoallenatore di nome Antonio Marchese che, grazie alla sua professionalità, convince Michele. \\[1.5em]
 \textbf{Scenario}: un utente è costretto alla cancellazione coatta da parte del suo datore di lavoro \\
 \textbf{Attori}: Montgomery Arde, Smith ER. S. \\
-Montgomery Arde è il capo di una società energetica americana a cui è stata commissionata l'apertura di una centrale nucleare in Namibia. Non potendo trattare di persona con gli indigeni del posto, decide di inviare il suo fedele assistente Smith ER. S. in sua vece. Tuttavia Smith ha un piccolo difetto: se non lo si distoglie a forza dal social network SWIM (su cui è iscritto in quanto “grande esperto di lingue autoctone dell'africa subsaariana” e “ottimo mediatore con i selvaggi Boscimani”), ci passa tutta la giornata. Di conseguenza mr Arde gli impone di disiscriversi, promettendogli uno stipendio di 1201 dollari al mese contro i 1200 che già guadagnava. Smith fedelmente segue la procedura guidata e cancella il proprio account, allettato dalla straordinaria offerta economica del suo capo. \\[1em]
+Montgomery Arde è il capo di una società energetica americana a cui è stata commissionata l'apertura di una centrale nucleare in Namibia. Non potendo trattare di persona con gli indigeni del posto, decide di inviare il suo fedele assistente Smith ER. S. in sua vece. Tuttavia Smith ha un piccolo difetto: se non lo si distoglie a forza dal social network SWIM (su cui è iscritto in quanto “grande esperto di lingue autoctone dell'africa subsaariana” e “ottimo mediatore con i selvaggi Boscimani”), ci passa tutta la giornata. Di conseguenza mr Arde gli impone di disiscriversi, promettendogli uno stipendio di 1201 dollari al mese contro i 1200 che già guadagnava. Smith fedelmente segue la procedura guidata e cancella il proprio account, allettato dalla straordinaria offerta economica del suo capo. \\[1.5em]
 \textbf{Scenario}: un utente chiede informazioni sulle domande che Google effettua durante i colloqui di lavoro \\
 \textbf{Attori}: Lorenzo Pagina, Giorgia Angurie \\
-Giorgia Angurie è una abile organizzatrice di eventi con esperienze politiche alle spalle e vorrebbe diventare parte della famosa azienda di Mountain View. Tra i suoi amici su SWIM ce n'è uno che come abilità ha “esperto in colloqui di lavoro impossibili” e “ex dipendente di google”: si chiama Lorenzo Pagina. Giorgia chiede a Lorenzo se può inviarle qualche fac-simile delle domande dei colloqui di Google. Lorenzo risponde con tre delle domande che ha visto fare agli aspiranti lavoratori: 1) Sei ridotto alle dimensioni di una moneta e anche la tua massa viene ridimensionata per mantenere la tua densità al livello che avevi prima e vieni gettato in un frullatore che tra 60 secondi entrerà in funzione. Che cosa faresti?  2) Quanto dovresti pagare per lavare tutte le finestre di Seattle?  3) Quante palline da golf ci stanno in uno scuolabus? \\[1em]
+Giorgia Angurie è un' abile organizzatrice di eventi con esperienze politiche alle spalle e vorrebbe diventare parte della famosa azienda di Mountain View. Tra i suoi amici su SWIM ce n'è uno che come abilità ha “esperto in colloqui di lavoro impossibili” e “ex dipendente di google”: si chiama Lorenzo Pagina. Giorgia chiede a Lorenzo se può inviarle qualche fac-simile delle domande dei colloqui di Google. Lorenzo risponde con tre delle domande che ha visto fare agli aspiranti lavoratori: 1) Sei ridotto alle dimensioni di una moneta, anche la tua massa viene ridimensionata per mantenere la tua densità al livello che avevi prima e vieni gettato in un frullatore che tra 60 secondi entrerà in funzione. Che cosa faresti?  2) Quanto dovresti pagare per lavare tutte le finestre di Seattle?  3) Quante palline da golf ci stanno in uno scuolabus? \\[1.5em]
 \textbf{Scenario}: un utente chiede di modificare il proprio set di abilità \\
 \textbf{Attori}: Walter Rubino, Gabriele Rufolo, Alex Ziggie \\
 Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abilità le seguenti: “venditore di aria fritta” e “capacità di apparire dal nulla” e, a tal proposito invia un messaggio all'amministratore Walter Rubino per la prima e all'amministratore Gabriele Rufolo per la seconda. Walter ritiene che la richiesta a lui pervenuta non rispetti il vincolo di realtà delle abilità: dubita infatti che una miscela di gas possa essere fritta a mo' di patatine; Gabriele per lo stesso motivo boccia la seconda richiesta. Entrambi notificano ad Alex il fatto che le sue richieste non possano essere accolte.
@@ -246,36 +251,36 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \rowcolor[gray]{.9}\hline\raisebox{-27ex}[0pt][0pt]{\textbf{Flusso degli eventi}}& 
 \begin{enumerate}
 \itemsep0em 
-\item L'ospite inserisce negli appositi campi i suoi dati anagrafici (nome, cognome, città), il suo indirizzo mail, il suo username e la sua password (gli ultimi due scelti sul momento).
+\item L'ospite inserisce negli appositi campi nome, cognome, città, il suo indirizzo mail e la sua password (quest' ultima scelta sul momento).
 \item L'ospite seleziona dal set predefinito le abilità che ritiene di possedere.
 \item L'ospite clicca sul pulsante di conferma.
-\item Il sistema effettua apposite query sul database per verificare che non esistano già la mail e lo username indicati ed effettua un controllo sulla password per verificare che abbia la lunghezza minima e contenga solo caratteri permessi.
+\item Il sistema effettua apposite query sul database per verificare che non esista già la mail indicata ed esegue un controllo sulla password per verificare che abbia la lunghezza minima e contenga solo caratteri permessi.
 \item Il sistema inserisce nel database i dati del neo-utente ma non mette il flag nel campo corrispondente all'attributo “confermato”
 \item Il sistema invia una mail all'indirizzo fornito dall'utente con un link di conferma.
 \item L'utente apre la mail e clicca sul link di conferma.
 \item Il sistema mette il flag nel campo di cui sopra.
-\item Il sistema mostra la pagina di avvenuta registrazione (il login comunque non è ancora stato effettuato.
+\item Il sistema mostra la pagina di avvenuta registrazione (il login comunque non è ancora stato effettuato).
 \end{enumerate}
  \\ 
 \rowcolor[gray]{.85}\hline\raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di uscita}} & Il sistema ha mostrato la pagina di avvenuta registrazione \\
-\rowcolor[gray]{.85}\hline\raisebox{-6ex}[0pt][0pt] {\textbf{Eccezioni}} & 
+\rowcolor[gray]{.85}\hline\raisebox{-5.5ex}[0pt][0pt] {\textbf{Eccezioni}} & 
 \begin{enumerate}
 \itemsep0em 
-\item Lo username o la mail inseriti dall'utente esistono già nel database
+\item La mail inserita dall'utente esiste già nel database
 \item La password è lunga meno di 8 caratteri o contiene caratteri diversi da lettere, numeri o underscore.
 \end{enumerate}
 \\
 \hline 
 \end{tabularx}
 \clearpage
-\begin{tabularx}{\textwidth}{|c|X|}
+\begin{tabularx}{\textwidth}{|c|X|} 
 \rowcolor[gray]{.9}\hline \textbf{Nome del caso} & Un ospite effettua il login \\
 \rowcolor[gray]{.9}\hline \textbf{Attori} & Ospite \\ 
 \rowcolor[gray]{.9}\hline \textbf{Condizione di entrata} & L'ospite clicca sul pulsante “Login” \\
 \rowcolor[gray]{.9}\hline \raisebox{-10ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em 
-\item L'ospite inserisce negli appositi campi il suo username e la sua password.
+\item L'ospite inserisce negli appositi campi mail e password.
 \item L'ospite preme il pulsante di conferma.
 \item Il sistema effettua una query nel database con i dati inseriti e, in caso la query ritorni un valore non vuoto, visualizza la pagina personale dell'utente corrispondente.
 \end{enumerate}
@@ -284,7 +289,7 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \rowcolor[gray]{.9}\hline \textbf{Eccezioni} & La query del sistema ritorna null
 \\
 \hline 
-\end{tabularx} \\[1\baselineskip]
+\end{tabularx} \\[3\baselineskip]
 \begin{tabularx}{\textwidth}{|c|X|}
 \rowcolor[gray]{.9}\hline  \textbf{Nome del caso} & Un utente modifica il proprio set di abilità \\
 \rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente \\ 
@@ -304,6 +309,22 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \hline 
 \end{tabularx} \clearpage
 \begin{tabularx}{\textwidth}{|c|X|}
+\rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Nome del caso}} & Un ospite tenta di pubblicare una richiesta di aiuto in una categoria\\
+\rowcolor[gray]{.9}\hline  \textbf{Attori} & Ospite \\ 
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L' ospite clicca sul pulsante “Inserisci messaggio” presente sulla bacheca pubblica \\
+\rowcolor[gray]{.9}\hline  \raisebox{-5.5ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
+\begin{enumerate}
+\itemsep0em 
+\item Il sistema risponde con un popup
+\item L' ospite legge il contenuto del popup e clicca sul pulsante ok per chiuderlo
+\end{enumerate}
+ \\ 
+\rowcolor[gray]{.9}\hline \textbf{Condizione di uscita} & L'ospite si ritrova nella pagina della categoria \\
+\rowcolor[gray]{.9}\hline \textbf{Eccezioni} & Nessuna, vedi caso precedente
+\\
+\hline 
+\end{tabularx} \\[3\baselineskip]
+\begin{tabularx}{\textwidth}{|c|X|}
 \rowcolor[gray]{.9}\hline  \raisebox{-1ex}[0pt][0pt]{\textbf{Nome del caso}} & Un utente pubblica una richiesta di aiuto sulla bacheca pubblica \\
 \rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente \\ 
 \rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L' utente clicca sul pulsante “Inserisci messaggio” presente sulla bacheca pubblica \\
@@ -316,7 +337,7 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \end{enumerate}
  \\ 
 \rowcolor[gray]{.9}\hline \textbf{Condizione di uscita} & Il messaggio è visibile in bacheca \\
-\rowcolor[gray]{.9}\hline \textbf{Eccezioni} & Nessuna, vedi caso precedente
+\rowcolor[gray]{.9}\hline \textbf{Eccezioni} & Nessuna
 \\
 \hline 
 \end{tabularx} \\[1\baselineskip]
@@ -342,11 +363,11 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \end{enumerate}
 \\
 \hline 
-\end{tabularx} \clearpage
+\end{tabularx} \\[2\baselineskip]
 \begin{tabularx}{\textwidth}{|c|X|}
 \rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Nome del caso}} & Un utente chiede ad un amministratore di aggiungere una nuova abilità al set predefinito di sistema \\
 \rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente, Amministratore \\ 
-\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L'utente clicca sul pulsante “Invia messaggio” dal profilo pubblica dell'amministratore \\
+\rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Condizione di entrata}} & L'utente clicca sul pulsante “Invia messaggio” dal profilo pubblico dell'amministratore \\
 \rowcolor[gray]{.9}\hline  \raisebox{-10ex}[0pt][0pt]{\textbf{Flusso degli eventi}} & 
 \begin{enumerate}
 \itemsep0em
@@ -359,7 +380,7 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \rowcolor[gray]{.9}\hline  \textbf{Eccezioni} & Nessuna
 \\
 \hline 
-\end{tabularx} \\[1\baselineskip]
+\end{tabularx} \\[3\baselineskip]
 \begin{tabularx}{\textwidth}{|c|X|}
 \rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Nome del caso}} & Un utente invia una richiesta di amicizia ad un altro utente senza passare dai suggerimenti \\
 \rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente A, Utente B \\ 
@@ -370,7 +391,7 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \rowcolor[gray]{.9}\hline  \textbf{Eccezioni} & Nessuna
 \\
 \hline 
-\end{tabularx} \\[1\baselineskip]
+\end{tabularx} \\[3\baselineskip]
 
 \begin{tabularx}{\textwidth}{|c|X|}
 \rowcolor[gray]{.9}\hline \raisebox{-1ex}[0pt][0pt]{ \textbf{Nome del caso}} & Un utente risponde positivamente ad una richiesta di amicizia \\
@@ -406,7 +427,7 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \rowcolor[gray]{.9}\hline  \textbf{Eccezioni} & Nessuna
 \\
 \hline 
-\end{tabularx} \\[1\baselineskip]
+\end{tabularx} \\[3\baselineskip]
 \begin{tabularx}{\textwidth}{|c|X|}
 \rowcolor[gray]{.9}\hline  \textbf{Nome del caso} & Un utente cancella il proprio account \\
 \rowcolor[gray]{.9}\hline  \textbf{Attori} & Utente \\ 
@@ -425,39 +446,55 @@ Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abili
 \hline 
 \end{tabularx}
 \clearpage
+\vspace*{10cm}
 \section{Modelli UML}
 \subsection{Sequence diagrams}
-\begin{center}
-\includegraphics[scale=0.75]{sDiagrams/creazioneUtente.jpg}
-%\caption{Creazione di un utente}
-\vspace*{\fill}
-\includegraphics[scale=0.75]{sDiagrams/accettazioneAmicizia.jpg} \\
-%\caption{Accettazione di una richiesta di amicizia} \\
+\begin{figure}
+\centering
+\includegraphics[scale=0.70]{sDiagrams/creazioneUtente.jpg}
+\caption{\label{creazioneUtente} Creazione di un utente}
+\vspace{1cm}
+\includegraphics[scale=0.70]{sDiagrams/accettazioneAmicizia.jpg} \\
+\caption{\label{accettazioneAmicizia} Accettazione di una richiesta di amicizia}
+\end{figure}
 \clearpage
-\includegraphics[scale=0.75]{sDiagrams/login.jpg} \\
-%\caption{Login di un utente} \\
-\vspace*{\fill}
-\includegraphics[scale=0.75]{sDiagrams/modificaAbilita.jpg} \\
-%\caption{Modifica del set di abilità} \\
+\begin{figure}
+\centering
+\includegraphics[scale=0.70]{sDiagrams/login.jpg} \\
+\caption{\label{login} Login di un utente}
+\vspace{0.5cm}
+\includegraphics[scale=0.70]{sDiagrams/modificaAbilita.jpg} \\
+\caption{\label{modificaAbilita} Modifica del set di abilità}
+\end{figure}
 \clearpage
-\includegraphics[scale=0.75]{sDiagrams/richiestaAmicizia.jpg} \\
-%\caption{Invio di una richiesta di amicizia} \\
-\vspace*{\fill}
-\includegraphics[scale=0.75]{sDiagrams/creazioneThread.jpg} \\
-%\caption{Invio di un nuovo messaggio sulla bacheca pubblica} \\
-\clearpage
-\includegraphics[scale=0.75]{sDiagrams/ricercaUtenti.jpg} \\
-%\caption{Ricerca di un utente} \\
-\vspace*{\fill}
-\includegraphics[scale=0.75]{sDiagrams/invioMessaggio.jpg} \\
-%\caption{Invio di un messaggio privato} \\
-\clearpage
-\includegraphics[scale=0.75]{sDiagrams/invioFeedback.jpg} \\
-%\caption{Invio di un feedback} \\
-\vspace*{\fill}
-\includegraphics[scale=0.75]{sDiagrams/cancellazioneAccount.jpg} \\
-%\caption{Cancellazione dell'account} \\
-\end{center}
+\begin{figure}
+\centering
+\includegraphics[scale=0.70]{sDiagrams/richiestaAmicizia.jpg} \\
+\caption{\label{richiestaAmicizia} Invio di una richiesta di amicizia}
+\vspace{2cm}
+\includegraphics[scale=0.70]{sDiagrams/tentativoCreazioneThread.jpg} \\
+\caption{\label{tentativoCreazioneThread} Un ospite tenta di creare un thread}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.70]{sDiagrams/creazioneThread.jpg} \\
+\caption{\label{creazioneThread} Invio di un nuovo messaggio sulla bacheca pubblica}
+\vspace{0.5cm}
+\includegraphics[scale=0.70]{sDiagrams/ricercaUtenti.jpg} \\
+\caption{\label{ricercaUtenti} Ricerca di un utente}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.70]{sDiagrams/invioMessaggio.jpg} \\
+\caption{\label{invioMessaggio} Invio di un messaggio privato}
+\includegraphics[scale=0.70]{sDiagrams/invioFeedback.jpg} \\
+\caption{\label{invioFeedback} Invio di un feedback}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.70]{sDiagrams/cancellazioneAccount.jpg} \\
+\caption{\label{cancellazioneAccount} Cancellazione dell'account}
+\end{figure}
 \clearpage
 \subsection{Statechart}
 Con i seguenti statechart abbiamo controllato il flusso delle operazioni del sistema in alcuni casi specifici: \\[1\baselineskip]

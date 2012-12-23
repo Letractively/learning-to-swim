@@ -4,10 +4,10 @@
   <element>
     <type>com.umlet.element.custom.SeqObjectActive</type>
     <coordinates>
-      <x>330</x>
-      <y>170</y>
+      <x>380</x>
+      <y>180</y>
       <w>20</w>
-      <h>290</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>bg=blue
 </panel_attributes>
@@ -16,10 +16,10 @@
   <element>
     <type>com.umlet.element.custom.SeqObjectActive</type>
     <coordinates>
-      <x>700</x>
-      <y>170</y>
+      <x>750</x>
+      <y>180</y>
       <w>20</w>
-      <h>290</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>bg=blue</panel_attributes>
     <additional_attributes/>
@@ -27,44 +27,44 @@
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>320</x>
-      <y>140</y>
+      <x>370</x>
+      <y>160</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-1: Click sul pulsante "login"</panel_attributes>
+1: Click sul pulsante "Inserisci messaggio"</panel_attributes>
     <additional_attributes>380;50;30;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>320</x>
-      <y>240</y>
+      <x>370</x>
+      <y>260</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-3: Inserimento mail e password</panel_attributes>
+3: Lettura popup e click sul pulsante "ok"</panel_attributes>
     <additional_attributes>380;50;30;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>320</x>
-      <y>190</y>
+      <x>370</x>
+      <y>210</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-2: Visualizzazione della form</panel_attributes>
+2: Visualizzazione popup di errore</panel_attributes>
     <additional_attributes>30;50;380;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Actor</type>
     <coordinates>
-      <x>300</x>
-      <y>60</y>
+      <x>350</x>
+      <y>70</y>
       <w>80</w>
       <h>120</h>
     </coordinates>
@@ -74,8 +74,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>660</x>
-      <y>80</y>
+      <x>710</x>
+      <y>90</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -86,8 +86,8 @@ bg=gray</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>680</x>
-      <y>80</y>
+      <x>730</x>
+      <y>90</y>
       <w>50</w>
       <h>110</h>
     </coordinates>
@@ -97,61 +97,13 @@ bg=gray</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>320</x>
-      <y>350</y>
+      <x>370</x>
+      <y>310</y>
       <w>400</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-5: Esito</panel_attributes>
+4: Visualizzazione della pagina precedente</panel_attributes>
     <additional_attributes>30;50;380;50</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>320</x>
-      <y>400</y>
-      <w>400</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-7: Visualizzazione Home dell'utente</panel_attributes>
-    <additional_attributes>30;50;380;50</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>320</x>
-      <y>290</y>
-      <w>400</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-4: Click sul pulsante "conferma"</panel_attributes>
-    <additional_attributes>380;50;30;50</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>690</x>
-      <y>320</y>
-      <w>110</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-</panel_attributes>
-    <additional_attributes>30;70;90;70;90;30;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.custom.Text</type>
-    <coordinates>
-      <x>780</x>
-      <y>350</y>
-      <w>100</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>Query sul
-database</panel_attributes>
-    <additional_attributes/>
   </element>
 </diagram>
