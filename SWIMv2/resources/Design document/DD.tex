@@ -1,112 +1,85 @@
-\documentclass[12pt]{article}
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
 
+\usepackage{scrextend}
+\changefontsizes[14pt]{14pt}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
-\usepackage[italian]{babel}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
 \usepackage{ragged2e} 
+\usepackage{colortbl}
+\usepackage[italian]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{color}
+\definecolor{mygrey}{gray}{0.4}
+\definecolor{light-blue}{rgb}{0.4,0.5,1}
+\definecolor{light-cyan}{rgb}{0.4,0.6,1}
+\usepackage{booktabs}
+
+%Header and footer of pages
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\textcolor{mygrey}{Emanuele Uliana, Gabriele Rufolo, Walter Rubino}}
+\rhead{\textcolor{mygrey}{Design Document}}
+
+%Set paragraphs indentation to 0 points
+\setlength{\parindent}{0pt}
+
+%Sections and subsections' style
+\usepackage{titlesec} 
+\titleformat{\section} {\color{blue}\normalfont\sffamily\Large\bfseries} {\color{blue}\thesection}{20pt}{} 
+\usepackage{titlesec}
+\titleformat{\subsection} {\color{light-blue}\normalfont\sffamily\large\bfseries\itshape} {\color{light-blue}\thesubsection}{18pt}{} 
+\titleformat{\subsubsection} {\color{light-cyan}\normalfont\sffamily\large\bfseries\itshape} {\color{light-cyan}\thesubsubsection}{14pt}{} 
+
+%Document default font family
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand*\arraystretch{1.5}
+
+\pdfinfo{%
+  /Title    (SWIMv2 - Design Document)
+  /Author  (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
+  /Creator  (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
+  /Producer (Emanuele Uliana /and Gabriele Rufolo / and Walter Rubino)
+  /Subject  (Design Document)
+  /Keywords ()
+
+}
+
 
 \begin{document}
-
-\begin{titlepage}
-
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
-
-\center % Center everything on the page
-\includegraphics[scale=0.22]{polimi.png} \\[2\baselineskip] 
- 
-%----------------------------------------------------------------------------------------
-%	HEADING SECTIONS
-%----------------------------------------------------------------------------------------
-
-\textsc{\LARGE Politecnico di Milano}\\[1cm] % Name of your university/college
-\textsc{\Large Progetto Di Ingegneria del Software 2}\\[0.5cm] % Major heading such as course name
-\textsc{\large SWIMv2}\\[0.5cm] % Minor heading such as course title
-
-%----------------------------------------------------------------------------------------
-%	TITLE SECTION
-%----------------------------------------------------------------------------------------
-
-\HRule \\[0.4cm]
-{ \huge \bfseries Design Document}\\[0.3cm] % Title of your document
-\HRule \\[1cm]
- 
-%----------------------------------------------------------------------------------------
-%	AUTHOR SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Autori:}\\
-Emanuele \textsc{Uliana} % Your name
+\vspace*{\fill}
+\begin{center}
+{\fontsize{28}{10} \selectfont \textcolor{mygrey}{Progetto di Ingegneria del Software 2} \\[2\baselineskip]} {\fontsize{42}{10} \selectfont {\bfseries SWIMv2}} \\[4\baselineskip]
+\includegraphics[scale=0.4]{polimi.png} \\[4\baselineskip]
+{\fontsize{28}{10} \selectfont {\bfseries \textcolor{blue}{Design Document}} \\[2\baselineskip] A.A. 2012/2013}
+\end{center}
+\begin{flushleft}
+{\fontsize{18}{10}
+{\bfseries Autori}: \\ Emanuele Uliana (799256), Gabriele Rufolo (743695), Walter Rubino (742519) \\[1\baselineskip]
+{\bfseries Docente}: \\ Prof.ssa Raffaela Mirandola
+}
 \end{flushleft}
-\end{minipage}
-~
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
-\emph{Professori:} \\
-Raffaela \textsc{Mirandola} % Supervisor's Name
-\end{flushright}
-\end{minipage}
-\begin{minipage}{0.83\textwidth}
-\begin{flushleft} \large
-\vspace{0,1cm}
-\textsc{(799256)} % Your name
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.83\textwidth}
-\begin{flushleft} \large
-\vspace{0,1cm}
-Gabriele \textsc{Rufolo} % Your name
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.83\textwidth}
-\begin{flushleft} \large
-\vspace{0,1cm}
-\textsc{(743695)} % Your name
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.83\textwidth}
-\begin{flushleft} \large
-\vspace{0,1cm}
-Walter \textsc{Rubino} % Your name
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.83\textwidth}
-\begin{flushleft} \large
-\vspace{0,1cm}
-\textsc{(742519)} % Your name
-\end{flushleft}
-\end{minipage}\\[1cm]
+\vspace*{\fill}
+\begin{center}
+Versione 1.0 del 22/12/2012 \\
+\end{center}
 
+\clearpage
 
+	    \vspace*{\fill}
+	\tableofcontents
+	    \vspace*{\fill}
 
+\clearpage
 
-% If you don't want a supervisor, uncomment the two lines below and remove the section above
-%\Large \emph{Author:}\\
-%John \textsc{Smith}\\[3cm] % Your name
-
-%----------------------------------------------------------------------------------------
-%	DATE SECTION
-%----------------------------------------------------------------------------------------
-
-{\large 22/12/2012}\\[3cm] % Date, change the \today to a set date if you want to be precise
-
-%----------------------------------------------------------------------------------------
-%	LOGO SECTION
-%----------------------------------------------------------------------------------------
-
-%\includegraphics{Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
- 
-%----------------------------------------------------------------------------------------
-
-\vfill % Fill the rest of the page with whitespace
-
-\end{titlepage}
-\tableofcontents
-\vfill
 \include{include/generali}
 \include{include/architettura}
-\include{include/sottosistemi}
 \include{include/database}
 \include{include/design}
 \include{include/sicurezza}

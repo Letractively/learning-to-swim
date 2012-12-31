@@ -1,38 +1,13 @@
 \section{Generali}
 
-\subsection{Breve Panoramica del sistema}
-Il sistema SWIMv2 è pensato per tutte quelle persone che hanno bisogno di un professionista in un determinato ambito e desiderano cercarlo online. Per accedere a tutte le funzionalità
-e per motivi di sicurezza sono richiesti la registrazione ed il login: entrambe le procedure sono molto semplici, in quanto l'interfaccia della web app è progettata per essere il più
-user-friendly possibile. Tutte le informazioni che gli utenti forniscono nella fase di registrazione sono memorizzate in un database di tipo relazionale (mysql) e, per ragioni di
-praticità e sicurezza non sono visibili in chiaro, bensì sotto forma di hash salato (vedi la sezione ``Sicurezza''); in particolare la password è crittografata con crittografia
-!!! TODO : DA DEFINIRSI !!!
+
+\subsection{Panoramica della piattaforma}
+La piattaforma sviluppata ha il compito di promuovere, tramite l’utilizzo di una web application, la collaborazione e la condivisione di informazioni utili alla risoluzione di problemi tra gli utenti.\\[1\baselineskip]Nel dettaglio, il presente documento di Design definisce la struttura concettuale e funzionale fornendo una precisa descrizione delle guidelines che saranno seguite nello sviluppo e nel deployment dell’applicazione.\\[1\baselineskip]Il documento è inoltre conforme con le specifiche presenti nel RASD.\\[1\baselineskip]Il sistema è utilizzato da tre categorie di utenti: gli ospiti, gli utenti registrati e gli amministratori. Tramite un sistema di autenticazione il sistema controlla chi può svolgere determinate azioni in base al proprio ruolo.\\[1\baselineskip]Per evitare l’accesso a servizi non consentiti si è deciso di utilizzare il Role-Based Access Control. Con tale sistema di autenticazione si consentirà di usufruire solamente dei servizi specifici per il proprio ruolo.
+
 
 \subsection{Scopo di questo documento}
 Lo scopo di questo documento è quello di descrivere nel dettaglio, anche tramite l'ausilio di diagrammi E-R, UML, UX, ecc. , lo scheletro del sistema, i suoi vari componenti (database,
-interfaccia utente e logica applicativa), le tecnologie utilizzate e la gestione della sicurezza, il tutto opportunamente spiegato anche minuziosamente ove è richiesto per una
-ottimale comprensione di SWIMv2.
-
-\subsection{Assunzioni e rettifiche}
-Nello scrivere questo documento abbiamo deciso di precisare alcune nostre assunzioni rispetto al sistema e alla progettazione:
-\begin{itemize}
- \item Gli amministratori del sistema sono e saranno sempre i tre autori di questo articolo.
- \item Il set di abilità iniziali predefinito di sistema è costituito da:
- \begin{itemize}
-  \item Ingegnere del Software
-  \item Master dei videogiochi ``Final Fantasy''
-  \item Esperto di Computer Security
-  \item Esperto di Crittografia
-  \item Esperto di calcio mondiale
-  \item Esperto di Probabilità e Statistica
-  \item Esperto della società Mozilla
-  \item Esperto di automobili
-  \item Esperto di Apple
-  \item Esperto di Linux e dell'open source
- \end{itemize}
- \item Un ospite non può chiedere aiuto da nessuna parte: può solo effettuare ricerche tra gli utenti registrati.
- \item Conseguenza del punto precedente è che non esiste una bacheca pubblica come inizialmente da noi ipotizzato.
-\end{itemize}
-
+interfaccia utente e logica applicativa), le tecnologie utilizzate e la gestione della sicurezza per comprendere al meglio come è stata sviluppata SWIMv2.
 
 \subsection{Glossario}
 In questo documento vengono usate le seguenti sigle/abbreviazioni:
@@ -48,25 +23,7 @@ In questo documento vengono usate le seguenti sigle/abbreviazioni:
  \item DBMS: DataBase Management System
  \item AS: Application Server
 \end{itemize}
-Sono tutte sigle abbastanza note, ma, a scanso di equivoci è sempre meglio precisare (a cominciare dal fatto che questa sezione non è un filler, ma ha una sua utilità).
 
 \pagebreak
 
-\section{Software impiegato per il documento e per il sistema}
-Per scrivere questo documento sono stati impiegati i seguenti software:
-\begin{itemize}
- \item Kile, un editor per scrivere in \LaTeX, e compilare il sorgente in un file PDF
- \item LiveTex, una distribuzione di \TeX , senza cui Kile non può compilare
- \item JDER, un editor di diagrammi E-R
- \item Mysql Workbench per il diagramma di vista logica del database
- \item !!!TODO : ciò che ho usato per lo UX !!!
-\end{itemize}
-Invece per lo sviluppo di SWIMv2 sono stati impiegati i seguenti software e le seguenti tecnologie:
-\begin{itemize}
- \item Eclipse Juno per J2EE per la scrittura del codice java/jsp
- \item Openjdk 1.7 come versione di java, senza cui Eclipse non può nemmeno partire
- \item Mysql Server come server per il DB
- \item JBoss AS 5 come server locale su cui far girare il sistema
- \item WaveMaker !!!O chi per lui !!! per disegnare l'interfaccia grafica
-\end{itemize}
 
