@@ -1,4 +1,6 @@
 \section{Sicurezza}
-L'ultima sezione del Design Document riguarda le metodologie impiegate per garantire la sicurezza del sistema: innanzittutto, come già detto, vengono impiegati hash salato e
-crittografia per evitare che nel DB siano presenti in chiaro dati sensibili; poi, l'altro grande punto è il filtraggio delle stringhe in input a qualunque form per evitare attacchi
-del tipo SQL Injection e XSS.
+
+Per accedere a tutte le funzioni e per motivi di sicurezza sono richiesti la registrazione ed il login: entrambe le procedure sono molto semplici, in quanto l'interfaccia della web app è progettata per essere il più
+user-friendly possibile. Tutte le informazioni che gli utenti forniscono nella fase di registrazione sono memorizzate in un database di tipo relazionale MySql.
+
+L'ultima sezione del Design Document riguarda le metodologie impiegate per garantire la sicurezza del sistema: innanzittutto vengono impiegati hash salato e crittografia per evitare che nel database siano presenti in chiaro dati sensibili; poi, l'altro grande punto è il filtraggio delle stringhe immesse in qualunque modulo per evitare attacchi del tipo SQL Injection e XSS.

@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>330</x>
+      <y>240</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Homepage Utente
+--
+Metodi
++ navigateTo()
++ gestisciProfilo()
++ ricerca()
++ logout()
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1120</x>
+      <y>520</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Posta
+--
+Metodi
++ navigateTo()
++ inviaMessaggio()
+fg=black
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>600</x>
+      <y>240</y>
+      <w>170</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Profilo
+--
+Attributi
++ nome
++ cognome
++ città
++ abilità
+- password
+--
+Metodi
++ navigateTo()
++ modificaPassword()
++ aggiungiAbilità()
++ visualizzaAmici()
++ vediPosta()
++ logout()
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>600</x>
+      <y>610</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+ProfiloAmico
+--
+Metodi
++ navigateTo()
++ inviaMessaggio()
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>590</x>
+      <y>760</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+ProfiloUtente
+--
+Metodi
++ navigateTo()
++ inviaMessaggio()
++ chiediAmicizia()
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1000</x>
+      <y>740</y>
+      <w>130</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Messaggio
+--
+Metodi
++ navigateTo()
++ conferma()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>110</x>
+      <y>550</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Ricerca
+--
+Metodi
++ navigateTo()
++ conferma()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>740</x>
+      <y>420</y>
+      <w>400</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+vediPosta
+fg=dark_gray</panel_attributes>
+    <additional_attributes>380;140;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1040</x>
+      <y>590</y>
+      <w>170</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inviaMessaggio</panel_attributes>
+    <additional_attributes>30;150;150;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>360</y>
+      <w>270</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-
+ricerca
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;190;250;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>150</x>
+      <y>670</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+conferma
+fg=dark_gray</panel_attributes>
+    <additional_attributes>150;100;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>440</x>
+      <y>760</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>150;70;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>440</x>
+      <y>280</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+gestisciProfilo
+fg=dark_gray</panel_attributes>
+    <additional_attributes>160;60;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>500</x>
+      <y>120</y>
+      <w>178</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+modificaPassword
+fg=dark_gray</panel_attributes>
+    <additional_attributes>60;30;130;120</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>490</x>
+      <y>0</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Cambia Password
+--
+Metodi
++ navigateTo()
++ conferma()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>750</x>
+      <y>20</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;input form&gt;&gt;
+Password Form
+--
+Attributi
++ vecchiaPassword
++ nuovaPassword
+bg=cyan
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>50</y>
+      <w>170</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+fg=gray</panel_attributes>
+    <additional_attributes>30;30;150;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>650</x>
+      <y>90</y>
+      <w>128</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Successful
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;150;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>860</x>
+      <y>40</y>
+      <w>170</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Error
+bg=red
+fg=red</panel_attributes>
+    <additional_attributes>150;60;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>860</x>
+      <y>80</y>
+      <w>170</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>30;30;150;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1010</x>
+      <y>60</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Error Input
+--
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>740</x>
+      <y>230</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+aggiungiAbilità
+fg=dark_gray</panel_attributes>
+    <additional_attributes>200;30;30;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>940</x>
+      <y>190</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Abilità
+--
+Metodi
++ navigateTo()
++ conferma()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>740</x>
+      <y>270</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+conferma
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;70;200;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1010</x>
+      <y>360</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;input form&gt;&gt;
+Ability Form
+--
+Attributi
++ list&lt;Abilità&gt;()
+bg=cyan
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>780</x>
+      <y>300</y>
+      <w>310</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;30;290;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>290</x>
+      <y>510</y>
+      <w>170</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Amici
+--
+Attributi
++list &lt;Utenti&gt; amici()
+--
+Metodi
++ navigateTo()
++ accetta()
++ rifiuta()
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>430</x>
+      <y>420</y>
+      <w>190</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=-
+visualizzaAmici
+fg=dark_gray</panel_attributes>
+    <additional_attributes>170;30;30;220</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>300</x>
+      <y>720</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Risultati
+--
+Attributi
++ list&lt;Utenti&gt;()
+--
+Metodi
++ navigateTo()
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>70</x>
+      <y>780</y>
+      <w>170</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;input form&gt;&gt;
+Ricerca
+--
+Attributi
++ nome
++ cognome
++ città
++ abilità
+bg=cyan
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>120</x>
+      <y>720</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;60;140;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>60</x>
+      <y>310</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Categoria
+--
+Metodi
++ navigateTo()
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>30</x>
+      <y>150</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;screen&gt;&gt;
+Thread
+--
+Metodi
++ navigateTo()
++ messaggio()
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>200</x>
+      <y>290</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;90;130;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>170</x>
+      <y>180</y>
+      <w>180</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+
+fg=dark_gray</panel_attributes>
+    <additional_attributes>160;110;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>430</x>
+      <y>630</y>
+      <w>190</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>170;60;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>710</x>
+      <y>800</y>
+      <w>310</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inviaMessaggio</panel_attributes>
+    <additional_attributes>290;60;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>720</x>
+      <y>650</y>
+      <w>300</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inviaMessaggio</panel_attributes>
+    <additional_attributes>280;180;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>900</x>
+      <y>550</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;input form&gt;&gt;
+Messaggio
+--
+Attributi
++ destinatario
++ contenuto
+
+bg=cyan
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>650</x>
+      <y>480</y>
+      <w>370</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+conferma
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;30;350;310</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>780</x>
+      <y>570</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;50;120;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>70</x>
+      <y>240</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+
+fg=dark_gray</panel_attributes>
+    <additional_attributes>70;70;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>300</x>
+      <y>10</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;input form&gt;&gt;
+Messaggio
+--
+Attributi
++ contenuto
+
+bg=cyan
+fg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>110</x>
+      <y>50</y>
+      <w>190</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+messaggio
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;100;30;50;90;50;170;50;170;140;90;140</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>90</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;60;120;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>370</x>
+      <y>430</y>
+      <w>186</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+accetta, rifiuta
+fg=dark_gray</panel_attributes>
+    <additional_attributes>30;80;30;50;90;50;140;50;140;100;90;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>470</x>
+      <y>830</y>
+      <w>170</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+chiediAmicizia
+fg=dark_gray</panel_attributes>
+    <additional_attributes>120;30;80;30;80;90;150;90;150;50</additional_attributes>
+  </element>
+</diagram>
