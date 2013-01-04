@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: 
+
+<persistence-unit name="titanicPU"> <jta-data-source>java:MysqlDS </jta-data-source>
+<properties>
+<property name="hibernate.hbm2ddl.auto"
+value="create-drop"/> </properties>
+</persistence-unit>
