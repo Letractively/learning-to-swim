@@ -8,16 +8,16 @@ public class Utente {
 	@GeneratedValue
 	private Long ID;
 
-	@Column(length = 32)
+	@Column(length = 32, nullable = false)
 	private String Nome;
 	
-	@Column(length = 32)
+	@Column(length = 32, nullable = false)
 	private String Cognome;
 	
-	@Column(length = 32, unique = true)
+	@Column(length = 32, unique = true, nullable = false)
 	private String Mail;
 	
-	@Column(length = 32)
+	@Column(length = 32, nullable = false)
 	private String Password;
 	
 	
