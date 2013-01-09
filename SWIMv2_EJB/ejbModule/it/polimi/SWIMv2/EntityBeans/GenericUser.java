@@ -37,20 +37,16 @@ public abstract class GenericUser implements Serializable {
 	 * @Column(name = "Admin") private boolean admin;
 	 */
 
-	@Column(name = "Zero_Feedback", length = 10)
-	private int zeroFeedback;
+	@Embedded
+	private Feedback feedback;
+	
+	public Feedback getFeedback() {
+		return feedback;
+	}
 
-	@Column(name = "One_Feedback", length = 10)
-	private int oneFeedback;
-
-	@Column(name = "Two_Feedback", length = 10)
-	private int twoFeedback;
-
-	@Column(name = "Three_Feedback", length = 10)
-	private int threeFeedback;
-
-	@Column(name = "Four_Feedback", length = 10)
-	private int fourFeedback;
+	public void setFeedback(Feedback feedback) {
+		this.feedback = feedback;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -98,55 +94,15 @@ public abstract class GenericUser implements Serializable {
 	 * public void setAdmin(boolean admin) { this.admin = admin; }
 	 */
 
-	public int getZeroFeedback() {
-		return zeroFeedback;
-	}
-
-	public void setZeroFeedback(int zeroFeedback) {
-		this.zeroFeedback = zeroFeedback;
-	}
-
-	public int getOneFeedback() {
-		return oneFeedback;
-	}
-
-	public void setOneFeedback(int oneFeedback) {
-		this.oneFeedback = oneFeedback;
-	}
-
-	public int getTwoFeedback() {
-		return twoFeedback;
-	}
-
-	public void setTwoFeedback(int twoFeedback) {
-		this.twoFeedback = twoFeedback;
-	}
-
-	public int getThreeFeedback() {
-		return threeFeedback;
-	}
-
-	public void setThreeFeedback(int threeFeedback) {
-		this.threeFeedback = threeFeedback;
-	}
-
-	public int getFourFeedback() {
-		return fourFeedback;
-	}
-
-	public void setFourFeedback(int fourFeedback) {
-		this.fourFeedback = fourFeedback;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
 
-	// prova
 	
 	@ManyToMany(
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.User.class
+            targetEntity=it.polimi.SWIMv2.EntityBeans.GenericUser.class
             )
 	@JoinTable(
 			name = "Friendship",
@@ -154,5 +110,16 @@ public abstract class GenericUser implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "id2")
 			)
 	private Set<GenericUser> friends = new HashSet<GenericUser>();
+	
+	@ManyToMany(
+			cascade={CascadeType.PERSIST, CascadeType.MERGE},
+            targetEntity=it.polimi.SWIMv2.EntityBeans.Ability.class
+            )
+	@JoinTable(
+			name = "User_Abilities",
+			joinColumns = @JoinColumn(name = "User"),
+			inverseJoinColumns = @JoinColumn(name = "Ability")
+			)
+	private Set<Ability> abilities = new HashSet<Ability>();
 
 }
