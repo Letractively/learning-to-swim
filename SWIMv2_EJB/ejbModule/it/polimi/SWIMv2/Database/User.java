@@ -3,76 +3,149 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * La entity corrispondente alla tabella UTENTI
+ * La entity corrispondente alla tabella User
  * @author emanuele
  *
  */
-//Lo so che mancano alcuni attributi, sono TODO da aggiungere dopo esserci messi d'accordo
-//Alcuni dei setter sono inutili. TODO in futuro saranno eliminati
 @Entity
-@Table(name="Users")
+@Table(name="User")
 public class User implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue
-	private Long ID;
+	private Long id;
 
-	@Column(length = 32, nullable = false)
-	private String Nome;
+	@Column(name = "First_Name", length = 32, nullable = false)
+	private String firstName;
 	
-	@Column(length = 32, nullable = false)
-	private String Cognome;
+	@Column(name = "Last_Name", length = 32, nullable = false)
+	private String lastName;
 	
-	@Column(length = 32, unique = true, nullable = false)
-	private String Mail;
+	@Column(name = "Email", length = 32, unique = true, nullable = false)
+	private String email;
 	
-	@Column(length = 32, nullable = false)
-	private String Password;
+	@Column(name = "Password", length = 32, nullable = false)
+	private String password;
+	
+	@Column(name = "City", length = 32)
+	private String city;
+	
+	@Column(name = "Admin")
+	private boolean admin;
 	
 	
-	public Long getID() {
-		return ID;
+	@Column(name = "Zero_Feedback", length = 10)
+	private int zeroFeedback;
+	
+	@Column(name = "One_Feedback", length = 10)
+	private int oneFeedback;
+	
+	@Column(name = "Two_Feedback", length = 10)
+	private int twoFeedback;
+	
+	@Column(name = "Three_Feedback", length = 10)
+	private int threeFeedback;
+	
+	@Column(name = "Four_Feedback", length = 10)
+	private int fourFeedback;
+	
+	
+	
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setID(Long iD) {
-		ID = iD;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getNome() {
-		return Nome;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setNome(String nome) {
-		Nome = nome;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getCognome() {
-		return Cognome;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCognome(String cognome) {
-		Cognome = cognome;
-	}
-
-	public String getMail() {
-		return Mail;
-	}
-
-	public void setMail(String mail) {
-		Mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public int getZeroFeedback() {
+		return zeroFeedback;
+	}
+
+	public void setZeroFeedback(int zeroFeedback) {
+		this.zeroFeedback = zeroFeedback;
+	}
+
+	public int getOneFeedback() {
+		return oneFeedback;
+	}
+
+	public void setOneFeedback(int oneFeedback) {
+		this.oneFeedback = oneFeedback;
+	}
+
+	public int getTwoFeedback() {
+		return twoFeedback;
+	}
+
+	public void setTwoFeedback(int twoFeedback) {
+		this.twoFeedback = twoFeedback;
+	}
+
+	public int getThreeFeedback() {
+		return threeFeedback;
+	}
+
+	public void setThreeFeedback(int threeFeedback) {
+		this.threeFeedback = threeFeedback;
+	}
+
+	public int getFourFeedback() {
+		return fourFeedback;
+	}
+
+	public void setFourFeedback(int fourFeedback) {
+		this.fourFeedback = fourFeedback;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
 	
 
 }
