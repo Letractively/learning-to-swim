@@ -1,9 +1,22 @@
+package it.polimi.SWIMv2.Database;
+import java.io.Serializable;
 import javax.persistence.*;
 
-
+/**
+ * La entity corrispondente alla tabella UTENTI
+ * @author emanuele
+ *
+ */
+//Lo so che mancano alcuni attributi, sono TODO da aggiungere dopo esserci messi d'accordo
+//Alcuni dei setter sono inutili. TODO in futuro saranno eliminati
 @Entity
-@Table(name="UTENTI")
-public class Utente {
+@Table(name="Users")
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private Long ID;
