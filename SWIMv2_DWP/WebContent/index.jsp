@@ -1,0 +1,31 @@
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+
+<jsp:include page="header.jsp">
+	<jsp:param name="title" value="Pagina principale"/>
+</jsp:include>
+
+<div class="content">
+	<p>
+		Benvenuti nella piattaforma SWIMv2!<br /> Qui potete cercare aiuto per
+		le più svariate tematiche.
+	</p>
+	<h1>Get Start!</h1>
+	<p>
+		Sei nuovo e hai bisogno di aiuto? Sei nel posto giusto!<br /> Nel
+		menù a destra trovi il tuo men&acute; personale dal quale puoi
+		accedere a:<br />
+		<ul>
+			<li>Le tue abilit&agrave; (aggiungerle, rimuoverle e
+				modificarle)</li>
+			<li>I tuoi feedback sull'aiuto ricevuto</li>
+			<li>La gestione dei tuoi amici</li>
+			<li>Le richieste di aiuto inviate e ricevute</li>
+		</ul>
+	</p>
+	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
+		help@swim.net</p>
+
+
+</div>
+
+<jsp:include page="footer.jsp" />
