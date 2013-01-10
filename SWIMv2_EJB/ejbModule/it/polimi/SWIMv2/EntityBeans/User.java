@@ -14,4 +14,17 @@ public class User extends GenericUser{
 	
 	@Column(name = "Admin")
 	private boolean admin = false;
+	
+	
+	public User(){}
+	
+	public User(String firstName, String lastName, String email, String password, String city, boolean admin){
+		super.setFirstName(firstName);
+		super.setLastName(lastName);
+		super.setEmail(email);
+		super.setPassword(password);
+		super.setCity(city);
+		this.admin = admin;
+		
+	}
 }
