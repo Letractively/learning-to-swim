@@ -4,16 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Compila i campi</title>
 </head>
 <body>
-<p>prova</p>
-<form action="Invia.jsp" method="post">
+
+<form action="registration" method="post">
 <b>Nome</b>
 <input type="text" name="nome">
+<br/>
 <b>Cognome</b>
 <input type="text" name="cognome">
+<br/>
+<b>E-mail</b>
+<input type="text" name="email">
+<br/>
+<b>Password</b>
+<input type="text" name="password">
+<br/>
+<b>Città</b>
+<input type="text" name="citta'">
+<br/>
 <input type="submit" value="Invia">
 </form>
+
 </body>
 </html>
