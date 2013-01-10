@@ -30,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
 	
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("nome")+request.getParameter("nome")+request.getParameter("email")+request.getParameter("password")+request.getParameter("citta'"));
+		System.out.println(request.getParameter("nome")+request.getParameter("cognome")+request.getParameter("email")+request.getParameter("password")+request.getParameter("citta'"));
 	
 		try {
 			ctx = new InitialContext();
@@ -40,7 +40,7 @@ public class RegistrationServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		rb.insertIntoDatabase(request.getParameter("nome"), request.getParameter("nome"), request.getParameter("email"), request.getParameter("password"), request.getParameter("citta'"));
+		rb.insertIntoDatabase(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("email"), request.getParameter("password"), request.getParameter("citta'"));
 		
 	}
 	
