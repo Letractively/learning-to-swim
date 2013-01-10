@@ -27,7 +27,7 @@ public abstract class GenericUser implements Serializable {
 	@Column(name = "Email", length = 32, unique = true, nullable = false)
 	private String email;
 
-	@Column(name = "Password", length = 32, nullable = false)
+	@Column(name = "Password", length = 500, nullable = false)
 	private String password;
 
 	@Column(name = "City", length = 32)
