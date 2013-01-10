@@ -30,13 +30,15 @@ public class RegistrationServlet extends HttpServlet {
 	
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//TODO rimuovere la println
 		System.out.println(request.getParameter("nome")+request.getParameter("cognome")+request.getParameter("email")+request.getParameter("password")+request.getParameter("citta'"));
 	
 		try {
 			ctx = new InitialContext();
 			rb = (RegistrationBeanLocal)ctx.lookup("RegistrationBean/local");
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			// TODO rimuovere la println
+			System.out.println("qualcosa non va");
 			e.printStackTrace();
 		}
 		
