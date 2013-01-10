@@ -33,10 +33,6 @@ public abstract class GenericUser implements Serializable {
 	@Column(name = "City", length = 32)
 	private String city;
 
-	/*
-	 * @Column(name = "Admin") private boolean admin;
-	 */
-
 	@Embedded
 	private Feedback feedback;
 	
@@ -88,13 +84,6 @@ public abstract class GenericUser implements Serializable {
 		this.city = city;
 	}
 
-	/*
-	 * public boolean isAdmin() { return admin; }
-	 * 
-	 * public void setAdmin(boolean admin) { this.admin = admin; }
-	 */
-
-	
 	public Long getId() {
 		return id;
 	}
@@ -121,5 +110,28 @@ public abstract class GenericUser implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "Ability")
 			)
 	private Set<Ability> abilities = new HashSet<Ability>();
+	
+	@OneToMany(
+			cascade={CascadeType.PERSIST, CascadeType.MERGE},
+            targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
+            )
+	private Set<Message> senderMessages = new HashSet<Message>();
 
+	
+	@OneToMany(
+			cascade={CascadeType.PERSIST, CascadeType.MERGE},
+            targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
+            )
+	private Set<Message> receiveMessages = new HashSet<Message>();
+	/*@ManyToMany(
+			cascade={CascadeType.PERSIST, CascadeType.MERGE},
+            targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
+            )
+	@JoinTable(
+			name = "Received_Messages",
+			joinColumns = @JoinColumn(name = "Receiver"),
+			inverseJoinColumns = @JoinColumn(name = "Message")
+			)*/
+
+	
 }
