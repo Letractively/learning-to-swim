@@ -32,7 +32,7 @@ public class RegistrationServlet extends HttpServlet {
  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//TODO rimuovere la println
-		System.out.println(request.getParameter("nome")+request.getParameter("cognome")+request.getParameter("email")+request.getParameter("password")+request.getParameter("citta'"));
+		//System.out.println(request.getParameter("nome")+request.getParameter("cognome")+request.getParameter("email")+request.getParameter("password")+request.getParameter("citta'"));
 	
 		try {
 			ctx = new InitialContext();
