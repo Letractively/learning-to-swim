@@ -23,7 +23,7 @@
 <b>Password</b>
 <input type="text" name="password">
 <br/>
-<b>Città</b>
+<b>Citt&agrave;</b>
 <input type="text" name="citta'">
 <br/>
 <input type="submit" value="Invia">
