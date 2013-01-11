@@ -3,6 +3,27 @@ package it.polimi.SWIMv2.Utilities;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Questa classe è deputata ad effettuare il parsing dell'indirizzo email inserito dell'utente in fase di
+ * registrazione per verificare che sia conforme al modello di un'indirizzo ben formato; in caso contrario
+ * il session bean di registrazione solleverà un'eccezione (per maggiori dettagli vedere il  RegistrationBean.
+ * 
+ * Si assume che l'espressione regolare di un'indirizzo email ben formato sia:
+ * 
+ * detti x, X, n rispettivamente caratteri corrispondenti a una lettera minuscola, una maiuscola, un numero,
+ * detti * e + rispettivamente l'operatore stella di Kleene e l'operatore croce,
+ * detti . - _ @ gli unici altri caratteri ammessi in alcune parti di un indirizzo email ben formato,
+ * detto | l'operatore or,
+ * 
+ * (x|X|n)+ ((.|-|_)(x|X|n)+)* @ (x|X|n)+ ((.|-|_)(x|X|n)+)* . (x|X) (x|X)+
+ * 
+ * Si noti che la scelta di far terminare un indirizzo ben formato con almeno due lettere è voluta
+ * 
+ * L'intera procedura di parsing simula il funzionamento di un automa a stati finiti (a qualcosa serve LFC!)
+ * 
+ * @author Emanuele Uliana
+ *
+ */
 public class EmailParser {
 	
 	private char[] emailArray;
@@ -12,7 +33,12 @@ public class EmailParser {
 	private List<Character> numbers = new ArrayList<Character>();;
 	private List<Character> specialCharacters = new ArrayList<Character>();;
 	
-	
+	/**
+	 * Di fatto il costruttore agisce da scanner, ovvero tokenizza la stringa e "delimita" i possibili caratteri
+	 * che può contenere.
+	 * 
+	 * @param email : la stringa da analizzare
+	 */
 	public EmailParser(String email){
 		this.emailArray = email.toCharArray();
 		createList();
