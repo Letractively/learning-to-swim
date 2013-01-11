@@ -1,5 +1,6 @@
 package it.polimi.SWIMv2.Servlets;
 
+import it.polimi.SWIMv2.Exceptions.UserNotFoundException;
 import it.polimi.SWIMv2.SessionBeans.LoginBeanLocal;
 import it.polimi.SWIMv2.SessionBeans.RegistrationBeanLocal;
 
@@ -28,13 +29,24 @@ public class LoginServlet extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 			lb = (LoginBeanLocal)ctx.lookup("LoginBean/local");
-			lb.validateUser(request.getParameter("email"), request.getParameter("password"));
+			boolean b = lb.validateUser(request.getParameter("email"), request.getParameter("password"));
+			//TODO rimuovere la println
+			if(b){
+				System.out.println("login corretto");
+			}
+			else{
+				System.out.println("login non corretto");
+			}
 			//TODO eseguire le azioni successive
 		} catch (NamingException e) {
 			// TODO rimuovere la println
 			System.out.println("qualcosa non va nel login");
 			e.printStackTrace();
+		} catch (UserNotFoundException e){
+			//TODO rimuovere la println
+			System.out.println("l'utente non esiste: login impossibile");
 		}
+		
 	}
 
 }
