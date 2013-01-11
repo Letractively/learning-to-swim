@@ -36,13 +36,15 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 			rb = (RegistrationBeanLocal)ctx.lookup("RegistrationBean/local");
+			rb.insertIntoDatabase(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("email"), request.getParameter("password"), request.getParameter("citta'"));
+			//TODO eseguire le azioni successive
 		} catch (NamingException e) {
 			// TODO rimuovere la println
-			System.out.println("qualcosa non va");
+			System.out.println("qualcosa non va nella registrazione");
 			e.printStackTrace();
 		}
 		
-		rb.insertIntoDatabase(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("email"), request.getParameter("password"), request.getParameter("citta'"));
+		
 		
 	}
 	

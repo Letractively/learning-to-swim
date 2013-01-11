@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<!-- INIZIO FORM DI REGISTRAZIONE -->
+
 <form action="registration" method="post">
 <b>Nome</b>
 <input type="text" name="nome">
@@ -26,6 +28,8 @@
 <br/>
 <input type="submit" value="Invia">
 </form>
+
+<!-- FINE FORM DI REGISTRAZIONE -->
 
 </body>
 </html>
