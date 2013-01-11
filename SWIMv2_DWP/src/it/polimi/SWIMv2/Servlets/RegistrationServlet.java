@@ -1,6 +1,7 @@
 package it.polimi.SWIMv2.Servlets;
 
 
+import it.polimi.SWIMv2.Exceptions.IllegalEmailException;
 import it.polimi.SWIMv2.SessionBeans.RegistrationBean;
 import it.polimi.SWIMv2.SessionBeans.RegistrationBeanLocal;
 
@@ -42,6 +43,9 @@ public class RegistrationServlet extends HttpServlet {
 			// TODO rimuovere la println
 			System.out.println("qualcosa non va nella registrazione");
 			e.printStackTrace();
+		} catch (IllegalEmailException e){
+			// TODO rimuovere la println
+			System.out.println("email malformata");
 		}
 		
 		
