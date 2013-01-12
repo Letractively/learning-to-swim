@@ -4,7 +4,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
-import it.polimi.SWIMv2.EntityBeans.User;
 import it.polimi.SWIMv2.Exceptions.UserNotFoundException;
 import it.polimi.SWIMv2.Utilities.PasswordHash;
 
@@ -32,7 +31,7 @@ public class LoginBean implements LoginBeanLocal {
     }
 
     /**
-     * Il metodo prima verifica l'esistenza nel database di un utente con l'email uguale a quella ricevuta, poi verifica se la sua password è giusta 
+     * Il metodo prima verifica l'esistenza nel database di un utente con l'email uguale a quella ricevuta, poi verifica se la sua password �� giusta 
      */
 	@Override
 	public boolean validateUser(String email, String password) throws UserNotFoundException {
@@ -45,7 +44,7 @@ public class LoginBean implements LoginBeanLocal {
 		}
 		
 		try {
-			String pwd = password; //sembra ridondante, ma è per evitare che un parametro venga modificato
+			String pwd = password; //sembra ridondante, ma �� per evitare che un parametro venga modificato
 			return ph.validatePassword(pwd, u.getPassword());
 			
 		} catch (NoSuchAlgorithmException e) {
