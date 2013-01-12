@@ -10,10 +10,13 @@ import java.util.Set;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.EntityBeans.User;
 import it.polimi.SWIMv2.Exceptions.IllegalEmailException;
+import it.polimi.SWIMv2.Utilities.ActivationByMail;
 import it.polimi.SWIMv2.Utilities.EmailParser;
 import it.polimi.SWIMv2.Utilities.PasswordHash;
 
 import javax.ejb.Stateless;
+import javax.mail.MessagingException;
+import javax.naming.NamingException;
 import javax.persistence.*;
 
 /**
@@ -39,7 +42,20 @@ public class RegistrationBean implements RegistrationBeanLocal {
     @Override
     public void insertIntoDatabase(String firstName, String lastName, String email, String password, String city) throws IllegalEmailException{
     	
+    	ActivationByMail abm = new ActivationByMail();
+    	
     	EmailParser eP = new EmailParser(email);
+    	
+    	try {
+			abm.sendMail("cloudstrife9999@tiscali.it", "activation@jboss.com", "prova", "ciao");
+			System.out.println("ho inviato correttamente la mail");
+		} catch (MessagingException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} /*catch (NamingException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}*/
     	
     	if(!eP.parseEmail()){
     		throw new IllegalEmailException();
