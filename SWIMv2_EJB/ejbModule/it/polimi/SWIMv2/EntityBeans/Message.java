@@ -1,7 +1,7 @@
 package it.polimi.SWIMv2.EntityBeans;
 
 import java.io.Serializable;
-
+import java.util.Calendar;
 import javax.persistence.*;
 
 
@@ -9,9 +9,23 @@ import javax.persistence.*;
 @Table(name = "Message")
 public class Message implements Serializable{
 
+	public Message(Long idMessage, Long sender, Long receiver, String body){
+		
+		this.messageKey = new MessageKey(idMessage,sender);
+		
+		this.date = Calendar.getInstance();
+		this.body = body;
+		this.receiver = receiver;
+		
+		
+	}
+	
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId private MessageKey messageKey;
+	
+	@Column(name="Date")
+	private Calendar date;
 	
 	@Column(name = "Body", length= 3000)
 	private String body;
@@ -37,6 +51,10 @@ public class Message implements Serializable{
 
 	public MessageKey getMessageKey() {
 		return messageKey;
+	}
+	
+	public Calendar getDate() {
+		return date;
 	}
 	
 	
