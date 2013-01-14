@@ -18,6 +18,9 @@
 <b>Inserisci Citt&agrave;</b>
 <input type="text" name="city">
 <br/>
+<b>Inserisci Abilit&agrave;</b>
+<input type="text" name="ability">
+<br/>
 <input type="submit" value="Invia">
 </form>
 
