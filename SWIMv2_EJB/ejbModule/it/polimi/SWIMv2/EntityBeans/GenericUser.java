@@ -124,6 +124,19 @@ public abstract class GenericUser implements Serializable {
 			)
 	private Set<Ability> abilities = new HashSet<Ability>();
 	
+	public Set<Ability> getAbilities() {
+		return abilities;
+	}
+
+	public void setAbilities(Set<Ability> abilities) {
+		this.abilities = abilities;
+	}
+	
+	public void addAbility(Ability a){
+		this.abilities.add(a);
+	}
+
+
 	@OneToMany(
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
