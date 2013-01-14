@@ -20,6 +20,8 @@ public class Message implements Serializable{
 		
 	}
 	
+	public Message(){}
+	
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId private MessageKey messageKey;
