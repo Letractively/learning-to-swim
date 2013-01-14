@@ -1,33 +1,54 @@
 package it.polimi.SWIMv2.Utilities;
 
-import javax.mail.*;
-import javax.mail.internet.*;
-import java.util.*;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+/**
+ * Questa classe si occupa di inviare una mail a un indirizzo email. Tutti i dati sono passati per
+ * parametro al metodo sendMsg(...)
+ *  
+ * @author Emanuele Uliana
+ *
+ */
 public class ActivationByMail {
-	
-	//NON FUNZIONA ANCORA!!!
-	public void sendMail (String dest, String mitt, String oggetto, String testoEmail)
-		      throws MessagingException
-		  {
-		    // Creazione di una mail session
-		    Properties props = new Properties();
-		    props.put("mail.smtp.host", "localhost");
-		    Session session = Session.getInstance(props);
-		    
-
-		    // Creazione del messaggio da inviare
-		    MimeMessage message = new MimeMessage(session);
-		    message.setSubject(oggetto);
-		    message.setText(testoEmail);
-
-		    // Aggiunta degli indirizzi del mittente e del destinatario
-		    InternetAddress fromAddress = new InternetAddress(mitt);
-		    InternetAddress toAddress = new InternetAddress(dest);
-		    message.setFrom(fromAddress);
-		    message.setRecipient(Message.RecipientType.TO, toAddress);
-
-		    // Invio del messaggio
-		    Transport.send(message);
-		  }
+ 
+	public  void sendMsg(String to, String from, String subject, String body) {
+ 
+		final String username = "SWIMv2.learningtoswim@gmail.com";
+		final String password = "daveisafuckingnerd";
+ 
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+ 
+		Session session = Session.getInstance(props,
+		  new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		  });
+ 
+		try {
+ 
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+			message.setSubject(subject);
+			message.setContent(body, "text/html");
+ 
+			Transport.send(message);
+ 
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

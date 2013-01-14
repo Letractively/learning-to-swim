@@ -2,12 +2,9 @@ package it.polimi.SWIMv2.SessionBeans;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import it.polimi.SWIMv2.EntityBeans.GenericUser;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import it.polimi.SWIMv2.EntityBeans.User;
 import it.polimi.SWIMv2.Exceptions.IllegalEmailException;
 import it.polimi.SWIMv2.Utilities.ActivationByMail;
@@ -15,12 +12,14 @@ import it.polimi.SWIMv2.Utilities.EmailParser;
 import it.polimi.SWIMv2.Utilities.PasswordHash;
 
 import javax.ejb.Stateless;
-import javax.mail.MessagingException;
-import javax.naming.NamingException;
 import javax.persistence.*;
+
 
 /**
  * Session Bean implementation class RegistrationBean
+ * 
+ * Questa classe si occupa di gestire la logica di business della registrazione: verifica il fatto che l'email sia ben formata, che non ne esista già
+ * una uguale nel database e crea l'hash salato della password
  */
 @Stateless
 public class RegistrationBean implements RegistrationBeanLocal {
@@ -43,23 +42,19 @@ public class RegistrationBean implements RegistrationBeanLocal {
     public void insertIntoDatabase(String firstName, String lastName, String email, String password, String city) throws IllegalEmailException{
     	
     	ActivationByMail abm = new ActivationByMail();
-    	
     	EmailParser eP = new EmailParser(email);
-    	
-    	try {
-			abm.sendMail("cloudstrife9999@tiscali.it", "activation@jboss.com", "prova", "ciao");
-			System.out.println("ho inviato correttamente la mail");
-		} catch (MessagingException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		} /*catch (NamingException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}*/
-    	
-    	if(!eP.parseEmail()){
+		Map<String,String> activatingMailParameters = new HashMap<String,String>();
+		
+		if(!eP.parseEmail()){
     		throw new IllegalEmailException();
     	}
+		
+		activatingMailParameters = generateActivationMailParameters(activatingMailParameters, email, firstName, lastName);
+    	
+		abm.sendMsg(activatingMailParameters.get("to"), activatingMailParameters.get("from"), activatingMailParameters.get("subject"), activatingMailParameters.get("body"));
+			
+    	System.out.println("ho inviato correttamente la mail");
+		
     	
     	PasswordHash ph = new PasswordHash();
     	
@@ -69,12 +64,12 @@ public class RegistrationBean implements RegistrationBeanLocal {
 			User u = new User(firstName, lastName, email, hash, city, false);
 			try{
 	    		//TODO rimuovere la println
-	    		System.out.println("non esiste tale utente");
+	    		System.out.println("non esiste tale utente e quindi posso crearlo");
 	    		em.persist(u);
 	    	}
 	    	catch(Exception e){
 	    		//TODO rimuovere la println e, se vogliamo essere precisi, sostituire a "Exception" il nome della sua sottoclasse che corrisponde all'eccezione lanciata
-	    		System.out.println("l'email esiste già");
+	    		System.out.println("l'email esiste già: l'utente non viene creato");
 	    	}
 		} catch (NoSuchAlgorithmException e1) {
 			// TODO Auto-generated catch block
@@ -83,11 +78,30 @@ public class RegistrationBean implements RegistrationBeanLocal {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-    	
-    	
-    	
-    	
-    	//TODO rimuovere la println
-    	System.out.println("Sono arrivato in questo punto");
     }
+
+
+	private Map<String,String> generateActivationMailParameters(Map<String,String> activatingMailParameters, String email, String nome, String cognome) {
+		String activationLink = "http://127.0.0.1:8080/" + randomString(30) + "?user=" + nome + "%20" + cognome;
+		
+		//TODO ricordarsi di mettere il parametro email al posto della mia mail
+		activatingMailParameters.put("to", "emanuele.uliana.90@gmail.com");
+		activatingMailParameters.put("from", "activation@SWIMv2.com");
+		activatingMailParameters.put("subject", "Activate your SWIMv2 profile");
+		activatingMailParameters.put("body", "Per attivare il tuo profilo clicca sul seguente link:\n <a href='http://localhost:8080'>" + activationLink + "</a>");
+		
+		return activatingMailParameters;
+	}
+	
+	private String randomString (int length) {
+	    Random rnd = new Random();
+	    char[] arr = new char[length];
+
+	    for (int i=0; i<length; i++) {
+	        int n = rnd.nextInt (36);
+	        arr[i] = (char) (n < 10 ? '0'+n : 'a'+n-10);
+	    }
+
+	    return new String (arr);
+	}
 }
