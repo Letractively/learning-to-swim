@@ -36,7 +36,9 @@ public class LoginBean implements LoginBeanLocal {
 	@Override
 	public boolean validateUser(String email, String password) throws UserNotFoundException {
 	
-		Query q = em.createQuery("SELECT u FROM User u WHERE u.email = email");
+		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
+		q.setParameter("email", email);
+		//Query q = em.createNativeQuery("SELECT * FROM User WHERE Email = 'emanuele.uliana.90@gmail.com'");
 		GenericUser u = (GenericUser)q.getSingleResult();
 		
 		if(u == null){
