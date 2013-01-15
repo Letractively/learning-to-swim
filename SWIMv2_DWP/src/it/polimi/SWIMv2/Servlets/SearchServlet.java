@@ -1,9 +1,7 @@
 package it.polimi.SWIMv2.Servlets;
 
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
-import it.polimi.SWIMv2.Exceptions.IllegalEmailException;
 import it.polimi.SWIMv2.Exceptions.VoidSearchException;
-import it.polimi.SWIMv2.SessionBeans.RegistrationBeanLocal;
 import it.polimi.SWIMv2.SessionBeans.SearchBeanLocal;
 
 import java.io.IOException;
