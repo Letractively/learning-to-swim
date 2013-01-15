@@ -34,30 +34,44 @@ public class LoginBean implements LoginBeanLocal {
      * Il metodo prima verifica l'esistenza nel database di un utente con l'email uguale a quella ricevuta, poi verifica se la sua password �� giusta 
      */
 	@Override
-	public boolean validateUser(String email, String password) throws UserNotFoundException {
+	public GenericUser validateUser(String email, String password){
 	
 		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
 		q.setParameter("email", email);
 		//Query q = em.createNativeQuery("SELECT * FROM User WHERE Email = 'emanuele.uliana.90@gmail.com'");
-		GenericUser u = (GenericUser)q.getSingleResult();
 		
-		if(u == null){
+			
+		
+		
+		
+		
+		/*if(u == null){
 			throw new UserNotFoundException();
-		}
+		}*/
+		
 		
 		try {
+			GenericUser u = (GenericUser)q.getSingleResult();
 			String pwd = password; //sembra ridondante, ma �� per evitare che un parametro venga modificato
-			return ph.validatePassword(pwd, u.getPassword());
+			if(ph.validatePassword(pwd, u.getPassword())){
+				return u;
+			}
 			
 		} catch (NoSuchAlgorithmException e) {
 			// TODO togliere
 			e.printStackTrace();
-			return false;
+			return null;
 		} catch (InvalidKeySpecException e) {
 			// TODO togliere
 			e.printStackTrace();
-			return false;
+			return null;
+		} catch (Exception e){
+			return null;
 		}
+		
+		
+		
+		return null;
 	}
 
 }
