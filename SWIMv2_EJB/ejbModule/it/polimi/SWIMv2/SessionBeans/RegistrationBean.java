@@ -82,7 +82,7 @@ public class RegistrationBean implements RegistrationBeanLocal {
 
 
 	private Map<String,String> generateActivationMailParameters(Map<String,String> activatingMailParameters, String email, String nome, String cognome) {
-		String activationLink = "http://127.0.0.1:8080/" + randomString(30) + "?user=" + nome + "%20" + cognome;
+		String activationLink = "http://127.0.0.1:8080/" + randomString(30) + "?user=" + email;
 		
 		//TODO ricordarsi di mettere il parametro email al posto della mia mail
 		activatingMailParameters.put("to", "emanuele.uliana.90@gmail.com");
