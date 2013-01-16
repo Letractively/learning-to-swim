@@ -3,9 +3,7 @@ package it.polimi.SWIMv2.Servlets;
 import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.EntityBeans.User;
-import it.polimi.SWIMv2.Exceptions.UserNotFoundException;
 import it.polimi.SWIMv2.SessionBeans.LoginBeanLocal;
-import it.polimi.SWIMv2.SessionBeans.RegistrationBeanLocal;
 import it.polimi.SWIMv2.SessionBeans.UserSessionBeanLocal;
 
 import java.io.IOException;
@@ -46,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("email", u.getEmail());
 				request.getSession().setAttribute("feedback", u.getFeedback());
 				request.getSession().setAttribute("contesto", usbl);
+				request.getSession().setAttribute("logged", true);
 				
 				//Object userClass = u.getClass();
 				
