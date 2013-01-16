@@ -10,8 +10,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.digester.SetRootRule;
-
 /**
  * Servlet Filter implementation class LoggedUsersFilter
  */
@@ -37,9 +35,14 @@ public class LoggedUsersFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-		if(((HttpServletRequest)request).getSession().getAttribute("email")!= null){
-			((HttpServletResponse) response).sendRedirect("profile.jsp");
+		try{
+			if((Boolean) ((HttpServletRequest)request).getSession().getAttribute("logged")){
+				((HttpServletResponse) response).sendRedirect("profile.jsp");
+			}
+		}catch (NullPointerException e){
+			System.out.println("Posso accedere alla pagina di login");
 		}
+		
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
