@@ -36,6 +36,11 @@ public abstract class GenericUser implements Serializable {
 	@Embedded
 	private Feedback feedback;
 	
+	@Column(name = "Registration_Code", length = 30)
+	private String registrationCode;
+	
+	@Column(name = "Confirmed")
+	private boolean confirmed;
 	
 	public GenericUser(){}
 	
@@ -48,6 +53,22 @@ public abstract class GenericUser implements Serializable {
 	}
 	
 	
+	
+	public boolean isConfirmed(){
+		return this.confirmed;
+	}
+	
+	public void setConfirmed(boolean confirmed){
+		this.confirmed = confirmed;
+	}
+	
+	public String getRegistrationCode(){
+		return this.registrationCode;
+	}
+	
+	public void setRegistrationCode(String registrationCode){
+		this.registrationCode = registrationCode;
+	}
 	
 	public Feedback getFeedback() {
 		return feedback;

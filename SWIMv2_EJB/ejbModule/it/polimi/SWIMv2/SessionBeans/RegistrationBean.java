@@ -49,40 +49,49 @@ public class RegistrationBean implements RegistrationBeanLocal {
     		throw new IllegalEmailException();
     	}
 		
-		activatingMailParameters = generateActivationMailParameters(activatingMailParameters, email, firstName, lastName);
-    	
-		abm.sendMsg(activatingMailParameters.get("to"), activatingMailParameters.get("from"), activatingMailParameters.get("subject"), activatingMailParameters.get("body"));
-			
-    	System.out.println("ho inviato correttamente la mail");
-		
-    	
     	PasswordHash ph = new PasswordHash();
     	
     	try {
 			String hash = ph.createHash(password);
 			System.out.println(hash);
 			User u = new User(firstName, lastName, email, hash, city, false);
-			try{
-	    		//TODO rimuovere la println
-	    		System.out.println("non esiste tale utente e quindi posso crearlo");
-	    		em.persist(u);
-	    	}
-	    	catch(Exception e){
-	    		//TODO rimuovere la println e, se vogliamo essere precisi, sostituire a "Exception" il nome della sua sottoclasse che corrisponde all'eccezione lanciata
-	    		System.out.println("l'email esiste già: l'utente non viene creato");
-	    	}
+			
+    		//TODO rimuovere la println
+    		System.out.println("non esiste tale utente e quindi posso crearlo");
+    		em.persist(u);
+	    	
+    		String randomCode = randomString(30);
+    		String activationLink = "http://127.0.0.1:8080/" + randomCode + "?user=" + email;
+    		
+    		activatingMailParameters = generateActivationMailParameters(activatingMailParameters, email, firstName, lastName, activationLink);
+    		
+    		abm.sendMsg(activatingMailParameters.get("to"), activatingMailParameters.get("from"), activatingMailParameters.get("subject"), activatingMailParameters.get("body"));
+    			
+    		System.out.println("ho inviato correttamente la mail");
+    		
+    		u.setRegistrationCode(randomCode);
+    		u.setConfirmed(false);
+    		//TODO va fatto dopo ogni modifica o si può togliere?
+    		em.persist(u);
+	    	
+			
 		} catch (NoSuchAlgorithmException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (InvalidKeySpecException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		} catch(Exception e){
+    		//TODO rimuovere la println e, se vogliamo essere precisi, sostituire a "Exception" il nome della sua sottoclasse che corrisponde all'eccezione lanciata
+    		System.out.println("l'email esiste già: l'utente non viene creato");
+    	}
     }
+    
+    
 
 
-	private Map<String,String> generateActivationMailParameters(Map<String,String> activatingMailParameters, String email, String nome, String cognome) {
-		String activationLink = "http://127.0.0.1:8080/" + randomString(30) + "?user=" + email;
+	private Map<String,String> generateActivationMailParameters(Map<String,String> activatingMailParameters, String email, String nome, String cognome, String activationLink) {
+		
 		
 		//TODO ricordarsi di mettere il parametro email al posto della mia mail
 		activatingMailParameters.put("to", "emanuele.uliana.90@gmail.com");
