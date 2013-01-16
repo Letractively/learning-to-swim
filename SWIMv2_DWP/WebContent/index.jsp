@@ -14,6 +14,9 @@
 		Sei nuovo e hai bisogno di aiuto? Sei nel posto giusto!<br /> Nel
 		menù a destra trovi il tuo men&acute; personale dal quale puoi
 		accedere a:<br />
+		
+	</p>
+	
 		<ul>
 			<li>Le tue abilit&agrave; (aggiungerle, rimuoverle e
 				modificarle)</li>
@@ -21,14 +24,21 @@
 			<li>La gestione dei tuoi amici</li>
 			<li>Le richieste di aiuto inviate e ricevute</li>
 		</ul>
-	</p>
+	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
 		
-	<% String alert = (String)session.getAttribute("alert");
+	<% 
+		String alert = (String)session.getAttribute("alert");
 		if(alert!=null){
-		%><p><%=alert %></p>
-		<%session.removeAttribute("alert");} %>
+	%>
+		<p>
+		<%=alert %>
+		</p>
+		
+	<%
+		session.removeAttribute("alert");} 
+	%>
 
 
 </div>

@@ -11,7 +11,7 @@ public class MailUtility
   {
     // Creazione di una mail session
     Properties props = new Properties();
-    props.put("mail.smtp.host", "smtp.mioprovider.it");
+    props.put("mail.smtp.host", "smtp.gmail.com");
     Session session = Session.getDefaultInstance(props);
 
     // Creazione del messaggio da inviare
@@ -23,7 +23,7 @@ public class MailUtility
     InternetAddress toAddress = new InternetAddress(receiver);
     message.setFrom(fromAddress);
     message.setRecipient(Message.RecipientType.TO, toAddress);
-
+    message.setSubject(sender + " ti ha inviato un messaggio su SWIMv2");
     // Invio del messaggio
     Transport.send(message);
   }
