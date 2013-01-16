@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  24 DEC 2012 00:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JAN 2013 15:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -271,19 +271,19 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 (./RASD.aux)
 \openout1 = `RASD.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 53.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -384,7 +384,7 @@ e
 <polimi.png, id=1, 722.7pt x 722.7pt>
 File: polimi.png Graphic file (type png)
  <use polimi.png>
-Package pdftex.def Info: polimi.png used on input line 55.
+Package pdftex.def Info: polimi.png used on input line 57.
 (pdftex.def)             Requested size: 289.07487pt x 289.07487pt.
 
 
@@ -393,7 +393,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 69.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 71.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
@@ -439,22 +439,22 @@ File: uni-32.def 2012/04/20 UCS: Unicode data U+2000..U+20FF
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2012/04/20 UCS: Unicode data U+0000..U+00FF
 )
-Underfull \hbox (badness 10000) in paragraph at lines 78--83
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--83
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--83
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--83
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
@@ -463,18 +463,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--83
 ]
 LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <16.79996> not available
 
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 87.
-LaTeX Font Info:    Try loading font information for OMS+lmss on input line 91.
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 89.
+LaTeX Font Info:    Try loading font information for OMS+lmss on input line 93.
 
-LaTeX Font Info:    No file OMSlmss.fd. on input line 91.
+LaTeX Font Info:    No file OMSlmss.fd. on input line 93.
 
 
 LaTeX Font Warning: Font shape `OMS/lmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 91.
+(Font)              for symbol `textbullet' on input line 93.
 
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 93.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 95.
 [4
 
 ] [5
@@ -484,24 +484,24 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14> not available
 ] [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 177--179
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--183
+Underfull \hbox (badness 10000) in paragraph at lines 182--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--187
+Underfull \hbox (badness 10000) in paragraph at lines 186--189
 
  []
 
 [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 193--197
+Underfull \hbox (badness 10000) in paragraph at lines 195--199
 
  []
 
@@ -509,146 +509,152 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--197
 
 ] [10
 
-] [11]
-Underfull \hbox (badness 3049) in paragraph at lines 274--274
+] [11] <UseCase.png, id=47, 919.18407pt x 457.71pt>
+File: UseCase.png Graphic file (type png)
+ <use UseCase.png>
+Package pdftex.def Info: UseCase.png used on input line 250.
+(pdftex.def)             Requested size: 459.59091pt x 228.85445pt.
+
+[12 <./UseCase.png>]
+Underfull \hbox (badness 3049) in paragraph at lines 284--284
 []\T1/lmss/m/n/14 Il si-ste-ma in-se-ri-sce nel da-ta-ba-se i da-ti del
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 274--274
+Underfull \hbox (badness 1622) in paragraph at lines 284--284
 \T1/lmss/m/n/14 neo-utente ma non met-te il flag nel cam-po
  []
 
 
-Underfull \hbox (badness 1975) in paragraph at lines 274--274
+Underfull \hbox (badness 1975) in paragraph at lines 284--284
 []\T1/lmss/m/n/14 Il si-ste-ma in-via una mail al-l'in-di-riz-zo for-ni-to
  []
 
 
-Underfull \hbox (badness 5652) in paragraph at lines 274--274
+Underfull \hbox (badness 5652) in paragraph at lines 284--284
 []|\T1/lmss/m/n/14 Il si-ste-ma ha mo-stra-to la pa-gi-na di av-ve-nu-ta
  []
 
-[12] [13]
-Underfull \hbox (badness 1286) in paragraph at lines 292--292
+[13]
+Underfull \hbox (badness 1286) in paragraph at lines 302--302
 []\T1/lmss/m/n/14 L'ospite in-se-ri-sce ne-gli ap-po-si-ti cam-pi mail e
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 310--310
+Underfull \hbox (badness 1571) in paragraph at lines 320--320
 []\T1/lmss/m/n/14 Il si-ste-ma no-ti-fi-ca al-l'u-ten-te il suc-ces-so del-
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 310--310
+Underfull \hbox (badness 1888) in paragraph at lines 320--320
 \T1/lmss/m/n/14 l'o-pe-ra-zio-ne e lo rein-di-riz-za al-la sua pa-gi-na
  []
 
 [14
 
 ]
-Underfull \hbox (badness 1472) in paragraph at lines 366--366
+Underfull \hbox (badness 1472) in paragraph at lines 376--376
 []\T1/lmss/m/n/14 Il si-ste-ma mo-stra una fi-ne-stra con una li-sta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--395
+Underfull \hbox (badness 10000) in paragraph at lines 336--405
 
  []
 
 [15
 
 ] [16] [17]
-Underfull \hbox (badness 1769) in paragraph at lines 430--430
+Underfull \hbox (badness 1769) in paragraph at lines 440--440
 []|\T1/lmss/m/n/14 L'utente A ha ri-ce-vu-to un mes-sag-gio di ri-spo-sta
  []
 
 [18
 
-] <sDiagrams/creazioneUtente.jpg, id=69, 622.325pt x 562.1pt>
+] <sDiagrams/creazioneUtente.jpg, id=70, 622.325pt x 562.1pt>
 File: sDiagrams/creazioneUtente.jpg Graphic file (type jpg)
 
 <use sDiagrams/creazioneUtente.jpg>
-Package pdftex.def Info: sDiagrams/creazioneUtente.jpg used on input line 454.
+Package pdftex.def Info: sDiagrams/creazioneUtente.jpg used on input line 464.
 (pdftex.def)             Requested size: 435.62453pt x 393.46732pt.
 
-<sDiagrams/accettazioneAmicizia.jpg, id=70, 652.4375pt x 271.0125pt>
+<sDiagrams/accettazioneAmicizia.jpg, id=71, 652.4375pt x 271.0125pt>
 File: sDiagrams/accettazioneAmicizia.jpg Graphic file (type jpg)
 
 <use sDiagrams/accettazioneAmicizia.jpg>
 Package pdftex.def Info: sDiagrams/accettazioneAmicizia.jpg used on input line 
-457.
+467.
 (pdftex.def)             Requested size: 456.70313pt x 189.70744pt.
  [19
 
 ] [20 <./sDiagrams/creazioneUtente.jpg> <./sDiagrams/accettazioneAmicizia.jpg>]
 
-<sDiagrams/login.jpg, id=78, 622.325pt x 451.6875pt>
+<sDiagrams/login.jpg, id=79, 622.325pt x 451.6875pt>
 File: sDiagrams/login.jpg Graphic file (type jpg)
  <use sDiagrams/login.jpg>
-Package pdftex.def Info: sDiagrams/login.jpg used on input line 463.
+Package pdftex.def Info: sDiagrams/login.jpg used on input line 473.
 (pdftex.def)             Requested size: 435.62453pt x 316.17908pt.
 
-<sDiagrams/modificaAbilita.jpg, id=79, 632.3625pt x 461.725pt>
+<sDiagrams/modificaAbilita.jpg, id=80, 632.3625pt x 461.725pt>
 File: sDiagrams/modificaAbilita.jpg Graphic file (type jpg)
 
 <use sDiagrams/modificaAbilita.jpg>
-Package pdftex.def Info: sDiagrams/modificaAbilita.jpg used on input line 466.
+Package pdftex.def Info: sDiagrams/modificaAbilita.jpg used on input line 476.
 (pdftex.def)             Requested size: 442.65074pt x 323.20529pt.
  [21 <./sDiagrams/login.jpg> <./sDiagrams/modificaAbilita.jpg>]
-<sDiagrams/richiestaAmicizia.jpg, id=83, 652.4375pt x 331.2375pt>
+<sDiagrams/richiestaAmicizia.jpg, id=84, 652.4375pt x 331.2375pt>
 File: sDiagrams/richiestaAmicizia.jpg Graphic file (type jpg)
 
 <use sDiagrams/richiestaAmicizia.jpg>
-Package pdftex.def Info: sDiagrams/richiestaAmicizia.jpg used on input line 472
+Package pdftex.def Info: sDiagrams/richiestaAmicizia.jpg used on input line 482
 .
 (pdftex.def)             Requested size: 456.70313pt x 231.86465pt.
 
-<sDiagrams/tentativoCreazioneThread.jpg, id=84, 501.875pt x 361.35pt>
+<sDiagrams/tentativoCreazioneThread.jpg, id=85, 501.875pt x 361.35pt>
 File: sDiagrams/tentativoCreazioneThread.jpg Graphic file (type jpg)
 
 <use sDiagrams/tentativoCreazioneThread.jpg>
 Package pdftex.def Info: sDiagrams/tentativoCreazioneThread.jpg used on input l
-ine 475.
+ine 485.
 (pdftex.def)             Requested size: 351.31009pt x 252.94327pt.
 
-<sDiagrams/creazioneThread.jpg, id=85, 632.3625pt x 471.7625pt>
+<sDiagrams/creazioneThread.jpg, id=86, 632.3625pt x 471.7625pt>
 File: sDiagrams/creazioneThread.jpg Graphic file (type jpg)
 
 <use sDiagrams/creazioneThread.jpg>
-Package pdftex.def Info: sDiagrams/creazioneThread.jpg used on input line 480.
+Package pdftex.def Info: sDiagrams/creazioneThread.jpg used on input line 490.
 (pdftex.def)             Requested size: 442.65074pt x 330.23149pt.
 
-<sDiagrams/ricercaUtenti.jpg, id=86, 632.3625pt x 421.575pt>
+<sDiagrams/ricercaUtenti.jpg, id=87, 632.3625pt x 421.575pt>
 File: sDiagrams/ricercaUtenti.jpg Graphic file (type jpg)
 
 <use sDiagrams/ricercaUtenti.jpg>
-Package pdftex.def Info: sDiagrams/ricercaUtenti.jpg used on input line 483.
+Package pdftex.def Info: sDiagrams/ricercaUtenti.jpg used on input line 493.
 (pdftex.def)             Requested size: 442.65074pt x 295.10048pt.
 
-<sDiagrams/invioMessaggio.jpg, id=87, 652.4375pt x 491.8375pt>
+<sDiagrams/invioMessaggio.jpg, id=88, 652.4375pt x 491.8375pt>
 File: sDiagrams/invioMessaggio.jpg Graphic file (type jpg)
 
 <use sDiagrams/invioMessaggio.jpg>
-Package pdftex.def Info: sDiagrams/invioMessaggio.jpg used on input line 488.
+Package pdftex.def Info: sDiagrams/invioMessaggio.jpg used on input line 498.
 (pdftex.def)             Requested size: 456.70313pt x 344.28389pt.
 
-<sDiagrams/invioFeedback.jpg, id=88, 652.4375pt x 471.7625pt>
+<sDiagrams/invioFeedback.jpg, id=89, 652.4375pt x 471.7625pt>
 File: sDiagrams/invioFeedback.jpg Graphic file (type jpg)
 
 <use sDiagrams/invioFeedback.jpg>
-Package pdftex.def Info: sDiagrams/invioFeedback.jpg used on input line 490.
+Package pdftex.def Info: sDiagrams/invioFeedback.jpg used on input line 500.
 (pdftex.def)             Requested size: 456.70313pt x 330.23149pt.
 
-<sDiagrams/cancellazioneAccount.jpg, id=89, 702.625pt x 461.725pt>
+<sDiagrams/cancellazioneAccount.jpg, id=90, 702.625pt x 461.725pt>
 File: sDiagrams/cancellazioneAccount.jpg Graphic file (type jpg)
 
 <use sDiagrams/cancellazioneAccount.jpg>
 Package pdftex.def Info: sDiagrams/cancellazioneAccount.jpg used on input line 
-495.
+505.
 (pdftex.def)             Requested size: 491.83414pt x 323.20529pt.
 
-Overfull \hbox (8.13727pt too wide) in paragraph at lines 495--495
+Overfull \hbox (8.13727pt too wide) in paragraph at lines 505--505
  [][] 
  []
 
@@ -656,54 +662,54 @@ Overfull \hbox (8.13727pt too wide) in paragraph at lines 495--495
 pg>] [23 <./sDiagrams/creazioneThread.jpg> <./sDiagrams/ricercaUtenti.jpg>]
 [24 <./sDiagrams/invioMessaggio.jpg> <./sDiagrams/invioFeedback.jpg>] [25 <./sD
 iagrams/cancellazioneAccount.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 500--502
+Underfull \hbox (badness 10000) in paragraph at lines 510--512
 
  []
 
-<statechart/invioFeedback.jpg, id=103, 160.6pt x 451.6875pt>
+<statechart/invioFeedback.jpg, id=104, 160.6pt x 451.6875pt>
 File: statechart/invioFeedback.jpg Graphic file (type jpg)
 
 <use statechart/invioFeedback.jpg>
-Package pdftex.def Info: statechart/invioFeedback.jpg used on input line 503.
+Package pdftex.def Info: statechart/invioFeedback.jpg used on input line 513.
 (pdftex.def)             Requested size: 120.44969pt x 338.76479pt.
  [26
 
 
 
  <./statechart/invioFeedback.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 516--517
 
  []
 
-<statechart/InvioRispostaMessaggio.jpg, id=107, 160.6pt x 451.6875pt>
+<statechart/InvioRispostaMessaggio.jpg, id=108, 160.6pt x 451.6875pt>
 File: statechart/InvioRispostaMessaggio.jpg Graphic file (type jpg)
 
 <use statechart/InvioRispostaMessaggio.jpg>
 Package pdftex.def Info: statechart/InvioRispostaMessaggio.jpg used on input li
-ne 508.
+ne 518.
 (pdftex.def)             Requested size: 120.44969pt x 338.76479pt.
  [27
 
- <./statechart/InvioRispostaMessaggio.jpg>] <signatures.png, id=111, 454.69875p
+ <./statechart/InvioRispostaMessaggio.jpg>] <signatures.png, id=112, 454.69875p
 t x 423.5825pt>
 File: signatures.png Graphic file (type png)
 
 <use signatures.png>
-Package pdftex.def Info: signatures.png used on input line 513.
+Package pdftex.def Info: signatures.png used on input line 524.
 (pdftex.def)             Requested size: 272.82135pt x 254.15146pt.
- <facts.png, id=112, 855.195pt x 299.1175pt>
+ <facts.png, id=113, 855.195pt x 299.1175pt>
 File: facts.png Graphic file (type png)
 
 <use facts.png>
-Package pdftex.def Info: facts.png used on input line 515.
+Package pdftex.def Info: facts.png used on input line 526.
 (pdftex.def)             Requested size: 513.12097pt x 179.47188pt.
 
-Overfull \hbox (29.4241pt too wide) in paragraph at lines 515--516
+Overfull \hbox (29.4241pt too wide) in paragraph at lines 526--527
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
 
  []
 
@@ -717,13 +723,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5052 strings out of 493488
- 72906 string characters out of 3141326
- 158085 words of memory out of 3000000
- 8224 multiletter control sequences out of 15000+200000
+ 5061 strings out of 493488
+ 73034 string characters out of 3141326
+ 158140 words of memory out of 3000000
+ 8232 multiletter control sequences out of 15000+200000
  61014 words of font info for 44 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 47i,11n,47p,906b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,12n,47p,906b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
 texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
 exlive/2012/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2012
@@ -732,10 +738,10 @@ t/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
 pe1/public/lm/lmssbo10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publ
 ic/lm/lmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lm
 sso12.pfb>
-Output written on RASD.pdf (29 pages, 623753 bytes).
+Output written on RASD.pdf (29 pages, 650167 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
+ 145 PDF objects out of 1000 (max. 8388607)
  88 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

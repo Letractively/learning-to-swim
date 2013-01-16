@@ -17,7 +17,9 @@
 \contentsline {subsubsection}{\numberline {5.2.6}Documentazione}{9}
 \contentsline {section}{\numberline {6}Identificazione degli scenari e casi d'uso}{10}
 \contentsline {subsection}{\numberline {6.1}Scenari}{10}
-\contentsline {subsection}{\numberline {6.2}Casi d'uso}{13}
+\contentsline {subsection}{\numberline {6.2}Casi d'uso}{12}
+\contentsline {subsubsection}{\numberline {6.2.1}Use Case Diagram}{12}
+\contentsline {subsubsection}{\numberline {6.2.2}Tabelle casi d'uso}{13}
 \contentsline {section}{\numberline {7}Modelli UML}{19}
 \contentsline {subsection}{\numberline {7.1}Sequence diagrams}{19}
 \contentsline {subsection}{\numberline {7.2}Statechart}{26}
