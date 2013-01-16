@@ -47,7 +47,7 @@ public class MessageBean implements MessageBeanLocal {
 		Long senderId = (Long)senderIdQuery.getSingleResult();
 		
 		Query messageIdQuery = entityManager.createQuery("SELECT MAX(ID) FROM Message message WHERE message.Sender='senderId'");
-		Long messageId = (Long)messageIdQuery.getSingleResult();
+		Long messageId = (Long)messageIdQuery.getSingleResult();//da incrementare
 		
 		Query receiverIdQuery =  entityManager.createQuery("SELECT ID FROM User receiver WHERE receiver.email='receiverEmail'");
 		Long receiverId = (Long)receiverIdQuery.getSingleResult();
