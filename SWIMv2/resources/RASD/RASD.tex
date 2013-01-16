@@ -17,6 +17,7 @@
 \usepackage{color}
 \definecolor{mygrey}{gray}{0.4}
 \definecolor{light-blue}{rgb}{0.4,0.5,1}
+\definecolor{light-cyan}{rgb}{0.4,0.6,1}
 \usepackage{booktabs}
 
 
@@ -34,6 +35,7 @@
 \titleformat{\section} {\color{blue}\normalfont\sffamily\Large\bfseries} {\color{blue}\thesection}{20pt}{} 
 \usepackage{titlesec}
 \titleformat{\subsection} {\color{light-blue}\normalfont\sffamily\large\bfseries\itshape} {\color{light-blue}\thesubsection}{18pt}{} 
+\titleformat{\subsubsection} {\color{light-cyan}\normalfont\sffamily\large\bfseries\itshape} {\color{light-cyan}\thesubsubsection}{14pt}{} 
 
 %Document default font family
 \renewcommand{\familydefault}{\sfdefault}
@@ -217,11 +219,11 @@ L'utente Felice Evacuo ha richiesto tramite messaggio un aiuto al suo amico ingl
 \textbf{Attori}: Gabriel Zufolo, Horatio Caine \\
 L'utente Gabriel Zufolo, appassionato di musica ha ricevuto una richiesta di aiuto da parte del suo amico Horatio Caine, un commissario di polizia che è da qualche mese sulle tracce di una banda. Tale banda, con la copertura dei concerti da essa tenuti, in realtà permette a dei complici di svaligiare le case degli ignari spettatori. Caine ha chiesto a Zufolo di dargli delle lezioni di flauto per potersi infiltrare nella banda come musicista e investigare. Zufolo risponde e si dichiara disponibile a collaborare con la polizia, lasciando il proprio numero di telefono per ulteriori contatti. \\[1.5em]
 \textbf{Scenario}: un team di specialisti hardware cerca un esperto in compilatori \\
-\textbf{Attori}: Bobby Bianchetti \\
-Bobby Bianchetti, specialista in microprocessori, in particolare ricercatore sulle pipeline, decide di integrare nel suo gruppo anche uno specialista in compilatori. Egli non è registrato su SWIM e sebbene provi a scrivere sulla bacheca pubblica riceve in risposta dall'applicazione un popup che gli ricorda di non essere abilitato alla scrittura all'interno di SWIM e l'ho invita a registrarsi.   \\[1.5em]
+\textbf{Attori}: Bobby Bianchetti, Stephen Ricci \\
+Bobby Bianchetti, specialista in microprocessori, in particolare ricercatore sulle pipeline, decide di integrare nel suo gruppo anche uno specialista in compilatori. Egli non è registrato su SWIM e sebbene provi a scrivere sulla bacheca pubblica riceve in risposta dall'applicazione un popup che gli ricorda di non essere abilitato alla scrittura all'interno di SWIM e l'ho invita a registrarsi. Bianchetti si registra, si logga ed effettua una ricerca nel sistema; l'unico risultato che compare è il profilo di Stephen Ricci, brillante neolaureato con una tesi sul compilatore "Flison".   \\[1.5em]
 \textbf{Scenario}: un gruppo di utenti cerca un esperto nella gestione di database per realizzare il loro social network \\
 \textbf{Attori}: Mark Westfold, Michael Sommer \\
-Mark Westfold, programmatore esperto, nello specifico membro di un team di utenti di SWIM che vorrebbero realizzare un loro social network dedicato all'hacking puro, si incarica di cercare una figura capace di gestire in maniera ottimale il database dell'applicazione, decide quindi di pubblicare nella categoria informatica un thread dove esplicita tale richiesta di aiuto. MIchael Sommer, informatico capace e gestore di diversi database presenti in applicazioni a carattere industriale, risponde a tale richiesta mostrandosi notevolmente interessato.    \\[3em]
+Mark Westfold, programmatore esperto, nello specifico membro di un team di utenti di SWIM che vorrebbero realizzare un loro social network dedicato all'hacking puro, si incarica di cercare una figura capace di gestire in maniera ottimale il database dell'applicazione, decide quindi di pubblicare nella categoria informatica un thread dove esplicita tale richiesta di aiuto. Michael Sommer, informatico capace e gestore di diversi database presenti in applicazioni a carattere industriale, risponde a tale richiesta mostrandosi notevolmente interessato.    \\[3em]
 \textbf{Scenario}: un calciatore tedesco cerca un preparatore atletico per la riabilitazione dopo l'ennesimo infortunio \\
 \textbf{Attori}: Thomas Strunz, Johannes Trapp \\
 Thomas Strunz, calciatore tedesco militante nella squadra dell'oratorio della cattedrale di Monaco di Baviera, si è infortunato per la quarta volta in un anno e decide di cambiare preparatore atletico. Dato che è da tempo un utente registrato su SWIM e si ricorda che un suo vecchio compagno di classe, presente nella sua lista amici del social network, gli aveva parlato di un amico italo-tedesco che aveva intenzione di diventare un preparatore atletico, chiede a costui tramite messaggio il nome del preparatore e, ricevendo come risposta Johannes Trapp, lo cerca tra gli amici dell'ex compagno di classe e, una volta trovatolo, gli invia la richiesta di amicizia. \\[1.5em]
@@ -242,6 +244,14 @@ Giorgia Angurie è un' abile organizzatrice di eventi con esperienze politiche a
 Alex Ziggie è un utente di SWIM che vorrebbe aggiungere al proprio set di abilità le seguenti: “venditore di aria fritta” e “capacità di apparire dal nulla” e, a tal proposito invia un messaggio all'amministratore Walter Rubino per la prima e all'amministratore Gabriele Rufolo per la seconda. Walter ritiene che la richiesta a lui pervenuta non rispetti il vincolo di realtà delle abilità: dubita infatti che una miscela di gas possa essere fritta a mo' di patatine; Gabriele per lo stesso motivo boccia la seconda richiesta. Entrambi notificano ad Alex il fatto che le sue richieste non possano essere accolte.
 
 \subsection{Casi d'uso}
+\subsubsection{Use Case Diagram}
+\begin{figure} [!hbtp]
+\centering
+\includegraphics[scale=0.5]{UseCase.png} \\
+\caption{\label{Case Diagram} Grafico rappresentante gli attori e i possibili casi d'uso}
+\end{figure}
+
+\subsubsection{Tabelle casi d'uso}
 \arrayrulecolor{cyan}
 \setlength\arrayrulewidth{0.8mm}
 \begin{tabularx}{\textwidth}{|c|X|}
@@ -506,6 +516,7 @@ Con i seguenti statechart abbiamo controllato il flusso delle operazioni del sis
 \textit{2. Inserimento di una risposta ad un messaggio}: \\
 \begin{center}
 \includegraphics[scale=0.75]{statechart/InvioRispostaMessaggio.jpg} \\
+
 \end{center}
 \clearpage
 \section{Modello Alloy}
