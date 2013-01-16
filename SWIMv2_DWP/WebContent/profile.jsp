@@ -15,5 +15,6 @@
     <b>Io sono un 
    		<%out.print(session.getAttribute("type"));%>
     </b>
+    
 </body>
 </html>

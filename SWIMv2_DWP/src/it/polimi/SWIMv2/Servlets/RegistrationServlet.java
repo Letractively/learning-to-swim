@@ -38,6 +38,10 @@ public class RegistrationServlet extends HttpServlet {
 			ctx = new InitialContext();
 			rb = (RegistrationBeanLocal)ctx.lookup("RegistrationBean/local");
 			rb.insertIntoDatabase(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("email"), request.getParameter("password"), request.getParameter("citta'"));
+			request.getSession().setAttribute("inserted", true);
+			request.getSession().setAttribute("confirmed", false);
+			request.getSession().setAttribute("alert", "Ti arriverà una mail di attivazione account");
+			getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			//TODO eseguire le azioni successive
 		} catch (NamingException e) {
 			// TODO rimuovere la println

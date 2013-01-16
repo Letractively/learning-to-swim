@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
-
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <jsp:include page="header.jsp">
 	<jsp:param name="title" value="Pagina principale"/>
 </jsp:include>
@@ -24,6 +24,11 @@
 	</p>
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
+		
+	<% String alert = (String)session.getAttribute("alert");
+		if(alert!=null){
+		%><p><%=alert %></p>
+		<%session.removeAttribute("alert");} %>
 
 
 </div>
