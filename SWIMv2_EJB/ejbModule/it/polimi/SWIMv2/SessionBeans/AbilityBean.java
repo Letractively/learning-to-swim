@@ -54,8 +54,20 @@ public class AbilityBean implements AbilityBeanLocal {
 	    }
 
 	@Override
-	public void createAbility(String name, String description) {
-		// TODO Auto-generated method stub
+	public void createAbility(String name, String description, String creatorEmail) {
+		
+		try {
+			
+			  Ability newAbility = new Ability(name,description);
+			  
+			  
+			     
+			     // entityManager.persist();
+			      
+			  
+			
+			} catch (EntityNotFoundException exc) {}
+		      catch (NonUniqueResultException exc) {}
 		
 	}
 

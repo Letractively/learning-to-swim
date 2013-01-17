@@ -8,6 +8,6 @@ public interface AbilityBeanLocal {
 	
 	public abstract void addAbilityToUser(String userEmail, int ability);
 
-	public abstract void createAbility(String name, String description);
+	public abstract void createAbility(String name, String description, String creatorEmail);
 
 }
