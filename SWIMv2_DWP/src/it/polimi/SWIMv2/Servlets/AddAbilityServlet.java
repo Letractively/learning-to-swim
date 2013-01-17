@@ -1,9 +1,7 @@
 package it.polimi.SWIMv2.Servlets;
 
-import it.polimi.SWIMv2.EntityBeans.GenericUser;
-import it.polimi.SWIMv2.SessionBeans.AbilityBeanLocal;
-import it.polimi.SWIMv2.SessionBeans.LoginBeanLocal;
 
+import it.polimi.SWIMv2.SessionBeans.AbilityBeanLocal;
 import java.io.IOException;
 
 import javax.naming.InitialContext;
