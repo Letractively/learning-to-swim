@@ -25,12 +25,5 @@ public class Admin extends GenericUser{
 		
 	}
 	
-	//CON QUESTA RELAZIONE IL LOGIN NON FUNZIONA, ERGO VA RIPENSATA
-	/*
-	@OneToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.Ability.class
-            )
-	private Set<Ability> abilities;
-*/
+
 }

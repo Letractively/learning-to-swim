@@ -31,9 +31,21 @@ public class Ability implements Serializable{
 	
 	@Column(name= "Description", length= 500)
 	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name="Creator")
+	private Admin creator;
 
 	
 	
+	public Admin getCreator() {
+		return creator;
+	}
+
+	public void setCreator(Admin creator) {
+		this.creator = creator;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -67,10 +79,6 @@ public class Ability implements Serializable{
 			)
 	private Set<GenericUser> users = new HashSet<GenericUser>();
 	
-	@ManyToOne(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.Admin.class
-            )
-	private Admin creator;
+
 
 }
