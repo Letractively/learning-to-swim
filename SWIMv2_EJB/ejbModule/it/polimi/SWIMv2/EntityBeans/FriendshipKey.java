@@ -24,10 +24,10 @@ public class FriendshipKey implements Serializable{
 	}
 	
 	
-		@Column(name = "Friend1")
+		//@Column(name = "Friend1")
 	    private GenericUser friend1;
 	
-		@Column(name = "Friend2")
+		//@Column(name = "Friend2")
 	    private GenericUser friend2 ;
 
 	    
