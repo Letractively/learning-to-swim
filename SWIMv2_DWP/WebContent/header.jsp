@@ -14,7 +14,7 @@
     <![endif]-->
 
 <script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
-<script type="text/javascript" language="javascript" src="js/jquery.dropdownPlain.js"></script>
+<script type="text/javascript" src="js/jquery.dropdownPlain.js"></script>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
     			 </li-->
     			 <li><a href="#">Abilit&agrave;</a></li>
     			 <li><a href="#">Messaggi</a></li>
-    			 <li><a href="#">Logout</a></li>
+    			 <li><a href="logout.jsp">Logout</a></li>
     		</ul>
       </li>
     </ul>
