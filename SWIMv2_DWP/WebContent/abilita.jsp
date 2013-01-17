@@ -22,6 +22,12 @@
 		In questa pagina potrai inserire, eliminare e modificare il set di abilit&agrave; associato al tuo profilo
 	</p>
 	
+	<%
+	
+	
+	
+	%>
+	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
 		</div>
