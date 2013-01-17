@@ -5,6 +5,7 @@ import it.polimi.SWIMv2.SessionBeans.AbilityBeanLocal;
 import java.io.IOException;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,11 +23,24 @@ public class CreateAbilityServlet extends HttpServlet {
    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		try {
+			
+			ctx = new InitialContext();
+		    abilityBean = (AbilityBeanLocal)ctx.lookup("AbilityBean/local");
 		
-	
-	
-	
-	
+		    String abilityName = request.getParameter("abilityName") ;
+            String abilityDescription = request.getParameter("abilityDescription");
+            String creatorEmail = (String)request.getSession().getAttribute("email");
+            
+            abilityBean.createAbility(abilityName, abilityDescription, creatorEmail);
+		
+	    	} 
+		    
+		catch (NamingException e) {
+			e.printStackTrace();
+		    }
+
 	}
+
 
 }
