@@ -77,4 +77,23 @@
     <url-pattern>/index.jsp</url-pattern>
     <url-pattern>/RegistrationPage.jsp</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConfirmationServlet</display-name>
+    <servlet-name>ConfirmationServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.ConfirmationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmationServlet</servlet-name>
+    <url-pattern>/confirm</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>NonLoggedUsersFilter</display-name>
+    <filter-name>NonLoggedUsersFilter</filter-name>
+    <filter-class>it.polimi.SWIMv2.Filters.NonLoggedUsersFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>NonLoggedUsersFilter</filter-name>
+    <url-pattern>/profile.jsp</url-pattern>
+  </filter-mapping>
 </web-app>

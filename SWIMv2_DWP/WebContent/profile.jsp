@@ -16,5 +16,8 @@
    		<%out.print(session.getAttribute("type"));%>
     </b>
     
+    <p>Sono loggato?
+    <%=session.getAttribute("logged") %>
+    </p>
 </body>
 </html>

@@ -8,18 +8,17 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet Filter implementation class LoginPageFilter
+ * Servlet Filter implementation class NonLoggedUsersFilter
  */
-public class LoginPageFilter implements Filter {
+public class NonLoggedUsersFilter implements Filter {
 
-	private FilterConfig filterConfig;
-	
     /**
      * Default constructor. 
      */
-    public LoginPageFilter() {
+    public NonLoggedUsersFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -34,9 +33,21 @@ public class LoginPageFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		String URI = ((HttpServletRequest)request).getRequestURI();
-		
+		// TODO Auto-generated method stub
+		// place your code here
+		try{
+			if((Boolean) ((HttpServletRequest)request).getSession().getAttribute("logged")){
+				System.out.println("Posso accedere alla pagina del profilo");
+			}
+			else{
+				System.out.println("faccio il redirect alla homepage");
+				((HttpServletResponse) response).sendRedirect("index.jsp");
+			}
+		}catch (NullPointerException e){
+			System.out.println("faccio il redirect alla homepage");
+			((HttpServletResponse) response).sendRedirect("index.jsp");
+		}
+		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
 
