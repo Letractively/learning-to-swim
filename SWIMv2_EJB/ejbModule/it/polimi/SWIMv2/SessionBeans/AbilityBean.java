@@ -1,6 +1,7 @@
 package it.polimi.SWIMv2.SessionBeans;
 
 import it.polimi.SWIMv2.EntityBeans.Ability;
+import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 
 import javax.ejb.Stateless;
@@ -33,7 +34,7 @@ public class AbilityBean implements AbilityBeanLocal {
 			
 			  Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.id = :abilityId");
 			  abilityQuery.setParameter("abilityId", abilityId);
-			  Query userQuery = entityManager.createQuery(" SELECT u FROM User u WHERE u.email = :userEmail");
+			  Query userQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :userEmail");
 			  abilityQuery.setParameter("userEmail", userEmail);
 			  
 			  
@@ -58,14 +59,14 @@ public class AbilityBean implements AbilityBeanLocal {
 		
 		try {
 			
-			  Ability newAbility = new Ability(name,description);
+			Query adminQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :creatorEmail");
+			adminQuery.setParameter("creatorEmail", creatorEmail);
 			  
+			Admin creator = (Admin) adminQuery.getSingleResult();
+		    Ability newAbility = new Ability(name,description, creator);
 			  
-			     
-			     // entityManager.persist();
+		    entityManager.persist(newAbility);
 			      
-			  
-			
 			} catch (EntityNotFoundException exc) {}
 		      catch (NonUniqueResultException exc) {}
 		

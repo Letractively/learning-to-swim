@@ -10,11 +10,11 @@ import javax.persistence.*;
 @Table(name="Ability")
 public class Ability implements Serializable{
 	
-	public Ability(String name, String description){
+	public Ability(String name, String description, Admin creator){
 		
 		this.name = name;
 		this.description = description;
-		
+		this.creator = creator;
 	}
 
     public Ability(){}
