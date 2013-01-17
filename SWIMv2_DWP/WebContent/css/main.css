@@ -1,0 +1,238 @@
+@charset "utf-8";
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background: #E0EBFF;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Selettori tag/elemento ~~ */
+ul, ol, dl { /* A causa delle differenze tra i browser, è buona norma impostare a zero il margine e la spaziatura interna negli elenchi. Per uniformità, potete specificare qui i valori desiderati, oppure nelle voci di elenco (LI, DT, DD) contenute negli elenchi. Tenete presente che le impostazioni effettuate qui verranno applicate a cascata all'elenco .nav a meno che non scegliate di scrivere un selettore più specifico. */
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* La rimozione del margine superiore permette di aggirare il problema che si crea quando i margini possono fuoriuscire dal div che li contiene. Il margine inferiore che rimane permetterà di distanziare gli elementi che seguono. */
+	padding-right: 15px;
+	padding-left: 15px; /* L'aggiunta di una spaziatura ai lati degli elementi contenuti nei div, anziché ai div stessi, consente di evitare ogni calcolo matematico relativo ai riquadri. Come metodo alternativo si può anche utilizzare un div nidificato con spaziatura laterale. */
+}
+
+a img { /* Questo selettore rimuove il bordo blu predefinito visualizzato in alcuni browser intorno a un'immagine quando è circondata da un collegamento.  */
+	border: none;
+}
+
+/* ~~ L'applicazione di stili ai collegamenti del sito deve rispettare questo ordine, compreso il gruppo di selettori che creano l'effetto hover. ~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* A meno che non vogliate personalizzare i collegamenti in un modo molto particolare, è bene applicare la sottolineatura per permetterne una rapida identificazione visiva. */
+}
+
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+
+a:hover, a:active, a:focus { /* Questo gruppo di selettori conferisce alla navigazione tramite tastiera gli stessi effetti hover che si producono quando si usa il mouse. */
+	text-decoration: none;
+}
+
+/* ~~ Questo contenitore circonda tutti gli altri div assegnando ad essi una larghezza basata su percentuale. ~~ */
+.container {
+	width: 80%;
+	max-width: 1260px;/* Può essere utile assegnare una larghezza massima per impedire che questo layout diventi troppo largo su un monitor di grandi dimensioni. Mantiene la lunghezza della riga più leggibile. IE6 non rispetta questa dichiarazione. */
+	min-width: 780px;/* Può essere utile assegnare una larghezza minima per impedire che questo layout diventi troppo stretto. Mantiene la lunghezza della riga più leggibile nelle colonne laterali. IE6 non rispetta questa dichiarazione. */
+	background: #E0EBFF;
+	margin: 0 auto; /* Il valore automatico sui lati, abbinato alla larghezza, produce un layout centrato. Non è necessario se impostate la larghezza del .container su 100%. */
+}
+
+/* ~~ All'intestazione non viene assegnata una larghezza. Estenderà l'intera larghezza del layout. Contiene un'immagine segnaposto da sostituire con il vostro logo collegato ~~ */
+#header {
+	background-color: #6F7D94;
+	border-radius: 0px 0px 7px 7px;
+	box-shadow: 0px 0px 6px 1px;
+	text-align: center;
+	padding: 0 2px;
+	margin-bottom: 10px;
+}
+
+#header #headap {
+	font-size: 16px;
+	position: relative;
+	bottom: 15px;
+}
+
+#header img {
+	position: relative;
+	bottom: -2px;
+	float: right;
+	right: 0px;
+	width: 56px;
+	height: 56px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#searchForm {
+  float:left;
+  display: inline;
+	position: relative;
+	width: 150px;
+	left: 15px;
+	top: 30px;
+	z-index: 10;
+	margin-right: -80px;
+}
+
+#searchForm input {
+  width: 100%;
+}
+
+.headtitle {
+clear:both;
+	color: #CCC;
+	font-size: 44px;
+	font-weight: normal;
+	font-family: Brush Script Std;
+	position: relative;
+	bottom: 8px;
+	margin: 0 5px;
+}
+
+
+/* ~~ Queste sono le informazioni sul layout. ~~ 
+
+1) La spaziatura viene applicata solo al lato superiore e/o inferiore del div. Agli elementi all'interno del div viene applicata una spaziatura sui lati. In questo modo si evita ogni calcolo matematico relativo ai riquadri. Tenete presente che se aggiungete spaziatura laterale o bordi al div stesso, andranno ad aggiungersi alla larghezza definita per produrre la larghezza *totale*. Potete anche scegliere di rimuovere la spaziatura dell'elemento nel div e inserire un secondo div al suo interno con larghezza nulla e con la spaziatura necessaria per la struttura che state creando.
+
+*/
+.content {
+	padding: 10px 0;
+	margin-bottom: 50px;
+ /*text-shadow: 2px 2px 5px rgb(153,153,153);*/
+}
+
+/* ~~ Questo selettore raggruppato fornisce spazio agli elenchi dell'area .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* Questa spaziatura rispecchia la spaziatura destra nella regola di intestazione e paragrafo riportata sopra. La spaziatura è stata applicata al lato inferiore per garantire uno spazio tra gli altri elementi negli elenchi e a sinistra per creare il rientro. Può essere regolata a piacere. */
+}
+
+/* ~~ Il piè di pagina ~~ */
+div#footer {
+	padding: 0px 0;
+	background-color: #6F7D94;
+	position: fixed;
+	bottom: 0px;
+	width: 80%;
+	margin: 0;
+	border-radius: 7px 7px 0px 0px;
+	box-shadow: 0px 0px 6px 1px;
+	text-align: left;
+	vertical-align: middle;
+	min-width: 780px;
+}
+
+#logo {
+	position: relative;
+	bottom: -6px;
+}
+
+#foottile {
+	position: relative;
+	bottom: 8px;
+	font-size: 32px;
+	padding: 0 5px 0 15px;
+	font-weight: bold;
+	margin-left: 10px;
+	color: #CCC;
+}
+
+#footer form {
+	color: #CCC;
+}
+
+#footer form button {
+  font-weight: bold;
+  margin-left: 2px;
+	background-color: rgb(48,144,255);
+	border: 1px;
+	color: white;
+	font-size: 16px;
+	padding: 2px 4px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 1px 1px rgb(80,48,255);
+}
+
+#loginform {
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 30%;
+}
+
+
+/* ~~ Classi float/clear varie ~~ */
+.fltrt {  /* questa classe può essere utilizzata per applicare un float a un elemento a destra nella pagina. L'elemento con float deve precedere l'elemento al quale deve essere affiancato sulla pagina. */
+	float: right;
+	margin-left: 8px;
+}
+
+#regform {
+	text-align: right;
+
+}
+
+#regform div {
+	margin-top: 4px;
+	display: block;
+	white-space: nowrap;
+	width: 300px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+input {
+  color: grey;
+  font-style: italic;
+}
+
+input:focus {
+  color: black;
+  font-style: normal;
+  box-shadow: 0px 0px 3px 3px rgb(255,204,51);
+}
+
+#regform input {
+	width: 300px;
+	height: 2em;
+	margin: 3px;
+	padding: 2px 7px;
+	border: 1px solid rgb(238,238,238);
+}
+
+#regform input[name="nome"], #regform input[name="cognome"] {
+	width: 139px;
+}
+
+#regform button {
+	margin-top: 20px;
+	background-color: rgb(0,112,0);
+	border: 1px;
+	color: white;
+	font-size: 20px;
+	padding: 6px 12px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px 1px #063;
+}
+
+.fltlft { /* questa classe può essere utilizzata per applicare un float a un elemento a sinistra nella pagina. L'elemento con float deve precedere l'elemento al quale deve essere affiancato sulla pagina. */
+	float: left;
+	margin-right: 8px;
+}
+
+.clearfloat { /* Questa classe può essere inserita in un <br /> o in un div vuoto come elemento finale subito dopo l'ultimo div con float (all'interno del #container) se il #footer sul viene rimosso o estratto dal #container. */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
