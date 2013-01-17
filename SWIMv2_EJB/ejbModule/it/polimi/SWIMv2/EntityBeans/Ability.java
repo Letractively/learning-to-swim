@@ -10,10 +10,15 @@ import javax.persistence.*;
 @Table(name="Ability")
 public class Ability implements Serializable{
 	
-	public Ability(){
+	public Ability(String name, String description){
+		
+		this.name = name;
+		this.description = description;
 		
 	}
 
+    public Ability(){}
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
