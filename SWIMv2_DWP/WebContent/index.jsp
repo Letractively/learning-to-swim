@@ -59,6 +59,5 @@
 	
 		</div>
     <!-- end .content --></div>
-</div>
 
 <jsp:include page="footer.jsp" />
