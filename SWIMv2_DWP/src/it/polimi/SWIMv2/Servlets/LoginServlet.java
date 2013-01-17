@@ -33,8 +33,13 @@ public class LoginServlet extends HttpServlet {
 			ctx = new InitialContext();
 			lb = (LoginBeanLocal)ctx.lookup("LoginBean/local");
 			System.out.println("i parametri raccolti sono " + request.getParameter("email") + " e" + request.getParameter("password"));
-			GenericUser u = lb.validateUser(request.getParameter("email"), request.getParameter("password"));
-			//TODO rimuovere la println
+			GenericUser u = (GenericUser)lb.validateUser(request.getParameter("email"), request.getParameter("password"));
+			if(u.getClass().equals(User.class)){
+				u = (User)u;
+			}
+			else if(u.getClass().equals(Admin.class)){
+				u = (Admin)u;
+			}
 			if(u != null && u.isConfirmed()){
 				System.out.println("login corretto");
 				usbl = (UserSessionBeanLocal)ctx.lookup("UserSessionBean/local");
