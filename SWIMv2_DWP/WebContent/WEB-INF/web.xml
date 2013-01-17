@@ -77,9 +77,16 @@
     <url-pattern>/index.jsp</url-pattern>
     <url-pattern>/RegistrationPage.jsp</url-pattern>
   </filter-mapping>
+  <servlet>
+  	<description></description>
+  	<display-name>AbilityServlet</display-name>
+	<servlet-name>AbilityServlet</servlet-name>
+	<servlet-class>it.polimi.SWIMv2.Servlets.AbilityServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
-    <servlet-name>AbilityServlet</servlet-name>
+    <servlet-name>AbilityServlet</servlet-name>   
     <url-pattern>/ability</url-pattern>
+    <url-pattern>/gestiscicompetenze</url-pattern> 
   </servlet-mapping>
   <servlet>
     <description></description>
