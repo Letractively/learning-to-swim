@@ -21,12 +21,18 @@
 	<p>
 		In questa pagina potrai inserire, eliminare e modificare il set di abilit&agrave; associato al tuo profilo
 	</p>
-	
-	<%
-	
-	
-	
-	%>
+	<form action="gestiscicompetenze" method="post">
+ 
+		Which buildings do you want access to?<br />
+		<input type="checkbox" name="ability" value="1" checked="true"/>Acorn Building<br />
+		<input type="checkbox" name="ability" value="2" />Brown Hall<br />
+		<input type="checkbox" name="ability" value="3" />Carnegie Complex<br />
+		<input type="checkbox" name="ability" value="4" />Drake Commons<br />
+		<input type="checkbox" name="ability" value="5" />Elliot House
+		 
+		<input type="submit" value="Invia" />
+		 
+	</form>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
