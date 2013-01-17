@@ -20,5 +20,9 @@
 
 <!-- FINE FORM PER IL LOGIN -->
 
+ <p>Sono loggato?
+    <%=session.getAttribute("logged") %>
+    </p>
+
 </body>
 </html>

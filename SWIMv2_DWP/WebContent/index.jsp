@@ -39,6 +39,18 @@
 	<%
 		session.removeAttribute("alert");} 
 	%>
+	
+	<% 
+		String confirmed = (String)session.getAttribute("alertconfirmed");
+		if(confirmed!=null){
+	%>
+		<p>
+		<%=confirmed %>
+		</p>
+		
+	<%
+		session.removeAttribute("alertconfirmed");} 
+	%>
 
 
 </div>

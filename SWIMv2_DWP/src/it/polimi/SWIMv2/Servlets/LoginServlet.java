@@ -32,35 +32,28 @@ public class LoginServlet extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 			lb = (LoginBeanLocal)ctx.lookup("LoginBean/local");
+			System.out.println("i parametri raccolti sono " + request.getParameter("email") + " e" + request.getParameter("password"));
 			GenericUser u = lb.validateUser(request.getParameter("email"), request.getParameter("password"));
 			//TODO rimuovere la println
-			if(u != null){
+			if(u != null && u.isConfirmed()){
 				System.out.println("login corretto");
 				usbl = (UserSessionBeanLocal)ctx.lookup("UserSessionBean/local");
-				//GenericUser u = usbl.getDataFromDatabase(request.getParameter("email"));
-				request.getSession().setAttribute("nome", u.getFirstName());
-				request.getSession().setAttribute("cognome", u.getLastName());
-				request.getSession().setAttribute("city", u.getCity());
-				request.getSession().setAttribute("email", u.getEmail());
-				request.getSession().setAttribute("feedback", u.getFeedback());
-				request.getSession().setAttribute("contesto", usbl);
-				request.getSession().setAttribute("logged", true);
-				
-				//Object userClass = u.getClass();
-				
-				if(u.getClass().equals(User.class)){
-					request.getSession().setAttribute("type", "utente normale");
-				}
-				else if(u.getClass().equals(Admin.class)){
-					request.getSession().setAttribute("type", "amministratore");
-				}
-				
-				//response.sendRedirect("profile.jsp");
+				createSessionAttributes(request, u);
+
 				getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
 				
 				System.out.println("Redirect alla pagina personale completato con successo");
 			}
+			else if(u != null && !u.isConfirmed()){
+				System.out.println("utente non ancora confermato: login impossibile");
+				request.getSession().setAttribute("alertconfirmed", "Non puoi fare il login prima di aver confermato il tuo account");
+				getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+				
+			}
 			else{
+				if(u == null){
+					System.out.println("u is null");
+				}
 				System.out.println("login non corretto");
 			}
 			//TODO eseguire le azioni successive
@@ -70,6 +63,24 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void createSessionAttributes(HttpServletRequest request, GenericUser u){
+		request.getSession().setAttribute("nome", u.getFirstName());
+		request.getSession().setAttribute("cognome", u.getLastName());
+		request.getSession().setAttribute("city", u.getCity());
+		request.getSession().setAttribute("email", u.getEmail());
+		request.getSession().setAttribute("feedback", u.getFeedback());
+		request.getSession().setAttribute("contesto", usbl);
+		request.getSession().setAttribute("logged", true);
+		request.getSession().setAttribute("confirmed", true);
+		
+		if(u.getClass().equals(User.class)){
+			request.getSession().setAttribute("type", "utente normale");
+		}
+		else if(u.getClass().equals(Admin.class)){
+			request.getSession().setAttribute("type", "amministratore");
+		}
 	}
 
 }
