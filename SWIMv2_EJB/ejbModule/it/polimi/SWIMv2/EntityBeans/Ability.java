@@ -9,6 +9,10 @@ import javax.persistence.*;
 @Entity
 @Table(name="Ability")
 public class Ability implements Serializable{
+	
+	public Ability(){
+		
+	}
 
 	private static final long serialVersionUID = 1L;
 	
