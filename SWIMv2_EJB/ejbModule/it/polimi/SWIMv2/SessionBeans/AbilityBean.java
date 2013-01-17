@@ -5,7 +5,10 @@ import it.polimi.SWIMv2.EntityBeans.GenericUser;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  * Session Bean implementation class AbilityBean
@@ -14,7 +17,7 @@ import javax.persistence.PersistenceContext;
 public class AbilityBean implements AbilityBeanLocal {
 
 	@PersistenceContext(unitName = "SWIMv2_PU")
-	private EntityManager em;
+	private EntityManager entityManager;
 	
     /**
      * Default constructor. 
@@ -24,10 +27,43 @@ public class AbilityBean implements AbilityBeanLocal {
     }
 
 	@Override
-	public void addAbilityToUser(GenericUser u, Ability a) {
-		u.addAbility(a);
-		em.persist(u);
+	public void addAbilityToUser(String userEmail, int abilityId) {
+		
+		try {
+			
+			  Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.id = :abilityId");
+			  abilityQuery.setParameter("abilityId", abilityId);
+			  Query userQuery = entityManager.createQuery(" SELECT u FROM User u WHERE u.email = :userEmail");
+			  abilityQuery.setParameter("userEmail", userEmail);
+			  
+			  
+			  if(abilityQuery.getSingleResult() != null && userQuery.getSingleResult() != null){
+			  
+				  Ability ability = (Ability) abilityQuery.getSingleResult(); 
+			      GenericUser user = (GenericUser) userQuery.getSingleResult();
+			  
+			  
+			      user.addAbility(ability);
+			      entityManager.persist(user);
+			      
+			  }
+			
+			} catch (EntityNotFoundException exc) {}
+		      catch (NonUniqueResultException exc) {}
+		      
+	    }
+
+	@Override
+	public void createAbility(String name, String description) {
+		// TODO Auto-generated method stub
 		
 	}
+
+	
+		
+		
+		
+		
+
 
 }
