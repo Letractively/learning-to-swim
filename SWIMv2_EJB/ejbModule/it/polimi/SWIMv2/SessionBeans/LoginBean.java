@@ -9,6 +9,7 @@ import it.polimi.SWIMv2.Utilities.PasswordHash;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -52,8 +53,10 @@ public class LoginBean implements LoginBeanLocal {
 		
 		try {
 			GenericUser u = (GenericUser)q.getSingleResult();
+			System.out.println("l'utente trovato è " + u.toString());
 			String pwd = password; //sembra ridondante, ma �� per evitare che un parametro venga modificato
 			if(ph.validatePassword(pwd, u.getPassword())){
+				System.out.println("Ho validato la password");
 				return u;
 			}
 			
@@ -65,12 +68,17 @@ public class LoginBean implements LoginBeanLocal {
 			// TODO togliere
 			e.printStackTrace();
 			return null;
-		} catch (Exception e){
+		} catch (NoResultException e){
+			e.printStackTrace();
+			return null;
+		}
+		catch (Exception e){
+			e.printStackTrace();
 			return null;
 		}
 		
 		
-		
+		System.out.println("nulla dei precedenti");
 		return null;
 	}
 
