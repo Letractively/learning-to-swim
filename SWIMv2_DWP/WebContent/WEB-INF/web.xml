@@ -77,6 +77,10 @@
     <url-pattern>/index.jsp</url-pattern>
     <url-pattern>/RegistrationPage.jsp</url-pattern>
   </filter-mapping>
+  <servlet-mapping>
+    <servlet-name>AbilityServlet</servlet-name>
+    <url-pattern>/ability</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ConfirmationServlet</display-name>
