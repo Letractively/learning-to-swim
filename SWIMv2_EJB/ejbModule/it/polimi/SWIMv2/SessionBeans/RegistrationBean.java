@@ -61,9 +61,9 @@ public class RegistrationBean implements RegistrationBeanLocal {
     		em.persist(u);
 	    	
     		String randomCode = randomString(30);
-    		String activationLink = "http://127.0.0.1:8080/" + randomCode + "?user=" + email;
+    		String activationLink = "http://localhost:8080/SWIMv2_DWP/confirm?activationcode=" + randomCode + "&user=" + email; 
     		
-    		activatingMailParameters = generateActivationMailParameters(activatingMailParameters, email, firstName, lastName, activationLink);
+    		activatingMailParameters = generateActivationMailParameters(activatingMailParameters, email, firstName, lastName, activationLink, randomCode);
     		
     		abm.sendMsg(activatingMailParameters.get("to"), activatingMailParameters.get("from"), activatingMailParameters.get("subject"), activatingMailParameters.get("body"));
     			
@@ -90,14 +90,14 @@ public class RegistrationBean implements RegistrationBeanLocal {
     
 
 
-	private Map<String,String> generateActivationMailParameters(Map<String,String> activatingMailParameters, String email, String nome, String cognome, String activationLink) {
+	private Map<String,String> generateActivationMailParameters(Map<String,String> activatingMailParameters, String email, String nome, String cognome, String activationLink, String randomCode) {
 		
 		
 		//TODO ricordarsi di mettere il parametro email al posto della mia mail
-		activatingMailParameters.put("to", "emanuele.uliana.90@gmail.com");
+		activatingMailParameters.put("to", /*"e.manuele.uliana.90@gmail.com"*/email);
 		activatingMailParameters.put("from", "activation@SWIMv2.com");
 		activatingMailParameters.put("subject", "Activate your SWIMv2 profile");
-		activatingMailParameters.put("body", "Per attivare il tuo profilo clicca sul seguente link:\n <a href='http://localhost:8080'>" + activationLink + "</a>");
+		activatingMailParameters.put("body", "Per attivare il tuo profilo clicca sul seguente link:\n <a href='" + activationLink + "'>" + activationLink + "</a>");
 		
 		return activatingMailParameters;
 	}
