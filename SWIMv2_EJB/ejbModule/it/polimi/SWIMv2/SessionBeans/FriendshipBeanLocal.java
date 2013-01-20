@@ -8,7 +8,7 @@ public interface FriendshipBeanLocal {
 
 	public abstract void friendshipRequest(String userEmail1, String userEmail2, boolean direct);
 	
-	public abstract void confirmationFriendship(String userMail1, String userMail2);
+	public abstract void confirmationFriendship(Long userId1, Long userId2);
 	
 
 }

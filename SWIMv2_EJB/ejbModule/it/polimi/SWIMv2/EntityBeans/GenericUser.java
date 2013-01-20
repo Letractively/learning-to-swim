@@ -123,17 +123,6 @@ public abstract class GenericUser implements Serializable {
 	}
 
 	
-	/*@ManyToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.GenericUser.class
-            )
-	@JoinTable(
-			name = "Friendship",
-			joinColumns = @JoinColumn(name = "id1"),
-			inverseJoinColumns = @JoinColumn(name = "id2")
-			)
-	private Set<GenericUser> friends = new HashSet<GenericUser>();
-	*/
 	@ManyToMany(
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity=it.polimi.SWIMv2.EntityBeans.Ability.class

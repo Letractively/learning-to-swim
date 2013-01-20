@@ -45,12 +45,12 @@ public class FriendshipBean implements FriendshipBeanLocal {
 	}
 
     @Override
-	public void confirmationFriendship(String userMail1, String userMail2) {
+	public void confirmationFriendship(Long userId1, Long userId2) {
 		
 		//QUERY DA TESTARE,RIGUARDARE
-		Query friendshipQuery = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendship.getFriend1().email = :mail1 AND f.friendship.getFriend2().email = :mail2");
-		friendshipQuery.setParameter("mail1", userMail1);
-		friendshipQuery.setParameter("mail2", userMail2);
+		Query friendshipQuery = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendship.getFriend1() = :Id1 AND f.friendship.getFriend2() = :Id2");
+		friendshipQuery.setParameter("Id1", userId1);
+		friendshipQuery.setParameter("Id2", userId2);
 
 		
 		Friendship friendship = (Friendship)friendshipQuery.getSingleResult();
