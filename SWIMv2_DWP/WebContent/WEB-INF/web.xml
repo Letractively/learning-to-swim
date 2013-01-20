@@ -118,4 +118,24 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FriendshipRequestServlet</display-name>
+    <servlet-name>FriendshipRequestServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.FriendshipRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FriendshipRequestServlet</servlet-name>
+    <url-pattern>/FriendshipRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FriendshipConfirmationServlet</display-name>
+    <servlet-name>FriendshipConfirmationServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.FriendshipConfirmationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FriendshipConfirmationServlet</servlet-name>
+    <url-pattern>/FriendshipConfirmationServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
