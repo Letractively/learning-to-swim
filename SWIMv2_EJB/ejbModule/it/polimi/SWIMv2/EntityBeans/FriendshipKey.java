@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 
+
 @Embeddable
 public class FriendshipKey implements Serializable{
 
@@ -16,36 +17,27 @@ public class FriendshipKey implements Serializable{
 	
 	public FriendshipKey(GenericUser User1, GenericUser User2){
 		
-		this.friend1 = User1;
-		this.friend2 = User2;
+		this.friend1 = User1.getId();
+		this.friend2 = User2.getId();
 	
 	}
 	
-	
-		@Column(name = "Friend1")
-	    private GenericUser friend1;
+
+	    @Column(name = "Friend1")
+	    private Long friend1;
 	
 		@Column(name = "Friend2")
-	    private GenericUser friend2 ;
+	    private Long friend2 ;
 
-	    
-	
-	    public GenericUser getFriend1() {
+		
+		public Long getFriend1() {
 			return friend1;
 		}
 
-		public void setFriend1(GenericUser friend1) {
-			this.friend1 = friend1;
-		}
-
-		public GenericUser getFriend2() {
+		public Long getFriend2() {
 			return friend2;
 		}
-
-		public void setFriend2(GenericUser friend2) {
-			this.friend2 = friend2;
-		}
-
+		
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -77,5 +69,6 @@ public class FriendshipKey implements Serializable{
 			return true;
 		}
 
-		
+
+
 }
