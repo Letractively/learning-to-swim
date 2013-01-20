@@ -29,10 +29,10 @@ public class FriendshipConfirmationServlet extends HttpServlet {
 			ctx = new InitialContext();
 		    friendshipBean = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
 		
-		    String userMail1 = (String)request.getSession().getAttribute("email");
-			String userMail2 = request.getParameter("friendEmail");
+		    Long userId1 = (Long)request.getSession().getAttribute("id");
+			Long userId2 = Long.parseLong(request.getParameter("friendId"));
 		    
-		    friendshipBean.confirmationFriendship(userMail1, userMail2);
+		    friendshipBean.confirmationFriendship(userId1, userId2);
 		    
 		    } 
 		catch (NamingException e) {
