@@ -8,50 +8,40 @@ import javax.persistence.*;
 @Table(name = "Friendship")
 public class Friendship implements Serializable {
 
+	
+	public Friendship(){}
 
+	public Friendship(GenericUser u1, GenericUser u2, boolean type){
+		this.friendshipKey = new FriendshipKey(u1,u2);
+		this.confirmation = false;
+		this.direct = type;
+	}
+	
+	
+	
 	@PersistenceContext(unitName = "SWIMv2_PU")
 	
 	private static final long serialVersionUID = 1L;
 
-	/*@EmbeddedId
+	@EmbeddedId
 	@ManyToOne
-	FriendshipKey friendshipKey;*/
+	FriendshipKey friendshipKey;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
-	private Long id;
-	
-	//@Column(name = "Friend1")
-	@ManyToOne
-    private GenericUser friend1;
-
-	//@Column(name = "Friend2")
-	@ManyToOne
-    private GenericUser friend2 ;
-
-	
 	@Column(name = "Confirmed")
 	private boolean confirmation;
 
-	@Column(name = "Type")
-	private boolean type;
+	@Column(name = "Direct")
+	private boolean direct;
 
-	/*public FriendshipKey getFriendshipKey() {
+	
+	public FriendshipKey getFriendshipKey() {
 		return friendshipKey;
 	}
 
 	public void setFriendshipKey(FriendshipKey friendshipKey) {
 		this.friendshipKey = friendshipKey;
-	}*/
-
-	public Friendship(GenericUser u1, GenericUser u2){
-		this.friend1 = u1;
-		this.friend2 = u2;
 	}
-	
-	public Friendship(){}
-	
+
 	public boolean isConfirmation() {
 		return confirmation;
 	}
@@ -61,36 +51,13 @@ public class Friendship implements Serializable {
 	}
 
 	public boolean isType() {
-		return type;
+		return direct;
 	}
 
 	public void setType(boolean type) {
-		this.type = type;
+		this.direct = type;
 	}
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public GenericUser getFriend1() {
-		return friend1;
-	}
-
-	public void setFriend1(GenericUser friend1) {
-		this.friend1 = friend1;
-	}
-
-	public GenericUser getFriend2() {
-		return friend2;
-	}
-
-	public void setFriend2(GenericUser friend2) {
-		this.friend2 = friend2;
-	}
-
+	
 
 }

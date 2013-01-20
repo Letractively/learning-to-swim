@@ -1,11 +1,9 @@
 package it.polimi.SWIMv2.EntityBeans;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 @Embeddable
 public class FriendshipKey implements Serializable{
@@ -24,10 +22,10 @@ public class FriendshipKey implements Serializable{
 	}
 	
 	
-		//@Column(name = "Friend1")
+		@Column(name = "Friend1")
 	    private GenericUser friend1;
 	
-		//@Column(name = "Friend2")
+		@Column(name = "Friend2")
 	    private GenericUser friend2 ;
 
 	    
