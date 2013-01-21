@@ -151,8 +151,14 @@ public abstract class GenericUser implements Serializable {
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
             )
-	private Set<Message> senderMessages = new HashSet<Message>();
+	private Set<Message> senderMessages;
 
+	@OneToMany(
+			
+            targetEntity=it.polimi.SWIMv2.EntityBeans.Friendship.class
+            )
+	private Set<GenericUser> friends;
+	
 	
 	@OneToMany(
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
