@@ -20,82 +20,89 @@ import javax.persistence.Query;
 public class FriendshipBean implements FriendshipBeanLocal {
 
 	@PersistenceContext(unitName="SWIMv2_PU")
-	private EntityManager em;
 	
-    /**
-     * Default constructor. 
-     */
-    public FriendshipBean() {
-        // TODO Auto-generated constructor stub
-    }
+	
+	private EntityManager entityManager;
+	
+  
+    public FriendshipBean() {}
 
     @Override
-	public void setFriendshipRequest(String email1, String email2, boolean type) {
+	public void friendshipRequest(String userEmail1, String userEmail2, boolean direct) {
 
-    	Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
-    	q.setParameter("email", email1);
+    	Query userQuery1 = entityManager.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
+    	userQuery1.setParameter("email", userEmail1);
     	
-    	Query q2 = em.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
-    	q2.setParameter("email", email2);
+    	Query userQuery2 = entityManager.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
+    	userQuery2.setParameter("email", userEmail2);
     	
+    
     	try{
-    		GenericUser u1 = (GenericUser)q.getSingleResult();
-    		GenericUser u2 = (GenericUser)q2.getSingleResult();
-    		Friendship friendship = new Friendship(u1, u2, type); 
-    		em.persist(friendship);
+    		
+    		GenericUser user1 = (GenericUser)userQuery1.getSingleResult();
+    		GenericUser user2 = (GenericUser)userQuery2.getSingleResult();
+    	
+    		Friendship friendship = new Friendship(user1, user2, direct); 
+    		entityManager.persist(friendship);
+    	
     	}
     	catch(Exception e){
-    		System.out.println("Set della domanda di amicizia fallito");
+    		System.out.println(" Richiesta di amicizia non andata a buon fine ");
     	}
     	
-		
-		
-	}
-
-    @Override
-	public void confirmFriendship(GenericUser User1, GenericUser User2) {
-		
-		Query q = em.createQuery("SELECT f FROM Friendship f WHERE ((f.friend1 = :user1 AND f.friend2 = :user2) OR (f.friend1 = :user2 AND f.friend2 = :user1))");
-		q.setParameter("friend1", User1);
-		q.setParameter("friend2", User2);
-		
-		try{
-			Friendship f = (Friendship)q.getSingleResult();
-			f.setConfirmed(true);
-			em.persist(f);
-		}
-		catch(Exception e){
-			System.out.println("errore nella conferma dell'amicizia");
-		}
 	
     }
 
-	@Override
-	public List<GenericUser> getAllFriends(GenericUser u) {
-		Query q = em.createQuery("SELECT f.friend2 FROM Friendship f WHERE f.friend1 = :friend1 AND f.confirmed = :confirmed");
-		q.setParameter("friend1", u);
-		q.setParameter("confirmed", true);
-		Query q2 = em.createQuery("SELECT f.friend1 FROM Friendship f WHERE f.friend2 = :friend2 AND f.confirmed = :confirmed");
-		q2.setParameter("friend2", u);
-		q.setParameter("confirmed", true);
+    @Override
+	public void confirmFriendship(String userEmail1, String userEmail2) {
 		
-		return mergeQueryResults(q,q2);
+    	Query friendshipQuery = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friend1.email = :mail2 AND f.friend2.email = :mail1");
+     	friendshipQuery.setParameter("mail1", userEmail1);
+		friendshipQuery.setParameter("mail2", userEmail2);
+		
+		try{
+			
+			Friendship friendship = (Friendship)friendshipQuery.getSingleResult();
+			boolean confirmation = true;
+			
+			friendship.setConfirmation(confirmation);
+			entityManager.persist(friendship);
+		
+		}
+		catch(Exception e){
+			System.out.println(" L'amicizia non e' stata confermata ");
+		}
+	
+    }
+    
+	@Override
+	public List<GenericUser> getAllFriends(String userEmail) {
+		
+		Query userQuery = entityManager.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
+    	userQuery.setParameter("email", userEmail);
+		
+    	GenericUser user = (GenericUser)userQuery.getSingleResult();
+    	
+    	List<GenericUser> friends = new ArrayList<GenericUser>(user.getFriends());
+    	
+		return friends;
+	
 	}
 
-	
-
 	@Override
-	public List<GenericUser> getTypeABFriends(GenericUser u, boolean type) {
-		Query q = em.createQuery("SELECT f.friend2 FROM Friendship f WHERE f.friend1 = :friend1 AND f.confirmed = :confirmed AND f.type = :type");
-		q.setParameter("friend1", u);
-		q.setParameter("type", type);
-		q.setParameter("confirmed", true);
-		Query q2 = em.createQuery("SELECT f.friend1 FROM Friendship f WHERE f.friend2 = :friend2 AND f.confirmed = :confirmed AND f.type = :type");
-		q2.setParameter("friend1", u);
-		q2.setParameter("type", type);
-		q2.setParameter("confirmed", true);
+	public List<GenericUser> getTypeABFriends(String userMail, boolean direct) {
 		
-		return mergeQueryResults(q,q2);
+		Query friendsList1 = entityManager.createQuery("SELECT f.friend2 FROM Friendship f WHERE f.friend1.email = :mail AND f.confirmed = :confirmed AND f.direct = :direct");
+		friendsList1.setParameter("mail",userMail);
+		friendsList1.setParameter("direct", direct);
+		friendsList1.setParameter("confirmed", true);
+		
+		Query friendsList2 = entityManager.createQuery("SELECT f.friend1 FROM Friendship f WHERE f.friend2.email = :mail AND f.confirmed = :confirmed AND f.direct = :direct");
+		friendsList2.setParameter("mail", userMail);
+		friendsList2.setParameter("direct", direct);
+		friendsList2.setParameter("confirmed", true);
+		
+		return mergeQueryResults(friendsList1,friendsList2);
 	}
 
 	private List<GenericUser> mergeQueryResults(Query q, Query q2) {
@@ -117,5 +124,7 @@ public class FriendshipBean implements FriendshipBeanLocal {
 		Set<GenericUser> resultSet = new HashSet<GenericUser>(result);
 		return new ArrayList<GenericUser>(resultSet);
 	}
+
+	
 
 }

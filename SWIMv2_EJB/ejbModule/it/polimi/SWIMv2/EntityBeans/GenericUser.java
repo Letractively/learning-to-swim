@@ -122,6 +122,10 @@ public abstract class GenericUser implements Serializable {
 		return id;
 	}
 
+	public Set<GenericUser> getFriends() {
+		return friends;
+	}
+
 	
 	@ManyToMany(
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
@@ -153,9 +157,9 @@ public abstract class GenericUser implements Serializable {
             )
 	private Set<Message> senderMessages;
 
+	
 	@OneToMany(
-			
-            targetEntity=it.polimi.SWIMv2.EntityBeans.Friendship.class
+			targetEntity=it.polimi.SWIMv2.EntityBeans.Friendship.class
             )
 	private Set<GenericUser> friends;
 	
@@ -165,15 +169,7 @@ public abstract class GenericUser implements Serializable {
             targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
             )
 	private Set<Message> receiveMessages = new HashSet<Message>();
-	/*@ManyToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
-            )
-	@JoinTable(
-			name = "Received_Messages",
-			joinColumns = @JoinColumn(name = "Receiver"),
-			inverseJoinColumns = @JoinColumn(name = "Message")
-			)*/
+	
 
 	
 }
