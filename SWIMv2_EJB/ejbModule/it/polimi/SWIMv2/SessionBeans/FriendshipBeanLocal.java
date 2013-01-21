@@ -1,14 +1,22 @@
 package it.polimi.SWIMv2.SessionBeans;
 
 
+import it.polimi.SWIMv2.EntityBeans.GenericUser;
+
+import java.util.List;
+
 import javax.ejb.Local;
 
 @Local
 public interface FriendshipBeanLocal {
 
-	public abstract void friendshipRequest(String userEmail1, String userEmail2, boolean direct);
+	public abstract void setFriendshipRequest(String email1, String email2, boolean type);
 	
-	public abstract void confirmationFriendship(Long userId1, Long userId2);
+	public abstract void confirmFriendship(GenericUser User1, GenericUser User2);
+	
+	public List<GenericUser> getAllFriends(GenericUser u);
+	
+	public List<GenericUser> getTypeABFriends(GenericUser u, boolean type);
 	
 
 }

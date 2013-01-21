@@ -13,7 +13,7 @@ public class Friendship implements Serializable {
 
 	public Friendship(GenericUser u1, GenericUser u2, boolean type){
 		this.friendshipKey = new FriendshipKey(u1,u2);
-		this.confirmation = false;
+		this.confirmed = false;
 		this.direct = type;
 	}
 	
@@ -28,9 +28,9 @@ public class Friendship implements Serializable {
 	FriendshipKey friendshipKey;
 
 	@Column(name = "Confirmed")
-	private boolean confirmation;
+	private boolean confirmed;
 
-	@Column(name = "Direct")
+	@Column(name = "Type")
 	private boolean direct;
 
 	
@@ -42,15 +42,15 @@ public class Friendship implements Serializable {
 		this.friendshipKey = friendshipKey;
 	}
 
-	public boolean isConfirmation() {
-		return confirmation;
+	public boolean isConfirmed() {
+		return confirmed;
 	}
 
-	public void setConfirmation(boolean confirmation) {
-		this.confirmation = confirmation;
+	public void setConfirmed(boolean confirmation) {
+		this.confirmed = confirmation;
 	}
 
-	public boolean isType() {
+	public boolean isDirect() {
 		return direct;
 	}
 
