@@ -35,7 +35,7 @@ public class FriendshipRequestServlet extends HttpServlet {
 		    String userEmail1 = (String)request.getSession().getAttribute("email");
 			String userEmail2 = request.getParameter("friendEmail");
 		    
-		   // friendshipBean.friendshipRequest(userEmail1, userEmail2, direct);
+		    friendshipBean.friendshipRequest(userEmail1, userEmail2, direct);
 		    
 		    } 
 		catch (NamingException e) {
