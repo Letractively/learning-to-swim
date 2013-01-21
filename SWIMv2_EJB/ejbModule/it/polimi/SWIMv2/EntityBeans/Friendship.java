@@ -11,10 +11,10 @@ public class Friendship implements Serializable {
 	
 	public Friendship(){}
 
-	public Friendship(GenericUser u1, GenericUser u2, boolean type){
+	public Friendship(GenericUser u1, GenericUser u2, boolean direct){
 		this.friendshipKey = new FriendshipKey(u1,u2);
 		this.confirmation = false;
-		this.direct = type;
+		this.direct = direct;
 	}
 	
 	

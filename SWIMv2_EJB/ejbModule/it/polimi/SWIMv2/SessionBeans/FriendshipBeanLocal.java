@@ -10,13 +10,13 @@ import javax.ejb.Local;
 @Local
 public interface FriendshipBeanLocal {
 
-	public abstract void setFriendshipRequest(String email1, String email2, boolean type);
+	public abstract void friendshipRequest(String userEmail1, String userEmail2, boolean direct);
 	
-	public abstract void confirmFriendship(GenericUser User1, GenericUser User2);
+	public abstract void confirmFriendship(String userEmail1, String userEmail2);
 	
-	public List<GenericUser> getAllFriends(GenericUser u);
+	public List<GenericUser> getAllFriends(String userEmail);
 	
-	public List<GenericUser> getTypeABFriends(GenericUser u, boolean type);
+	public List<GenericUser> getTypeABFriends(String userMail, boolean direct);
 	
 
 }
