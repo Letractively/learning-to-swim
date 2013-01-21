@@ -31,8 +31,8 @@ public class FriendshipConfirmationServlet extends HttpServlet {
 		
 		    Long userId1 = (Long)request.getSession().getAttribute("id");
 			Long userId2 = Long.parseLong(request.getParameter("friendId"));
-		    
-		    friendshipBean.confirmationFriendship(userId1, userId2);
+		   
+		    // sfriendshipBean.confirmFriendship(userId1, userId2);
 		    
 		    } 
 		catch (NamingException e) {
