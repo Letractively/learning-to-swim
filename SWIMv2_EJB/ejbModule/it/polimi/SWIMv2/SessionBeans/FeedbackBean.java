@@ -95,16 +95,18 @@ public class FeedbackBean implements FeedbackBeanLocal {
 	
 	private Double calculateAverage(GenericUser user) {
 		
-		Double zeroFeedback = (double) user.getFeedback().getZeroFeedback();
-	    Double oneFeedback = (double) user.getFeedback().getOneFeedback();
-		Double twoFeedback = (double) user.getFeedback().getTwoFeedback();
-		Double threeFeedback = (double) user.getFeedback().getThreeFeedback();
-		Double fourFeedback = (double) user.getFeedback().getFourFeedback();
+		Double zeroFeedback = new Double(user.getFeedback().getZeroFeedback());
+	    Double oneFeedback = new Double(user.getFeedback().getOneFeedback());
+		Double twoFeedback = new Double(user.getFeedback().getTwoFeedback());
+		Double threeFeedback = new Double(user.getFeedback().getThreeFeedback());
+		Double fourFeedback = new Double(user.getFeedback().getFourFeedback());
 		
-		Double average = (zeroFeedback + oneFeedback + twoFeedback + threeFeedback + fourFeedback)/5;
+		//CAREFUL, EXPECIALLY YOU WALTER: THIS IS THE REAL FEEDBACKS AVERAGE!!! BETTER STUDYING MATHS NEXT TIME!!!
 		
-		return average;
-	
+		Double totalnumberOfFeedbacks = new Double(zeroFeedback + oneFeedback + twoFeedback + threeFeedback + fourFeedback);
+		Double weightedSum = new Double(0 * zeroFeedback + 1 * oneFeedback + 2 * twoFeedback + 3 * threeFeedback + 4 * fourFeedback);
+		
+		return new Double(weightedSum/totalnumberOfFeedbacks);
 	}
 
 }
