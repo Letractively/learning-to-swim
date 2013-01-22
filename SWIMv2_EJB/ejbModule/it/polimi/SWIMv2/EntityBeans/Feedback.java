@@ -7,6 +7,16 @@ import javax.persistence.*;
 @Embeddable
 public class Feedback implements Serializable{
 	
+	public Feedback(){
+		
+		this.zeroFeedback=0;
+		this.oneFeedback=0;
+		this.twoFeedback=0;
+		this.threeFeedback=0;
+		this.fourFeedback=0;
+	
+	}
+	
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="Feedback0")
@@ -30,40 +40,40 @@ public class Feedback implements Serializable{
 		return zeroFeedback;
 	}
 
-	public void setZeroFeedback(int zeroFeedback) {
-		this.zeroFeedback = zeroFeedback;
+	public void addZeroFeedback() {
+		this.zeroFeedback++;
 	}
 
 	public int getOneFeedback() {
 		return oneFeedback;
 	}
 
-	public void setOneFeedback(int oneFeedback) {
-		this.oneFeedback = oneFeedback;
+	public void addOneFeedback() {
+		this.oneFeedback++;
 	}
 
 	public int getTwoFeedback() {
 		return twoFeedback;
 	}
 
-	public void setTwoFeedback(int twoFeedback) {
-		this.twoFeedback = twoFeedback;
+	public void addTwoFeedback() {
+		this.twoFeedback++;
 	}
 
 	public int getThreeFeedback() {
 		return threeFeedback;
 	}
 
-	public void setThreeFeedback(int threeFeedback) {
-		this.threeFeedback = threeFeedback;
+	public void addThreeFeedback() {
+		this.threeFeedback++;
 	}
 
 	public int getFourFeedback() {
 		return fourFeedback;
 	}
 
-	public void setFourFeedback(int fourFeedback) {
-		this.fourFeedback = fourFeedback;
+	public void addFourFeedback() {
+		this.fourFeedback++;
 	}
 
 	

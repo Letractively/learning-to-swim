@@ -44,11 +44,14 @@ public abstract class GenericUser implements Serializable {
 	public GenericUser(){}
 	
 	public GenericUser(String firstName, String lastName, String email, String password, String city){
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.city = city;
+		this.feedback = new Feedback();
+	
 	}
 	
 	
