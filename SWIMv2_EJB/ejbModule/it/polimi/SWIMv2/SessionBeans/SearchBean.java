@@ -28,211 +28,39 @@ public class SearchBean implements SearchBeanLocal {
     }
 
 	@Override
-	public List<GenericUser> searchForUsers(String f, String l, String c, String a) throws VoidSearchException{
+	public List<GenericUser> searchByName(String firstName, String lastName){
 		List<GenericUser> result;
-		//System.out.println("Almeno in questo metodo sono entrato");
-		if(f!= null && l != null && c != null && a != null){
-			result = fullSearch(f,l,c,a);
+		
+		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :name OR u.lastName = :surname");
+		q.setParameter("name", firstName);
+		q.setParameter("surname", lastName);
+		
+		try{
+			result = (List<GenericUser>)q.getResultList();
+			return result;
 		}
-		else if(f!= null && l != null && c != null && a == null){
-			result = SearchByNameSurnameCity(f,l,c);
+		catch(Exception e){
+			System.out.println("non esistono utenti con tale anagrafica");
+			return null;
 		}
-		else if(f!= null && l != null && c == null && a != null){
-			result = SearchByNameSurnameAbility(f,l,a);
+	}
+	
+	
+	public List<GenericUser> searchByAbility(String ability){
+		List<GenericUser> userList;
+		
+		Query q = em.createQuery("SELECT u FROM UserAbilities ua, GenericUser u, Ability a WHERE u.id = ua.userAbilitiesKey.user AND a.id = ua.userAbilitiesKey.ability");
+		try{
+			userList = (List<GenericUser>)q.getResultList();
+			return userList;
 		}
-		else if(f!= null && l == null && c != null && a != null){
-			result = SearchByNameCityAbility(f,c,a);
+		catch(Exception e){
+			System.out.println("non esistono utenti con tale abilità");
+			return null;
 		}
-		else if(f== null && l != null && c != null && a != null){
-			result = SearchBySurnameCityAbility(l,c,a);
-		}
-		else if(f!= null && l != null && c == null && a == null){
-			result = SearchByNameSurname(f,l);
-		}
-		else if(f!= null && l == null && c != null && a == null){
-			result = SearchByNameCity(f,c);
-		}
-		else if(f== null && l != null && c != null && a == null){
-			result = SearchBySurnameCity(l,c);
-		}
-		else if(f!= null && l == null && c == null && a != null){
-			result = SearchByNameAbility(f,a);
-		}
-		else if(f== null && l != null && c == null && a != null){
-			result = SearchBySurnameAbility(l,a);
-		}
-		else if(f== null && l == null && c != null && a != null){
-			result = SearchByCityAbility(c,a);
-		}
-		else if(f!= null && l == null && c == null && a == null){
-			result = SearchByName(f);
-		}
-		else if(f== null && l != null && c == null && a == null){
-			result = SearchBySurname(l);
-		}
-		else if(f== null && l == null && c != null && a == null){
-			result = SearchByCity(c);
-		}
-		else if(f== null && l == null && c == null && a != null){
-			result = SearchByAbility(a);
-		}
-		else if(f== null && l == null && c == null && a == null){
-			throw new VoidSearchException();
-		}
-		else{
-			result = null;
-		}
-		//System.out.println("Sono arrivato qui e result è" + result.toString());
-		return result;
 		
 	}
 
-	private List<GenericUser> SearchByAbility(String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE  :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
 
-	private List<GenericUser> SearchByCity(String c) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.city = :city");
-		
-		q.setParameter("city", c);;
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchBySurname(String l) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.lastName = :lastName");
-		
-		q.setParameter("lastName", l);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchByName(String f) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName");
-		
-		q.setParameter("firstName", f);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchByCityAbility(String c, String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.city = :city AND :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("city", c);
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchBySurnameAbility(String l, String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.lastName = :lastName AND :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("lastName", l);
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchByNameAbility(String f, String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName AND :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("firstName", f);
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchBySurnameCity(String l, String c) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.lastName = :lastName AND u.city = :city");
-		
-		q.setParameter("lastName", l);
-		q.setParameter("city", c);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchByNameCity(String f, String c) {
-Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName AND u.city = :city");
-		
-		q.setParameter("firstName", f);
-		q.setParameter("city", c);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchByNameSurname(String f, String l) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName AND u.lastName = :lastName");
-		
-		q.setParameter("firstName", f);
-		q.setParameter("lastName", l);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchBySurnameCityAbility(String l, String c, String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.lastName = :lastName AND u.city = :city AND :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("lastName", l);
-		q.setParameter("city", c);
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchByNameCityAbility(String f, String c, String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName AND u.city = :city AND :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("firstName", f);
-		q.setParameter("city", c);
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-		
-	}
-
-	private List<GenericUser> SearchByNameSurnameAbility(String f, String l, String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName AND u.lastName = :lastName AND :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("firstName", f);
-		q.setParameter("lastName", l);
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-	}
-
-	private List<GenericUser> SearchByNameSurnameCity(String f, String l, String c) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName AND u.lastName = :lastName AND u.city = :city");
-		q.setParameter("firstName", f);
-		q.setParameter("lastName", l);
-		q.setParameter("city", c);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-	}
-
-	private List<GenericUser> fullSearch(String f, String l, String c, String a) {
-		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :firstName AND u.lastName = :lastName AND u.city = :city AND :ability IN (SELECT a.name FROM Ability a WHERE a IN u.abilities)");
-		
-		q.setParameter("firstName", f);
-		q.setParameter("lastName", l);
-		q.setParameter("city", c);
-		q.setParameter("ability", a);
-		
-		return (ArrayList<GenericUser>)q.getResultList();
-	}
 
 }

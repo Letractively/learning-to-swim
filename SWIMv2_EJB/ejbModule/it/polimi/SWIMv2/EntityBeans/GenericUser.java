@@ -127,7 +127,7 @@ public abstract class GenericUser implements Serializable {
 	}
 
 	
-	@ManyToMany(
+	/*@ManyToMany(
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity=it.polimi.SWIMv2.EntityBeans.Ability.class
             )
@@ -136,9 +136,9 @@ public abstract class GenericUser implements Serializable {
 			joinColumns = @JoinColumn(name = "User"),
 			inverseJoinColumns = @JoinColumn(name = "Ability")
 			)
-	private Set<Ability> abilities = new HashSet<Ability>();
+	private Set<Ability> abilities = new HashSet<Ability>();*/
 	
-	public Set<Ability> getAbilities() {
+	/*public Set<Ability> getAbilities() {
 		return abilities;
 	}
 
@@ -148,7 +148,7 @@ public abstract class GenericUser implements Serializable {
 	
 	public void addAbility(Ability a){
 		this.abilities.add(a);
-	}
+	}*/
 
 
 	@OneToMany(
@@ -162,6 +162,12 @@ public abstract class GenericUser implements Serializable {
 			targetEntity=it.polimi.SWIMv2.EntityBeans.Friendship.class
             )
 	private Set<GenericUser> friends;
+	
+	
+	/*@OneToMany(
+			targetEntity=it.polimi.SWIMv2.EntityBeans.UserAbilities.class
+            )
+	private Set<Ability> abilities;*/
 	
 	
 	@OneToMany(

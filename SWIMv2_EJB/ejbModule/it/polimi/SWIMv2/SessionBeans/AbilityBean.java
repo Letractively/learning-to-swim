@@ -11,6 +11,10 @@ import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+
+//TODO A CAUSA DEI CAMBIAMENTI NEL DATABASE TUTTI I METODI SONO DA RIPENSARE!!!
+
+
 /**
  * Session Bean implementation class AbilityBean
  */
@@ -30,7 +34,7 @@ public class AbilityBean implements AbilityBeanLocal {
 	@Override
 	public void addAbilityToUser(String userEmail, int abilityId) {
 		
-		try {
+		/*try {
 			
 			  Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.id = :abilityId");
 			  abilityQuery.setParameter("abilityId", abilityId);
@@ -50,14 +54,14 @@ public class AbilityBean implements AbilityBeanLocal {
 			  }
 			
 			} catch (EntityNotFoundException exc) {}
-		      catch (NonUniqueResultException exc) {}
+		      catch (NonUniqueResultException exc) {}*/
 		      
 	    }
 
 	@Override
 	public void createAbility(String name, String description, String creatorEmail) {
 		
-		try {
+		/*try {
 			
 			Query adminQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :creatorEmail");
 			adminQuery.setParameter("creatorEmail", creatorEmail);
@@ -68,7 +72,7 @@ public class AbilityBean implements AbilityBeanLocal {
 		    entityManager.persist(newAbility);
 			      
 			} catch (EntityNotFoundException exc) {}
-		      catch (NonUniqueResultException exc) {}
+		      catch (NonUniqueResultException exc) {}*/
 		
 	}
 
