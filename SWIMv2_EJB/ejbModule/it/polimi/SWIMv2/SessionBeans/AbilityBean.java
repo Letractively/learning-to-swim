@@ -40,7 +40,7 @@ public class AbilityBean implements AbilityBeanLocal {
 			  Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.id = :abilityId");
 			  abilityQuery.setParameter("abilityId", abilityId);
 			  Query userQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :userEmail");
-			  abilityQuery.setParameter("userEmail", userEmail);
+			  userQuery.setParameter("userEmail", userEmail);
 			  
 			  
 			  Ability ability = (Ability) abilityQuery.getSingleResult(); 
