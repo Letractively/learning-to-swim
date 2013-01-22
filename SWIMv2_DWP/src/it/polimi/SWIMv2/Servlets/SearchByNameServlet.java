@@ -57,6 +57,8 @@ public class SearchByNameServlet extends HttpServlet {
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch(Exception e){
+			System.out.println("La ricerca non ha prodotto risultati, si prega di riprovare");
 		}
 		
 	}

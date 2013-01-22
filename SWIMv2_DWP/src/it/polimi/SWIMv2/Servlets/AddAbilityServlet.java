@@ -31,6 +31,7 @@ public class AddAbilityServlet extends HttpServlet {
             String userEmail = (String)request.getSession().getAttribute("email");
 		
             for(String s : ability ){
+            	System.out.println(s + "\n");
             	int idAbility = Integer.parseInt(s);
     	        abilityBean.addAbilityToUser(userEmail, idAbility);
                }
@@ -44,3 +45,4 @@ public class AddAbilityServlet extends HttpServlet {
 
 
 }
+
