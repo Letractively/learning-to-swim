@@ -69,17 +69,6 @@
   </filter-mapping>
   <servlet>
     <description></description>
-    <display-name>AddAbilityServlet</display-name>
-    <servlet-name>AddAbilityServlet</servlet-name>
-    <servlet-class>it.polimi.SWIMv2.Servlets.AbilityServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddAbilityServlet</servlet-name>
-    <url-pattern>/ability</url-pattern>
-    <url-pattern>/gestiscicompetenze</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ConfirmationServlet</display-name>
     <servlet-name>ConfirmationServlet</servlet-name>
     <servlet-class>it.polimi.SWIMv2.Servlets.ConfirmationServlet</servlet-class>
@@ -158,7 +147,7 @@
     <servlet-name>FeedbackServlet</servlet-name>
     <url-pattern>/feedback</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>CreateAbilityServlet</display-name>
     <servlet-name>CreateAbilityServlet</servlet-name>
@@ -167,5 +156,15 @@
   <servlet-mapping>
     <servlet-name>CreateAbilityServlet</servlet-name>
     <url-pattern>/createability</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddAbilityServlet</display-name>
+    <servlet-name>AddAbilityServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.AddAbilityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAbilityServlet</servlet-name>
+    <url-pattern>/gestiscicompetenze</url-pattern>
   </servlet-mapping>
 </web-app>
