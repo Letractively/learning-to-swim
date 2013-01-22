@@ -3,6 +3,7 @@ package it.polimi.SWIMv2.SessionBeans;
 import it.polimi.SWIMv2.EntityBeans.Ability;
 import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
+import it.polimi.SWIMv2.EntityBeans.UserAbilities;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -34,7 +35,7 @@ public class AbilityBean implements AbilityBeanLocal {
 	@Override
 	public void addAbilityToUser(String userEmail, int abilityId) {
 		
-		/*try {
+		try {
 			
 			  Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.id = :abilityId");
 			  abilityQuery.setParameter("abilityId", abilityId);
@@ -42,37 +43,42 @@ public class AbilityBean implements AbilityBeanLocal {
 			  abilityQuery.setParameter("userEmail", userEmail);
 			  
 			  
-			  if(abilityQuery.getSingleResult() != null && userQuery.getSingleResult() != null){
-			  
-				  Ability ability = (Ability) abilityQuery.getSingleResult(); 
-			      GenericUser user = (GenericUser) userQuery.getSingleResult();
+			  Ability ability = (Ability) abilityQuery.getSingleResult(); 
+			  GenericUser user = (GenericUser) userQuery.getSingleResult();
 			  
 			  
-			      user.addAbility(ability);
-			      entityManager.persist(user);
+			  UserAbilities userAbilities = new UserAbilities(user, ability);
+			  entityManager.persist(userAbilities);
 			      
-			  }
+			  
 			
-			} catch (EntityNotFoundException exc) {}
-		      catch (NonUniqueResultException exc) {}*/
+			} catch (EntityNotFoundException exc) {
+				exc.printStackTrace();
+				}
+		      catch (NonUniqueResultException exc) {
+		    	  exc.printStackTrace();
+		    	  }
+			  catch (Exception exc) {
+				  exc.printStackTrace();
+				  }
 		      
 	    }
 
 	@Override
 	public void createAbility(String name, String description, String creatorEmail) {
 		
-		/*try {
+		try {
 			
-			Query adminQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :creatorEmail");
+			Query adminQuery = entityManager.createQuery(" SELECT a FROM Admin a WHERE a.email = :creatorEmail");
 			adminQuery.setParameter("creatorEmail", creatorEmail);
 			  
 			Admin creator = (Admin) adminQuery.getSingleResult();
-		    Ability newAbility = new Ability(name,description, creator);
+		    Ability newAbility = new Ability(name, description, creator);
 			  
 		    entityManager.persist(newAbility);
 			      
 			} catch (EntityNotFoundException exc) {}
-		      catch (NonUniqueResultException exc) {}*/
+		      catch (NonUniqueResultException exc) {}
 		
 	}
 
