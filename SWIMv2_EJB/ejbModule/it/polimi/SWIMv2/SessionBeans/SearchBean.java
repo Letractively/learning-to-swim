@@ -49,7 +49,8 @@ public class SearchBean implements SearchBeanLocal {
 	public List<GenericUser> searchByAbility(String ability){
 		List<GenericUser> userList;
 		
-		Query q = em.createQuery("SELECT u FROM UserAbilities ua, GenericUser u, Ability a WHERE u.id = ua.userAbilitiesKey.user AND a.id = ua.userAbilitiesKey.ability");
+		Query q = em.createQuery("SELECT u FROM UserAbilities ua, GenericUser u, Ability a WHERE u.id = ua.userAbilitiesKey.user AND a.id = ua.userAbilitiesKey.ability AND a.name = :ability");
+		q.setParameter("ability", ability);
 		try{
 			userList = (List<GenericUser>)q.getResultList();
 			return userList;
