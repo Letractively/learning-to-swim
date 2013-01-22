@@ -6,7 +6,16 @@ import javax.persistence.ManyToOne;
 
 @Embeddable
 public class UserAbilitiesKey implements Serializable{
+	
+	public UserAbilitiesKey(GenericUser user, Ability ability){
+		
+		this.user = user;
+		this.ability = ability;
+		
+	}
 
+	public UserAbilitiesKey(){}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

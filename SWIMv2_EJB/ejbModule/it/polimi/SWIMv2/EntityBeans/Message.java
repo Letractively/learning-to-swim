@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "Message")
 public class Message implements Serializable{
 
-	public Message(Long idMessage, Long sender, Long receiver, String body){
+	public Message(Long idMessage, GenericUser sender, GenericUser receiver, String body){
 		
 		this.messageKey = new MessageKey(idMessage,sender);
 		
@@ -24,7 +24,7 @@ public class Message implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@EmbeddedId private MessageKey messageKey;
+	@Id private MessageKey messageKey;
 	
 	@Column(name="Date")
 	private Calendar date;
@@ -32,15 +32,13 @@ public class Message implements Serializable{
 	@Column(name = "Body", length= 3000)
 	private String body;
 
-	@Column(name = "Receiver", nullable = false)
-	private Long receiver;
+	@ManyToOne(targetEntity=it.polimi.SWIMv2.EntityBeans.GenericUser.class)
+	private GenericUser receiver;
 	
-	public Long getReceiver() {
-		return receiver;
-	}
 
-	public void setReceiver(Long receiver) {
-		this.receiver = receiver;
+
+	public GenericUser getReceiver() {
+		return receiver;
 	}
 
 	public String getBody() {
@@ -60,16 +58,5 @@ public class Message implements Serializable{
 	}
 	
 	
-	@ManyToOne(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.GenericUser.class
-            )
-	private GenericUser sender;
-	
-	@ManyToOne(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.GenericUser.class
-            )
-	private GenericUser receiverID;
 	
 }

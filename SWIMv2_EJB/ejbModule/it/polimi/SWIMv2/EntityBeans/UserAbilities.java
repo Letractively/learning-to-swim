@@ -15,9 +15,13 @@ public class UserAbilities implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	public UserAbilities() {
-		super();
+	public UserAbilities(GenericUser user, Ability ability) {
+		
+		userAbilitiesKey = new UserAbilitiesKey(user, ability);
+		
 	}
+	
+	public UserAbilities(){}
 	
 	@Id
 	private UserAbilitiesKey userAbilitiesKey;

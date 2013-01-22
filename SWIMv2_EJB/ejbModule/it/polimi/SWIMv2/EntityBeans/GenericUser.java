@@ -1,7 +1,6 @@
 package it.polimi.SWIMv2.EntityBeans;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -126,56 +125,10 @@ public abstract class GenericUser implements Serializable {
 		return friends;
 	}
 
-	
-	/*@ManyToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.Ability.class
-            )
-	@JoinTable(
-			name = "User_Abilities",
-			joinColumns = @JoinColumn(name = "User"),
-			inverseJoinColumns = @JoinColumn(name = "Ability")
-			)
-	private Set<Ability> abilities = new HashSet<Ability>();*/
-	
-	/*public Set<Ability> getAbilities() {
-		return abilities;
-	}
-
-	public void setAbilities(Set<Ability> abilities) {
-		this.abilities = abilities;
-	}
-	
-	public void addAbility(Ability a){
-		this.abilities.add(a);
-	}*/
-
-
-	@OneToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
-            )
-	private Set<Message> senderMessages;
-
-	
 	@OneToMany(
 			targetEntity=it.polimi.SWIMv2.EntityBeans.Friendship.class
             )
 	private Set<GenericUser> friends;
 	
-	
-	/*@OneToMany(
-			targetEntity=it.polimi.SWIMv2.EntityBeans.UserAbilities.class
-            )
-	private Set<Ability> abilities;*/
-	
-	
-	@OneToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE},
-            targetEntity=it.polimi.SWIMv2.EntityBeans.Message.class
-            )
-	private Set<Message> receiveMessages = new HashSet<Message>();
-	
-
 	
 }
