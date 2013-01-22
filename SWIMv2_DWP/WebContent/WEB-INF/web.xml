@@ -56,16 +56,6 @@
     <servlet-name>MessageServlet</servlet-name>
     <url-pattern>/MessageServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>SearchServlet</display-name>
-    <servlet-name>SearchServlet</servlet-name>
-    <servlet-class>it.polimi.SWIMv2.Servlets.SearchServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SearchServlet</servlet-name>
-    <url-pattern>/search</url-pattern>
-  </servlet-mapping>
   <filter>
     <display-name>LoggedUsersFilter</display-name>
     <filter-name>LoggedUsersFilter</filter-name>
@@ -137,5 +127,35 @@
   <servlet-mapping>
     <servlet-name>FriendshipConfirmationServlet</servlet-name>
     <url-pattern>/FriendshipConfirmationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchByNameServlet</display-name>
+    <servlet-name>SearchByNameServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.SearchByNameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchByNameServlet</servlet-name>
+    <url-pattern>/searchbyname</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchByAbilityServlet</display-name>
+    <servlet-name>SearchByAbilityServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.SearchByAbilityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchByAbilityServlet</servlet-name>
+    <url-pattern>/searchbyability</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FeedbackServlet</display-name>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.FeedbackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <url-pattern>/feedback</url-pattern>
   </servlet-mapping>
 </web-app>

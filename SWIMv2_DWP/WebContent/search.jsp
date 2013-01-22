@@ -8,18 +8,21 @@
 </head>
 <body>
 
-<form action="search" method="post">
+<p>Cerca per nome</p>
+<form action="searchbyname" method="post">
 <b>Inserisci Nome</b>
 <input type="text" name="nome">
 <br/>
 <b>Inserisci Cognome</b>
 <input type="text" name="cognome">
 <br/>
-<b>Inserisci Citt&agrave;</b>
-<input type="text" name="city">
-<br/>
+<input type="submit" value="Invia">
+</form>
+
+<p>Cerca per abilit&agrave;</p>
+<form action="searchbyability" method="post">
 <b>Inserisci Abilit&agrave;</b>
-<input type="text" name="ability">
+<input type="text" name="nome">
 <br/>
 <input type="submit" value="Invia">
 </form>
