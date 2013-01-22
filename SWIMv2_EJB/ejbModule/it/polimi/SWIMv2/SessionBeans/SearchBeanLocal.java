@@ -10,6 +10,8 @@ import javax.ejb.Local;
 @Local
 public interface SearchBeanLocal {
 	
-	public abstract List<GenericUser> searchForUsers(String f, String l, String c, String a) throws VoidSearchException;
+	public List<GenericUser> searchByName(String firstName, String lastName);
+	
+	public List<GenericUser> searchByAbility(String ability);
 
 }

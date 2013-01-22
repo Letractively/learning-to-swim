@@ -24,7 +24,7 @@ public class FriendshipKey implements Serializable{
 	}
 	
 
-	
+
 		@ManyToOne(targetEntity=it.polimi.SWIMv2.EntityBeans.GenericUser.class)
 	    private GenericUser friend1;
 	    

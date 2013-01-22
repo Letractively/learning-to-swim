@@ -68,7 +68,7 @@ public class Ability implements Serializable{
 	
 	
 	
-	@ManyToMany(
+	/*@ManyToMany(
 			cascade={CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity=it.polimi.SWIMv2.EntityBeans.GenericUser.class
             )
@@ -77,7 +77,12 @@ public class Ability implements Serializable{
 			joinColumns = @JoinColumn(name = "Ability"),
 			inverseJoinColumns = @JoinColumn(name = "User")
 			)
-	private Set<GenericUser> users = new HashSet<GenericUser>();
+	private Set<GenericUser> users = new HashSet<GenericUser>();*/
+	
+	/*@OneToMany(
+			targetEntity=it.polimi.SWIMv2.EntityBeans.UserAbilities.class
+            )
+	private Set<GenericUser> users;*/
 	
 
 
