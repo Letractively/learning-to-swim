@@ -10,16 +10,16 @@
 <p>Per inviare una email riempire i campi sottostanti. <br />
 Al termine,cliccare sul pulsante Invia.</p>
 
-<form action="MailServlet" method="post">
+<form action="MessageServlet" method="post">
 
 <table cellspacing="5" border="0">
 <tr>
   <td align="right">Indirizzo Mittente:</td>
-  <td><input type="text" name="mittente" /></td>
+  <td><input type="text" name="senderEmail" /></td>
 </tr>
 <tr>
   <td align="right">Indirizzo Destinatario:</td>
-  <td><input type="text" name="destinatario" /></td>
+  <td><input type="text" name="receiverEmail" /></td>
 </tr>
 <tr>
   <td align="right">Oggetto:</td>
@@ -27,7 +27,7 @@ Al termine,cliccare sul pulsante Invia.</p>
 </tr>
 <tr>
   <td align="right">Testo:</td>
-  <td><textarea name="contenuto"></textarea></td>
+  <td><textarea name="body"></textarea></td>
 </tr>
 <tr>
   <td></td>
