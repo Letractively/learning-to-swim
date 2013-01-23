@@ -1,9 +1,5 @@
 package it.polimi.SWIMv2.SessionBeans;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import it.polimi.SWIMv2.EntityBeans.Ability;
 import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
@@ -15,8 +11,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import org.apache.commons.collections.map.HashedMap;
 
 
 //TODO A CAUSA DEI CAMBIAMENTI NEL DATABASE TUTTI I METODI SONO DA RIPENSARE!!!
@@ -39,7 +33,7 @@ public class AbilityBean implements AbilityBeanLocal {
     }
 
 	@Override
-	public void addAbilityToUser(String userEmail, int abilityId) {
+	public void addAbilityToUser(String userEmail, Long abilityId) {
 		
 		try {
 			
@@ -116,7 +110,7 @@ public class AbilityBean implements AbilityBeanLocal {
 		} catch (EntityNotFoundException exc) { exc.printStackTrace(); }
 	      catch (NonUniqueResultException exc) { exc.printStackTrace();}*/
 		return null;
-	}	
+	}		
 		
 		
 		

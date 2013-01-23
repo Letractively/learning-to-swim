@@ -10,9 +10,10 @@ import javax.ejb.Local;
 @Local
 public interface AbilityBeanLocal {
 	
-	public abstract void addAbilityToUser(String userEmail, int ability);
+	public abstract void addAbilityToUser(String userEmail, Long abilityId);
 
 	public abstract void createAbility(String name, String description, String creatorEmail);
 
 	public abstract Map<Ability,Boolean> getAbilitiesByUser(String email);
+	
 }
