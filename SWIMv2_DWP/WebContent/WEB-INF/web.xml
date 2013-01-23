@@ -145,7 +145,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FeedbackServlet</servlet-name>
-    <url-pattern>/feedback</url-pattern>
+    <url-pattern>/daifeedback</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
