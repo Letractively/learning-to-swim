@@ -35,9 +35,22 @@ public class MessageServlet extends HttpServlet {
 			
 			if(messageBean.validReceiver(request.getParameter("receiverEmail"))){
 				messageBean.insertToDatabase(senderEmail, receiverEmail, body);
-				forwarding(receiverEmail, senderEmail, body);
+				boolean delivered = forwarding(receiverEmail, senderEmail, body);
+				
+				if(delivered){
+					request.getSession().setAttribute("messagedelivered", "Invio riuscito!");
+					getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+				}
+				
+				else{
+					request.getSession().setAttribute("errormessage", "Invio fallito: better luck next time!");
+					getServletConfig().getServletContext().getRequestDispatcher("/messageForm.jsp").forward(request, response);
+				}
 			}
-			
+			else{
+				request.getSession().setAttribute("errormessage", "Invio fallito: better luck next time!");
+				getServletConfig().getServletContext().getRequestDispatcher("/messageForm.jsp").forward(request, response);
+			}
 		} 
 		catch (NamingException e) {
 			e.printStackTrace();
@@ -45,17 +58,19 @@ public class MessageServlet extends HttpServlet {
 
 	}
 	
-	private void forwarding(String receiver, String sender, String body){
+	private boolean forwarding(String receiver, String sender, String body){
 		
 		try {
 			 MailUtility.sendMail(receiver, sender, body);
 			 System.out.println("Invio messaggio OK!");
+			 return true;
 		} 
 		catch (MessagingException e) {
 			
-			System.out.println("Invio non riuscito!");
-		    e.printStackTrace();
+			System.out.println("Invio non riuscito! Porta 25 chiusa!!");
+		    return false;
 		}
+	
 	}
 
 	
