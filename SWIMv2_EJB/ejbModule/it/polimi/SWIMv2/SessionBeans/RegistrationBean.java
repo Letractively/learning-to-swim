@@ -5,6 +5,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
+import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.EntityBeans.User;
 import it.polimi.SWIMv2.Exceptions.IllegalEmailException;
 import it.polimi.SWIMv2.Utilities.ActivationByMail;
@@ -87,7 +89,24 @@ public class RegistrationBean implements RegistrationBeanLocal {
     	}
     }
     
-    
+    @Override
+    public boolean isEmailAvailable(String email){
+    	
+    	try{
+    		Query q = em.createQuery("SELECT u.email FROM GenericUser u WHERE u.email = :email");
+        	q.setParameter("email", email);
+        	
+        	String e = (String)q.getSingleResult();
+        	
+        	return false;
+    	}
+    	catch(Exception e){
+    		return true;
+    	}
+    	
+    	
+    	
+    }
 
 
 	private Map<String,String> generateActivationMailParameters(Map<String,String> activatingMailParameters, String email, String nome, String cognome, String activationLink, String randomCode) {

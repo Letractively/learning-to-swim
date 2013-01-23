@@ -101,7 +101,6 @@ public class FeedbackBean implements FeedbackBeanLocal {
 		Double threeFeedback = new Double(user.getFeedback().getThreeFeedback());
 		Double fourFeedback = new Double(user.getFeedback().getFourFeedback());
 		
-		//CAREFUL, EXPECIALLY YOU WALTER: THIS IS THE REAL FEEDBACKS AVERAGE!!! BETTER STUDYING MATHS NEXT TIME!!!
 		
 		Double totalnumberOfFeedbacks = new Double(zeroFeedback + oneFeedback + twoFeedback + threeFeedback + fourFeedback);
 		Double weightedSum = new Double(0 * zeroFeedback + 1 * oneFeedback + 2 * twoFeedback + 3 * threeFeedback + 4 * fourFeedback);
