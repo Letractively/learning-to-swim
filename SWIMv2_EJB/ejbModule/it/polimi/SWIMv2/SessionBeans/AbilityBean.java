@@ -1,5 +1,9 @@
 package it.polimi.SWIMv2.SessionBeans;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import it.polimi.SWIMv2.EntityBeans.Ability;
 import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
@@ -13,7 +17,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 
+import org.apache.commons.collections.map.HashedMap;
+
+
+
 //TODO A CAUSA DEI CAMBIAMENTI NEL DATABASE TUTTI I METODI SONO DA RIPENSARE!!!
+
 
 
 /**
@@ -80,6 +89,35 @@ public class AbilityBean implements AbilityBeanLocal {
 			} catch (EntityNotFoundException exc) {}
 		      catch (NonUniqueResultException exc) {}
 		
+	}
+
+	@Override
+	public Map<Ability,Boolean> getAbilitiesByUser(String userEmail) {
+		Map<Ability,Boolean> mapAbility = null;
+		try {
+			Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a");
+			List<Ability> lstAbility = (List<Ability>)abilityQuery.getResultList();
+			  
+			Query userQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :userEmail");
+			userQuery.setParameter("userEmail", userEmail);
+			
+			GenericUser user = (GenericUser) userQuery.getSingleResult();
+			Set<Ability> userAbilities= user.getAbilities();
+			
+			mapAbility = new HashedMap();
+			
+			for (Ability a : lstAbility) {
+				mapAbility.put(a, false);
+			}
+			
+			for (Ability a : userAbilities) {
+				mapAbility.put(a, true);
+			}
+			
+			return mapAbility;
+		} catch (EntityNotFoundException exc) { exc.printStackTrace(); }
+	      catch (NonUniqueResultException exc) { exc.printStackTrace();}
+		return null;
 	}
 
 	
