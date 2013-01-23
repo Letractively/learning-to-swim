@@ -5,13 +5,16 @@
 	<jsp:param name="title" value="Pagina principale"/>
 </jsp:include>
 
+
+
   <div class="content">
 <div style="width:40%;float:right;text-align:center;"><h1>Registrazione</h1>
-    <form id="regform" action="registration" method="post">
-      <div><input type="text" name="nome" value="Nome" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Nome':this.value;"><input type="text" name="cognome" value="Cognome" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Cognome':this.value;"></div>
-      <div><input type="text" name="email" value="La tua Email" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'La tua Email':this.value;"></div>
-      <div><input type="text" name="password" value="Password" onclick="this.value='';this.type='password'" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="if (!this.value) { this.value='Password'; this.type='text'; } else this.type='password'"></div>
-      <div><input type="text" name="citta'" value="La tua Citt&agrave;" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'La tua Citt&agrave;':this.value;"></div>
+    <form name ="registration" id="regform" action="registration" method="post" onsubmit="return check()">
+      <div><input type="text" name="nome" value="Nome" id="nome" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Nome':this.value;"><input type="text" name="cognome" value="Cognome" id="cognome" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Cognome':this.value;"></div>
+      <div><input type="text" name="email" value="La tua Email" id= "email" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="getxmlHttpRequest('DuplicateEmailServlet', 'registration', 'message', 'please wait...'); return false; this.value=!this.value?'La tua Email':this.value;"></div>
+      <div><input type="text" name="password" value="Password" id="password" onclick="this.value='';this.type='password'" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="if (!this.value) { this.value='Password'; this.type='text'; } else this.type='password'"></div>
+      <div><input type="text" name="citta'" id="city" value="La tua Citt&agrave;" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'La tua Citt&agrave;':this.value;"></div>
+      <div id="message"></div>
       <div><button type=”submit”>Registrati!</button></div>
     </form>
 </div>
