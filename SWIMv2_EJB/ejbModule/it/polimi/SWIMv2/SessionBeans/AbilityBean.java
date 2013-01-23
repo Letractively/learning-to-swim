@@ -16,13 +16,10 @@ import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
 import org.apache.commons.collections.map.HashedMap;
 
 
-
 //TODO A CAUSA DEI CAMBIAMENTI NEL DATABASE TUTTI I METODI SONO DA RIPENSARE!!!
-
 
 
 /**
@@ -91,9 +88,10 @@ public class AbilityBean implements AbilityBeanLocal {
 		
 	}
 
+	
 	@Override
 	public Map<Ability,Boolean> getAbilitiesByUser(String userEmail) {
-		Map<Ability,Boolean> mapAbility = null;
+		/*Map<Ability,Boolean> mapAbility = null;
 		try {
 			Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a");
 			List<Ability> lstAbility = (List<Ability>)abilityQuery.getResultList();
@@ -116,12 +114,9 @@ public class AbilityBean implements AbilityBeanLocal {
 			
 			return mapAbility;
 		} catch (EntityNotFoundException exc) { exc.printStackTrace(); }
-	      catch (NonUniqueResultException exc) { exc.printStackTrace();}
+	      catch (NonUniqueResultException exc) { exc.printStackTrace();}*/
 		return null;
-	}
-
-	
-		
+	}	
 		
 		
 		
