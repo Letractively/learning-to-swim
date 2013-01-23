@@ -30,14 +30,17 @@ public class FeedbackServlet extends HttpServlet {
 		try{
 			ctx = new InitialContext();
 			fb = (FeedbackBeanLocal)ctx.lookup("FeedbackBean/local");
-			
-			Integer value = Integer.parseInt(request.getParameter("SOSTITUIRE COL NOME DEL PARAMETRO PRESENTE NELLA PAGINA JSP"));
+			 String[] feedback = request.getParameterValues("feedback") ;
+			//Integer value = Integer.parseInt(request.getParameter("SOSTITUIRE COL NOME DEL PARAMETRO PRESENTE NELLA PAGINA JSP"));
 			String email = (String)request.getSession().getAttribute("email");
-			
+			Integer value = Integer.parseInt(feedback[0]);
 			boolean feedbackCorrectlyGiven = fb.giveFeedback(email, value);
 			
 			if(feedbackCorrectlyGiven){
-				//TODO forwardare da qualche parte
+				 
+				request.getSession().setAttribute("feedbackgiven", "Feedback dato con successo!");
+			    getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+			
 			}
 			else{
 				System.out.println("Feedback non aggiunto correttamente");

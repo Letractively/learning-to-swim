@@ -32,11 +32,14 @@ public class AddAbilityServlet extends HttpServlet {
 		
             for(String s : ability ){
             	System.out.println(s + "\n");
-            	int idAbility = Integer.parseInt(s);
+            	Long idAbility = Long.parseLong(s);
     	        abilityBean.addAbilityToUser(userEmail, idAbility);
                }
 		
-	    	} 
+            request.getSession().setAttribute("abilityadded", "Abilita' aggiunta!");
+			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+	    
+		    } 
 		catch (NamingException e) {
 			e.printStackTrace();
 		    }

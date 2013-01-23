@@ -34,7 +34,10 @@ public class CreateAbilityServlet extends HttpServlet {
             
             abilityBean.createAbility(abilityName, abilityDescription, creatorEmail);
 		
-	    	} 
+            request.getSession().setAttribute("abilitycreated", "Abilita' creata con successo!");
+			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+	    
+            } 
 		    
 		catch (NamingException e) {
 			e.printStackTrace();
