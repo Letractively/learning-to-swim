@@ -15,6 +15,10 @@
 
 <script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.dropdownPlain.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="emailcheck.js"></script>
+<script type="text/javascript" src="completeness.js"></script>
+
 </head>
 
 <body>
