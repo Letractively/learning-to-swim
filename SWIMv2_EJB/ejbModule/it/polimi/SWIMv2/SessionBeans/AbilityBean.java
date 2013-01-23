@@ -1,5 +1,7 @@
 package it.polimi.SWIMv2.SessionBeans;
 
+import java.util.Map;
+
 import it.polimi.SWIMv2.EntityBeans.Ability;
 import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
