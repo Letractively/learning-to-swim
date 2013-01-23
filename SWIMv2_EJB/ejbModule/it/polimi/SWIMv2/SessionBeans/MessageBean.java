@@ -4,8 +4,7 @@ import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.EntityBeans.Message;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.NonUniqueResultException;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -29,16 +28,17 @@ public class MessageBean implements MessageBeanLocal {
 			  Query receiverQuery = entityManager.createQuery(" SELECT user FROM GenericUser user WHERE user.email = :receiverEmail ");
 			  receiverQuery.setParameter("receiverEmail", receiverEmail);
 			  
-			  if(receiverQuery.getSingleResult() != null){
+			  receiverQuery.getSingleResult();
 			  return true;
-			  }
-			
-			} catch (EntityNotFoundException exc) {
-				System.out.println("La mail inserita non e' corretta");
+			  
+		
+			} catch (NoResultException exc) {
 				
+				System.out.println("La mail inserita non e' corretta");
+				return false;
+			
 			}
-		      catch (NonUniqueResultException exc) {}
-		      return false;
+		     
 	    }
 
 	
@@ -47,21 +47,19 @@ public class MessageBean implements MessageBeanLocal {
 		
     	try{
 		
-    		Query senderQuery =  entityManager.createQuery("SELECT sender FROM GenericUser sender WHERE sender.email= :senderEmail");
-			senderQuery.setParameter("senderEmail", senderEmail);
-			GenericUser sender = (GenericUser)senderQuery.getSingleResult();
-			
-			Query messageIdQuery = entityManager.createQuery("SELECT MAX(message.id) FROM Message message WHERE message.sender.email= :senderEmail");
+			Query messageIdQuery = entityManager.createQuery("SELECT max(message.messageKey.id) FROM Message message WHERE message.messageKey.sender.email= :senderEmail");
 			messageIdQuery.setParameter("senderEmail", senderEmail);
-			Long messageId = (Long)(messageIdQuery.getSingleResult()) +1;
+			Long messageId = (Long)(messageIdQuery.getSingleResult())+1;
 			
-			Query receiverQuery =  entityManager.createQuery("SELECT receiver FROM GenericUser receiver WHERE receiver.email= :receiverEmail");
-			receiverQuery.setParameter("receiverEmail", receiverEmail);
-			GenericUser receiver = (GenericUser)receiverQuery.getSingleResult();
+		    createAndPersistMessage(senderEmail, receiverEmail, body, messageId);
 			
-			Message message = new Message(messageId, sender, receiver, body);
 			
-			entityManager.persist(message);
+    	}
+    	catch(NullPointerException e){
+    		
+    		Long messageId = new Long(1);
+    		createAndPersistMessage(senderEmail, receiverEmail, body, messageId);
+    		
     	}
     	catch(Exception e){
     		e.printStackTrace();
@@ -69,6 +67,21 @@ public class MessageBean implements MessageBeanLocal {
     
 	}
 	
+    private void createAndPersistMessage(String senderEmail, String receiverEmail, String body, Long messageId){
+    	
+    	Query senderQuery =  entityManager.createQuery("SELECT sender FROM GenericUser sender WHERE sender.email= :senderEmail");
+		senderQuery.setParameter("senderEmail", senderEmail);
+		GenericUser sender = (GenericUser)senderQuery.getSingleResult();
+		
+		Query receiverQuery =  entityManager.createQuery("SELECT receiver FROM GenericUser receiver WHERE receiver.email= :receiverEmail");
+		receiverQuery.setParameter("receiverEmail", receiverEmail);
+		GenericUser receiver = (GenericUser)receiverQuery.getSingleResult();
+		
+		Message message = new Message(messageId, sender, receiver, body);
+		
+		entityManager.persist(message);
+   
+    }
 	
 
 }
