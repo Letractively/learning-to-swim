@@ -8,4 +8,5 @@ import javax.ejb.Local;
 public interface RegistrationBeanLocal {
 
 	public abstract void insertIntoDatabase(String firstName, String lastName, String email, String password, String city) throws IllegalEmailException;
+	public boolean isEmailAvailable(String email);
 }
