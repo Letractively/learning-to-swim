@@ -13,10 +13,7 @@ Al termine,cliccare sul pulsante Invia.</p>
 <form action="MessageServlet" method="post">
 
 <table cellspacing="5" border="0">
-<tr>
-  <td align="right">Indirizzo Mittente:</td>
-  <td><input type="text" name="senderEmail" /></td>
-</tr>
+
 <tr>
   <td align="right">Indirizzo Destinatario:</td>
   <td><input type="text" name="receiverEmail" /></td>
