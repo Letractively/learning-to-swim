@@ -37,7 +37,7 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 			rb = (RegistrationBeanLocal)ctx.lookup("RegistrationBean/local");
-			rb.insertIntoDatabase(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("email"), request.getParameter("password"), request.getParameter("citta'"));
+			rb.insertIntoDatabase(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("email"), request.getParameter("password"), request.getParameter("city"));
 			request.getSession().setAttribute("inserted", true);
 			request.getSession().setAttribute("confirmed", false);
 			request.getSession().setAttribute("alert", "Grazie per esserti registrato; riceverai presto una mail di attivazione account.");

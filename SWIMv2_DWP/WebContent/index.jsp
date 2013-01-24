@@ -9,13 +9,30 @@
 
   <div class="content">
 <div style="width:40%;float:right;text-align:center;"><h1>Registrazione</h1>
-    <form name ="registration" id="regform" action="registration" method="post" onsubmit="return check()">
-      <div><input type="text" name="nome" value="Nome" id="nome" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Nome':this.value;"><input type="text" name="cognome" value="Cognome" id="cognome" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'Cognome':this.value;"></div>
-      <div><input type="text" name="email" value="La tua Email" id= "email" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="getxmlHttpRequest('DuplicateEmailServlet', 'registration', 'message', 'please wait...'); return false; this.value=!this.value?'La tua Email':this.value;"></div>
-      <div><input type="text" name="password" value="Password" id="password" onclick="this.value='';this.type='password'" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="if (!this.value) { this.value='Password'; this.type='text'; } else this.type='password'"></div>
-      <div><input type="text" name="citta'" id="city" value="La tua Citt&agrave;" onclick="this.value='';" onfocus="javascript: if (formfield.defaultValue==formfield.value)formfield.value = ''" onblur="this.value=!this.value?'La tua Citt&agrave;':this.value;"></div>
+    <form name ="registration" id="regform" action="registration" method="post" onsubmit="return checkCoerence()">
+      <div><b>Nome e Cognome</b></div>
+      <div><input type="text" name="nome"  id="nome"><input type="text" name="cognome" id="cognome"></div>
+      <div><b>Email</b></div>
+      <div><input type="text" name="email"  id= "email" onblur="getxmlHttpRequest('DuplicateEmailServlet', 'registration', 'message', 'please wait...'); return false;"></div>
+      <div><b>Password</b></div>
+      <div><input type="password" name="password"  id="password"></div>
+      <div><b>Conferma Password</b></div>
+      <div><input type="password" name="cpassword"  id="cpassword"></div>
+      <div><b>Citt&agrave;</b></div>
+      <div><input type="text" name="city" id="city"></div>
       <div id="message"></div>
       <div><button type=”submit”>Registrati!</button></div>
+      <% 
+		  String loginError = (String)session.getAttribute("alertLogin");
+		  if(loginError!=null){
+	  %> 
+		  <p>
+		  <%=loginError %>
+		  </p>
+		
+	  <%
+		 session.removeAttribute("alertLogin");} 
+	  %>
     </form>
 </div>
   <div style="width:60%;">	<p>
@@ -48,7 +65,7 @@
 		session.removeAttribute("alert");} 
 	%>
 	
-		<% 
+	<% 
 		String confirmed = (String)session.getAttribute("alertconfirmed");
 		if(confirmed!=null){
 	%>

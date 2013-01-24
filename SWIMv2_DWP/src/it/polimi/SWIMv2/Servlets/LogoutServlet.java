@@ -17,7 +17,7 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
-		getServletConfig().getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
+		getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 }

@@ -19,5 +19,11 @@
     <p>Sono loggato?
     <%=session.getAttribute("logged") %>
     </p>
+    
+    <div>
+    <form name="logout" id="logout" method="post" action="logout">
+    <button type="submit">Logout</button>
+    </form>
+    </div>
 </body>
 </html>
