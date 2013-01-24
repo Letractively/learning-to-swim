@@ -85,7 +85,8 @@ public class RegistrationBean implements RegistrationBeanLocal {
 			e1.printStackTrace();
 		} catch(Exception e){
     		//TODO rimuovere la println e, se vogliamo essere precisi, sostituire a "Exception" il nome della sua sottoclasse che corrisponde all'eccezione lanciata
-    		System.out.println("l'email esiste già: l'utente non viene creato");
+    		e.printStackTrace();
+			System.out.println("l'email esiste già: l'utente non viene creato");
     	}
     }
     
