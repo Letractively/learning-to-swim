@@ -1,5 +1,5 @@
   <div id="footer" style="clear:both;">
-    <span id="foottile">SWIMv2</span><!-- end .footer --><img src="images/logo.png" alt="SWIM2" name="Insert_logo" width="50" height="50" id="logo" /><span><form name="login" id="loginform" action="login" method="post" onsubmit="return allFieldsAreFilled()">
+    <span id="foottile">SWIMv2</span><!-- end .footer --><img src="images/logo.png" alt="SWIM2" name="Insert_logo" width="50" height="50" id="logo" /><span><form name="login" id="loginform" action="login" method="post" onsubmit="return allLoginFieldsAreFilled()">
 <b>E-mail</b>
 <input id="emailLogin" type="text" name="email" size="26">
 <b>Password</b>
