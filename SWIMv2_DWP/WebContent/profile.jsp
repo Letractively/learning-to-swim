@@ -1,12 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HomePage di <%out.print(session.getAttribute("nome"));%> <%out.print(session.getAttribute("cognome"));%></title>
-</head>
-<body>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+
+<jsp:include page="profileheader.jsp"></jsp:include>
+
 	<b>Benvenuto 
    		<%out.print(session.getAttribute("nome"));%>
    		<%out.print(session.getAttribute("cognome"));%>
@@ -25,5 +21,7 @@
     <button type="submit">Logout</button>
     </form>
     </div>
-</body>
-</html>
+
+<jsp:include page="profilefooter.jsp" />
+
+

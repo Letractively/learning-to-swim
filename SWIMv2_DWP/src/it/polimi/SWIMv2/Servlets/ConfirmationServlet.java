@@ -34,6 +34,15 @@ public class ConfirmationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		if(avoidIncorrectAccess(request, response)){
+			doNormalOperations(request, response);
+		}
+		else{
+			response.sendRedirect("index.jsp");
+		}
+	}
+
+	private void doNormalOperations(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
 			ctx = new InitialContext();
 			ab = (ActivationBeanLocal)ctx.lookup("ActivationBean/local");
@@ -47,36 +56,6 @@ public class ConfirmationServlet extends HttpServlet {
 				request.getSession().setAttribute("alertconfirmed", "Il tuo account è stato confermato, ora puoi effettuare il login");
 				getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			}
-			/*if(u != null){
-				System.out.println("login corretto");
-				usbl = (UserSessionBeanLocal)ctx.lookup("UserSessionBean/local");
-				//GenericUser u = usbl.getDataFromDatabase(request.getParameter("email"));
-				request.getSession().setAttribute("nome", u.getFirstName());
-				request.getSession().setAttribute("cognome", u.getLastName());
-				request.getSession().setAttribute("city", u.getCity());
-				request.getSession().setAttribute("email", u.getEmail());
-				request.getSession().setAttribute("feedback", u.getFeedback());
-				request.getSession().setAttribute("contesto", usbl);
-				request.getSession().setAttribute("logged", true);
-				request.getSession().setAttribute("confirmed", true);
-				
-				//Object userClass = u.getClass();
-				
-				if(u.getClass().equals(User.class)){
-					request.getSession().setAttribute("type", "utente normale");
-				}
-				else if(u.getClass().equals(Admin.class)){
-					request.getSession().setAttribute("type", "amministratore");
-				}
-				
-				//response.sendRedirect("profile.jsp");
-				getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
-				
-				System.out.println("Redirect alla pagina personale completato con successo");
-			}
-			else{
-				System.out.println("login non corretto");
-			}*/
 			
 		}catch(NamingException e){
 			System.out.println("Attivazione non riuscita");
@@ -84,6 +63,24 @@ public class ConfirmationServlet extends HttpServlet {
 		}catch(AlreadyValidatedUserException e){
 			System.out.println("Utente già validato: eseguo redirect alla homepage");
 			response.sendRedirect("index.jsp");
+		}catch(Exception e){
+			System.out.println("Eccezione nella conferma email");
+			response.sendRedirect("index.jsp");
+		}
+		
+	}
+
+	private boolean avoidIncorrectAccess(HttpServletRequest request, HttpServletResponse response) {
+		try{
+			String activationCode = (String)request.getSession().getAttribute("activationcode");
+			if(activationCode == null){
+				return false;
+			}
+			return true;
+		}
+		catch(Exception e){
+			System.out.println("Sono qui");
+			return false;
 		}
 		
 	}
