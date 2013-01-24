@@ -1,6 +1,6 @@
-function allFieldsAreFilled(){
+function allLoginFieldsAreFilled(){
 	with(document.login){
-		if(email.value == "" || password.value == ""){
+		if(emailLogin.value == "" || passwordLogin.value == ""){
 			alert("Per loggarti devi riempire entrambi i campi");
 			return false;
 		}

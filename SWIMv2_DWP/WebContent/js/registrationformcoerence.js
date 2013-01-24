@@ -4,7 +4,7 @@
  * @returns {Boolean} true se tutte le condizioni sono rispettate, false altrimenti
  */
 function checkCoerence(){
-	if(!allFieldsAreFilled()){
+	if(!allRegistrationFieldsAreFilled()){
 		return false;
 	}
 	if(!passwordEquality()){
@@ -18,7 +18,7 @@ function checkCoerence(){
  * 
  * @returns {Boolean} true se non trova campi rimasti vuoti, false altrimenti
  */
-function allFieldsAreFilled(){
+function allRegistrationFieldsAreFilled(){
 	with(document.registration){
 		if(nome.value == "" || cognome.value == "" || email.value == "" || password.value == "" || cpassword.value == "" || city.value == ""){
 			alert("Prima di inviare i dati assicurati di aver riempito tutti i campi");
