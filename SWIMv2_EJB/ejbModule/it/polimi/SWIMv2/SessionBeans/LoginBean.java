@@ -62,18 +62,18 @@ public class LoginBean implements LoginBeanLocal {
 			
 		} catch (NoSuchAlgorithmException e) {
 			// TODO togliere
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		} catch (InvalidKeySpecException e) {
 			// TODO togliere
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		} catch (NoResultException e){
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 		catch (Exception e){
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 		
