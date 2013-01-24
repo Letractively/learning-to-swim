@@ -16,8 +16,14 @@
 <script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.dropdownPlain.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="emailcheck.js"></script>
-<script type="text/javascript" src="completeness.js"></script>
+
+<!-- INIZIO JAVASCRIPT DI CONTROLLO SUI DATI IN INPUT -->
+
+<script type="text/javascript" src="js/duplicateemailcheck.js"></script>
+<script type="text/javascript" src="js/registrationformcoerence.js"></script>
+<script type="text/javascript" src="js/loginformcoerence.js"></script>
+
+<!-- FINE JAVASCRIPT DI CONTROLLO SUI DATI IN INPUT -->
 
 </head>
 

@@ -32,44 +32,49 @@ public class LoginServlet extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 			lb = (LoginBeanLocal)ctx.lookup("LoginBean/local");
-			System.out.println("i parametri raccolti sono " + request.getParameter("email") + " e " + request.getParameter("password"));
+			//System.out.println("i parametri raccolti sono " + request.getParameter("email") + " e " + request.getParameter("password"));
 			GenericUser u = (GenericUser)lb.validateUser(request.getParameter("email"), request.getParameter("password"));
-			if(u.getClass().equals(User.class)){
-				u = (User)u;
-			}
-			else if(u.getClass().equals(Admin.class)){
-				u = (Admin)u;
-			}
-			if(u != null && u.isConfirmed()){
-				System.out.println("login corretto");
-				usbl = (UserSessionBeanLocal)ctx.lookup("UserSessionBean/local");
-				createSessionAttributes(request, u);
-
-				getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
-				
-				System.out.println("Redirect alla pagina personale completato con successo");
-			}
-			else if(u != null && !u.isConfirmed()){
-				System.out.println("utente non ancora confermato: login impossibile");
-				request.getSession().setAttribute("alertconfirmed", "Non puoi fare il login prima di aver confermato il tuo account");
-				getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-				
-			}
-			else{
-				if(u == null){
-					System.out.println("u is null");
-				}
-				System.out.println("login non corretto");
-			}
-			//TODO eseguire le azioni successive
-		} catch (NamingException e) {
-			// TODO rimuovere la println
-			System.out.println("qualcosa non va nel login");
-			e.printStackTrace();
+			
+			castUser(u);
+			controlConfirmation(u, request, response);
+		} 
+		catch(Exception e){
+			request.getSession().setAttribute("alertLogin", "Login fallito, controlla meglio i dati che inserisci e riprova");
+			getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 		
 	}
 	
+	//Chiamato solo per i side effects
+	private void controlConfirmation(GenericUser u, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NamingException {
+		if(u != null && u.isConfirmed()){
+			//System.out.println("login corretto");
+			usbl = (UserSessionBeanLocal)ctx.lookup("UserSessionBean/local");
+			createSessionAttributes(request, u);
+
+			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+			
+			//System.out.println("Redirect alla pagina personale completato con successo");
+		}
+		else if(u != null && !u.isConfirmed()){
+			//System.out.println("utente non ancora confermato: login impossibile");
+			request.getSession().setAttribute("alertconfirmed", "Non puoi fare il login prima di aver confermato il tuo account");
+			getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			
+		}
+		
+	}
+
+	//Chiamato solo per i side effects
+	private void castUser(GenericUser u) {
+		if(u.getClass().equals(User.class)){
+			u = (User)u;
+		}
+		else if(u.getClass().equals(Admin.class)){
+			u = (Admin)u;
+		}
+	}
+
 	public void createSessionAttributes(HttpServletRequest request, GenericUser u){
 		request.getSession().setAttribute("nome", u.getFirstName());
 		request.getSession().setAttribute("cognome", u.getLastName());
