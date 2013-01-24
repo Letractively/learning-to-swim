@@ -25,7 +25,7 @@ public class MessageServlet extends HttpServlet {
 		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String senderEmail = request.getParameter("senderEmail");
+		String senderEmail = (String)request.getSession().getAttribute("email");
 		String receiverEmail = request.getParameter("receiverEmail");
 		String body = request.getParameter("body");
 		
