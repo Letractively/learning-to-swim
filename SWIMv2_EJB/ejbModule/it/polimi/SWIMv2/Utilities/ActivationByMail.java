@@ -21,7 +21,7 @@ public class ActivationByMail {
  
 	public  void sendMsg(String to, String from, String subject, String body) {
  
-		final String username = "SWIMv2.learningtoswim@gmail.com";
+		final String username = "learningtoswimv2@gmail.com";
 		final String password = "daveisafuckingnerd";
  
 		Properties props = new Properties();
@@ -48,8 +48,7 @@ public class ActivationByMail {
 			Transport.send(message);
  
 		} catch (MessagingException e) {
-			//throw new RuntimeException(e);
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }
