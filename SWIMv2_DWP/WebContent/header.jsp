@@ -10,7 +10,7 @@ String title = "";
 if (pageType.equals("index")) {
 	title = "Pagina principale";
 } else if (pageType.equals("profile")) {
-	title = "Profilo di " + session.getAttribute("nome") + " " + session.getAttribute("cognome");
+	title = "Profilo di ";
 } else if (pageType.equals("messages")) {
 	title = "Messaggi";
 } else if (pageType.equals("feedback")) {
