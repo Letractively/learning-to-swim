@@ -4,7 +4,7 @@
 <%@ page import="java.util.*" %>
 
 <jsp:include page="header.jsp">
-	<jsp:param name="title" value="Gestione Abilit&agrave;"/>
+	<jsp:param name="page" value="ability"/>
 </jsp:include>
 
   <div class="content">
