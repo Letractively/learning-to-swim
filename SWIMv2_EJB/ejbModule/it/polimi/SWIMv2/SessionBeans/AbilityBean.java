@@ -86,17 +86,15 @@ public class AbilityBean implements AbilityBeanLocal {
 
 	
 	@Override
-	public Map<Ability,Boolean> getAbilitiesByUser(String userEmail) {
+	public Map<Ability,Boolean> getAbilitiesByUser(String userID) {
 		/*Map<Ability,Boolean> mapAbility = null;
 		try {
+			Query userQuery = entityManager.createQuery(" SELECT ua.ability_ID FROM user_abilities ua WHERE ua.user_ID = :userID");
+			userQuery.setParameter("userID", userID);
+			List<Ability> userAbilities = (List<Ability>)userQuery.getResultList();			
+			
 			Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a");
 			List<Ability> lstAbility = (List<Ability>)abilityQuery.getResultList();
-			  
-			Query userQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :userEmail");
-			userQuery.setParameter("userEmail", userEmail);
-			
-			GenericUser user = (GenericUser) userQuery.getSingleResult();
-			Set<Ability> userAbilities= user.getAbilities();
 			
 			mapAbility = new HashedMap();
 			
