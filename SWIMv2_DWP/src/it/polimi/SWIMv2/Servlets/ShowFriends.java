@@ -41,7 +41,7 @@ public class ShowFriends extends HttpServlet {
 		    
             String userEmail = (String)request.getSession().getAttribute("email");
 		
-            List<String> friends = (List<String>)friendshipBean.getAllFriends(userEmail);
+            List<String> friends = friendshipBean.getAllFriends(userEmail);
             List<String> friendsHTML = new ArrayList<String>();
 			
     	    for(String friend : friends){
@@ -57,16 +57,15 @@ public class ShowFriends extends HttpServlet {
     	    	}
     	    	nomeCognome = nomeCognome.subSequence(0, nomeCognome.length() - 1).toString();
     	    	
-    	    	String confirmedButton = "";
     	    	if (confirmed) {
-    	    		confirmedButton = "";
+    	    		friendsHTML.add("<a href='friendprofile?email=" + email  + "'>" + nomeCognome + "</a>");
     	    	}
-    	    	
-    	    	friendsHTML.add("<a href='friendprofile?email=" + email  + "'>" + nomeCognome + "</a>" + confirmedButton);
+    	    	else {
+    	    		friendsHTML.add(nomeCognome + " <button>Conferma amicizia</button>");
+    	    	}
     	    }
     	    
-    	    request.getSession().setAttribute("friends", friends);
-            
+    	    request.getSession().setAttribute("friends", friendsHTML);            
             getServletConfig().getServletContext().getRequestDispatcher("/friends.jsp").forward(request, response);
 		} 
 		catch (NamingException e) {
