@@ -37,6 +37,8 @@ public class FriendshipRequestServlet extends HttpServlet {
 		    
 		    friendshipBean.friendshipRequest(userEmail1, userEmail2, direct);
 		    
+		    
+		    
 		    } 
 		catch (NamingException e) {
 			e.printStackTrace();
