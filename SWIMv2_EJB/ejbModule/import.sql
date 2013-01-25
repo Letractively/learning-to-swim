@@ -11,3 +11,6 @@ INSERT INTO User_Abilities (user_ID, ability_ID) VALUES (1, 1);
 INSERT INTO User_Abilities (user_ID, ability_ID) VALUES (6, 1);
 INSERT INTO User_Abilities (user_ID, ability_ID) VALUES (6, 2);
 INSERT INTO User_Abilities (user_ID, ability_ID) VALUES (6, 3);
+INSERT INTO Friendship (friend1_ID, friend2_ID, Confirmed, Direct) VALUES (1,5,1,1);
+INSERT INTO Friendship (friend1_ID, friend2_ID, Confirmed, Direct) VALUES (1,6,1,1);
+INSERT INTO Friendship (friend1_ID, friend2_ID, Confirmed, Direct) VALUES (5,6,1,1);
