@@ -147,6 +147,11 @@ div#footer {
 	color: #CCC;
 }
 
+#footer a {
+	text-decoration: none;
+    color: rgb(204, 204, 204);	
+}
+
 #footer form {
 	color: #CCC;
 }
