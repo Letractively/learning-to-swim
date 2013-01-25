@@ -53,7 +53,7 @@ import javax.persistence.Query;
 	
 	    @Override
 	public void confirmFriendship(String userEmail1, String userEmail2) {
-	    Query friendshipQuery = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friend1.email = :mail2 AND f.friend2.email = :mail1");
+	    Query friendshipQuery = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail2 AND f.friendshipKey.friend2.email = :mail1");
 	     	friendshipQuery.setParameter("mail1", userEmail1);
 	friendshipQuery.setParameter("mail2", userEmail2);
 	try{
