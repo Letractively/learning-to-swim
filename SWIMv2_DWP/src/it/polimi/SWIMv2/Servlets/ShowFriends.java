@@ -5,6 +5,7 @@ import it.polimi.SWIMv2.SessionBeans.AbilityBeanLocal;
 import it.polimi.SWIMv2.SessionBeans.FriendshipBeanLocal;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.InitialContext;
@@ -41,12 +42,30 @@ public class ShowFriends extends HttpServlet {
             String userEmail = (String)request.getSession().getAttribute("email");
 		
             List<String> friends = (List<String>)friendshipBean.getAllFriends(userEmail);
-           
-            request.getSession().setAttribute("friends", friends);
+            List<String> friendsHTML = new ArrayList<String>();
 			
-    	    for(String friend: friends){
-    	    	System.out.println(friend);
+    	    for(String friend : friends){
+    	    	String[] friendDetails = friend.split(" ");
+    	    	
+    	    	String email = friendDetails[friendDetails.length - 2];
+    	    	Boolean confirmed = friendDetails[friendDetails.length - 1].equals("true");
+    	    	
+    	    	String nomeCognome = "";
+    	    	for (int i = 0; i < friendDetails.length - 2; i++) {
+    	    		String detail = friendDetails[i];
+    	    		nomeCognome += detail + " ";
+    	    	}
+    	    	nomeCognome = nomeCognome.subSequence(0, nomeCognome.length() - 1).toString();
+    	    	
+    	    	String confirmedButton = "";
+    	    	if (confirmed) {
+    	    		confirmedButton = "";
+    	    	}
+    	    	
+    	    	friendsHTML.add("<a href='friendprofile?email=" + email  + "'>" + nomeCognome + "</a>" + confirmedButton);
     	    }
+    	    
+    	    request.getSession().setAttribute("friends", friends);
             
             getServletConfig().getServletContext().getRequestDispatcher("/friends.jsp").forward(request, response);
 		} 
