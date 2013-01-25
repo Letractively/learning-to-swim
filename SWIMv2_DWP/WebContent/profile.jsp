@@ -9,7 +9,7 @@
 		<h1>Profilo di <%=session.getAttribute("nome") %> <%=session.getAttribute("cognome") %></h1>
 		<p id="profile">
 		<b>Benvenuto ecco i tuoi dati personali:</b>
-		<div style="background-color:white;margin:30px;padding:10px;width:400px;height:200px;border-radius:5px 5px 5px 5px;">
+		<div style="background-color:white;margin:30px;padding:10px;width:500px;height:200px;border-radius:7px;">
 		<div style="width:150px;float:left;">
 		<%
 		if (session.getAttribute("type").toString().equals("amministratore")) {

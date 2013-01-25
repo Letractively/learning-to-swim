@@ -16,7 +16,11 @@ if (pageType.equals("index")) {
 } else if (pageType.equals("feedback")) {
 	title = "Feedback";
 } else if (pageType.equals("ability")) {
-	title = "Gestione abilit&aacute;";
+	title = "Gestione abilit&agrave;";
+} else if (pageType.equals("friends")) {
+	title = "Le mie amicizie";
+} else if (pageType.equals("friendprofile")) {
+	title = "Le mie amicizie - Dettaglio profilo";
 } else if (pageType.equals("search")) {
 	title = "Ricerca";
 }

@@ -22,25 +22,18 @@ public class FriendshipConfirmationServlet extends HttpServlet {
 	private FriendshipBeanLocal friendshipBean;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-
 		try {
-			
 			ctx = new InitialContext();
 		    friendshipBean = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
 		
-		    String userMail1 = (String)request.getSession().getAttribute("email");
-			String userMail2 = request.getParameter("friendEmail");
+		    String userMail1 = (String)request.getSession().getAttribute("email").toString();
+			String userMail2 = request.getParameter("friendship").toString();
 			
 			friendshipBean.confirmFriendship(userMail1, userMail2);
-		   
-		    } 
+            getServletConfig().getServletContext().getRequestDispatcher("/friends").forward(request, response);
+	    } 
 		catch (NamingException e) {
 			e.printStackTrace();
-		    }
-	   
-		
+	    }		
 	}
-
-
 }
