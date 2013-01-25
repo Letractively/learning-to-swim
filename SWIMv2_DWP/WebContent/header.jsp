@@ -38,7 +38,7 @@
     	boolean isLogged = false;
     	
     	try {
-        	isLogged = request.isRequestedSessionIdValid() && !request.getSession().getAttribute("email").toString().equals("");
+        	isLogged = request.isRequestedSessionIdValid() && request.getSession().getAttribute("logged").toString().equals(true);
     	}
     	catch (Exception e) { }
     	

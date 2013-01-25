@@ -41,6 +41,7 @@ public class LoggedUsersFilter implements Filter {
 			}
 		}catch (NullPointerException e){
 			System.out.println("Posso accedere alla pagina di login");
+			((HttpServletRequest)request).getSession().setAttribute("logged",false);
 		}
 		
 		// pass the request along the filter chain
