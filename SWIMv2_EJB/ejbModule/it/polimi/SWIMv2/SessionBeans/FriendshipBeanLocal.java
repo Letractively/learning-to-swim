@@ -16,7 +16,7 @@ public interface FriendshipBeanLocal {
 	
 	public List<String> getAllFriends(String userEmail);
 	
-	public List<GenericUser> getTypeABFriends(String userMail, boolean direct);
+	
 	
 
 }

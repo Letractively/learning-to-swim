@@ -1,17 +1,19 @@
 	package it.polimi.SWIMv2.SessionBeans;
 	
 	import it.polimi.SWIMv2.EntityBeans.Friendship;
-	import it.polimi.SWIMv2.EntityBeans.GenericUser;
+import it.polimi.SWIMv2.EntityBeans.GenericUser;
 	
 	import java.util.ArrayList;
-	import java.util.HashSet;
-	import java.util.List;
-	import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 	
+import javassist.tools.framedump;
+
 	import javax.ejb.Stateless;
-	import javax.persistence.EntityManager;
-	import javax.persistence.PersistenceContext;
-	import javax.persistence.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 	
 	/**
 	 * Session Bean implementation class FriendshipBean
@@ -69,18 +71,18 @@
 	public List<String> getAllFriends(String userEmail) {
 		
 	try{
-		Query friendsList1 = entityManager.createQuery("SELECT f.friendshipKey.friend2 FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail AND f.confirmation = :confirmed ");
+		Query friendsList1 = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail ");
 		
 		friendsList1.setParameter("mail",userEmail);
-		friendsList1.setParameter("confirmed", true);
 		
-		Query friendsList2 = entityManager.createQuery("SELECT f.friendshipKey.friend1 FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail AND f.confirmation = :confirmed ");
+		
+		Query friendsList2 = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail ");
 		
 		friendsList2.setParameter("mail", userEmail);
-		friendsList2.setParameter("confirmed", true);
+		
 	   
-	    List<GenericUser> friends = new ArrayList<GenericUser>(mergeQueryResults(friendsList1,friendsList2));
-	    return getParameters(friends);
+	    List<Friendship> friends = new ArrayList<Friendship>(mergeQueryResults(friendsList1,friendsList2));
+	    return getParameters(friends,userEmail);
 	}catch(Exception e){
 		System.out.println("eccezione!");
 		return null;
@@ -93,36 +95,31 @@
 	* @param friends
 	* @return
 	*/
-	private List<String> getParameters(List<GenericUser> friends) {
+	private List<String> getParameters(List<Friendship> friends, String userEmail) {
 		List<String> result = new ArrayList<String>();
-		for(GenericUser f : friends){
-			String tupla = new String(f.getFirstName()+ " " + f.getLastName()+ "  " + f.getEmail());
-			result.add(tupla);
+		for(Friendship f : friends){
+			if(f.getFriendshipKey().getFriend1().getEmail().equals(userEmail)){
+				GenericUser friend = f.getFriendshipKey().getFriend2();
+				String tupla = new String(friend.getFirstName()+ " " + friend.getLastName()+ " " + friend.getEmail() + " " + f.isConfirmation());
+				result.add(tupla);
+			}else{
+				GenericUser friend = f.getFriendshipKey().getFriend1();
+				String tupla = new String(friend.getFirstName()+ " " + friend.getLastName()+ " " + friend.getEmail() + " " + f.isConfirmation());
+				result.add(tupla);
+			}
+				
+		
 		}
 		return result;
 	}
 	
-	@Override
-	public List<GenericUser> getTypeABFriends(String userMail, boolean direct) {
-		Query friendsList1 = entityManager.createQuery("SELECT f.friend2 FROM Friendship f WHERE f.friend1.email = :mail AND f.confirmation = :confirmed AND f.direct = :direct");
-		
-		friendsList1.setParameter("mail",userMail);
-		friendsList1.setParameter("direct", direct);
-		friendsList1.setParameter("confirmed", true);
-		
-		Query friendsList2 = entityManager.createQuery("SELECT f.friend1 FROM Friendship f WHERE f.friend2.email = :mail AND f.confirmation = :confirmed AND f.direct = :direct");
-		friendsList2.setParameter("mail", userMail);
-		friendsList2.setParameter("direct", direct);
-		friendsList2.setParameter("confirmed", true);
-		
-		return mergeQueryResults(friendsList1,friendsList2);
-	}
 	
-	private List<GenericUser> mergeQueryResults(Query q, Query q2) {
+	
+	private List<Friendship> mergeQueryResults(Query q, Query q2) {
 		try{
-			List<GenericUser> l1 = (List<GenericUser>)q.getResultList();
-			List<GenericUser> l2 = (List<GenericUser>)q2.getResultList();
-			List<GenericUser> result = new ArrayList<GenericUser>();
+			List<Friendship> l1 = (List<Friendship>)q.getResultList();
+			List<Friendship> l2 = (List<Friendship>)q2.getResultList();
+			List<Friendship> result = new ArrayList<Friendship>();
 			return mergeLists(result, l1,l2);
 		}
 		catch(Exception e){
@@ -131,11 +128,11 @@
 	}
 	}
 	
-	private List<GenericUser> mergeLists(List<GenericUser> result, List<GenericUser> l1, List<GenericUser> l2) {
+	private List<Friendship> mergeLists(List<Friendship> result, List<Friendship> l1, List<Friendship> l2) {
 	result.addAll(l1);
 	result.addAll(l2);
-	Set<GenericUser> resultSet = new HashSet<GenericUser>(result);
-	return new ArrayList<GenericUser>(resultSet);
+	Set<Friendship> resultSet = new HashSet<Friendship>(result);
+	return new ArrayList<Friendship>(resultSet);
 	}
 	
 	
