@@ -22,13 +22,8 @@
 		In questa pagina potrai inserire, eliminare e modificare il set di abilit&agrave; associato al tuo profilo
 	</p>
 	<form action="gestiscicompetenze" method="post">
- 
-		
 		<input type="checkbox" name="ability" value="1" />Ingegnere Informatico<br />
-		
-		 
 		<input type="submit" value="Invia" />
-		 
 	</form>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
