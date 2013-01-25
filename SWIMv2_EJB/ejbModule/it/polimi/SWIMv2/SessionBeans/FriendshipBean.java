@@ -68,19 +68,23 @@
 	@Override
 	public List<String> getAllFriends(String userEmail) {
 		
-	
-		Query friendsList1 = entityManager.createQuery("SELECT f.friend2 FROM Friendship f WHERE f.friend1.email = :mail AND f.confirmed = :confirmed ");
+	try{
+		Query friendsList1 = entityManager.createQuery("SELECT f.friendshipKey.friend2 FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail AND f.confirmation = :confirmed ");
 		
 		friendsList1.setParameter("mail",userEmail);
 		friendsList1.setParameter("confirmed", true);
 		
-		Query friendsList2 = entityManager.createQuery("SELECT f.friend1 FROM Friendship f WHERE f.friend2.email = :mail AND f.confirmed = :confirmed ");
+		Query friendsList2 = entityManager.createQuery("SELECT f.friendshipKey.friend1 FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail AND f.confirmation = :confirmed ");
 		
 		friendsList2.setParameter("mail", userEmail);
 		friendsList2.setParameter("confirmed", true);
 	   
 	    List<GenericUser> friends = new ArrayList<GenericUser>(mergeQueryResults(friendsList1,friendsList2));
 	    return getParameters(friends);
+	}catch(Exception e){
+		System.out.println("eccezione!");
+		return null;
+	}
 	}
 	
 	/**
@@ -100,13 +104,13 @@
 	
 	@Override
 	public List<GenericUser> getTypeABFriends(String userMail, boolean direct) {
-		Query friendsList1 = entityManager.createQuery("SELECT f.friend2 FROM Friendship f WHERE f.friend1.email = :mail AND f.confirmed = :confirmed AND f.direct = :direct");
+		Query friendsList1 = entityManager.createQuery("SELECT f.friend2 FROM Friendship f WHERE f.friend1.email = :mail AND f.confirmation = :confirmed AND f.direct = :direct");
 		
 		friendsList1.setParameter("mail",userMail);
 		friendsList1.setParameter("direct", direct);
 		friendsList1.setParameter("confirmed", true);
 		
-		Query friendsList2 = entityManager.createQuery("SELECT f.friend1 FROM Friendship f WHERE f.friend2.email = :mail AND f.confirmed = :confirmed AND f.direct = :direct");
+		Query friendsList2 = entityManager.createQuery("SELECT f.friend1 FROM Friendship f WHERE f.friend2.email = :mail AND f.confirmation = :confirmed AND f.direct = :direct");
 		friendsList2.setParameter("mail", userMail);
 		friendsList2.setParameter("direct", direct);
 		friendsList2.setParameter("confirmed", true);
@@ -122,6 +126,7 @@
 			return mergeLists(result, l1,l2);
 		}
 		catch(Exception e){
+			
 		return null;
 	}
 	}
