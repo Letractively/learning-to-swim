@@ -134,6 +134,86 @@ import javax.persistence.Query;
 	Set<Friendship> resultSet = new HashSet<Friendship>(result);
 	return new ArrayList<Friendship>(resultSet);
 	}
+
+	@Override
+	public List<String> getHypoteticalIndirectFriends(String userMail, String friendMail) {
+		try{
+			Query friendsList1 = entityManager.createQuery("SELECT f.friendshipKey.friend2 FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail AND f.confirmation = : confirm ");
+			
+			friendsList1.setParameter("mail",friendMail);
+			friendsList1.setParameter("confirm",true);
+			
+
+			Query friendsList2 = entityManager.createQuery("SELECT f.friendshipKey.friend1 FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail AND f.confirmation = : confirm ");
+			
+			friendsList1.setParameter("mail",friendMail);
+			friendsList1.setParameter("confirm",true);
+			
+		   
+			List<GenericUser> totalFriends = new ArrayList<GenericUser>(mergeQueryResults2(friendsList1,friendsList2));
+
+
+			Query userList1 = entityManager.createQuery("SELECT f.friendshipKey.friend2 FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail AND f.confirmation = : confirm ");
+			
+			userList1.setParameter("mail",userMail);
+			userList1.setParameter("confirm",true);
+			
+
+			Query userList2 = entityManager.createQuery("SELECT f.friendshipKey.friend1 FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail AND f.confirmation = : confirm ");
+			
+			userList1.setParameter("mail",userMail);
+			userList1.setParameter("confirm",true);
+			
+		   
+			List<GenericUser> userFriends = new ArrayList<GenericUser>(mergeQueryResults2(userList1,userList2));
+			
+			List<GenericUser> potentialFriends = getPotentialFriends(totalFriends, userFriends);
+			
+			
+		    return null;
+		}catch(Exception e){
+			System.out.println("eccezione!");
+			return null;
+		}
+		//return null;
+	}
+	
+	private List<GenericUser> getPotentialFriends(List<GenericUser> totalFriends, List<GenericUser> userFriends) {
+		List<GenericUser> potentialFriends = new ArrayList<GenericUser>();
+		for(GenericUser tf: totalFriends){
+			for(GenericUser uf: userFriends){
+				if(tf.equals(uf)){
+					break;
+				}
+				else{
+					continue;
+				}
+				//potentialFriends.add(tf);
+			}
+		}
+		return null;
+	}
+
+	private List<GenericUser> mergeQueryResults2(Query q, Query q2) {
+		try{
+			List<GenericUser> l1 = (List<GenericUser>)q.getResultList();
+			List<GenericUser> l2 = (List<GenericUser>)q2.getResultList();
+			List<GenericUser> result = new ArrayList<GenericUser>();
+			return mergeLists2(result, l1,l2);
+		}
+		catch(Exception e){
+			
+		return null;
+	}
+	}
+	
+	private List<GenericUser> mergeLists2(List<GenericUser> result, List<GenericUser> l1, List<GenericUser> l2) {
+	result.addAll(l1);
+	result.addAll(l2);
+	Set<GenericUser> resultSet = new HashSet<GenericUser>(result);
+	return new ArrayList<GenericUser>(resultSet);
+	}
+	
 	
 	
 	}
