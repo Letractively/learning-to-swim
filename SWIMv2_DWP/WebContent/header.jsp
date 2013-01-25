@@ -34,18 +34,14 @@
   <span class="headtitle">Small World hypothesIs Machine<span id="headap">2</span></span>
     <ul class="dropdown">
     	<li><a href="#"><img src="images/ingranaggio.png"/></a>
-    		<ul class="sub_menu">
-    			 <li><a href="#">Amici</a></li>
-    			 <!--li><a href="#">Gestione</a>
-    				<ul>
-    					<li><a href="#">Modifica password</a></li>
-    					<li><a href="#"></a></li>
-    				</ul>
-    			 </li-->
-    			 <li><a href="#">Abilit&agrave;</a></li>
-    			 <li><a href="#">Messaggi</a></li>
-    			 <li><a href="logout.jsp">Logout</a></li>
-    		</ul>
+    	<%
+    	boolean isLogged = request.isRequestedSessionIdValid() && !request.getSession().getAttribute("email").toString().equals(null);
+    	
+    	if (isLogged)
+    	{
+    		out.write("<ul class='sub_menu'><li><a href='#'>Amici</a></li><!--li><a href='#'>Gestione</a><ul><li><a href='#'>Modifica password</a></li><li><a href='#'></a></li></ul></li--><li><a href='#'>Abilit&agrave;</a></li><li><a href='#'>Messaggi</a></li><li><a href='logout.jsp'>Logout</a></li></ul>");
+    	}
+    	%>
       </li>
     </ul>
     <!-- end .header --></div>
