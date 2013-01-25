@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 
 <jsp:include page="header.jsp">
-	<jsp:param name="title" value="Profilo di <%= session.getAttribute("nome") %> <%= session.getAttribute("cognome") %>"/>
+	<jsp:param name="page" value="profile"/>
 </jsp:include>
 
 	<b>Benvenuto 
