@@ -3,7 +3,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- TemplateBeginEditable name="doctitle" -->
-<title>SWIMv2 - ${param.title}</title>
+
+<%
+String pageType = request.getParameter("page").toString();
+String title = "";
+if (pageType.equals("index")) {
+	title = "Pagina principale";
+} else if (pageType.equals("profile")) {
+	title = "Profilo di " + session.getAttribute("nome") + " " + session.getAttribute("cognome");
+} else if (pageType.equals("messages")) {
+	title = "Messaggi";
+} else if (pageType.equals("feedback")) {
+	title = "Feedback";
+} else if (pageType.equals("ability")) {
+	title = "Gestione abilit&aacute;";
+} else if (pageType.equals("search")) {
+	title = "Ricerca";
+}
+%>
+
+<title>SWIMv2 - <%=title %></title>
 <!-- TemplateEndEditable -->
 <!-- TemplateBeginEditable name="head" -->
 <!-- TemplateEndEditable -->
@@ -38,7 +57,7 @@
     	boolean isLogged = false;
     	
     	try {
-        	isLogged = request.isRequestedSessionIdValid() && request.getSession().getAttribute("logged").toString().equals(true);
+        	isLogged = request.isRequestedSessionIdValid() && request.getSession().getAttribute("logged").toString().equals("true");
     	}
     	catch (Exception e) { }
     	

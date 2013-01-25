@@ -4,7 +4,7 @@
 	boolean isLogged = false;
 	
 	try {
-    	isLogged = request.isRequestedSessionIdValid() && request.getSession().getAttribute("logged").toString().equals(true);
+    	isLogged = request.isRequestedSessionIdValid() && request.getSession().getAttribute("logged").toString().equals("true");
 	}
 	catch (Exception e) { }
 	
