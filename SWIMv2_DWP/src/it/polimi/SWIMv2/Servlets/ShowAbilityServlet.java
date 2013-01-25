@@ -32,12 +32,11 @@ public class ShowAbilityServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		InitialContext ctx;
-		try {
+		try {			
 			ctx = new InitialContext();
-			System.out.println("AAA");
 			AbilityBeanLocal abilityBean = (AbilityBeanLocal)ctx.lookup("AbilityBean/local");
 			
-			Map<Ability,Boolean> abs = abilityBean.getAbilitiesByUser("gabri.ruflex@gmail.com");
+			Map<Ability,Boolean> abs = abilityBean.getAbilitiesByUser(request.getSession().getAttribute("id").toString());
 			request.setAttribute("abilities", abs);
 			System.out.println(abs.isEmpty());
 		} catch (NamingException e) {

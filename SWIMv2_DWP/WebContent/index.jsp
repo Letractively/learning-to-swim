@@ -5,8 +5,6 @@
 	<jsp:param name="title" value="Pagina principale"/>
 </jsp:include>
 
-
-
   <div class="content">
 <div style="width:40%;float:right;text-align:center;"><h1>Registrazione</h1>
     <form name ="registration" id="regform" action="registration" method="post" onsubmit="return checkCoerence()">
@@ -79,6 +77,5 @@
 	
 		</div>
     <!-- end .content --></div>
-
 
 <jsp:include page="footer.jsp" />

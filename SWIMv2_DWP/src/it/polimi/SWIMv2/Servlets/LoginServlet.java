@@ -76,6 +76,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	public void createSessionAttributes(HttpServletRequest request, GenericUser u){
+		request.getSession().setAttribute("id", u.getId());
 		request.getSession().setAttribute("nome", u.getFirstName());
 		request.getSession().setAttribute("cognome", u.getLastName());
 		request.getSession().setAttribute("city", u.getCity());
