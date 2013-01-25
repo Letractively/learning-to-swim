@@ -9,8 +9,8 @@ ul.dropdown li a                    { list-style: none; display: block; /*paddin
 	 								  color: #222; }
 ul.dropdown li:last-child a         { border-right: none; } /* Doesn't work in IE */
 ul.dropdown li.hover,
-ul.dropdown li:hover                { background: /*#F3D673*/rgb(204,204,255); color: black; position: relative; }
-ul.dropdown li.hover a              { color: black; }
+ul.dropdown li:hover                { color: black; position: relative; }
+ul.dropdown li.hover a              { background: /*#F3D673*/rgb(204,204,255); color: black; }
 
 
 /* 
