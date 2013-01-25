@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 			controlConfirmation(u, request, response);
 		} 
 		catch(Exception e){
+			//e.printStackTrace();
 			request.getSession().setAttribute("alertLogin", "Login fallito, controlla meglio i dati che inserisci e riprova");
 			getServletConfig().getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		}

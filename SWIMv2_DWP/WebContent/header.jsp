@@ -62,7 +62,7 @@ if (pageType.equals("index")) {
     	catch (Exception e) { }
     	
     	if (isLogged)
-    		out.write("<a href='#'><img src='images/ingranaggio.png'/></a><ul class='sub_menu'><li><a href='index.jsp'>Profilo</a></li><li><a href='friends.jsp'>Amici</a></li><!--li><a href='#'>Gestione</a><ul><li><a href='password.jsp'>Modifica password</a></li><li><a href='#'></a></li></ul></li--><li><a href='ability.jsp'>Abilit&agrave;</a></li><li><a href='messaggi.jsp'>Messaggi</a></li><li><a href='logout'>Logout</a></li></ul>");
+    		out.write("<a href='#'><img src='images/ingranaggio.png'/></a><ul class='sub_menu'><li><a href='index.jsp'>Profilo</a></li><li><a href='friends'>Amici</a></li><!--li><a href='#'>Gestione</a><ul><li><a href='password.jsp'>Modifica password</a></li><li><a href='#'></a></li></ul></li--><li><a href='ability.jsp'>Abilit&agrave;</a></li><li><a href='messaggi.jsp'>Messaggi</a></li><li><a href='logout'>Logout</a></li></ul>");
     	else
     		out.print("<img src='images/ingranaggio.png'/>");
     	%>
