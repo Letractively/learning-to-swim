@@ -48,7 +48,7 @@ public class ShowFriends extends HttpServlet {
     	    	System.out.println(friend);
     	    }
             
-            //getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+            getServletConfig().getServletContext().getRequestDispatcher("/friends.jsp").forward(request, response);
 		} 
 		catch (NamingException e) {
 			e.printStackTrace();
