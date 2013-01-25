@@ -33,14 +33,19 @@
   <div id="header">
   <span class="headtitle">Small World hypothesIs Machine<span id="headap">2</span></span>
     <ul class="dropdown">
-    	<li><a href="#"><img src="images/ingranaggio.png"/></a>
+    	<li>
     	<%
-    	boolean isLogged = request.isRequestedSessionIdValid() && !request.getSession().getAttribute("email").toString().equals(null);
+    	boolean isLogged = false;
+    	
+    	try {
+        	isLogged = request.isRequestedSessionIdValid() && !request.getSession().getAttribute("email").toString().equals("");
+    	}
+    	catch (Exception e) { }
     	
     	if (isLogged)
-    	{
-    		out.write("<ul class='sub_menu'><li><a href='#'>Amici</a></li><!--li><a href='#'>Gestione</a><ul><li><a href='#'>Modifica password</a></li><li><a href='#'></a></li></ul></li--><li><a href='#'>Abilit&agrave;</a></li><li><a href='#'>Messaggi</a></li><li><a href='logout.jsp'>Logout</a></li></ul>");
-    	}
+    		out.write("<a href='#'><img src='images/ingranaggio.png'/></a><ul class='sub_menu'><li><a href='#'>Amici</a></li><!--li><a href='#'>Gestione</a><ul><li><a href='#'>Modifica password</a></li><li><a href='#'></a></li></ul></li--><li><a href='#'>Abilit&agrave;</a></li><li><a href='#'>Messaggi</a></li><li><a href='logout.jsp'>Logout</a></li></ul>");
+    	else
+    		out.print("<img src='images/ingranaggio.png'/>");
     	%>
       </li>
     </ul>
