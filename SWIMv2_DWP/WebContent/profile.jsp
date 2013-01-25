@@ -18,8 +18,6 @@
     <%=session.getAttribute("logged") %>
     </p>
     
-    blablabla
-    
     <div>
     <form name="logout" id="logout" method="post" action="logout">
     <button type="submit">Logout</button>

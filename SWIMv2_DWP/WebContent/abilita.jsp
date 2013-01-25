@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 
 <jsp:include page="header.jsp">
-	<jsp:param name="title" value="Gestione Abilit&agrave;"/>
+	<jsp:param name="ability" value="Gestione Abilit&agrave;"/>
 </jsp:include>
 
   <div class="content">
