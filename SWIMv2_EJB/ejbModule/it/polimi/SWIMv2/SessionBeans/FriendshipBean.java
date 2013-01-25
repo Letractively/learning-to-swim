@@ -169,8 +169,8 @@ import javax.persistence.Query;
 			
 			List<GenericUser> potentialFriends = getPotentialFriends(totalFriends, userFriends);
 			
+			return whatRufyWants(potentialFriends);
 			
-		    return null;
 		}catch(Exception e){
 			System.out.println("eccezione!");
 			return null;
@@ -178,20 +178,25 @@ import javax.persistence.Query;
 		//return null;
 	}
 	
+	private List<String> whatRufyWants(List<GenericUser> potentialFriends) {
+		List<String> whatRufyNeeds = new ArrayList<String>();
+		
+		for(GenericUser pf: potentialFriends){
+			whatRufyNeeds.add(new String(pf.getFirstName() + " " + pf.getLastName() + " " + pf.getEmail()));
+		}
+		return whatRufyNeeds;
+	}
+
 	private List<GenericUser> getPotentialFriends(List<GenericUser> totalFriends, List<GenericUser> userFriends) {
-		List<GenericUser> potentialFriends = new ArrayList<GenericUser>();
-		for(GenericUser tf: totalFriends){
+		List<GenericUser> potentialFriends = totalFriends;
+		for(GenericUser pf: potentialFriends){
 			for(GenericUser uf: userFriends){
-				if(tf.equals(uf)){
-					break;
+				if(pf.getEmail().equals(uf.getEmail())){
+					potentialFriends.remove(pf);
 				}
-				else{
-					continue;
-				}
-				//potentialFriends.add(tf);
 			}
 		}
-		return null;
+		return potentialFriends;
 	}
 
 	private List<GenericUser> mergeQueryResults2(Query q, Query q2) {
