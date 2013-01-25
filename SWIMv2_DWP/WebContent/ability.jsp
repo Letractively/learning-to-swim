@@ -12,11 +12,7 @@
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
-	%>
-			<p>
-				<%=alert %>
-			</p>
-	<%
+			out.print("<p>" + alert + "</p>");
 			session.removeAttribute("alert");
 		} 
 	%>
@@ -24,7 +20,7 @@
 	<p>
 		In questa pagina potrai inserire, eliminare e modificare il set di abilit&agrave; associato al tuo profilo
 	</p>
-	<form action="gestiscicompetenze" method="post">
+	<form action="gestiscicompetenze" method="post"><p>
 		Quali sono le tue competenze?<br />
 		<%
 		
@@ -42,7 +38,7 @@
 		%>
 
 		<input type="submit" value="Invia" />
-	</form>
+	</p></form>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>

@@ -4,7 +4,7 @@
 <%@ page import="java.util.*" %>
 
 <jsp:include page="header.jsp">
-	<jsp:param name="page" value="ability"/>
+	<jsp:param name="page" value="friendprofile"/>
 </jsp:include>
 
   <div class="content">
@@ -12,11 +12,7 @@
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
-	%>
-			<p>
-				<%=alert %>
-			</p>
-	<%
+			out.print("<p>" + alert + "</p>");
 			session.removeAttribute("alert");
 		} 
 	%>
