@@ -27,32 +27,32 @@ public class ShowFriends extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-try {
-			
+		try {
 			ctx = new InitialContext();
 		    friendshipBean = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
-		
 		    
             String userEmail = (String)request.getSession().getAttribute("email");
 		
-            List<String> friends= (List<String>)friendshipBean.getAllFriends(userEmail);
-            for(String friend: friends){
-            System.out.println(friend);
-            }
+            List<String> friends = (List<String>)friendshipBean.getAllFriends(userEmail);
            
-            request.getSession().setAttribute("abilityadded", "Abilita' aggiunta!");
-			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
-	    
-		    } 
+            request.getSession().setAttribute("friends", friends);
+			
+    	    for(String friend: friends){
+    	    	System.out.println(friend);
+    	    }
+            
+            //getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+		} 
 		catch (NamingException e) {
 			e.printStackTrace();
-		    }
+		}
 	}
 
 }
