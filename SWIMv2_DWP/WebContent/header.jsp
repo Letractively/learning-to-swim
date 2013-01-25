@@ -8,9 +8,9 @@
 String pageType = request.getParameter("page").toString();
 String title = "";
 if (pageType.equals("index")) {
-	title = "Pagina principale " + session.getAttribute("nome") + " " + session.getAttribute("cognome");
+	title = "Pagina principale";
 } else if (pageType.equals("profile")) {
-	title = "Profilo di ";
+	title = "Profilo di " + request.getSession().getAttribute("nome") + " " + request.getSession().getAttribute("cognome");;
 } else if (pageType.equals("messages")) {
 	title = "Messaggi";
 } else if (pageType.equals("feedback")) {
