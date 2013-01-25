@@ -20,7 +20,7 @@ function checkCoerence(){
  */
 function allRegistrationFieldsAreFilled(){
 	with(document.registration){
-		if(nome.value == "" || cognome.value == "" || email.value == "" || password.value == "" || cpassword.value == "" || city.value == ""){
+		if(nome.value == "Nome" || cognome.value == "Cognome" || email.value == "La tua Email" || password.value == "Password" || cpassword.value == "Reinserisci la Password" || city.value == "La tua Citt&agrave;"){
 			alert("Prima di inviare i dati assicurati di aver riempito tutti i campi");
 			return false;
 		}
