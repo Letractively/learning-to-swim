@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 
 <jsp:include page="header.jsp">
-	<jsp:param name="title" value="Profilo di <%= request.getSession().getAttribute("nome").toString() %> <%= request.getSession().getAttribute("cognome").toString() %>"/>
+	<jsp:param name="title" value="Profilo di "/>
 </jsp:include>
 
 	<b>Benvenuto 
