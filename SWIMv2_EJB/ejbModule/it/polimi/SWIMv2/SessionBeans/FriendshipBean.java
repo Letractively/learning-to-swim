@@ -100,7 +100,7 @@ import javax.persistence.Query;
 		for(Friendship f : friends){
 			if(f.getFriendshipKey().getFriend1().getEmail().equals(userEmail)){
 				GenericUser friend = f.getFriendshipKey().getFriend2();
-				String tupla = new String(friend.getFirstName()+ " " + friend.getLastName()+ " " + friend.getEmail() + " " + f.isConfirmation());
+				String tupla = new String(friend.getFirstName()+ " " + friend.getLastName()+ " " + friend.getEmail() + " " + true);
 				result.add(tupla);
 			}else{
 				GenericUser friend = f.getFriendshipKey().getFriend1();
