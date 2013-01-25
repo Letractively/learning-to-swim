@@ -1,8 +1,6 @@
 package it.polimi.SWIMv2.SessionBeans;
 
 
-import it.polimi.SWIMv2.EntityBeans.GenericUser;
-
 import java.util.List;
 
 import javax.ejb.Local;
@@ -16,7 +14,7 @@ public interface FriendshipBeanLocal {
 	
 	public List<String> getAllFriends(String userEmail);
 	
-	
+	public List<String> getHypoteticalIndirectFriends(String userMail,String friendMail);
 	
 
 }
