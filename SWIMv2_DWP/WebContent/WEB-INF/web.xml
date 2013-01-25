@@ -171,4 +171,14 @@
     <servlet-name>ShowFriends</servlet-name>
     <url-pattern>/friends</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowFriendProfile</display-name>
+    <servlet-name>ShowFriendProfile</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.ShowFriendProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowFriendProfile</servlet-name>
+    <url-pattern>/friendprofile</url-pattern>
+  </servlet-mapping>
 </web-app>
