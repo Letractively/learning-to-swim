@@ -28,16 +28,18 @@ public class AddAbilityServlet extends HttpServlet {
 		
 		    String[] ability = request.getParameterValues("ability") ;
             String userEmail = request.getSession().getAttribute("email").toString();
-		
-            abilityBean.deleteAllUserAbilities(userEmail);
-            for(String s : ability ){
-            	System.out.println(s + "\n");
-            	Long idAbility = Long.parseLong(s);
-    	        abilityBean.addAbilityToUser(userEmail, idAbility);
+            
+            if (ability != null) {
+	            //abilityBean.deleteAllUserAbilities(userEmail);
+	            for(String s : ability ){
+	            	System.out.println(s + "\n");
+	            	Long idAbility = Long.parseLong(s);
+	    	        abilityBean.addAbilityToUser(userEmail, idAbility);
+	            }
+			
+	            request.getSession().setAttribute("alert", "Abilita' aggiunta!");
             }
-		
-            request.getSession().setAttribute("alert", "Abilita' aggiunta!");
-			getServletConfig().getServletContext().getRequestDispatcher("ability").forward(request, response);
+			getServletConfig().getServletContext().getRequestDispatcher("/ability").forward(request, response);
 		} 
 		catch (NamingException e) {
 			e.printStackTrace();

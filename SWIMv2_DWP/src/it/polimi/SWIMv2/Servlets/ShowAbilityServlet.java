@@ -39,8 +39,14 @@ public class ShowAbilityServlet extends HttpServlet {
 			String userEmail = request.getSession().getAttribute("email").toString();
 			request.getSession().setAttribute("userabilities", abilityBean.returnUserAbilities(userEmail));
 			request.getSession().setAttribute("addabilities", abilityBean.returnAbilityToAdd(userEmail));
+			
+			getServletConfig().getServletContext().getRequestDispatcher("/ability.jsp").forward(request, response);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 }

@@ -1,11 +1,8 @@
 package it.polimi.SWIMv2.Servlets;
 
-import it.polimi.SWIMv2.EntityBeans.GenericUser;
-import it.polimi.SWIMv2.SessionBeans.FriendshipBeanLocal;
-import it.polimi.SWIMv2.SessionBeans.FriendProfileSessionBean;
+import it.polimi.SWIMv2.SessionBeans.FriendProfileSessionBeanLocal;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -21,7 +18,7 @@ public class ShowFriendProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private InitialContext ctx;
-	private FriendProfileSessionBean userSessionBean;
+	private FriendProfileSessionBeanLocal friendProfile;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,12 +34,12 @@ public class ShowFriendProfile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			ctx = new InitialContext();
-		    userSessionBean = (FriendProfileSessionBean)ctx.lookup("UserSessionBean/local");
+		    friendProfile = (FriendProfileSessionBeanLocal)ctx.lookup("FriendProfileSessionBean/local");
 		    
-            String userEmail = (String)request.getParameter("email").toString();
-            String user = userSessionBean.getFriendData(userEmail);
-            request.getSession().setAttribute("userData", user);
-            
+		    String friendEmail = (String)request.getParameter("email").toString();
+		    String friend = friendProfile.getFriendData(friendEmail);
+		    
+            request.getSession().setAttribute("userData", friend);
             getServletConfig().getServletContext().getRequestDispatcher("/friendprofile.jsp").forward(request, response);
 		} 
 		catch (NamingException e) {

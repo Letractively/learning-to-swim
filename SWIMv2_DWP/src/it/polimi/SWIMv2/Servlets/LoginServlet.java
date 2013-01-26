@@ -4,7 +4,6 @@ import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.EntityBeans.User;
 import it.polimi.SWIMv2.SessionBeans.LoginBeanLocal;
-import it.polimi.SWIMv2.SessionBeans.FriendProfileSessionBeanLocal;
 
 import java.io.IOException;
 
@@ -22,9 +21,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private InitialContext ctx;
-	private LoginBeanLocal lb;
-	private FriendProfileSessionBeanLocal usbl;
-	
+	private LoginBeanLocal lb;	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(request.getParameter("email")+", " + request.getParameter("password"));
@@ -50,7 +47,6 @@ public class LoginServlet extends HttpServlet {
 	private void controlConfirmation(GenericUser u, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NamingException {
 		if(u != null && u.isConfirmed()){
 			//System.out.println("login corretto");
-			usbl = (FriendProfileSessionBeanLocal)ctx.lookup("UserSessionBean/local");
 			createSessionAttributes(request, u);
 
 			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
@@ -83,7 +79,6 @@ public class LoginServlet extends HttpServlet {
 		request.getSession().setAttribute("city", u.getCity());
 		request.getSession().setAttribute("email", u.getEmail());
 		request.getSession().setAttribute("feedback", u.getFeedback());
-		request.getSession().setAttribute("contesto", usbl);
 		request.getSession().setAttribute("logged", true);
 		request.getSession().setAttribute("confirmed", true);
 		

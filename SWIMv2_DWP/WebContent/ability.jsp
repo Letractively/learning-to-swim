@@ -24,23 +24,27 @@
 	<p><b>Le tue competenze</b><br />
 		
 		<%
-		List<String> lstUserAbilities = (List<String>)request.getAttribute("userabilities");
+		List<String> lstUserAbilities = (List<String>)request.getSession().getAttribute("userabilities");
 		for (String ability : lstUserAbilities) {
-			out.print("<input name='ability' type='checkbox' value='" + ability.split("\t")[0] + "' checked='true'/>" + ability.split("\t")[1]);
+			out.print("<input type='checkbox' value='" + ability.split("\t")[0] + "' checked='checked'/>" + ability.split("\t")[1] + "<br/>");
 		}
 		%>		
 		
-		<b>Le abilit&agrave; disponibili</b>
+		<b>Le abilit&agrave; disponibili</b><br />
 		
 		<%
-		List<String> lstAddAbilities = (List<String>)request.getAttribute("addabilities");
+		List<String> lstAddAbilities = (List<String>)request.getSession().getAttribute("addabilities");
 		for (String ability : lstAddAbilities) {
-			out.print("<input name='ability' type='checkbox' value='" + ability.split("\t")[0] + "' checked='false'/>" + ability.split("\t")[1]);
+			out.print("<input name='ability' type='checkbox' value='" + ability.split("\t")[0] + "'/>" + ability.split("\t")[1] + "<br/>");
 		}
 		%>
 
 		<button id="abilityButton" type="submit">Conferma</button>
 	</p></form>
+	
+	<p>
+		<a href="createAbility.jsp">Clicca qui</a> per creare una nuova abilit&agrave;
+	</p>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
