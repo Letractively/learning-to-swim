@@ -145,9 +145,9 @@ Qui di seguito esporremo le assunzioni da noi fatte per ovviare a tali ambiguit�
 \item \textit{Suddivisione dei messaggi}: ogni singolo messaggio (post) ha un suo contenitore padre (thread) il quale identifica l’argomento trattato. Il thread può essere stato pubblicato o sulla bacheca pubblica o sulla casella messaggi privati di un utente.
 \item \textit{Richieste di amicizia}: uno tra gli aspetti sicuramente più ambigui e probabilmente errati presenti nella specifica è certamente quello concernente la gestione delle amicizie; l’esistenza di un’amicizia di classe “A” e una “B” risulta non solo di dubbia definizione ma anche totalmente inutile.
 \item \textit{Coerenza di dominio}: Si precisa infine che non è possibile suggerire a un proprio amico di stringere amicizia con un contatto non presente nella propria cerchia di contatti.
-\item \textit{Ricerca degli utenti}: si può effettuare la ricerca all’interno della piattaforma per abilità possedute dai membri e/o per nickname.
+\item \textit{Ricerca degli utenti}: si può effettuare la ricerca all’interno della piattaforma per abilità possedute dai membri e/o per nominativo.
 \item \textit{Ricerca degli argomenti}: si possono individuare i thread tramite una ricerca basata sulla categoria appartenente o direttamente tramite il titolo.
-\item \textit{Definizione delle abilità}: il sistema è dotato di un insieme di abilità predefinite che può essere arricchito grazie ai suggerimenti dei membri tramite un’esatta procedura.
+\item \textit{Definizione delle abilità}: il sistema è dotato di un insieme di abilità predefinite che può essere arricchito grazie ai suggerimenti dei membri.
 \item \textit{Gestione delle categorie}: gli amministratori possono creare, rinominare, eliminare categorie; Le categorie hanno nomi quali “Informatica”, “Motori”, “Hobbistica” e così via.
 \item \textit{Stato dei thread}: i messaggi presenti in bacheca hanno uno stato che può essere “Attivo”, “Risolto”, “Invalido” ed una relativa icona, ogni amministratore può cambiare lo stato in qualsiasi momento. Un thread può inoltre risultare “Aperto” o “Chiuso” cioè vi è la possibilità di continuare una discussione o meno.
 \end{itemize}
@@ -160,26 +160,26 @@ Vengono riportate qui di seguito alcune specifiche che consentono il manteniment
 \begin{itemize}
 \item Gli amministratori hanno l’abilità di aggiungere nuove abilità tra quelle predefinite, approvare richieste (ricevute dagli utenti) di inserimento di nuove abilità
 \item Le abilità inserite da un amministratore nel sistema saranno visibili a tutti gli utenti che potranno decidere se abilitarle o meno sul loro profilo
-\item Gli amministratori hanno un superset di abilità rispetto a quello posseduto dagli utenti registrati. Essi infatti possono svolgere tutte le azioni che svolgono quest’ultimi: rispondere a richieste di aiuto, inviare e ricevere feedback etc.
 \item Ogni utente registrato può richiedere aiuto pubblicamente (sulla bacheca) o privatamente (via messaggio privato)
 \item Un utente può suggerire ad un suo amico di stringere amicizia con un terzo 
-\item L’utente possono definire il proprio set di abilità scegliendo tra quelli predefiniti
-\item Ogni utente può proporre nuove abilità da inserire anche qualora non siano già presenti tra quelle predefinite dal sistema
-\item L’utente può pubblicare un feedback sull’aiuto ricevuto
+\item L’utente puo' definire il proprio set di abilità scegliendo tra quelle gia' disponibili
+\item Ogni utente può proporre nuove abilità da inserire qualora non siano già presenti tra quelle predefinite dal sistema
+\item L’utente può esprimere un giudizio sull’aiuto ricevuto tramite l'emissione di un feedback
 \item Ogni utente può inviare o rispondere a richieste di amicizia
-\item Ogni ospite può cercare risposte ai suoi problemi senza però poter scrivere
+\item Ogni ospite può cercare risposte ai suoi problemi senza poter interagire in prima persona
 \item Ogni problema ha un autore, un insieme di risposte e di soluzioni proposte e un stato che può essere Attivo, Invalido, Risolto
 \item Ogni profilo contiene: il nome dell’utente, una casella di messaggi privati, un indicatore di punteggio relativo al feedback ricevuto
 \item Ogni utente può cancellare il suo profilo in qualsiasi momento ma i messaggi pubblici, le relative risposte e la soluzioni non verranno rimossi restando così visibili
 \end{itemize}
 \clearpage
 \subsection{Non funzionali}
+Alcune indicazioni presenti nelle sezioni riguardanti l'hardware, le performance e la sicurezza sarebbero valide in un'applicazione nell'ambito industriale, noi utilizzeremo invece un server in locale. 
 \vfill{}
 \subsubsection{Interfacce e usabilità}
-Il sistema sarà in tutto e per tutto web-oriented consentendo la massima facilità d'uso possibile e rispettando i più recenti standard web quali HTML4.0, XHTML1.1, CSS2/3, ECMAScript permettendo inoltre sia la massima compatibilità con i browser e i sistemi operativi ad oggi più comuni sia il miglior risultato in termini di affidabilità e robustezza del prodotto stesso.
+Il sistema sarà in tutto e per tutto web-oriented consentendo la massima facilità d'uso possibile e rispettando i più recenti standard web quali HTML5.0, CSS2/3, JavaScript permettendo inoltre sia la massima compatibilità con i browser ( tranne Internet Explorer :)  ) e i sistemi operativi ad oggi più comuni sia il miglior risultato in termini di affidabilità e robustezza del prodotto stesso.
 \\[1.5em]
 \subsubsection{Struttura del sistema}
-Il sistema userà la tecnologia J2EE per la presentazione e la gestione delle web pages; mentre verrà fatto uso del linguaggio MySQL per la manipolazione e l'estrazione dei dati presenti sul database. \\[1\baselineskip]
+Il sistema userà la tecnologia J2EE per la presentazione e la gestione delle web pages; mentre verrà fatto uso di un database MySQL . \\[1\baselineskip]
 Requisito fondamentale per l'utilizzo della piattaforma SWIM è una connessione a larga banda. Il server centrale e tutti i suoi servizi saranno accessibili all'utente attraverso i comuni web brower quali Mozilla Firefox, Google Chrome, Apple Safari purchè abilitati alla tecnologia Javascript.
 \\[1.5em]
 \subsubsection{Hardware}
@@ -196,15 +196,6 @@ La password non verrà salvata in chiaro all'interno del database ma verrà usat
 Il server di sistema verrà installato all'interno di un locale appositamente adibito a tale scopo ed opportunamente protetto da sistemi di antifurto, antintrusione e antincendio oltre che ad un meccanismo di backup giornaliero (incrementale) e settimanale (completo dei dischi) che verrà eseguito preferibilmente off site. \\[1\baselineskip]
 Per garantire la continuità del servizio anche in caso di black out di energia elettrica, il sistema dovrà essere dotato di un gruppo di continuità opportunamente dimensionato.
 \\[1.5em]
-\subsubsection{Documentazione}
-Il gruppo di progetto e sviluppo del sistema provvederà a produrre la seguente documentazione al committente:
-\begin{itemize}
-\item Project Plan, per stabilire gli obiettivi e le tempistiche del progetto
-\item Requirements Analysis Specification Document, per definire il progetto nei suoi requisiti e procedendo con l’analisi delle specifiche
-\item Design Document (DD), per definire il design del progetto
-\item Commenti nel codice
-\item Testing Document
-\end{itemize}
 \clearpage
 
 \section{Identificazione degli scenari e casi d'uso}
@@ -530,6 +521,18 @@ Con i seguenti statechart abbiamo controllato il flusso delle operazioni del sis
 \itemsep0em
 \item \textbf{\LaTeX}: TeXstudio, Kile e MacTeX
 \item \textbf{Alloy Analizer 4.2}: per la gestione delle specifiche scritte in Alloy
-\item \textbf{Umlet}: per la gestione dei grafici e dei diagrammi UML
+\item \textbf{Umlet e Umbrello}: per la gestione dei grafici e dei diagrammi UML
 \end{enumerate}
+
+\section{Rettifiche in corso d'opera}
+A causa della mancanza di tempo, che tra le cause principali presenta ritardi dovuti alla difficoltà di configurare l'ambiente di lavoro, alcune funzionalità che non erano strettamente richieste dalla specifica non sono state introdotte nell'applicazione.
+\begin{itemize}
+\item [$\textcolor{red}{\star}$]Non sono presenti thread, categorie e quindi tutto ciò che era implicato alla parte pubblica del sistema: si potrà interagire con gli altri utenti tramite l'invio dei soli messaggi privati e gli ospiti potranno effettuare solamente delle ricerche.
+
+\item[$\textcolor{red}{\star}$]Non è possibile proporre attivamente nuove amicizie agli altri utenti, la funzionalità di richiesta o accettazione di un' amicizia è comunque presente e funziona regolarmente
+
+\item[$\textcolor{red}{\star}$]Una volta entrati non sarà possibile eliminare il propio profilo, SWIM è una prigione!
+\end{itemize}
+
+
 \end{document}
