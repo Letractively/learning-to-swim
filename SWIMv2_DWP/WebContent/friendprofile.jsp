@@ -16,18 +16,26 @@
 			session.removeAttribute("alert");
 		}
 		
-		GenericUser u = (GenericUser)request.getSession().getAttribute("userData");
+		String friend = request.getSession().getAttribute("userData").toString();
+		
+		String nome = friend.split("\t")[0];
+		String cognome = friend.split("\t")[1];
+		String email = friend.split("\t")[2];
+		String città = friend.split("\t")[3];
+		String tipo = friend.split("\t")[4];
+		String feedback = friend.split("\t")[5];
 	%>
-	<h1>Profilo di <%=u.getFirstName() %> <%=u.getLastName() %> </h1>
+	<h1>Profilo di <%=nome %> <%=cognome %> </h1>
 	<p>
 		In questa pagina puoi vedere il profilo di ogni tuo singolo amico.
 	</p>
 	<%
-		out.print("Nome: " + u.getFirstName() + "<br/>");
-		out.print("Cognome: " + u.getLastName() + "<br/>");	
-		out.print("Email: " + u.getEmail() + "<br/>");	
-		out.print("Citt&agrave;: " + u.getCity() + "<br/>");
-		out.print("Feedback: " + u.getFeedback() + "<br/>");
+		out.print("Nome: " + nome + "<br/>");
+		out.print("Cognome: " + cognome + "<br/>");	
+		out.print("Email: " + email + "<br/>");	
+		out.print("Citt&agrave;: " + città + "<br/>");
+		out.print("Tipo utente: " + tipo + "<br/>");
+		out.print("Feedback: " + feedback + "<br/>");
 	%>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email

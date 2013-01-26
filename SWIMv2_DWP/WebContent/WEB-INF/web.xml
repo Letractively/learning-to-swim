@@ -92,6 +92,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>ShowAbilityServlet</display-name>
+    <servlet-name>ShowAbilityServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.ShowAbilityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAbilityServlet</servlet-name>
+    <url-pattern>/ability</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>FriendshipConfirmationServlet</display-name>
     <servlet-name>FriendshipConfirmationServlet</servlet-name>
     <servlet-class>it.polimi.SWIMv2.Servlets.FriendshipConfirmationServlet</servlet-class>
