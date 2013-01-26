@@ -46,9 +46,15 @@
   </filter>
   <filter-mapping>
     <filter-name>LoggedUsersFilter</filter-name>
-    <url-pattern>/LoginPage.jsp</url-pattern>
     <url-pattern>/index.jsp</url-pattern>
-    <url-pattern>/RegistrationPage.jsp</url-pattern>
+    <url-pattern>/header.jsp</url-pattern>
+    <url-pattern>/footer.jsp</url-pattern>
+    <url-pattern>/js</url-pattern>
+    <url-pattern>/images</url-pattern>
+    <url-pattern>/css</url-pattern>
+    <url-pattern>/META-INF</url-pattern>
+    <url-pattern>/WEB-INF</url-pattern>
+    <url-pattern>/confirm</url-pattern>
   </filter-mapping>
   <servlet>
     <description></description>
@@ -67,8 +73,26 @@
   </filter>
   <filter-mapping>
     <filter-name>NonLoggedUsersFilter</filter-name>
+    <url-pattern>/ability.jsp</url-pattern>
     <url-pattern>/profile.jsp</url-pattern>
+    <url-pattern>/createAbility.jsp</url-pattern>
+    <url-pattern>/feedback.jsp</url-pattern>
+    <url-pattern>/friendprofile.jsp</url-pattern>
+    <url-pattern>/messagebox.jsp</url-pattern>
+    <url-pattern>/sendmessage.jsp</url-pattern>
     <url-pattern>/logout.jsp</url-pattern>
+    <url-pattern>/header.jsp</url-pattern>
+    <url-pattern>/footer.jsp</url-pattern>
+    <url-pattern>/js</url-pattern>
+    <url-pattern>/images</url-pattern>
+    <url-pattern>/css</url-pattern>
+    <url-pattern>/META-INF</url-pattern>
+    <url-pattern>/WEB-INF</url-pattern>
+    <url-pattern>/logout</url-pattern>
+    <url-pattern>/messagebox</url-pattern>
+    <url-pattern>/ability</url-pattern>
+    <url-pattern>/friends</url-pattern>
+    <url-pattern>/friendprofile</url-pattern>
   </filter-mapping>
   <servlet>
     <description></description>
@@ -201,7 +225,16 @@
     <servlet-name>MessageBoxServlet</servlet-name>
     <url-pattern>/messagebox</url-pattern>
   </servlet-mapping>
-  <servlet>
+  <filter>
+    <display-name>NonAdminUsersCannotCreateAbilitiesFilter</display-name>
+    <filter-name>NonAdminUsersCannotCreateAbilitiesFilter</filter-name>
+    <filter-class>it.polimi.SWIMv2.Filters.NonAdminUsersCannotCreateAbilitiesFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>NonAdminUsersCannotCreateAbilitiesFilter</filter-name>
+    <url-pattern>/createAbility.jsp</url-pattern>
+  </filter-mapping>
+    <servlet>
     <description></description>
     <display-name>SearchServlet</display-name>
     <servlet-name>SearchServlet</servlet-name>
