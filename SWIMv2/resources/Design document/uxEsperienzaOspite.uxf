@@ -355,14 +355,14 @@ fg=dark_gray</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>770</x>
-      <y>160</y>
-      <w>80</w>
-      <h>120</h>
+      <x>590</x>
+      <y>80</y>
+      <w>240</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red</panel_attributes>
-    <additional_attributes>30;30;60;100</additional_attributes>
+    <additional_attributes>30;30;220;200</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>

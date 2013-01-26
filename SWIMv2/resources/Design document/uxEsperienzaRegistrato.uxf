@@ -301,14 +301,14 @@ fg=red</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>860</x>
-      <y>80</y>
-      <w>170</w>
-      <h>80</h>
+      <x>740</x>
+      <y>120</y>
+      <w>290</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red</panel_attributes>
-    <additional_attributes>30;30;150;60</additional_attributes>
+    <additional_attributes>30;140;270;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>

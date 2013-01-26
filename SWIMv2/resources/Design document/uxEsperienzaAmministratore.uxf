@@ -103,7 +103,7 @@ bg=gray</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>530</x>
-      <y>450</y>
+      <y>460</y>
       <w>150</w>
       <h>100</h>
     </coordinates>
@@ -127,14 +127,14 @@ fg=gray</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>530</x>
-      <y>490</y>
-      <w>150</w>
-      <h>100</h>
+      <x>700</x>
+      <y>350</y>
+      <w>50</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 
 fg=red</panel_attributes>
-    <additional_attributes>30;80;130;30</additional_attributes>
+    <additional_attributes>30;30;30;100</additional_attributes>
   </element>
 </diagram>

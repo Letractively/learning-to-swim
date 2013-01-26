@@ -1,9 +1,9 @@
 \section{Descrizione del sistema}
-Il sistema è composto da varie pagine HTML ognuna delle quali fornisce uno specifico servizio al cliente. Ogni webpage include la tecnologia Javascript che consente non solo di migliorare l’interfaccia stessa della pagine ma permette anche di ottimizzare la facilità di navigazione.\\[1\baselineskip]Per sviluppare il sistema sono stati usati i seguenti tool:
+Il sistema è composto da varie pagine JSP ognuna delle quali fornisce uno specifico servizio al cliente. Ogni webpage include la tecnologia Javascript che consente non solo di migliorare l’interfaccia stessa della pagine ma permette anche di ottimizzare la facilità di navigazione.\\[1\baselineskip]Per sviluppare il sistema sono stati usati i seguenti tool:
 \begin{itemize}
-\item WaveMaker, per creare l’interfaccia grafica;
+\item Adobe DreamWeaver CS5.5 per creare l’interfaccia grafica;
 \item Eclipse Juno, per creare la logica di business;
-\item Mysql, per gestire la base di dati.
+\item Mysql Workbench, per visualizzare la base di dati.
 \end{itemize}
 
 \vspace{1.2cm}
@@ -13,15 +13,15 @@ Il sistema è composto da varie pagine HTML ognuna delle quali fornisce uno spec
 SWIMv2 è sviluppato secondo l'architettura client-server, e quest'ultimo secondo il pattern MVC, in modo da tenere nettamente separati lo stato del sistema, la logica di
 business e l'interfaccia grafica. In particolare, per quanto riguarda il client, possiamo immaginare che esso sia un comunissimo browser che manda delle richieste ad un server ed
 elabora le sue risposte, mostrando all'utente le informazioni desiderate tramite la view. Il server invece è locale, ospita il database e la logica di business e fornisce un'interfaccia grafica personalizzata a seconda dello stato del sistema; tale stato varia a seconda dei comandi ricevuti dal
-client, ma non in modo arbitrario: il controller si occupa di mantenere il DB in uno stato consistente e di comporre volta per volta l'HTML da passare al browser; a questo proposito,
+client, ma non in modo arbitrario: il controller si occupa di mantenere il DB in uno stato consistente e di comporre volta per volta il codice JSP da passare al browser; a questo proposito,
 particolare importanza hanno le servlet, componenti che appunto generano le pagine web dinamiche che l'utente vede. Il server, come già specificato è JBoss AS 5, un'implementazione
 open source della piattaforma J2EE.
 \\
 
 Possiamo riassumere la struttura dell' applicazione come una multi-tier composta dai seguenti livelli:
 \begin{itemize}
-\item Client tier: è composta dal client side dell’applicazione: si occupa di inviare le richieste al webserver tramite il browser. Include il codice Javascript e il codice HTML per la presentazione dei servizi.
-\item Web tier: comprende le servlet per le risposte alle richieste Ajax e quindi con il client tier. Hanno anche il compito di gestire la sessione con gli utenti del sistema e di ricevere da quest’ultimi gli input inviati e di passarli quindi al business tier.
+\item Client tier: è composta dal client side dell’applicazione: si occupa di inviare le richieste al webserver tramite il browser. Include il codice Javascript e il codice JSP per la presentazione dei servizi.
+\item Web tier: Hanno il compito di gestire la sessione con gli utenti del sistema e di ricevere da quest’ultimi gli input inviati e di passarli quindi al business tier.
 \item Business tier: gestisce la logica di sistema
 \item Data tier: comprende la base di dati della quale si servirà il business tier. Tale base dati comprenderà tutti i dati e tutte le informazioni del sistema.
 \end{itemize}
