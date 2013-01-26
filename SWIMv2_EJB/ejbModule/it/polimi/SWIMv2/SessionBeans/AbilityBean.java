@@ -11,6 +11,7 @@ import it.polimi.SWIMv2.EntityBeans.UserAbilities;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -35,12 +36,13 @@ public class AbilityBean implements AbilityBeanLocal {
     @Override
 	public boolean validAbility(String abilityName) {
     	try {
-    		Query validAbilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.name = :name");
+    		Query validAbilityQuery = entityManager.createQuery("SELECT a FROM Ability a WHERE a.name = :name");
     		validAbilityQuery.setParameter("name", abilityName);
     		
-    		validAbilityQuery.executeUpdate();
-    		return false; 
-
+    		validAbilityQuery.getSingleResult();
+    		return false;
+    	} catch (NoResultException exc) {
+    		return true;
     	} catch (Exception exc) {
     		return true;
     	}			  
