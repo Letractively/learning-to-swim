@@ -16,17 +16,13 @@ public class UserAbilities implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public UserAbilities(GenericUser user, Ability ability) {
-		
 		userAbilitiesKey = new UserAbilitiesKey(user, ability);
-		
 	}
 	
 	public UserAbilities(){}
 	
 	@Id
 	private UserAbilitiesKey userAbilitiesKey;
-	
-	
 
 	public UserAbilitiesKey getUserAbilitiesKey() {
 		return userAbilitiesKey;
@@ -35,5 +31,4 @@ public class UserAbilities implements Serializable {
 	public void setUserAbilitiesKey(UserAbilitiesKey userAbilitiesKey) {
 		this.userAbilitiesKey = userAbilitiesKey;
 	}
-   
 }
