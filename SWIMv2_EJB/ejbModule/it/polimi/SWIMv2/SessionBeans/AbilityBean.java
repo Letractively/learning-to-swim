@@ -1,6 +1,7 @@
 package it.polimi.SWIMv2.SessionBeans;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.polimi.SWIMv2.EntityBeans.Ability;
 import it.polimi.SWIMv2.EntityBeans.Admin;
@@ -13,9 +14,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-
-//TODO A CAUSA DEI CAMBIAMENTI NEL DATABASE TUTTI I METODI SONO DA RIPENSARE!!!
 
 
 /**
@@ -34,7 +32,25 @@ public class AbilityBean implements AbilityBeanLocal {
         // TODO Auto-generated constructor stub
     }
 
-	@Override
+    @Override
+	public boolean validAbility(String abilityName) {
+    	
+    	try {
+			
+			  Query validAbilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.name = :name");
+			  validAbilityQuery.setParameter("name", abilityName);
+			  
+			  return false;
+			  
+			 } catch (EntityNotFoundException exc) {
+				
+				 //exc.printStackTrace();
+				 return true;
+			   }
+			  
+    }		
+		
+    @Override
 	public void addAbilityToUser(String userEmail, Long abilityId) {
 		
 		try {
@@ -84,36 +100,89 @@ public class AbilityBean implements AbilityBeanLocal {
 		
 	}
 
-	
 	@Override
-	public Map<Ability,Boolean> getAbilitiesByUser(String userID) {
-		/*Map<Ability,Boolean> mapAbility = null;
+	public List<String> returnAbilityToAdd(String userEmail) {
+		
 		try {
-			Query userQuery = entityManager.createQuery(" SELECT ua.ability_ID FROM user_abilities ua WHERE ua.user_ID = :userID");
-			userQuery.setParameter("userID", userID);
-			List<Ability> userAbilities = (List<Ability>)userQuery.getResultList();			
 			
-			Query abilityQuery = entityManager.createQuery(" SELECT a FROM Ability a");
-			List<Ability> lstAbility = (List<Ability>)abilityQuery.getResultList();
+			  List<Ability> totalAbilities = returnAbilityList();
+			  
+			  List<Ability> userAbilities = returnUserAbilityList(userEmail);
+			  
+			  List<Ability> abilities = returnSubAbilitiesList(totalAbilities, userAbilities);
+			  
+			  return returnLineListAbility(abilities);
 			
-			mapAbility = new HashedMap();
+			} catch (EntityNotFoundException exc) {
+				
+				//exc.printStackTrace();
+				List<Ability> totalAbilities = returnAbilityList();
+				  
+				return returnLineListAbility(totalAbilities);
+				
+				}
+		      
+    }
+
+	@Override
+	public List<String> returnUserAbilities(String userEmail) {
+		
+		List<Ability> userAbilities = returnUserAbilityList(userEmail);
+		return returnLineListAbility(userAbilities);
+	
+	}
+	
+	private List<Ability> returnUserAbilityList(String userEmail){
+		
+		Query userAbilityQuery = entityManager.createQuery("SELECT userab.userAbilitiesKey.ability FROM UserAbilities userab WHERE userab.userAbilitiesKey.user.email= :email");
+		userAbilityQuery.setParameter("email", userEmail);
+		
+		return new ArrayList<Ability>(userAbilityQuery.getResultList());
+	
+	}	
+		
+	private List<Ability> returnAbilityList(){
+		
+		Query totalAbilityQuery = entityManager.createQuery(" SELECT a FROM Ability a ");
+		return new ArrayList<Ability>(totalAbilityQuery.getResultList());
+	
+	}
+	
+	private List<String> returnLineListAbility(List<Ability> abilities){
+	
+		List<String> abilitiesList = new ArrayList<String>();
+		
+		for(Ability ability: abilities){
 			
-			for (Ability a : lstAbility) {
-				mapAbility.put(a, false);
+			String id = new String(ability.getId() + "\t" );
+		    String name = new String(ability.getName());
+			
+			
+			String lineAbility = new String(id + name);
+			abilitiesList.add(lineAbility);			
+		
+		}
+		
+		return abilitiesList;
+	
+	}
+	
+	private List<Ability> returnSubAbilitiesList(List<Ability> totalAbilities, List<Ability> userAbilities){
+		
+		List<Ability> subAbilitiesList = new ArrayList<Ability>(totalAbilities);
+		
+		for(Ability ta: totalAbilities){
+			for(Ability ua: userAbilities){
+				if(ta.getName().equals(ua.getName())){
+					subAbilitiesList.remove(ta);
+					break;				
+				}
 			}
-			
-			for (Ability a : userAbilities) {
-				mapAbility.put(a, true);
-			}
-			
-			return mapAbility;
-		} catch (EntityNotFoundException exc) { exc.printStackTrace(); }
-	      catch (NonUniqueResultException exc) { exc.printStackTrace();}*/
-		return null;
-	}		
+		}
 		
-		
-		
+		return subAbilitiesList;
+	
+	}
 
 
 }

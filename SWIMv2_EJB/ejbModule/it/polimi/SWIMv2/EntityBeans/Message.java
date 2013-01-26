@@ -57,6 +57,9 @@ public class Message implements Serializable{
 		return date;
 	}
 	
+	public GenericUser getSender(){
+		return this.getMessageKey().getSender();
+	}
 	
 	
 }
