@@ -4,7 +4,7 @@ import it.polimi.SWIMv2.EntityBeans.Admin;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.EntityBeans.User;
 import it.polimi.SWIMv2.SessionBeans.LoginBeanLocal;
-import it.polimi.SWIMv2.SessionBeans.UserSessionBeanLocal;
+import it.polimi.SWIMv2.SessionBeans.FriendProfileSessionBeanLocal;
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
        
 	private InitialContext ctx;
 	private LoginBeanLocal lb;
-	private UserSessionBeanLocal usbl;
+	private FriendProfileSessionBeanLocal usbl;
 	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 	private void controlConfirmation(GenericUser u, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NamingException {
 		if(u != null && u.isConfirmed()){
 			//System.out.println("login corretto");
-			usbl = (UserSessionBeanLocal)ctx.lookup("UserSessionBean/local");
+			usbl = (FriendProfileSessionBeanLocal)ctx.lookup("UserSessionBean/local");
 			createSessionAttributes(request, u);
 
 			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
