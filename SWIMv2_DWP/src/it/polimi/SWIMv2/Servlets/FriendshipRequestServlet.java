@@ -24,27 +24,23 @@ public class FriendshipRequestServlet extends HttpServlet {
 	private FriendshipBeanLocal friendshipBean;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-
 		try {
-			
 			ctx = new InitialContext();
 		    friendshipBean = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
 		
 		    boolean direct = true;
+		    if (request.getRequestURL().equals("friendprofile.jsp")) {
+		    	direct = false;
+		    }
+		    
 		    String userEmail1 = (String)request.getSession().getAttribute("email");
 			String userEmail2 = request.getParameter("friendEmail");
 		    
 		    friendshipBean.friendshipRequest(userEmail1, userEmail2, direct);
-		    
-		    
-		    
-		    } 
+		    getServletConfig().getServletContext().getRequestDispatcher("/friends").forward(request, response);
+		} 
 		catch (NamingException e) {
 			e.printStackTrace();
-		    }
-	   
-	
+		}
 	}
-
 }
