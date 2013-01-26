@@ -37,9 +37,11 @@ public class AbilityBean implements AbilityBeanLocal {
     	try {
     		Query validAbilityQuery = entityManager.createQuery(" SELECT a FROM Ability a WHERE a.name = :name");
     		validAbilityQuery.setParameter("name", abilityName);
+    		
+    		validAbilityQuery.executeUpdate();
     		return false; 
 
-    	} catch (EntityNotFoundException exc) {
+    	} catch (Exception exc) {
     		return true;
     	}			  
     }		
@@ -75,8 +77,9 @@ public class AbilityBean implements AbilityBeanLocal {
 			Query userAbilityQuery = entityManager.createQuery("DELETE userab FROM UserAbilities userab WHERE userab.userAbilitiesKey.user.email= :email");
 			userAbilityQuery.setParameter("email", userEmail);
 			
-			UserAbilities userAbilities = (UserAbilities)userAbilityQuery.getSingleResult();
-			entityManager.persist(userAbilities);
+			userAbilityQuery.executeUpdate();
+			
+			entityManager.getTransaction().commit();
 		}
 		catch (EntityNotFoundException exc) {
 			exc.printStackTrace();
@@ -115,7 +118,11 @@ public class AbilityBean implements AbilityBeanLocal {
 		} catch (EntityNotFoundException exc) {
 			List<Ability> totalAbilities = returnAbilityList();
 			return returnLineListAbility(totalAbilities);
-		}      
+		} catch (Exception exc) {
+			exc.printStackTrace();
+			List<Ability> totalAbilities = returnAbilityList();
+			return returnLineListAbility(totalAbilities);
+		}         
     }
 
 	@Override

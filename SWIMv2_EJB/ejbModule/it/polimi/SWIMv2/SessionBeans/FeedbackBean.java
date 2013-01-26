@@ -52,7 +52,7 @@ public class FeedbackBean implements FeedbackBeanLocal {
 	public Double getFeedbackAverage(String userEmail) {
 		
 		try {
-			  Query userQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :userEmail");
+			  Query userQuery = entityManager.createQuery("SELECT u FROM GenericUser u WHERE u.email = :userEmail");
 			  userQuery.setParameter("userEmail", userEmail);
 			  GenericUser user = (GenericUser) userQuery.getSingleResult();
 			

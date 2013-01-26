@@ -35,11 +35,12 @@ public class FriendProfileSessionBean implements FriendProfileSessionBeanLocal {
  		
  		try{
  			Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
- 	 		q.setParameter("email", email);
+  	 		q.setParameter("email", email);
  	 		
  	 		return whatRufyWants(q);
  		}
  		catch(Exception e){
+ 			e.printStackTrace();
  			return null;
  		}
  		
