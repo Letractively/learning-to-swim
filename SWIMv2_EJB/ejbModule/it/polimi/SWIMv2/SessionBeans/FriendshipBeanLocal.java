@@ -19,5 +19,7 @@ public interface FriendshipBeanLocal {
 	public abstract boolean areAlreadyFriends(String userEmail1, String userEmail2);
   
 	public abstract Boolean areDirectFriends(String userEmail1, String userEmail2);
+	
+	public abstract boolean isUnconfirmedFriendship(String userEmail1, String userEmail2);
 
 }
