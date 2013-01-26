@@ -5,7 +5,7 @@ import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import javax.ejb.Local;
 
 @Local
-public interface UserSessionBeanLocal {
-	public abstract GenericUser getDataFromDatabase(String email);
+public interface FriendProfileSessionBeanLocal {
+	public abstract String getFriendData(String email);
 
 }
