@@ -21,8 +21,12 @@
 	<%
 	List<String> lstResults = (List<String>)request.getSession().getAttribute("resultslist");
 	for (String ability : lstResults) {
-		if ()
-		out.print("<a href='friendprofile?email=" + ability.split("\t")[2] + "'>" + ability.split("\t")[0] + " " + ability.split("\t")[1] + "</a><br/>");
+		if (ability.split("\t")[3].equals("0"))
+			out.print(ability.split("\t")[0] + " " + ability.split("\t")[1] + "<form action='friendprofile?email=" + ability.split("\t")[2] + "'><input type='submit' value='Richiedi amicizia' /></form><br/>");
+		else if (ability.split("\t")[3].equals("1"))
+			out.print(ability.split("\t")[0] + " " + ability.split("\t")[1] + " - Amicizia in attesa di conferma<br/>");
+		else
+			out.print("<a href='friendprofile?email=" + ability.split("\t")[2] + "'>" + ability.split("\t")[0] + " " + ability.split("\t")[1] + "</a><br/>");
 	}
 	%>
 	</p>
