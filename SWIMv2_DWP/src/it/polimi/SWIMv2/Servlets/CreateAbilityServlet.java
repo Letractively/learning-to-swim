@@ -31,12 +31,20 @@ public class CreateAbilityServlet extends HttpServlet {
 		    String abilityName = request.getParameter("abilityName") ;
             String abilityDescription = request.getParameter("abilityDescription");
             String creatorEmail = (String)request.getSession().getAttribute("email");
-            
-            abilityBean.createAbility(abilityName, abilityDescription, creatorEmail);
+          
+            if(abilityBean.validAbility(abilityName)){
+           
+            	abilityBean.createAbility(abilityName, abilityDescription, creatorEmail);
 		
-            request.getSession().setAttribute("abilitycreated", "Abilita' creata con successo!");
-			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
-	    
+            	request.getSession().setAttribute("abilitycreated", "Abilita' creata con successo!");
+			    getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+               
+            }
+            else{
+            	request.getSession().setAttribute("abilitynotcreated", "Esiste gia' un' abilita' con questo nome !");
+			    getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+            }
+            
             } 
 		    
 		catch (NamingException e) {
