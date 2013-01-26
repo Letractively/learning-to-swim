@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JAN 2013 15:54
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  25 JAN 2013 11:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -512,60 +512,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--199
 ] [11] <UseCase.png, id=47, 919.18407pt x 457.71pt>
 File: UseCase.png Graphic file (type png)
  <use UseCase.png>
-Package pdftex.def Info: UseCase.png used on input line 250.
+Package pdftex.def Info: UseCase.png used on input line 241.
 (pdftex.def)             Requested size: 459.59091pt x 228.85445pt.
 
 [12 <./UseCase.png>]
-Underfull \hbox (badness 3049) in paragraph at lines 284--284
+Underfull \hbox (badness 3049) in paragraph at lines 275--275
 []\T1/lmss/m/n/14 Il si-ste-ma in-se-ri-sce nel da-ta-ba-se i da-ti del
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 284--284
+Underfull \hbox (badness 1622) in paragraph at lines 275--275
 \T1/lmss/m/n/14 neo-utente ma non met-te il flag nel cam-po
  []
 
 
-Underfull \hbox (badness 1975) in paragraph at lines 284--284
+Underfull \hbox (badness 1975) in paragraph at lines 275--275
 []\T1/lmss/m/n/14 Il si-ste-ma in-via una mail al-l'in-di-riz-zo for-ni-to
  []
 
 
-Underfull \hbox (badness 5652) in paragraph at lines 284--284
+Underfull \hbox (badness 5652) in paragraph at lines 275--275
 []|\T1/lmss/m/n/14 Il si-ste-ma ha mo-stra-to la pa-gi-na di av-ve-nu-ta
  []
 
 [13]
-Underfull \hbox (badness 1286) in paragraph at lines 302--302
+Underfull \hbox (badness 1286) in paragraph at lines 293--293
 []\T1/lmss/m/n/14 L'ospite in-se-ri-sce ne-gli ap-po-si-ti cam-pi mail e
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 320--320
+Underfull \hbox (badness 1571) in paragraph at lines 311--311
 []\T1/lmss/m/n/14 Il si-ste-ma no-ti-fi-ca al-l'u-ten-te il suc-ces-so del-
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 320--320
+Underfull \hbox (badness 1888) in paragraph at lines 311--311
 \T1/lmss/m/n/14 l'o-pe-ra-zio-ne e lo rein-di-riz-za al-la sua pa-gi-na
  []
 
 [14
 
 ]
-Underfull \hbox (badness 1472) in paragraph at lines 376--376
+Underfull \hbox (badness 1472) in paragraph at lines 367--367
 []\T1/lmss/m/n/14 Il si-ste-ma mo-stra una fi-ne-stra con una li-sta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--405
+Underfull \hbox (badness 10000) in paragraph at lines 327--396
 
  []
 
 [15
 
 ] [16] [17]
-Underfull \hbox (badness 1769) in paragraph at lines 440--440
+Underfull \hbox (badness 1769) in paragraph at lines 431--431
 []|\T1/lmss/m/n/14 L'utente A ha ri-ce-vu-to un mes-sag-gio di ri-spo-sta
  []
 
@@ -575,7 +575,7 @@ Underfull \hbox (badness 1769) in paragraph at lines 440--440
 File: sDiagrams/creazioneUtente.jpg Graphic file (type jpg)
 
 <use sDiagrams/creazioneUtente.jpg>
-Package pdftex.def Info: sDiagrams/creazioneUtente.jpg used on input line 464.
+Package pdftex.def Info: sDiagrams/creazioneUtente.jpg used on input line 455.
 (pdftex.def)             Requested size: 435.62453pt x 393.46732pt.
 
 <sDiagrams/accettazioneAmicizia.jpg, id=71, 652.4375pt x 271.0125pt>
@@ -583,7 +583,7 @@ File: sDiagrams/accettazioneAmicizia.jpg Graphic file (type jpg)
 
 <use sDiagrams/accettazioneAmicizia.jpg>
 Package pdftex.def Info: sDiagrams/accettazioneAmicizia.jpg used on input line 
-467.
+458.
 (pdftex.def)             Requested size: 456.70313pt x 189.70744pt.
  [19
 
@@ -592,21 +592,21 @@ Package pdftex.def Info: sDiagrams/accettazioneAmicizia.jpg used on input line
 <sDiagrams/login.jpg, id=79, 622.325pt x 451.6875pt>
 File: sDiagrams/login.jpg Graphic file (type jpg)
  <use sDiagrams/login.jpg>
-Package pdftex.def Info: sDiagrams/login.jpg used on input line 473.
+Package pdftex.def Info: sDiagrams/login.jpg used on input line 464.
 (pdftex.def)             Requested size: 435.62453pt x 316.17908pt.
 
 <sDiagrams/modificaAbilita.jpg, id=80, 632.3625pt x 461.725pt>
 File: sDiagrams/modificaAbilita.jpg Graphic file (type jpg)
 
 <use sDiagrams/modificaAbilita.jpg>
-Package pdftex.def Info: sDiagrams/modificaAbilita.jpg used on input line 476.
+Package pdftex.def Info: sDiagrams/modificaAbilita.jpg used on input line 467.
 (pdftex.def)             Requested size: 442.65074pt x 323.20529pt.
  [21 <./sDiagrams/login.jpg> <./sDiagrams/modificaAbilita.jpg>]
 <sDiagrams/richiestaAmicizia.jpg, id=84, 652.4375pt x 331.2375pt>
 File: sDiagrams/richiestaAmicizia.jpg Graphic file (type jpg)
 
 <use sDiagrams/richiestaAmicizia.jpg>
-Package pdftex.def Info: sDiagrams/richiestaAmicizia.jpg used on input line 482
+Package pdftex.def Info: sDiagrams/richiestaAmicizia.jpg used on input line 473
 .
 (pdftex.def)             Requested size: 456.70313pt x 231.86465pt.
 
@@ -615,35 +615,35 @@ File: sDiagrams/tentativoCreazioneThread.jpg Graphic file (type jpg)
 
 <use sDiagrams/tentativoCreazioneThread.jpg>
 Package pdftex.def Info: sDiagrams/tentativoCreazioneThread.jpg used on input l
-ine 485.
+ine 476.
 (pdftex.def)             Requested size: 351.31009pt x 252.94327pt.
 
 <sDiagrams/creazioneThread.jpg, id=86, 632.3625pt x 471.7625pt>
 File: sDiagrams/creazioneThread.jpg Graphic file (type jpg)
 
 <use sDiagrams/creazioneThread.jpg>
-Package pdftex.def Info: sDiagrams/creazioneThread.jpg used on input line 490.
+Package pdftex.def Info: sDiagrams/creazioneThread.jpg used on input line 481.
 (pdftex.def)             Requested size: 442.65074pt x 330.23149pt.
 
 <sDiagrams/ricercaUtenti.jpg, id=87, 632.3625pt x 421.575pt>
 File: sDiagrams/ricercaUtenti.jpg Graphic file (type jpg)
 
 <use sDiagrams/ricercaUtenti.jpg>
-Package pdftex.def Info: sDiagrams/ricercaUtenti.jpg used on input line 493.
+Package pdftex.def Info: sDiagrams/ricercaUtenti.jpg used on input line 484.
 (pdftex.def)             Requested size: 442.65074pt x 295.10048pt.
 
 <sDiagrams/invioMessaggio.jpg, id=88, 652.4375pt x 491.8375pt>
 File: sDiagrams/invioMessaggio.jpg Graphic file (type jpg)
 
 <use sDiagrams/invioMessaggio.jpg>
-Package pdftex.def Info: sDiagrams/invioMessaggio.jpg used on input line 498.
+Package pdftex.def Info: sDiagrams/invioMessaggio.jpg used on input line 489.
 (pdftex.def)             Requested size: 456.70313pt x 344.28389pt.
 
 <sDiagrams/invioFeedback.jpg, id=89, 652.4375pt x 471.7625pt>
 File: sDiagrams/invioFeedback.jpg Graphic file (type jpg)
 
 <use sDiagrams/invioFeedback.jpg>
-Package pdftex.def Info: sDiagrams/invioFeedback.jpg used on input line 500.
+Package pdftex.def Info: sDiagrams/invioFeedback.jpg used on input line 491.
 (pdftex.def)             Requested size: 456.70313pt x 330.23149pt.
 
 <sDiagrams/cancellazioneAccount.jpg, id=90, 702.625pt x 461.725pt>
@@ -651,10 +651,10 @@ File: sDiagrams/cancellazioneAccount.jpg Graphic file (type jpg)
 
 <use sDiagrams/cancellazioneAccount.jpg>
 Package pdftex.def Info: sDiagrams/cancellazioneAccount.jpg used on input line 
-505.
+496.
 (pdftex.def)             Requested size: 491.83414pt x 323.20529pt.
 
-Overfull \hbox (8.13727pt too wide) in paragraph at lines 505--505
+Overfull \hbox (8.13727pt too wide) in paragraph at lines 496--496
  [][] 
  []
 
@@ -662,7 +662,7 @@ Overfull \hbox (8.13727pt too wide) in paragraph at lines 505--505
 pg>] [23 <./sDiagrams/creazioneThread.jpg> <./sDiagrams/ricercaUtenti.jpg>]
 [24 <./sDiagrams/invioMessaggio.jpg> <./sDiagrams/invioFeedback.jpg>] [25 <./sD
 iagrams/cancellazioneAccount.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 510--512
+Underfull \hbox (badness 10000) in paragraph at lines 501--503
 
  []
 
@@ -670,14 +670,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 510--512
 File: statechart/invioFeedback.jpg Graphic file (type jpg)
 
 <use statechart/invioFeedback.jpg>
-Package pdftex.def Info: statechart/invioFeedback.jpg used on input line 513.
+Package pdftex.def Info: statechart/invioFeedback.jpg used on input line 504.
 (pdftex.def)             Requested size: 120.44969pt x 338.76479pt.
  [26
 
 
 
  <./statechart/invioFeedback.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 516--517
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
@@ -686,7 +686,7 @@ File: statechart/InvioRispostaMessaggio.jpg Graphic file (type jpg)
 
 <use statechart/InvioRispostaMessaggio.jpg>
 Package pdftex.def Info: statechart/InvioRispostaMessaggio.jpg used on input li
-ne 518.
+ne 509.
 (pdftex.def)             Requested size: 120.44969pt x 338.76479pt.
  [27
 
@@ -695,21 +695,21 @@ t x 423.5825pt>
 File: signatures.png Graphic file (type png)
 
 <use signatures.png>
-Package pdftex.def Info: signatures.png used on input line 524.
+Package pdftex.def Info: signatures.png used on input line 515.
 (pdftex.def)             Requested size: 272.82135pt x 254.15146pt.
  <facts.png, id=113, 855.195pt x 299.1175pt>
 File: facts.png Graphic file (type png)
 
 <use facts.png>
-Package pdftex.def Info: facts.png used on input line 526.
+Package pdftex.def Info: facts.png used on input line 517.
 (pdftex.def)             Requested size: 513.12097pt x 179.47188pt.
 
-Overfull \hbox (29.4241pt too wide) in paragraph at lines 526--527
+Overfull \hbox (29.4241pt too wide) in paragraph at lines 517--518
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 526--527
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
@@ -730,18 +730,19 @@ Here is how much of TeX's memory you used:
  61014 words of font info for 44 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  47i,12n,47p,906b,482s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
-texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2012/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2012
-/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2012/texmf-dis
-t/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
-pe1/public/lm/lmssbo10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publ
-ic/lm/lmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lm
-sso12.pfb>
-Output written on RASD.pdf (29 pages, 650156 bytes).
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
+cal/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2012/texmf-di
+st/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/lm/lmss12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/lm/lmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmssbo
+10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsso12.pfb>
+Output written on RASD.pdf (29 pages, 653066 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 150 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
