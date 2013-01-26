@@ -1,0 +1,18 @@
+\select@language {italian}
+\contentsline {section}{\numberline {1}Installazione}{3}
+\contentsline {section}{\numberline {2}Precondizioni e Postcondizioni (con la gentile partecipazione di Carlo Ghezzi)}{3}
+\contentsline {section}{\numberline {3}Funzionalit\IeC {\`a} accessibili a un ospite}{4}
+\contentsline {subsection}{\numberline {3.1}Ricerca di utenti}{4}
+\contentsline {subsubsection}{\numberline {3.1.1}Ricerca per nome e cognome}{4}
+\contentsline {subsubsection}{\numberline {3.1.2}Ricerca per abilita'}{4}
+\contentsline {subsection}{\numberline {3.2}Registrazione}{4}
+\contentsline {subsection}{\numberline {3.3}Login}{5}
+\contentsline {section}{\numberline {4}Funzionalita' accessibili ad un utente registrato e loggato}{5}
+\contentsline {subsection}{\numberline {4.1}Gestione amicizie}{6}
+\contentsline {subsection}{\numberline {4.2}Gestione messaggi}{6}
+\contentsline {subsubsection}{\numberline {4.2.1}Gestione feedback}{6}
+\contentsline {subsection}{\numberline {4.3}Gestione profilo}{6}
+\contentsline {subsubsection}{\numberline {4.3.1}Gestione Abilita'}{6}
+\contentsline {subsection}{\numberline {4.4}Ricerca utenti}{6}
+\contentsline {section}{\numberline {5}Funzionalit\IeC {\`a} accessibili ad un amministratore}{6}
+\contentsline {subsection}{\numberline {5.1}Gestione set di abilit\IeC {\`a} di sistema}{6}
