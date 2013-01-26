@@ -2,9 +2,11 @@ package it.polimi.SWIMv2.Servlets;
 
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.SessionBeans.AbilityBeanLocal;
+import it.polimi.SWIMv2.SessionBeans.FriendshipBeanLocal;
 import it.polimi.SWIMv2.SessionBeans.SearchBeanLocal;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.InitialContext;
@@ -23,6 +25,7 @@ public class SearchByAbilityServlet extends HttpServlet {
 	private InitialContext ctx;
 	
 	private SearchBeanLocal sb;
+	private FriendshipBeanLocal fb;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -43,11 +46,29 @@ public class SearchByAbilityServlet extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 			sb = (SearchBeanLocal)ctx.lookup("SearchBean/local");
+			fb = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
 			
 			List<String> results = (List<String>)sb.searchByAbility(ability);
 			
 			if(!results.isEmpty()){
-				request.getSession().setAttribute("resultslist", results);
+				List<String> resultsHTML = new ArrayList<String>();
+				for (String result : results) {
+					String userEmail1 = request.getSession().getAttribute("email").toString();
+					String userEmail2 = result.split("\t")[2];
+					if (fb.areAlreadyFriends(userEmail1, userEmail2)) {
+						if(fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+							result += "\t" + "2";
+						}
+						else if (!fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+							result += "\t" + "1";
+						}
+					}
+					else {
+						result += "\t" + "0";
+					}
+					resultsHTML.add(result);
+				}
+				request.getSession().setAttribute("resultslist", resultsHTML);
 				getServletConfig().getServletContext().getRequestDispatcher("/searchresult.jsp").forward(request, response);
 			}
 			else {
