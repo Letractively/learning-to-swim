@@ -6,7 +6,7 @@ import it.polimi.SWIMv2.EntityBeans.User;
 import it.polimi.SWIMv2.Exceptions.AlreadyValidatedUserException;
 import it.polimi.SWIMv2.SessionBeans.ActivationBeanLocal;
 import it.polimi.SWIMv2.SessionBeans.LoginBeanLocal;
-import it.polimi.SWIMv2.SessionBeans.UserSessionBeanLocal;
+import it.polimi.SWIMv2.SessionBeans.FriendProfileSessionBeanLocal;
 
 import java.io.IOException;
 
@@ -27,7 +27,7 @@ public class ConfirmationServlet extends HttpServlet {
 	
 	private InitialContext ctx;
 	private ActivationBeanLocal ab;
-	private UserSessionBeanLocal usbl;
+	private FriendProfileSessionBeanLocal usbl;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
