@@ -4,6 +4,8 @@ import it.polimi.SWIMv2.EntityBeans.Friendship;
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -107,44 +109,44 @@ public class FriendshipBean implements FriendshipBeanLocal {
 			friendsList1.setParameter("mail",friendMail);
 			friendsList1.setParameter("confirm",true);
 			
-
 			Query friendsList2 = entityManager.createQuery("SELECT f.friendshipKey.friend1 FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail AND f.confirmation = :confirm ");
 			friendsList2.setParameter("mail",friendMail);
 			friendsList2.setParameter("confirm",true);
 		   
 			List<GenericUser> totalFriends = new ArrayList<GenericUser>(mergeQueryResults(friendsList1,friendsList2));
 
-			Query userList1 = entityManager.createQuery("SELECT f.friendshipKey.friend2 FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail AND f.confirmation = :confirm ");
+			Query userList1 = entityManager.createQuery("SELECT f.friendshipKey.friend2 FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail");
 			userList1.setParameter("mail",userMail);
-			userList1.setParameter("confirm",true);
 
-			Query userList2 = entityManager.createQuery("SELECT f.friendshipKey.friend1 FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail AND f.confirmation = :confirm ");
+			Query userList2 = entityManager.createQuery("SELECT f.friendshipKey.friend1 FROM Friendship f WHERE f.friendshipKey.friend2.email = :mail");
 			userList2.setParameter("mail",userMail);
-			userList2.setParameter("confirm",true);
 			
 			List<GenericUser> userFriends = new ArrayList<GenericUser>(mergeQueryResults(userList1,userList2));
 			List<GenericUser> potentialFriends = getPotentialFriends(totalFriends, userFriends);
 			
-			return getFriendsParameters(potentialFriends);
+			return getFriendsParameters(potentialFriends, userMail);
 		}catch(Exception e){
-			System.out.println("eccezione!");
 			return null;
 		}
 	}
 	
-	private List<String> getFriendsParameters(List<GenericUser> potentialFriends) {
+	private List<String> getFriendsParameters(List<GenericUser> potentialFriends, String myEmail) {
 		List<String> friendsParameters = new ArrayList<String>();
 		
 		for(GenericUser pf: potentialFriends){
-			friendsParameters.add(new String(pf.getFirstName() + "\t" + pf.getLastName() + "\t" + pf.getEmail()));
+			if (!pf.getEmail().equals(myEmail)) {
+				friendsParameters.add(new String(pf.getFirstName() + "\t" + pf.getLastName() + "\t" + pf.getEmail()));
+			}
 		}
 		
 		return friendsParameters;
 	}
 
 	private List<GenericUser> getPotentialFriends(List<GenericUser> totalFriends, List<GenericUser> userFriends) {
-		List<GenericUser> potentialFriends = totalFriends;
-		for(GenericUser pf: potentialFriends){
+		List<GenericUser> potentialFriends = new ArrayList<GenericUser>();
+		potentialFriends.addAll(totalFriends);
+		//Collections.copy(potentialFriends, totalFriends);
+		for(GenericUser pf: totalFriends){
 			for(GenericUser uf: userFriends){
 				if(pf.getEmail().equals(uf.getEmail())){
 					potentialFriends.remove(pf);
