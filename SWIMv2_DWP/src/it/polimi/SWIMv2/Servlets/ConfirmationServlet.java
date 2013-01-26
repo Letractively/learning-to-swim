@@ -38,7 +38,8 @@ public class ConfirmationServlet extends HttpServlet {
 			doNormalOperations(request, response);
 		}
 		else{
-			response.sendRedirect("index.jsp");
+			//response.sendRedirect("index.jsp");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 	}
 
@@ -59,7 +60,6 @@ public class ConfirmationServlet extends HttpServlet {
 			
 		}catch(NamingException e){
 			System.out.println("Attivazione non riuscita");
-			e.printStackTrace();
 		}catch(AlreadyValidatedUserException e){
 			System.out.println("Utente già validato: eseguo redirect alla homepage");
 			response.sendRedirect("index.jsp");
@@ -72,7 +72,7 @@ public class ConfirmationServlet extends HttpServlet {
 
 	private boolean avoidIncorrectAccess(HttpServletRequest request, HttpServletResponse response) {
 		try{
-			String activationCode = (String)request.getSession().getAttribute("activationcode");
+			String activationCode = (String)request.getParameter("activationcode");
 			if(activationCode == null){
 				return false;
 			}

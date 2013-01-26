@@ -4,24 +4,20 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class NonLoggedUsersFilter
+ * Servlet Filter implementation class NonAdminUsersCannotCreateAbilitiesFilter
  */
-public class NonLoggedUsersFilter implements Filter {
+public class NonAdminUsersCannotCreateAbilitiesFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public NonLoggedUsersFilter() {
+    public NonAdminUsersCannotCreateAbilitiesFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -37,13 +33,16 @@ public class NonLoggedUsersFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest)request;
-		if(req.getSession().getAttribute("logged") == null){
+		
+		if(req.getSession().getAttribute("type") == null){
 			req.getRequestDispatcher("/index.jsp").forward(request, response);
+		}
+		else if(req.getSession().getAttribute("type").equals("utente normale")){
+			req.getRequestDispatcher("/profile.jsp").forward(request, response);
 		}
 		else{
 			chain.doFilter(request, response);
 		}
-		
 	}
 
 	/**

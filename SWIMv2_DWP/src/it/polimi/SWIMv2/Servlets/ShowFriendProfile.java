@@ -45,6 +45,9 @@ public class ShowFriendProfile extends HttpServlet {
 		catch (NamingException e) {
 			e.printStackTrace();
 		}
+		catch (NullPointerException e){
+			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
+		}
 	}
 
 	/**
