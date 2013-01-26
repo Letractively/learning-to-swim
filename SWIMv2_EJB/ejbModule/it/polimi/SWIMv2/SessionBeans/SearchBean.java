@@ -28,8 +28,7 @@ public class SearchBean implements SearchBeanLocal {
     }
 
 	@Override
-	public List<String> searchByName(String firstName, String lastName){
-		
+	public List<String> searchByName(String firstName, String lastName) {
 		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :name OR u.lastName = :surname");
 		q.setParameter("name", firstName);
 		q.setParameter("surname", lastName);

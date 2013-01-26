@@ -25,19 +25,17 @@ import javax.persistence.Query;
 	@PersistenceContext(unitName="SWIMv2_PU")
 	private EntityManager entityManager;
 	  
-	    public FriendshipBean() {}
+	public FriendshipBean() {}
 	
-	    @Override
+	@Override
 	public void friendshipRequest(String userEmail1, String userEmail2, boolean direct) {
-	
 	    Query userQuery1 = entityManager.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
 	    userQuery1.setParameter("email", userEmail1);
 	   
 	    Query userQuery2 = entityManager.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
 	    userQuery2.setParameter("email", userEmail2);
 	   
-	    
-	    try{
+	try{
 	   
 	    GenericUser user1 = (GenericUser)userQuery1.getSingleResult();
 	    GenericUser user2 = (GenericUser)userQuery2.getSingleResult();
