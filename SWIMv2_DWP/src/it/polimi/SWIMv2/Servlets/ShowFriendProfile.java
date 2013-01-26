@@ -1,8 +1,10 @@
 package it.polimi.SWIMv2.Servlets;
 
 import it.polimi.SWIMv2.SessionBeans.FriendProfileSessionBeanLocal;
+import it.polimi.SWIMv2.SessionBeans.FriendshipBeanLocal;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -19,6 +21,7 @@ public class ShowFriendProfile extends HttpServlet {
 	
 	private InitialContext ctx;
 	private FriendProfileSessionBeanLocal friendProfile;
+	private FriendshipBeanLocal fb;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,11 +38,18 @@ public class ShowFriendProfile extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 		    friendProfile = (FriendProfileSessionBeanLocal)ctx.lookup("FriendProfileSessionBean/local");
+		    fb = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
 		    
 		    String friendEmail = (String)request.getParameter("email").toString();
 		    String friend = friendProfile.getFriendData(friendEmail);
-		    
             request.getSession().setAttribute("userData", friend);
+            
+            String userMail = request.getSession().getAttribute("email").toString();
+            if (fb.areDirectFriends(userMail, friendEmail)) {
+            	List<String> hypoFriends = (List<String>)fb.getHypoteticalIndirectFriends(userMail, friendEmail);
+            	request.getSession().setAttribute("hypoFriends", hypoFriends);
+            }
+            
             getServletConfig().getServletContext().getRequestDispatcher("/friendprofile.jsp").forward(request, response);
 		} 
 		catch (NamingException e) {
