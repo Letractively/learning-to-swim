@@ -132,19 +132,27 @@ public class AbilityBean implements AbilityBeanLocal {
 	
 	}
 	
+	@Override
+	public List<String> returnTotalAbilityList() {
+		
+		List<Ability> abilitiesList = returnAbilityList();
+		return returnLineListAbility(abilitiesList);
+	
+	}
+
 	private List<Ability> returnUserAbilityList(String userEmail){
 		
 		Query userAbilityQuery = entityManager.createQuery("SELECT userab.userAbilitiesKey.ability FROM UserAbilities userab WHERE userab.userAbilitiesKey.user.email= :email");
 		userAbilityQuery.setParameter("email", userEmail);
 		
-		return new ArrayList<Ability>(userAbilityQuery.getResultList());
+		return new ArrayList<Ability>((List<Ability>)userAbilityQuery.getResultList());
 	
 	}	
 		
 	private List<Ability> returnAbilityList(){
 		
 		Query totalAbilityQuery = entityManager.createQuery(" SELECT a FROM Ability a ");
-		return new ArrayList<Ability>(totalAbilityQuery.getResultList());
+		return new ArrayList<Ability>((List<Ability>)totalAbilityQuery.getResultList());
 	
 	}
 	
