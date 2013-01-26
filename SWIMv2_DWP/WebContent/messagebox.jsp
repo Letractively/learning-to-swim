@@ -33,7 +33,7 @@
 				String email = details[5];
 				String data = details[6];
 				String corpo = details[7];
-				out.print("<p class='message'>TO: " + nome + " " + cognome + " (" + email + ")<p class='dataMessage'>" + data + "</p><br/>");
+				out.print("<p class='message'>TO: " + nome + " " + cognome + " (" + email + ")<span class='messageRight'>" + data + "<form action='feedback'><select name='feedback' size='1'><option value='1'>0</option><option value='2'>3</option><option value='3'>4</option><option value='4'>5</option><option value='0'>1</option></select></form></span><br/>");
 				out.print(corpo + "</p>");
 			}
 		}
@@ -51,7 +51,7 @@
 				String email = details[2];
 				String data = details[6];
 				String corpo = details[7];
-				out.print("<p class='message'>FROM: " + nome + " " + cognome + " (" + email + ")<p class='dataMessage'>" + data + "</p><br/>");
+				out.print("<p class='message'>FROM: " + nome + " " + cognome + " (" + email + ")<span class='messageRight'>" + data + "</span><br/>");
 				out.print(corpo + "</p>");
 			}
 		}

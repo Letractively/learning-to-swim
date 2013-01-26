@@ -128,7 +128,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FeedbackServlet</servlet-name>
-    <url-pattern>/daifeedback</url-pattern>
+    <url-pattern>/feedback</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -148,7 +148,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AddAbilityServlet</servlet-name>
-    <url-pattern>/gestiscicompetenze</url-pattern>
+    <url-pattern>/manageabilities</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
