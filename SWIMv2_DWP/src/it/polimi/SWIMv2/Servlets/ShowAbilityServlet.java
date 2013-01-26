@@ -36,9 +36,8 @@ public class ShowAbilityServlet extends HttpServlet {
 			ctx = new InitialContext();
 			AbilityBeanLocal abilityBean = (AbilityBeanLocal)ctx.lookup("AbilityBean/local");
 			
-			Map<Ability,Boolean> abs = abilityBean.getAbilitiesByUser(request.getSession().getAttribute("id").toString());
-			request.setAttribute("abilities", abs);
-			System.out.println(abs.isEmpty());
+			
+			
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
