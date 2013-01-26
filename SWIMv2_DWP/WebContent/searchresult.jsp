@@ -21,6 +21,7 @@
 	<%
 	List<String> lstResults = (List<String>)request.getSession().getAttribute("resultslist");
 	for (String ability : lstResults) {
+		if ()
 		out.print("<a href='friendprofile?email=" + ability.split("\t")[2] + "'>" + ability.split("\t")[0] + " " + ability.split("\t")[1] + "</a><br/>");
 	}
 	%>
