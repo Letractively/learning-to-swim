@@ -28,16 +28,14 @@ public class SearchBean implements SearchBeanLocal {
     }
 
 	@Override
-	public List<GenericUser> searchByName(String firstName, String lastName){
-		List<GenericUser> result;
+	public List<String> searchByName(String firstName, String lastName){
 		
 		Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.firstName = :name OR u.lastName = :surname");
 		q.setParameter("name", firstName);
 		q.setParameter("surname", lastName);
 		
 		try{
-			result = (List<GenericUser>)q.getResultList();
-			return result;
+			return whatRufyWants(q);
 		}
 		catch(Exception e){
 			System.out.println("non esistono utenti con tale anagrafica");
@@ -46,20 +44,30 @@ public class SearchBean implements SearchBeanLocal {
 	}
 	
 	
-	public List<GenericUser> searchByAbility(String ability){
-		List<GenericUser> userList;
+	public List<String> searchByAbility(Long ability){
 		
-		Query q = em.createQuery("SELECT u FROM UserAbilities ua, GenericUser u, Ability a WHERE u.id = ua.userAbilitiesKey.user AND a.id = ua.userAbilitiesKey.ability AND a.name = :ability");
+		
+		Query q = em.createQuery("SELECT u FROM UserAbilities ua, GenericUser u, Ability a WHERE u.id = ua.userAbilitiesKey.user AND a.id = ua.userAbilitiesKey.ability AND a.id = :ability");
 		q.setParameter("ability", ability);
 		try{
-			userList = (List<GenericUser>)q.getResultList();
-			return userList;
+			return whatRufyWants(q);
 		}
 		catch(Exception e){
 			System.out.println("non esistono utenti con tale abilità");
 			return null;
 		}
 		
+	}
+
+	private List<String> whatRufyWants(Query q) {
+		
+		List<GenericUser> userList = (List<GenericUser>)q.getResultList();
+		List<String> whatRufyNeeds = new ArrayList<String>();
+		
+		for(GenericUser u: userList){
+			whatRufyNeeds.add(new String(u.getFirstName() + "\t" + u.getLastName() + "\t" + u.getEmail()));
+		}
+		return whatRufyNeeds;
 	}
 
 

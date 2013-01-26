@@ -10,8 +10,8 @@ import javax.ejb.Local;
 @Local
 public interface SearchBeanLocal {
 	
-	public List<GenericUser> searchByName(String firstName, String lastName);
+	public List<String> searchByName(String firstName, String lastName);
 	
-	public List<GenericUser> searchByAbility(String ability);
+	public List<String> searchByAbility(Long ability);
 
 }
