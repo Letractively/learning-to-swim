@@ -226,7 +226,7 @@ import javax.persistence.Query;
 		
 		try{
 			
-			Query areFriends = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail1 AND f.friendshipKey.friend2.email = :mail2 ");
+			Query areFriends = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail1 AND f.friendshipKey.friend2.email = :mail2 OR f.friendshipKey.friend2.email = :mail1 AND f.friendshipKey.friend1.email = :mail2 ");
 			areFriends.setParameter("mail1",userEmail1);
 			areFriends.setParameter("mail2",userEmail2);
 			areFriends.executeUpdate();
@@ -249,10 +249,10 @@ import javax.persistence.Query;
 		
 		try{
 			
-			Query areDirectFriends = entityManager.createQuery("SELECT f.direct FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail1 AND f.friendshipKey.friend2.email = :mail2 AND f.confirmation = :confirm");
+			Query areDirectFriends = entityManager.createQuery("SELECT f.direct FROM Friendship f WHERE (f.friendshipKey.friend1.email = :mail1 AND f.friendshipKey.friend2.email = :mail2 OR f.friendshipKey.friend2.email = :mail1 AND f.friendshipKey.friend1.email = :mail2) AND f.direct = :direct");
 			areDirectFriends.setParameter("mail1",userEmail1);
 			areDirectFriends.setParameter("mail2",userEmail2);
-			areDirectFriends.setParameter("confirm",true);
+			areDirectFriends.setParameter("direct",true);
 			areDirectFriends.executeUpdate();
 			return new Boolean((Boolean)areDirectFriends.getSingleResult());
 			
@@ -271,7 +271,7 @@ import javax.persistence.Query;
 
 		try{
 			
-			Query areFriends = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail1 AND f.friendshipKey.friend2.email = :mail2 AND f.confirmation= :confirm");
+			Query areFriends = entityManager.createQuery("SELECT f FROM Friendship f WHERE (f.friendshipKey.friend1.email = :mail1 AND f.friendshipKey.friend2.email = :mail2 OR f.friendshipKey.friend2.email = :mail1 AND f.friendshipKey.friend1.email = :mail2) AND f.confirmation= :confirm");
 			areFriends.setParameter("mail1",userEmail1);
 			areFriends.setParameter("mail2",userEmail2);
 			areFriends.setParameter("confirm", false);
