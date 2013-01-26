@@ -14,7 +14,7 @@
 	}
 	else
 	{
-		out.print("<form action='search'><button type='submit'>Cerca</button></form>");
+		out.print("<form action='search' style='margin-right:50px;'><button id='searchButton' type='submit'>Cerca</button></form>");
 	}
     %>
   </div>

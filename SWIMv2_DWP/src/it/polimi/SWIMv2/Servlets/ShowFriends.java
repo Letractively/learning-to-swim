@@ -61,7 +61,7 @@ public class ShowFriends extends HttpServlet {
     	    		friendsHTML.add("<a href='friendprofile?email=" + email  + "'>" + nomeCognome + "</a>");
     	    	}
     	    	else {
-    	    		friendsHTML.add(nomeCognome + " <button type='submit' name='friendship' value='" + email + "'>Conferma amicizia</button>");
+    	    		friendsHTML.add(nomeCognome + " <button class='likeConfirm' type='submit' name='friendship' value='" + email + "'>Conferma</button>");
     	    	}
     	    }
     	    
