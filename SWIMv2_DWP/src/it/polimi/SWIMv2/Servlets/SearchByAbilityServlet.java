@@ -1,6 +1,7 @@
 package it.polimi.SWIMv2.Servlets;
 
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
+import it.polimi.SWIMv2.SessionBeans.AbilityBeanLocal;
 import it.polimi.SWIMv2.SessionBeans.SearchBeanLocal;
 
 import java.io.IOException;
@@ -35,9 +36,7 @@ public class SearchByAbilityServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+	
 		//TODO RUFY RIADATTA QUESTA RIGA
 		Long ability = new Long(request.getParameter("ability"));
 		
@@ -47,13 +46,14 @@ public class SearchByAbilityServlet extends HttpServlet {
 			
 			List<String> results = (List<String>)sb.searchByAbility(ability);
 			
-			if(results.isEmpty()){
-				System.out.println("Non ci sono utenti con tale abilità");
+			if(!results.isEmpty()){
+				request.getSession().setAttribute("resultslist", results);
+				getServletConfig().getServletContext().getRequestDispatcher("/searchresult.jsp").forward(request, response);
 			}
-			else{
-				System.out.println("Il primo risultato è " + ((String)results.get(0)));
+			else {
+				request.getSession().setAttribute("alert", "Nessun risultato trovato.");
+				getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
 			}
-			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -12,6 +12,10 @@
 	{
 		out.write("<span><form name='login' id='loginform' action='login' method='post' onsubmit='return allLoginFieldsAreFilled()'><b>E-mail</b> <input id='emailLogin' type='text' name='email' size='26'> <b>Password</b> <input id='passwordLogin' type='password' name='password'> <button type='submit'>Go!</button> </form></span>");
 	}
+	else
+	{
+		out.print("<form action='search'><button type='submit'>Cerca</button></form>");
+	}
     %>
   </div>
   <!-- end .container --></div>
