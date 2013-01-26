@@ -20,12 +20,12 @@
 		%>
 		</div>
 		<div style="text-align:left;">
-		Nome: <%=session.getAttribute("nome") %><br/>
-    	Cognome: <%=session.getAttribute("cognome") %><br/>
-    	Ruolo: <%=session.getAttribute("type") %><br/>
-    	Email: <%=session.getAttribute("email") %><br/>
-    	Citt&agrave;: <%=session.getAttribute("city") %><br/>
-    	Id: <%=session.getAttribute("id") %></div>
+		<b>Nome: <%=session.getAttribute("nome") %></b><br/>
+    	<b>Cognome: <%=session.getAttribute("cognome") %></b><br/>
+    	<b>Ruolo: <%=session.getAttribute("type") %></b><br/>
+    	<b>Email: <%=session.getAttribute("email") %></b><br/>
+    	<b>Citt&agrave;: <%=session.getAttribute("city") %></b><br/>
+    	<b>Media Feedback: <%=session.getAttribute("avg") %></b></div>
     	</div>
     	</p>
     </p>

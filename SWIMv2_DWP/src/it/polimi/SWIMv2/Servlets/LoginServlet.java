@@ -81,6 +81,7 @@ public class LoginServlet extends HttpServlet {
 		request.getSession().setAttribute("feedback", u.getFeedback());
 		request.getSession().setAttribute("logged", true);
 		request.getSession().setAttribute("confirmed", true);
+		request.getSession().setAttribute("avg", u.getFeedbackAverage());
 		
 		if(u.getClass().equals(User.class)){
 			request.getSession().setAttribute("type", "utente normale");
