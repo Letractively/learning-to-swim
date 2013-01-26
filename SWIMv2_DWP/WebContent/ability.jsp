@@ -20,24 +20,26 @@
 	<p>
 		In questa pagina potrai inserire, eliminare e modificare il set di abilit&agrave; associato al tuo profilo
 	</p>
-	<form action="gestiscicompetenze" method="post"><p>
-		Quali sono le tue competenze?<br />
+	<form action="manageabilities" method="post">
+	<p><b>Le tue competenze</b><br />
+		
 		<%
+		List<String> lstUserAbilities = (List<String>)request.getAttribute("userabilities");
+		for (String ability : lstUserAbilities) {
+			out.print("<input name='ability' type='checkbox' value='" + ability.split("\t")[0] + "' checked='true'/>" + ability.split("\t")[1]);
+		}
+		%>		
 		
-		Map<Ability,Boolean> lstAbility = (Map<Ability,Boolean>)request.getAttribute("abilities");
-		//out.print(lstAbility.isEmpty());
-		/*Set<Ability> list  = lstAbility.keySet();
-		Iterator<Ability> iter = list.iterator();
-					
-		while(iter.hasNext()) {
-		     Ability a = iter.next();
-		     Boolean b = lstAbility.get(a);
-		     out.print("<input type='checkbox' name='ability' value='" + a.getId() + "' checked='" + b + "'/>" + a.getName() + "<br />");
-		}*/
+		<b>Le abilit&agrave; disponibili</b>
 		
+		<%
+		List<String> lstAddAbilities = (List<String>)request.getAttribute("addabilities");
+		for (String ability : lstAddAbilities) {
+			out.print("<input name='ability' type='checkbox' value='" + ability.split("\t")[0] + "' checked='false'/>" + ability.split("\t")[1]);
+		}
 		%>
 
-		<input type="submit" value="Invia" />
+		<button id="abilityButton" type="submit">Conferma</button>
 	</p></form>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email

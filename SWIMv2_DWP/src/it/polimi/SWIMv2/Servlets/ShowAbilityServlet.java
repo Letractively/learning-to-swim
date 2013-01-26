@@ -36,8 +36,9 @@ public class ShowAbilityServlet extends HttpServlet {
 			ctx = new InitialContext();
 			AbilityBeanLocal abilityBean = (AbilityBeanLocal)ctx.lookup("AbilityBean/local");
 			
-			
-			
+			String userEmail = request.getSession().getAttribute("email").toString();
+			request.getSession().setAttribute("userabilities", abilityBean.returnUserAbilities(userEmail));
+			request.getSession().setAttribute("addabilities", abilityBean.returnAbilityToAdd(userEmail));
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}

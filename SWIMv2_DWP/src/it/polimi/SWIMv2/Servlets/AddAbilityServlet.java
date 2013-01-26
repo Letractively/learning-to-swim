@@ -23,27 +23,25 @@ public class AddAbilityServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			
 			ctx = new InitialContext();
 		    abilityBean = (AbilityBeanLocal)ctx.lookup("AbilityBean/local");
 		
 		    String[] ability = request.getParameterValues("ability") ;
-            String userEmail = (String)request.getSession().getAttribute("email");
+            String userEmail = request.getSession().getAttribute("email").toString();
 		
+            abilityBean.deleteAllUserAbilities(userEmail);
             for(String s : ability ){
             	System.out.println(s + "\n");
             	Long idAbility = Long.parseLong(s);
     	        abilityBean.addAbilityToUser(userEmail, idAbility);
-               }
+            }
 		
-            request.getSession().setAttribute("abilityadded", "Abilita' aggiunta!");
-			getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
-	    
-		    } 
+            request.getSession().setAttribute("alert", "Abilita' aggiunta!");
+			getServletConfig().getServletContext().getRequestDispatcher("ability").forward(request, response);
+		} 
 		catch (NamingException e) {
 			e.printStackTrace();
-		    }
-	   
+		}
 	}
 
 
