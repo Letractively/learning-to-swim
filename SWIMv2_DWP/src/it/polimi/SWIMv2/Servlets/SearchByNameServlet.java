@@ -45,13 +45,13 @@ public class SearchByNameServlet extends HttpServlet {
 			ctx = new InitialContext();
 			sb = (SearchBeanLocal)ctx.lookup("SearchBean/local");
 			
-			List<GenericUser> results = (List<GenericUser>)sb.searchByName(firstName, lastName);
+			List<String> results = (List<String>)sb.searchByName(firstName, lastName);
 			
 			if(results.isEmpty()){
 				System.out.println("Non ci sono utenti con tale anagrafica");
 			}
 			else{
-				System.out.println("Il primo risultato è " + ((GenericUser)results.get(0)).getEmail());
+				System.out.println("Il primo risultato è " + ((String)results.get(0)));
 			}
 			
 		} catch (NamingException e) {

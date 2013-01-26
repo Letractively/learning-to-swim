@@ -36,19 +36,22 @@ public class SearchByAbilityServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String ability = request.getParameter("ability");
+		
+		
+		//TODO RUFY RIADATTA QUESTA RIGA
+		Long ability = new Long(request.getParameter("ability"));
 		
 		try {
 			ctx = new InitialContext();
 			sb = (SearchBeanLocal)ctx.lookup("SearchBean/local");
 			
-			List<GenericUser> results = (List<GenericUser>)sb.searchByAbility(ability);
+			List<String> results = (List<String>)sb.searchByAbility(ability);
 			
 			if(results.isEmpty()){
 				System.out.println("Non ci sono utenti con tale abilità");
 			}
 			else{
-				System.out.println("Il primo risultato è " + ((GenericUser)results.get(0)).getEmail());
+				System.out.println("Il primo risultato è " + ((String)results.get(0)));
 			}
 			
 		} catch (NamingException e) {
