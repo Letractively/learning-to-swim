@@ -134,4 +134,8 @@ public abstract class GenericUser implements Serializable {
 	private Set<GenericUser> friends;
 	
 	
+	
+	public Double getFeedbackAverage() {
+		return this.getFeedback().getFeedbackAverage();
+	}
 }

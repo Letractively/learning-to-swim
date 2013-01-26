@@ -76,5 +76,22 @@ public class Feedback implements Serializable{
 		this.fourFeedback++;
 	}
 
+	public Double getFeedbackAverage() {
+		
+		Double zeroFeedback = new Double(this.zeroFeedback);
+	    Double oneFeedback = new Double(this.oneFeedback);
+		Double twoFeedback = new Double(this.twoFeedback);
+		Double threeFeedback = new Double(this.threeFeedback);
+		Double fourFeedback = new Double(this.fourFeedback);
+		
+		Double totalnumberOfFeedbacks = new Double(zeroFeedback + oneFeedback + twoFeedback + threeFeedback + fourFeedback);
+		Double weightedSum = new Double(0 * zeroFeedback + 1 * oneFeedback + 2 * twoFeedback + 3 * threeFeedback + 4 * fourFeedback);
+		
+		if(totalnumberOfFeedbacks.equals(new Double(0))){
+			return new Double(0);
+		}
+		
+		return new Double(weightedSum/totalnumberOfFeedbacks);
+	}
 	
 }
