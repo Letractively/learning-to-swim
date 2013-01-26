@@ -27,7 +27,6 @@ public class FriendProfileSessionBean implements FriendProfileSessionBeanLocal {
     
     @PersistenceContext(unitName = "SWIMv2_PU")
     private EntityManager em;
-    private FeedbackBean fb = new FeedbackBean();
     
  	
  	@Override
@@ -51,7 +50,7 @@ public class FriendProfileSessionBean implements FriendProfileSessionBeanLocal {
 		GenericUser friend = (GenericUser)q.getSingleResult();
 		
 		String friendEmail = friend.getEmail();
-		Double avg = fb.getFeedbackAverage(friendEmail);
+		Double avg = friend.getFeedbackAverage();
 		String type = new String();
 		
 		if(friend instanceof User){
@@ -60,6 +59,7 @@ public class FriendProfileSessionBean implements FriendProfileSessionBeanLocal {
 		else if(friend instanceof Admin){
 			type = "Admin";
 		}
-		return new String(friend.getFirstName() + "\t" + friend.getLastName() + "\t" + friendEmail + "\t" + friend.getCity() + "\t" + type + "\t" + avg.toString());
+		System.out.println("La media e' " + avg);
+		return new String(friend.getFirstName() + "\t" + friend.getLastName() + "\t" + friendEmail + "\t" + friend.getCity() + "\t" + type + "\t" + avg);
 	}
 }
