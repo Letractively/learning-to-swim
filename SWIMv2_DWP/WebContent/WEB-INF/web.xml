@@ -181,4 +181,14 @@
     <servlet-name>ShowFriendProfile</servlet-name>
     <url-pattern>/friendprofile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MessageBoxServlet</display-name>
+    <servlet-name>MessageBoxServlet</servlet-name>
+    <servlet-class>it.polimi.SWIMv2.Servlets.MessageBoxServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MessageBoxServlet</servlet-name>
+    <url-pattern>/messagebox</url-pattern>
+  </servlet-mapping>
 </web-app>
