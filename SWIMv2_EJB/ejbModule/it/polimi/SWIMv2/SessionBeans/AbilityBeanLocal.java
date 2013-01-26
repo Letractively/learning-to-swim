@@ -17,5 +17,6 @@ public interface AbilityBeanLocal {
 
 	public abstract List<String> returnUserAbilities(String userEmail);
 
+	public abstract List<String> returnTotalAbilityList();
 
 }
