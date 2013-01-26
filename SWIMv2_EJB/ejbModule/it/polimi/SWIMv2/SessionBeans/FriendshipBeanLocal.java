@@ -12,9 +12,12 @@ public interface FriendshipBeanLocal {
 	
 	public abstract void confirmFriendship(String userEmail1, String userEmail2);
 	
-	public List<String> getAllFriends(String userEmail);
+	public abstract List<String> getAllFriends(String userEmail);
 	
-	public List<String> getHypoteticalIndirectFriends(String userMail,String friendMail);
+	public abstract List<String> getHypoteticalIndirectFriends(String userMail,String friendMail);
 	
+	public abstract boolean areAlreadyFriends(String userEmail1, String userEmail2);
+  
+	public abstract Boolean areDirectFriends(String userEmail1, String userEmail2);
 
 }
