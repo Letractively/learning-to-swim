@@ -29,14 +29,47 @@
 	<p>
 		In questa pagina puoi vedere il profilo di ogni tuo singolo amico.
 	</p>
+	
+	<div class="profileDiv">
+		<div style="width:150px;float:left;">
+		<%
+		String style = "";
+		if (tipo.equals("amministratore")) {
+			style = "font-weight:bold;";
+			out.print("<img src='images/admin.jpg' width='150'/>");
+		} else {
+			style = "color:#274DA2;font-weight:bold;";
+			out.print("<img src='images/user.jpg' width='200'/>");
+		}
+		%>
+		</div>
+		<div style="text-align:left;">
+			<span style="<%=style%>">Nome:</span> <%=nome%><br/>
+	    	<span style="<%=style%>">Cognome:</span> <%=cognome%><br/>
+	    	<span style="<%=style%>">Ruolo:</span> <%=tipo%><br/>
+	    	<span style="<%=style%>">Email:</span> <%=email%><br/>
+	    	<span style="<%=style%>">Citt&agrave;:</span> <%=città%><br/>
+	    	<span style="<%=style%>">Feedback:</span> <%=feedback%>
+   		</div>
+   	</div>
+	
+	<div class="profileDiv">
+	<form action="FriendshipRequestServlet" method="post"><p>
 	<%
-		out.print("Nome: " + nome + "<br/>");
-		out.print("Cognome: " + cognome + "<br/>");	
-		out.print("Email: " + email + "<br/>");	
-		out.print("Citt&agrave;: " + città + "<br/>");
-		out.print("Tipo utente: " + tipo + "<br/>");
-		out.print("Feedback: " + feedback + "<br/>");
+		out.print("Amici suggeriti<br/>");
+		List<String> friends = (List<String>)request.getSession().getAttribute("hypoFriends");
+		if (friends != null) {
+			out.print("Non ci sono amici da suggerire.");
+		}
+		for(String f : friends) {
+			String nomeH = f.split("\t")[0];
+			String cognomeH = f.split("\t")[1];
+			String emailH = f.split("\t")[2];
+			out.print("<button class='likeConfirm' type='submit' name='friendEmail' value='" + emailH + "'>" + nomeH + " " + cognomeH + "</button><br/>");
+		}		
 	%>
+	</p></form>
+	</div>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
