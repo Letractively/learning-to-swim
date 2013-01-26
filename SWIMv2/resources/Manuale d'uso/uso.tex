@@ -115,7 +115,7 @@ muovere i primi passi nel mondo di SWIMv2.
 \pagebreak
 
 \section{Funzionalità accessibili a un ospite}
-Dalla Homepage http://127.0.0.1:8080/Directory-di-installazione/index.jsp un ospite può effettuare la ricerca di utenti, la registrazione ed il login.
+Dalla Homepage https://127.0.0.1:8443/SWIMv2\_DWP/index.jsp un ospite può effettuare la ricerca di utenti, la registrazione ed il login.
 
 \subsection{Ricerca di utenti}
 Si noti che la procedura di ricerca è identica per utenti registrati e amministratori, con la differenza che gli ospiti non possono visualizzare i dettagli del profilo degli utenti
@@ -184,18 +184,25 @@ In caso la procedura vada a buon fine, comparirà la pagina personale con tutte 
 Dalla pagina di profilo l'utente loggato può accedere alle funzionalità di gestione amicizie, gestione messaggi (che include la gestione feedback), gestione profilo e ricerca utenti.
 
 \subsection{Gestione amicizie}
+Dalla pagina personale si può navigare verso quella di gestione delle amicizie: da lì si possono accettare eventuali richieste e visualizzare i propri amici.
 
 \subsection{Gestione messaggi}
+Dall'apposito link presente nella pagina personale un utente può inviare un messaggio ad un altro utente, specificando il corpo e l'indirizzo email del destinatario. Oltre ad essere
+presente nel database (e quindi visibile dal destinatario dalla sua pagina personale), il messaggio è realmente inviato all'indirizzo email fornito.
 
 \subsubsection{Gestione feedback}
+Da ogni messaggio ricevuto l'utente può assegnare un feedback da 0 a 4 all'utente che gli ha inviato quel messaggio.
 
 \subsection{Gestione profilo}
+TO BE FILLED
 
 \subsubsection{Gestione Abilita'}
+Dall'apposita pagina accessibile dal profilo, l'utente può aggiungere (ma non rimuovere) nuove abilità al suo set.
 
 \subsection{Ricerca utenti}
 Non è diversa dalla ricerca accessibile agli ospiti, con la differenza che, se effettuata da utenti registrati, permette di cliccare sui risultati per accedere alla pagina del profilo
-dell'utente selezionato in modalità di visitatore (cioè non vengono visualizzate alcune funzionalità accessibili da quell'utente quando lui è loggato).
+dell'utente selezionato in modalità di visitatore (cioè non vengono visualizzate alcune funzionalità accessibili da quell'utente quando lui è loggato, ma è possibile chiedere amicizie
+indirette tramite l'apposito pulsante). Invece dalla pagina dei risultati della ricerca è possibile chiedere amicizie dirette.
 
 \section{Funzionalità accessibili ad un amministratore}
 
@@ -203,5 +210,7 @@ Un amministratore (di default l'unico amministratore che i tester possono usare 
 tutte le funzionalità già descritte nella sezione degli utenti normali e in più può gestire il set di abilità di sistema, aggiungendone su richiesta.
 
 \subsection{Gestione set di abilità di sistema}
+
+L'amministratore dall'apposita form, accessibile dal suo profilo, può, compilando tutti i campi, dichiarare una nuova abilità che va ad aggiungersi a quelle già disponibili per tutti gli utenti.
 
 \end{document}
