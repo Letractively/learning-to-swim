@@ -47,13 +47,14 @@ public class SearchByNameServlet extends HttpServlet {
 			
 			List<String> results = (List<String>)sb.searchByName(firstName, lastName);
 			
-			if(results.isEmpty()){
-				System.out.println("Non ci sono utenti con tale anagrafica");
+			if(!results.isEmpty()){
+				request.getSession().setAttribute("resultslist", results);
+				getServletConfig().getServletContext().getRequestDispatcher("/searchresult.jsp").forward(request, response);
 			}
-			else{
-				System.out.println("Il primo risultato è " + ((String)results.get(0)));
-			}
-			
+			else {
+				request.getSession().setAttribute("alert", "Nessun risultato trovato.");
+				getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
+			}			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,31 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pagina di Ricerca Utenti</title>
-</head>
-<body>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ page import="it.polimi.SWIMv2.EntityBeans.Ability" %>
+<%@ page import="java.util.*" %>
 
-<p>Cerca per nome</p>
-<form action="searchbyname" method="post">
-<b>Inserisci Nome</b>
-<input type="text" name="nome">
-<br/>
-<b>Inserisci Cognome</b>
-<input type="text" name="cognome">
-<br/>
-<input type="submit" value="Invia">
-</form>
+<jsp:include page="header.jsp">
+	<jsp:param name="page" value="ability"/>
+</jsp:include>
 
-<p>Cerca per abilit&agrave;</p>
-<form action="searchbyability" method="post">
-<b>Inserisci Abilit&agrave;</b>
-<input type="text" name="nome">
-<br/>
-<input type="submit" value="Invia">
-</form>
+  <div class="content">
+  <div style="width:80%;">
+	<% 
+		String alert = (String)session.getAttribute("alert");
+		if(alert!=null) {
+			out.print("<p>" + alert + "</p>");
+			session.removeAttribute("alert");
+		} 
+	%>
+	<h1>Cerca</h1>
+	<p>Per nome utente</p>
+	<form action="searchbyname" method="post"><p>
+		<b>Inserisci Nome</b> <input type="text" name="nome"><br/>
+		<b>Inserisci Cognome</b> <input type="text" name="cognome"><br/>
+		<input type="submit" value="Cerca">
+		</p>
+	</form>
+	
+	<p>Per abilit&agrave;</p>
+	<form action="searchbyability" method="post"><p>
+		<%
+		List<String> lstAbilities = (List<String>)request.getSession().getAttribute("totalabilities");
+		for (String ability : lstAbilities) {
+			out.print("<input name='ability' type='radio' value='" + ability.split("\t")[0] + "'/>" + ability.split("\t")[1] + "<br/>");
+		}
+		%>
+		<input type="submit" value="Cerca">
+		</p>
+	</form>
+	
+	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
+		help@swim.net</p>
+		</div>
+    <!-- end .content --></div>
 
-</body>
-</html>
+<jsp:include page="footer.jsp" />
