@@ -265,6 +265,27 @@ import javax.persistence.Query;
 		}
 	     
 	}
+
+	@Override
+	public boolean isUnconfirmedFriendship(String userEmail1, String userEmail2) {
+
+		try{
+			
+			Query areFriends = entityManager.createQuery("SELECT f FROM Friendship f WHERE f.friendshipKey.friend1.email = :mail1 AND f.friendshipKey.friend2.email = :mail2 AND f.confirmation= :confirm");
+			areFriends.setParameter("mail1",userEmail1);
+			areFriends.setParameter("mail2",userEmail2);
+			areFriends.setParameter("confirm", false);
+			areFriends.executeUpdate();
+			return true;
+			
+		}catch(EntityNotFoundException e){
+			return false;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
 	
 	
 }
