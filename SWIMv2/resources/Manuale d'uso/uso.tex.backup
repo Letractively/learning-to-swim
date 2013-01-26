@@ -17,6 +17,7 @@
 \usepackage{color}
 \definecolor{mygrey}{gray}{0.4}
 \definecolor{light-blue}{rgb}{0.4,0.5,1}
+\definecolor{light-cyan}{rgb}{0.4,0.6,1}
 \usepackage{booktabs}
 
 %Header and footer of pages
@@ -33,6 +34,9 @@
 \titleformat{\section} {\color{blue}\normalfont\sffamily\Large\bfseries} {\color{blue}\thesection}{20pt}{} 
 \usepackage{titlesec}
 \titleformat{\subsection} {\color{light-blue}\normalfont\sffamily\large\bfseries\itshape} {\color{light-blue}\thesubsection}{18pt}{} 
+\titleformat{\subsubsection} {\color{light-cyan}\normalfont\sffamily\large\bfseries\itshape} {\color{light-cyan}\thesubsubsection}{14pt}{} 
+
+
 
 %Document default font family
 \renewcommand{\familydefault}{\sfdefault}
@@ -52,7 +56,7 @@
 \vspace*{\fill}
 \begin{center}
 {\fontsize{28}{10} \selectfont \textcolor{mygrey}{Progetto di Ingegneria del Software 2} \\[2\baselineskip]} {\fontsize{42}{10} \selectfont {\bfseries SWIMv2}} \\[4\baselineskip]
-\includegraphics[scale=0.4]{polimi} \\[4\baselineskip]
+\includegraphics[scale=1]{wave-icon} \\[4\baselineskip]
 {\fontsize{28}{10} \selectfont {\bfseries \textcolor{blue}{Manuale d'uso}} \\[2\baselineskip] A.A. 2012/2013}
 \end{center}
 \begin{flushleft}
@@ -111,7 +115,7 @@ muovere i primi passi nel mondo di SWIMv2.
 \pagebreak
 
 \section{Funzionalità accessibili a un ospite}
-Dalla Homepage http://127.0.0.1:8080/Directory-di-installazione/index.jsp un ospite può effettuare la ricerca di utenti, la registrazione ed il login.
+Dalla Homepage https://127.0.0.1:8443/SWIMv2\_DWP/index.jsp un ospite può effettuare la ricerca di utenti, la registrazione ed il login.
 
 \subsection{Ricerca di utenti}
 Si noti che la procedura di ricerca è identica per utenti registrati e amministratori, con la differenza che gli ospiti non possono visualizzare i dettagli del profilo degli utenti
@@ -175,8 +179,29 @@ La procedura di login consiste nel riempire i campi ``email'' e ``password'' del
 
 In caso la procedura vada a buon fine, comparirà la pagina personale con tutte le funzionalità accessibili a un utente registrato e loggato.
 
-\section{Funzionalita' accessabili ad un utente registrato e loggato}
+\section{Funzionalita' accessibili ad un utente registrato e loggato}
 
 Dalla pagina di profilo l'utente loggato può accedere alle funzionalità di gestione amicizie, gestione messaggi (che include la gestione feedback), gestione profilo e ricerca utenti.
+
+\subsection{Gestione amicizie}
+
+\subsection{Gestione messaggi}
+
+\subsubsection{Gestione feedback}
+
+\subsection{Gestione profilo}
+
+\subsubsection{Gestione Abilita'}
+
+\subsection{Ricerca utenti}
+Non è diversa dalla ricerca accessibile agli ospiti, con la differenza che, se effettuata da utenti registrati, permette di cliccare sui risultati per accedere alla pagina del profilo
+dell'utente selezionato in modalità di visitatore (cioè non vengono visualizzate alcune funzionalità accessibili da quell'utente quando lui è loggato).
+
+\section{Funzionalità accessibili ad un amministratore}
+
+Un amministratore (di default l'unico amministratore che i tester possono usare è The King, che ha come email theking@emailtemporanea.net e come password skyrimisevil) può accedere a
+tutte le funzionalità già descritte nella sezione degli utenti normali e in più può gestire il set di abilità di sistema, aggiungendone su richiesta.
+
+\subsection{Gestione set di abilità di sistema}
 
 \end{document}
