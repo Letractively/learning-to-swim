@@ -9,26 +9,30 @@
 		<h1>Profilo di <%=session.getAttribute("nome") %> <%=session.getAttribute("cognome") %></h1>
 		<p id="profile">
 		<b>Benvenuto ecco i tuoi dati personali:</b>
-		<div style="background-color:white;margin:30px;padding:10px;width:500px;height:200px;border-radius:7px;">
-		<div style="width:150px;float:left;">
-		<%
-		if (session.getAttribute("type").toString().equals("amministratore")) {
-			out.print("<img src='images/admin.jpg' width='150'/>");
-		} else {
-			out.print("<img src='images/user.jpg'  width='150'/>");
-		}
-		%>
-		</div>
-		<div style="text-align:left;">
-		<b>Nome: <%=session.getAttribute("nome") %></b><br/>
-    	<b>Cognome: <%=session.getAttribute("cognome") %></b><br/>
-    	<b>Ruolo: <%=session.getAttribute("type") %></b><br/>
-    	<b>Email: <%=session.getAttribute("email") %></b><br/>
-    	<b>Citt&agrave;: <%=session.getAttribute("city") %></b><br/>
-    	<b>Media Feedback: <%=session.getAttribute("avg") %></b></div>
+		<div class="profileDiv">
+			<div style="width:150px;float:left;">
+			<%
+			String style = "";
+			if (session.getAttribute("type").toString().equals("amministratore")) {
+				style = "font-weight:bold;";
+				out.print("<img src='images/admin.jpg' width='150'/>");
+			} else {
+				style = "color:#274DA2;font-weight:bold;";
+				out.print("<img src='images/user.jpg' width='200'/>");
+			}
+			%>
+			</div>
+			<div style="text-align:left;">
+				<span style="<%=style%>">Nome:</span> <%=session.getAttribute("nome") %><br/>
+		    	<span style="<%=style%>">Cognome:</span> <%=session.getAttribute("cognome") %><br/>
+		    	<span style="<%=style%>">Ruolo:</span> <%=session.getAttribute("type") %><br/>
+		    	<span style="<%=style%>">Email:</span> <%=session.getAttribute("email") %><br/>
+		    	<span style="<%=style%>">Citt&agrave;:</span> <%=session.getAttribute("city") %><br/>
+		    	<span style="<%=style%>">Feedback:</span> <%=session.getAttribute("avg") %>
+    		</div>
     	</div>
     	</p>
-    </p>
+	</p>
 
 <jsp:include page="footer.jsp" />
 

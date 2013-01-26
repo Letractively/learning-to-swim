@@ -172,6 +172,11 @@ div#footer {
 	box-shadow: 0px 0px 1px 1px rgb(80,48,255);
 }
 
+#searchButton {
+	box-shadow: 0px 0px 1px 5px rgb(80,48,255);
+	padding 3px 10px;
+}
+
 
 /* ~~ Classi float/clear varie ~~ */
 .fltrt {  /* questa classe può essere utilizzata per applicare un float a un elemento a destra nella pagina. L'elemento con float deve precedere l'elemento al quale deve essere affiancato sulla pagina. */
@@ -195,7 +200,7 @@ div#footer {
 
 input {
   color: grey;
-  font-style: italic;
+  /*font-style: italic;*/
 }
 
 input:focus {
@@ -237,4 +242,40 @@ input:focus {
 	height:0;
 	font-size: 1px;
 	line-height: 0px;
+}
+
+.profileDiv {
+    background-color: white;
+    margin: 30px;
+    padding: 10px;
+    width: 500px;
+    height: 200px;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 0 3px 2px #CCC;	
+}
+
+.contentDiv {
+	box-shadow: 0 0 6px 0px;
+	background-color: white;
+}
+
+.likeConfirm {
+	font-weight: bold;
+    background-color: #CCC;
+    border: 1px none;
+    color: white;
+    font-size: 16px;
+    padding: 2px 4px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 2px 1px #000;
+	padding 1px;
+}
+
+fieldset {
+	border-radius: 10px;
+	border: 1px solid #ccc;
+}
+
+fieldset table {
+	margin: 0px;
 }

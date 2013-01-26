@@ -56,10 +56,10 @@ public class SearchByAbilityServlet extends HttpServlet {
 					String userEmail1 = request.getSession().getAttribute("email").toString();
 					String userEmail2 = result.split("\t")[2];
 					if (fb.areAlreadyFriends(userEmail1, userEmail2)) {
-						if(fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+						if(!fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
 							result += "\t" + "2";
 						}
-						else if (!fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+						else if (fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
 							result += "\t" + "1";
 						}
 					}
