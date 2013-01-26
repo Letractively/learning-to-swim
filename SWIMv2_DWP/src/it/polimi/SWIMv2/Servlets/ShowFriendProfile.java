@@ -37,10 +37,16 @@ public class ShowFriendProfile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			ctx = new InitialContext();
-		    userSessionBean = (UserSessionBean)ctx.lookup("UserSessionBean/local");
+		    userSessionBean = (UserSessionBeanLocal)ctx.lookup("UserSessionBean/local");
 		    
             String userEmail = (String)request.getParameter("email").toString();
             GenericUser user = userSessionBean.getDataFromDatabase(userEmail);
+            
+		    feedbackBean = (FeedbackBeanLocal)ctx.lookup("FeedbackBean/local");
+		    
+            String userEmail = (String)request.getParameter("email").toString();
+            GenericUser user = userSessionBean.getDataFromDatabase(userEmail);
+            
             request.getSession().setAttribute("userData", user);
             
             getServletConfig().getServletContext().getRequestDispatcher("/friendprofile.jsp").forward(request, response);

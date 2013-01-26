@@ -26,8 +26,8 @@
 		out.print("Nome: " + u.getFirstName() + "<br/>");
 		out.print("Cognome: " + u.getLastName() + "<br/>");	
 		out.print("Email: " + u.getEmail() + "<br/>");	
-		out.print("Citt&agrave;: " + u.getCity() + "<br/>");	
-		out.print("Feedback: " + u.getFeedback().toString() + "<br/>");
+		out.print("Citt&agrave;: " + u.getCity() + "<br/>");
+		out.print("Feedback: " + u.getFeedback() + "<br/>");
 	%>
 	
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
