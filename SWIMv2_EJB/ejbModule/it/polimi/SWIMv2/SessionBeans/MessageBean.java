@@ -1,5 +1,8 @@
 package it.polimi.SWIMv2.SessionBeans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.polimi.SWIMv2.EntityBeans.GenericUser;
 import it.polimi.SWIMv2.EntityBeans.Message;
 import javax.ejb.Stateless;
@@ -67,21 +70,91 @@ public class MessageBean implements MessageBeanLocal {
     
 	}
 	
-    private void createAndPersistMessage(String senderEmail, String receiverEmail, String body, Long messageId){
-    	
-    	Query senderQuery =  entityManager.createQuery("SELECT sender FROM GenericUser sender WHERE sender.email= :senderEmail");
-		senderQuery.setParameter("senderEmail", senderEmail);
-		GenericUser sender = (GenericUser)senderQuery.getSingleResult();
+    @Override
+	public List<String> returnReceivedMessages(String userEmail) {
 		
-		Query receiverQuery =  entityManager.createQuery("SELECT receiver FROM GenericUser receiver WHERE receiver.email= :receiverEmail");
-		receiverQuery.setParameter("receiverEmail", receiverEmail);
-		GenericUser receiver = (GenericUser)receiverQuery.getSingleResult();
-		
-		Message message = new Message(messageId, sender, receiver, body);
-		
-		entityManager.persist(message);
-   
-    }
+		try{
+			
+			Query messageListQuery = entityManager.createQuery("SELECT message FROM Message message WHERE message.receiver.email= : email");
+			messageListQuery.setParameter("email", userEmail);
+			
+			List<Message> messages = new ArrayList<Message>(messageListQuery.getResultList());
+			
+		    return returnLineListMessages(messages);
+			
+    	}
+    	catch(NullPointerException e){
+    		e.printStackTrace();
+    		return null;
+        }
+    	catch(Exception e){
+    		e.printStackTrace();
+    		return null;
+    	}
+    
 	
+	}
+
+    @Override
+	public List<String> returnSendedMessages(String userEmail) {
+
+		try{
+			
+			Query messageListQuery = entityManager.createQuery("SELECT message FROM Message message WHERE message.messageKey.sender.email= : email");
+			messageListQuery.setParameter("email", userEmail);
+			
+			List<Message> messages = new ArrayList<Message>(messageListQuery.getResultList());
+			
+		    return returnLineListMessages(messages);
+			
+    	}
+    	catch(NullPointerException e){
+    		e.printStackTrace();
+    		return null;
+        }
+    	catch(Exception e){
+    		e.printStackTrace();
+    		return null;
+    	}
+    
+	}
+	
+    private void createAndPersistMessage(String senderEmail, String receiverEmail, String body, Long messageId){
+	    	
+	    	Query senderQuery =  entityManager.createQuery("SELECT sender FROM GenericUser sender WHERE sender.email= :senderEmail");
+			senderQuery.setParameter("senderEmail", senderEmail);
+			GenericUser sender = (GenericUser)senderQuery.getSingleResult();
+			
+			Query receiverQuery =  entityManager.createQuery("SELECT receiver FROM GenericUser receiver WHERE receiver.email= :receiverEmail");
+			receiverQuery.setParameter("receiverEmail", receiverEmail);
+			GenericUser receiver = (GenericUser)receiverQuery.getSingleResult();
+			
+			Message message = new Message(messageId, sender, receiver, body);
+			
+			entityManager.persist(message);
+	   
+	
+	}
+
+	private List<String> returnLineListMessages(List<Message> messages){
+		
+		List<String> messagesList = new ArrayList<String>();
+		
+		for(Message mess: messages){
+			
+			String sender = new String(mess.getSender().getFirstName() + "\t" + mess.getSender().getLastName()+ "\t" + mess.getSender().getEmail()+ "\t");
+		    String receiver = new String(mess.getReceiver().getFirstName() + "\t" + mess.getReceiver().getLastName()+ "\t" + mess.getReceiver().getEmail()+ "\t");
+			String date = new String(mess.getDate().toString()+ "\t");
+			String body = new String(mess.getBody());
+			
+			String lineMessage = new String(sender + receiver + date + body);
+			messagesList.add(lineMessage);			
+		
+		}
+		
+		return messagesList;
+	
+	}
+
 
 }
