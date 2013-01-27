@@ -20,33 +20,22 @@ public class FeedbackBean implements FeedbackBeanLocal {
 
 	@Override
 	public boolean giveFeedback(String userEmail, Integer value) {
-		
 	   try {
 			  Query userQuery = entityManager.createQuery(" SELECT u FROM GenericUser u WHERE u.email = :userEmail");
 			  userQuery.setParameter("userEmail", userEmail);
 			  GenericUser user = (GenericUser) userQuery.getSingleResult();
-			
+			  
 			  return assignFeedback(user,value);
-			
-			} catch (EntityNotFoundException exc) {
-				exc.printStackTrace();
-				return false;
-				}
-		      catch (NonUniqueResultException exc) {
-		    	  exc.printStackTrace();
-		    	  return false;
-		    	  }
-			  catch (Exception exc) {
-				  exc.printStackTrace();
-				  return false;
-				  }
-		
-		
+		} catch (EntityNotFoundException exc) {
+			return false;
+		} catch (NonUniqueResultException exc) {
+    	  return false;
+    	} catch (Exception exc) {
+		  return false;
+		}
 	}
 
-	
 	private boolean assignFeedback(GenericUser user, Integer value) {
-		
 		int feedback = value.intValue();
 		
 		switch(feedback){
@@ -62,7 +51,6 @@ public class FeedbackBean implements FeedbackBeanLocal {
 		       return true;
 		    default: return false;   
 		}
-	
 	}
 
 }

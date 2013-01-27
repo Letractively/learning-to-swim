@@ -91,11 +91,19 @@ public class FriendshipBean implements FriendshipBeanLocal {
 		for(Friendship f : friends){
 			if(f.getFriendshipKey().getFriend1().getEmail().equals(userEmail)) {
 				GenericUser friend = f.getFriendshipKey().getFriend2();
-				String tupla = new String(friend.getFirstName()+ " " + friend.getLastName()+ " " + friend.getEmail() + " " + true);
+				int friendshipType = 3;
+				if (f.isConfirmation()) {	
+					friendshipType = 2;
+				}
+				String tupla = new String(friend.getFirstName()+ "\t" + friend.getLastName()+ "\t" + friend.getEmail() + "\t" + friendshipType);
 				result.add(tupla);
 			} else {
 				GenericUser friend = f.getFriendshipKey().getFriend1();
-				String tupla = new String(friend.getFirstName()+ " " + friend.getLastName()+ " " + friend.getEmail() + " " + f.isConfirmation());
+				int friendshipType = 1;
+				if (f.isConfirmation()) {	
+					friendshipType = 2;
+				}
+				String tupla = new String(friend.getFirstName()+ "\t" + friend.getLastName()+ "\t" + friend.getEmail() + "\t" + friendshipType);
 				result.add(tupla);
 			}
 		}

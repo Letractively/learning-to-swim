@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Table(name = "Friendship")
 public class Friendship implements Serializable {
 
-	
 	public Friendship(){}
 
 	public Friendship(GenericUser u1, GenericUser u2, boolean direct){
@@ -16,9 +15,7 @@ public class Friendship implements Serializable {
 		this.confirmation = false;
 		this.direct = direct;
 	}
-	
-	
-	
+
 	@PersistenceContext(unitName = "SWIMv2_PU")
 	
 	private static final long serialVersionUID = 1L;
@@ -31,7 +28,6 @@ public class Friendship implements Serializable {
 
 	@Column(name = "Direct")
 	private boolean direct;
-
 	
 	public FriendshipKey getFriendshipKey() {
 		return friendshipKey;
@@ -56,7 +52,4 @@ public class Friendship implements Serializable {
 	public void setType(boolean type) {
 		this.direct = type;
 	}
-	
-	
-
 }
