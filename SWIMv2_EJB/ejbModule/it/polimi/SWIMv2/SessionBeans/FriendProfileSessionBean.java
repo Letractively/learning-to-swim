@@ -36,7 +36,7 @@ public class FriendProfileSessionBean implements FriendProfileSessionBeanLocal {
  			Query q = em.createQuery("SELECT u FROM GenericUser u WHERE u.email = :email");
   	 		q.setParameter("email", email);
  	 		
- 	 		return whatRufyWants(q);
+ 	 		return friendDetails(q);
  		}
  		catch(Exception e){
  			e.printStackTrace();
@@ -46,11 +46,11 @@ public class FriendProfileSessionBean implements FriendProfileSessionBeanLocal {
  	}
 
 
-	private String whatRufyWants(Query q) {
+	private String friendDetails(Query q) {
 		GenericUser friend = (GenericUser)q.getSingleResult();
 		
 		String friendEmail = friend.getEmail();
-		Double avg = friend.getFeedbackAverage();
+		Double avg = friend.getFeedbackAverage() + 1;
 		String type = new String();
 		
 		if(friend instanceof User){
