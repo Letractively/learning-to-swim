@@ -51,8 +51,4 @@ public class FeedbackServlet extends HttpServlet {
 			System.out.println("Feedback non aggiunto correttamente");
 		}
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
 }

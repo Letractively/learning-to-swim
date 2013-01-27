@@ -1,4 +1,9 @@
 @charset "utf-8";
+@font-face {
+  font-family: SwimFont;
+  src: url("BRUSHSCRIPTSTD.OTF");
+}
+
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
 	background: #E0EBFF;
@@ -94,7 +99,7 @@ clear:both;
 	color: #CCC;
 	font-size: 44px;
 	font-weight: normal;
-	font-family: Brush Script Std;
+	font-family: SwimFont;
 	position: relative;
 	bottom: 8px;
 	margin: 0 5px;
