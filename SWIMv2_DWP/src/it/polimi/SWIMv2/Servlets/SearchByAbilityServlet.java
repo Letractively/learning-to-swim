@@ -40,54 +40,59 @@ public class SearchByAbilityServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		//TODO RUFY RIADATTA QUESTA RIGA
-		Long ability = new Long(request.getParameter("ability"));
-		
-		try {
-			ctx = new InitialContext();
-			sb = (SearchBeanLocal)ctx.lookup("SearchBean/local");
-			fb = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
-			
-			List<String> results = (List<String>)sb.searchByAbility(ability);
-			
-			if(!results.isEmpty()){
-				List<String> resultsHTML = new ArrayList<String>();
-				for (String result : results) {
-					String userEmail1 = request.getSession().getAttribute("email").toString();
-					String userEmail2 = result.split("\t")[2];
-					if (!userEmail1.equals(userEmail2)) {
-						if (fb.areAlreadyFriends(userEmail1, userEmail2)) {
-							if(!fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
-								result += "\t" + "2";
-							}
-							else if (fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
-								result += "\t" + "1";
-							}
-						}
-						else {
-							result += "\t" + "0";
-						}
-						resultsHTML.add(result);
-					}
-					else if (results.size() == 1) {
-						request.getSession().setAttribute("alert", "L'unico risultato trovato sei tu. (:");
-						getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
-					}
-				}
-				request.getSession().setAttribute("resultslist", resultsHTML);
-				getServletConfig().getServletContext().getRequestDispatcher("/searchresult.jsp").forward(request, response);
-			}
-			else {
-				request.getSession().setAttribute("alert", "Nessun risultato trovato.");
-				getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
-			}
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(Exception e){
-			System.out.println("La ricerca non ha prodotto risultati, si prega di riprovare");
+		Long ability;
+		if (request.getParameter("ability") == null) {
+			request.getSession().setAttribute("alert", "Seleziona un abilit&agrave;");
+			getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
 		}
-		
+		else {
+			ability = new Long(request.getParameter("ability"));
+			
+			try {
+				ctx = new InitialContext();
+				sb = (SearchBeanLocal)ctx.lookup("SearchBean/local");
+				fb = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
+				
+				List<String> results = (List<String>)sb.searchByAbility(ability);
+				
+				if(!results.isEmpty()){
+					List<String> resultsHTML = new ArrayList<String>();
+					for (String result : results) {
+						String userEmail1 = request.getSession().getAttribute("email").toString();
+						String userEmail2 = result.split("\t")[2];
+						if (!userEmail1.equals(userEmail2)) {
+							if (fb.areAlreadyFriends(userEmail1, userEmail2)) {
+								if(!fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+									result += "\t" + "2";
+								}
+								else if (fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+									result += "\t" + "1";
+								}
+							}
+							else {
+								result += "\t" + "0";
+							}
+							resultsHTML.add(result);
+						}
+						else if (results.size() == 1) {
+							request.getSession().setAttribute("alert", "L'unico risultato trovato sei tu. (:");
+							getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
+						}
+					}
+					request.getSession().setAttribute("resultslist", resultsHTML);
+					getServletConfig().getServletContext().getRequestDispatcher("/searchresult.jsp").forward(request, response);
+				}
+				else {
+					request.getSession().setAttribute("alert", "Nessun risultato trovato.");
+					getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
+				}
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch(Exception e){
+				System.out.println("La ricerca non ha prodotto risultati, si prega di riprovare");
+			}
+		}		
 	}
 
 }

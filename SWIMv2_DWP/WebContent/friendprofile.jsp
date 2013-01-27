@@ -34,7 +34,7 @@
 	<form action="FriendshipRequestServlet" method="post"><p>
 	<%
 		List<String> friends = (List<String>)request.getSession().getAttribute("hypoFriends");
-		if (friends.size() == 0) {
+		if (friends == null || friends.size() == 0) {
 			out.print("Non ci sono amici da suggerire.");
 		}
 		else {
