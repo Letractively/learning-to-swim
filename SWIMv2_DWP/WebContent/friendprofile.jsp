@@ -8,7 +8,7 @@
 </jsp:include>
 
   <div class="content">
-  <div style="width:80%;">
+  <div style="width:100%;max-width:850px;">
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
@@ -29,12 +29,33 @@
 	<p>
 		In questa pagina puoi vedere il profilo di ogni tuo singolo amico.
 	</p>
-	
-	<div class="profileDiv">
-		<div style="width:150px;float:left;">
+	<div class="profileDiv" style="float:right;width:33%;min-width:150px;margin:0px">
+	<h2>Amici suggeriti</h2>
+	<form action="FriendshipRequestServlet" method="post"><p>
+	<%
+		List<String> friends = (List<String>)request.getSession().getAttribute("hypoFriends");
+		if (friends.size() == 0) {
+			out.print("Non ci sono amici da suggerire.");
+		}
+		else {
+			out.print("<table style='width:100%'>");
+			for(String f : friends) {
+				String nomeH = f.split("\t")[0];
+				String cognomeH = f.split("\t")[1];
+				String emailH = f.split("\t")[2];
+				out.print("<tr><td style='text-align:left'>" + nomeH + " " + cognomeH + "</td><td style='text-align:right;'><button class='likeConfirm' type='submit' name='friendEmail' value='" + emailH + "'>Aggiungi</button></td></tr>");
+			}
+			out.print("</table>");
+		}
+
+	%>
+	</p></form>
+	</div>	
+	<div class="profileDiv" style="width:70%;min-width:400px;max-width:500px;margin:0px">
+		<div style="float:left;">
 		<%
 		String style = "";
-		if (tipo.equals("amministratore")) {
+		if (tipo.equals("Admin")) {
 			style = "font-weight:bold;";
 			out.print("<img src='images/admin.jpg' width='150'/>");
 		} else {
@@ -52,25 +73,7 @@
 	    	<span style="<%=style%>">Feedback:</span> <%=feedback%>
    		</div>
    	</div>
-	
-	<div class="profileDiv">
-	<form action="FriendshipRequestServlet" method="post"><p>
-	<%
-		out.print("Amici suggeriti<br/>");
-		List<String> friends = (List<String>)request.getSession().getAttribute("hypoFriends");
-		if (friends != null) {
-			out.print("Non ci sono amici da suggerire.");
-		}
-		for(String f : friends) {
-			String nomeH = f.split("\t")[0];
-			String cognomeH = f.split("\t")[1];
-			String emailH = f.split("\t")[2];
-			out.print("<button class='likeConfirm' type='submit' name='friendEmail' value='" + emailH + "'>" + nomeH + " " + cognomeH + "</button><br/>");
-		}		
-	%>
-	</p></form>
-	</div>
-	
+	<br/>
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
 		</div>

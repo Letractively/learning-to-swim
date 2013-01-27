@@ -71,7 +71,7 @@ public class SearchByNameServlet extends HttpServlet {
 						}
 						resultsHTML.add(result);
 					}
-					else {
+					else if (results.size() == 1) {
 						request.getSession().setAttribute("alert", "L'unico risultato trovato sei tu. (:");
 						getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
 					}

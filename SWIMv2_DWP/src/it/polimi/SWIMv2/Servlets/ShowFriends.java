@@ -45,23 +45,21 @@ public class ShowFriends extends HttpServlet {
             List<String> friendsHTML = new ArrayList<String>();
 			
     	    for(String friend : friends){
-    	    	String[] friendDetails = friend.split(" ");
+    	    	String[] friendDetails = friend.split("\t");
     	    	
-    	    	String email = friendDetails[friendDetails.length - 2];
-    	    	Boolean confirmed = friendDetails[friendDetails.length - 1].equals("true");
+    	    	String nome = friendDetails[0];
+    	    	String cognome = friendDetails[1];
+    	    	String email = friendDetails[2];
+    	    	String type = friendDetails[3];
     	    	
-    	    	String nomeCognome = "";
-    	    	for (int i = 0; i < friendDetails.length - 2; i++) {
-    	    		String detail = friendDetails[i];
-    	    		nomeCognome += detail + " ";
+    	    	if (type.equals("1")) {
+    	    		friendsHTML.add(nome + " " + cognome + " <button class='likeConfirm' type='submit' name='friendship' value='" + email + "'>Conferma</button>");
     	    	}
-    	    	nomeCognome = nomeCognome.subSequence(0, nomeCognome.length() - 1).toString();
-    	    	
-    	    	if (confirmed) {
-    	    		friendsHTML.add("<a href='friendprofile?email=" + email  + "'>" + nomeCognome + "</a>");
+    	    	else if (type.equals("2")) {
+    	    		friendsHTML.add("<a href='friendprofile?email=" + email  + "'>" + nome + " " + cognome + "</a>");
     	    	}
     	    	else {
-    	    		friendsHTML.add(nomeCognome + " <button class='likeConfirm' type='submit' name='friendship' value='" + email + "'>Conferma</button>");
+    	    		friendsHTML.add(nome + " " + cognome + " - Amicizia in attesa di conferma");
     	    	}
     	    }
     	    
