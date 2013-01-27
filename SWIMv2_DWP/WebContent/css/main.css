@@ -200,7 +200,6 @@ div#footer {
 
 input {
   color: grey;
-  /*font-style: italic;*/
 }
 
 input:focus {
@@ -215,6 +214,7 @@ input:focus {
 	margin: 3px;
 	padding: 2px 7px;
 	border: 1px solid rgb(238,238,238);
+	font-style: italic;
 }
 
 #regform input[name="nome"], #regform input[name="cognome"] {

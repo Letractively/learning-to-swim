@@ -23,7 +23,7 @@
 	</p>
 	<p id="outbox">
 	<%
-		out.print("<b>FROM:</b><br/>");
+		out.print("<b>Outbox:</b><br/>");
 		List<String> outbox = (List<String>)request.getSession().getAttribute("outbox");
 		if (outbox != null) {
 			for (String message : outbox) {
@@ -33,15 +33,15 @@
 				String email = details[5];
 				String data = details[6];
 				String corpo = details[7];
-				out.print("<p class='message'>TO: " + nome + " " + cognome + " (" + email + ")<span class='messageRight'>" + data + "<form action='feedback'><select name='feedback' size='1'><option value='1'>0</option><option value='2'>3</option><option value='3'>4</option><option value='4'>5</option><option value='0'>1</option></select></form></span><br/>");
-				out.print(corpo + "</p>");
+				out.print("<p class='message'>TO: " + nome + " " + cognome + " (" + email + ")<span style='float:right;'>" + data + "</span><br/>");
+				out.print("TESTO: " + corpo + "</p></form>");
 			}
 		}
 	%>
 	</p>
 	<p id="inbox">
 	<%
-		out.print("<b>TO:</b><br/>");
+		out.print("<b>Inbox:</b><br/>");
 		List<String> inbox = (List<String>)request.getSession().getAttribute("inbox");
 		if (inbox != null) {
 			for (String message : inbox) {
@@ -51,12 +51,12 @@
 				String email = details[2];
 				String data = details[6];
 				String corpo = details[7];
-				out.print("<p class='message'>FROM: " + nome + " " + cognome + " (" + email + ")<span class='messageRight'>" + data + "</span><br/>");
-				out.print(corpo + "</p>");
+				out.print("<form action='feedback' name='feedbackForm' method='post'><p class='message'>FROM: " + nome + " " + cognome + " (" + email + ")<input type='hidden' value='" + email + "' name='feedbackEmail'/><select name='feedbackValue' size='1' default='5' onchange='document.feedbackForm.submit();'><option value='0'>0</option><option value='1'>2</option><option value='2'>3</option><option value='3'>4</option><option value='4'>5</option></select><span style='float:right;'>" + data + "</span><br/>");
+				out.print("TESTO: " + corpo + "</p></form>");
 			}
 		}
 	%>
-	</p>
+	</p></form>
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
 		</div>

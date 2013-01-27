@@ -13,6 +13,8 @@ if (pageType.equals("index")) {
 	title = "Profilo di " + request.getSession().getAttribute("nome") + " " + request.getSession().getAttribute("cognome");;
 } else if (pageType.equals("messages")) {
 	title = "Messaggi";
+} else if (pageType.equals("sendmessage")) {
+	title = "Messaggi - Crea nuovo";
 } else if (pageType.equals("feedback")) {
 	title = "Feedback";
 } else if (pageType.equals("ability")) {
@@ -23,6 +25,8 @@ if (pageType.equals("index")) {
 	title = "Le mie amicizie - Dettaglio profilo";
 } else if (pageType.equals("search")) {
 	title = "Ricerca";
+} else if (pageType.equals("searchresult")) {
+	title = "Ricerca - Lista risultati";
 }
 %>
 

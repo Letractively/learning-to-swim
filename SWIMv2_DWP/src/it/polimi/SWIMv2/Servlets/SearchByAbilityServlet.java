@@ -55,18 +55,24 @@ public class SearchByAbilityServlet extends HttpServlet {
 				for (String result : results) {
 					String userEmail1 = request.getSession().getAttribute("email").toString();
 					String userEmail2 = result.split("\t")[2];
-					if (fb.areAlreadyFriends(userEmail1, userEmail2)) {
-						if(!fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
-							result += "\t" + "2";
+					if (!userEmail1.equals(userEmail2)) {
+						if (fb.areAlreadyFriends(userEmail1, userEmail2)) {
+							if(!fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+								result += "\t" + "2";
+							}
+							else if (fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
+								result += "\t" + "1";
+							}
 						}
-						else if (fb.isUnconfirmedFriendship(userEmail1, userEmail2)) {
-							result += "\t" + "1";
+						else {
+							result += "\t" + "0";
 						}
+						resultsHTML.add(result);
 					}
-					else {
-						result += "\t" + "0";
+					else if (results.size() == 1) {
+						request.getSession().setAttribute("alert", "L'unico risultato trovato sei tu. (:");
+						getServletConfig().getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
 					}
-					resultsHTML.add(result);
 				}
 				request.getSession().setAttribute("resultslist", resultsHTML);
 				getServletConfig().getServletContext().getRequestDispatcher("/searchresult.jsp").forward(request, response);

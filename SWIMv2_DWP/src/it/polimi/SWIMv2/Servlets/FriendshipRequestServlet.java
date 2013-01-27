@@ -27,14 +27,19 @@ public class FriendshipRequestServlet extends HttpServlet {
 		try {
 			ctx = new InitialContext();
 		    friendshipBean = (FriendshipBeanLocal)ctx.lookup("FriendshipBean/local");
-		
-		    boolean direct = true;
-		    if (request.getRequestURL().equals("friendprofile.jsp")) {
-		    	direct = false;
-		    }
 		    
 		    String userEmail1 = (String)request.getSession().getAttribute("email");
-			String userEmail2 = request.getParameter("friendEmail");
+
+			boolean direct = false;
+			String userEmail2 = "";
+			if (request.getParameter("friendEmail") != null && !request.getParameter("friendEmail").isEmpty()) {
+				direct = false;
+				userEmail2 = request.getParameter("friendEmail");
+			}
+			else if (request.getParameter("directFriendEmail") != null && !request.getParameter("directFriendEmail").isEmpty()) {
+				direct = true;
+				userEmail2 = request.getParameter("directFriendEmail");
+			}
 		    
 		    friendshipBean.friendshipRequest(userEmail1, userEmail2, direct);
 		    getServletConfig().getServletContext().getRequestDispatcher("/friends").forward(request, response);

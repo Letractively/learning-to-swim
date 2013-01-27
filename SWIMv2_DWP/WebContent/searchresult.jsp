@@ -4,7 +4,7 @@
 <%@ page import="java.util.*" %>
 
 <jsp:include page="header.jsp">
-	<jsp:param name="page" value="ability"/>
+	<jsp:param name="page" value="searchresult"/>
 </jsp:include>
 
   <div class="content">
@@ -16,21 +16,22 @@
 			session.removeAttribute("alert");
 		} 
 	%>
-	<h1>Risultati della ricerca</h1><br/>
-	<p>
-	<%
-	List<String> lstResults = (List<String>)request.getSession().getAttribute("resultslist");
-	for (String ability : lstResults) {
-		if (ability.split("\t")[3].equals("0"))
-			out.print(ability.split("\t")[0] + " " + ability.split("\t")[1] + "<form action='friendprofile?email=" + ability.split("\t")[2] + "'><input type='submit' value='Richiedi amicizia' /></form><br/>");
-		else if (ability.split("\t")[3].equals("1"))
-			out.print(ability.split("\t")[0] + " " + ability.split("\t")[1] + " - Amicizia in attesa di conferma<br/>");
-		else
-			out.print("<a href='friendprofile?email=" + ability.split("\t")[2] + "'>" + ability.split("\t")[0] + " " + ability.split("\t")[1] + "</a><br/>");
-	}
-	%>
-	</p>
-	
+	<h1>Risultati della ricerca</h1>
+	<form action="FriendshipRequestServlet" method="post">
+		<p>
+		<%
+		List<String> lstResults = (List<String>)request.getSession().getAttribute("resultslist");
+		for (String ability : lstResults) {
+			if (ability.split("\t")[3].equals("0"))
+				out.print(ability.split("\t")[0] + " " + ability.split("\t")[1] + " <button class='likeConfirm' type='submit'  name='directFriendEmail' value='" + ability.split("\t")[2] + "'>Aggiungi</button><br/>");
+			else if (ability.split("\t")[3].equals("1"))
+				out.print(ability.split("\t")[0] + " " + ability.split("\t")[1] + " - Amicizia in attesa di conferma<br/>");
+			else
+				out.print("<a href='friendprofile?email=" + ability.split("\t")[2] + "'>" + ability.split("\t")[0] + " " + ability.split("\t")[1] + "</a><br/>");
+		}
+		%>
+		</p>
+	</form>
 	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
 		</div>

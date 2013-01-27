@@ -26,23 +26,22 @@ public class FeedbackServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		try{
 			ctx = new InitialContext();
 			fb = (FeedbackBeanLocal)ctx.lookup("FeedbackBean/local");
 			
-			String[] feedback = request.getParameterValues("feedback") ;
-			//Integer value = Integer.parseInt(request.getParameter("SOSTITUIRE COL NOME DEL PARAMETRO PRESENTE NELLA PAGINA JSP"));
-			String email = (String)request.getSession().getAttribute("email");
-			Integer value = Integer.parseInt(feedback[0]);
+			String feedback = request.getParameter("feedbackValue");
+			String email = request.getParameter("feedbackEmail");
+			Integer value = Integer.parseInt(feedback);
 			boolean feedbackCorrectlyGiven = fb.giveFeedback(email, value);
 			
 			if(feedbackCorrectlyGiven){
-				request.getSession().setAttribute("feedbackgiven", "Feedback dato con successo!");
-			    getServletConfig().getServletContext().getRequestDispatcher("/messagebox").forward(request, response);
+				request.getSession().setAttribute("alert", "Feedback dato con successo!");
+			    getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
 			}
 			else{
-				System.out.println("Feedback non aggiunto correttamente");
+				request.getSession().setAttribute("alert", "Feedback dato con successo!");
+			    getServletConfig().getServletContext().getRequestDispatcher("/profile.jsp").forward(request, response);
 			}
 		}
 		catch(NamingException e){
@@ -51,9 +50,9 @@ public class FeedbackServlet extends HttpServlet {
 		catch(Exception e){
 			System.out.println("Feedback non aggiunto correttamente");
 		}
-		
-		
-		
 	}
-
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
 }
