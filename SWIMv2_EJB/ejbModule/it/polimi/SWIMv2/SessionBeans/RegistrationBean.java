@@ -63,7 +63,7 @@ public class RegistrationBean implements RegistrationBeanLocal {
     		em.persist(u);
 	    	
     		String randomCode = randomString(30);
-    		String activationLink = "http://localhost:8080/SWIMv2_DWP/confirm?activationcode=" + randomCode + "&user=" + email; 
+    		String activationLink = "https://localhost:8443/SWIMv2_DWP/confirm?activationcode=" + randomCode + "&user=" + email; 
     		
     		activatingMailParameters = generateActivationMailParameters(activatingMailParameters, email, firstName, lastName, activationLink, randomCode);
     		
