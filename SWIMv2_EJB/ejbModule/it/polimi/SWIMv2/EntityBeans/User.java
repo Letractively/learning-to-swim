@@ -25,6 +25,7 @@ public class User extends GenericUser{
 		super.setPassword(password);
 		super.setCity(city);
 		this.admin = admin;
+		super.setFeedback(new Feedback());
 		
 	}
 }
