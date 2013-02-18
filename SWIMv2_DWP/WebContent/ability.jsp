@@ -7,6 +7,15 @@
 	<jsp:param name="page" value="ability"/>
 </jsp:include>
 
+<<<<<<< .mine
+  <div class="content">
+<div style="float:right;width:38%;min-width:250px;margin-top:10px">
+	<img src="images/abilita.jpg" style="width:100%;height:100%;box-shadow: 0px 0px 3px 2px rgb(204, 204, 204);border-radius: 5px 5px 5px 5px;"/>
+</div>
+	  
+<div style="width:57%;min-width:200px;max-width:550px;margin:0px">
+=======
+>>>>>>> .r291
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
@@ -50,7 +59,7 @@
 		<table cellspacing="5">
 			<tr>
 				<td style="padding:10px;">
-					<fieldset>
+					<fieldset style="min-width:200px">
 					<legend>Le tue competenze</legend>
 						<%
 							List<String> lstUserAbilities = (List<String>)request.getSession().getAttribute("userabilities");
@@ -66,7 +75,7 @@
 					</fieldset>
 				</td>
 				<td style="padding:10px;">
-					<fieldset>
+					<fieldset style="min-width:200px">
 					<legend>Le abilit&agrave; disponibili</legend>
 					<%
 						List<String> lstAddAbilities = (List<String>)request.getSession().getAttribute("addabilities");
