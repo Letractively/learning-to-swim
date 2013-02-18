@@ -7,15 +7,24 @@
 	<jsp:param name="page" value="search"/>
 </jsp:include>
 
-  <div class="content">
-  <div style="width:80%;">
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
-			out.print("<p>" + alert + "</p>");
+			if(alert.equals("Nessun risultato trovato.")){
+				%>
+				<div align="center">
+				<img alt="" src="images/conan.jpeg">
+				</div>
+				<%
+			}
+			//out.print("<p>" + alert + "</p>");
 			session.removeAttribute("alert");
 		} 
 	%>
+
+  <div class="content">
+  <div style="width:80%;">
+	
 	<h1>Cerca</h1>
 	<fieldset>
 		<legend>Per nome utente</legend>
