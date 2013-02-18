@@ -7,6 +7,16 @@
 	<jsp:param name="page" value="search"/>
 </jsp:include>
 
+<<<<<<< .mine
+  <div class="content">
+  
+	<div style="float:right;width:40%;min-width:250px;margin-top:50px">
+		<img src="images/Help.jpg" style="width:100%;height:100%;box-shadow: 0px 0px 3px 2px rgb(204, 204, 204);border-radius: 5px 5px 5px 5px;"/>
+	</div>
+  
+  <div style="width:60%;min-width:200px;max-width:550px;margin:0px">
+=======
+>>>>>>> .r291
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
@@ -28,7 +38,7 @@
 	<h1>Cerca</h1>
 	<fieldset>
 		<legend>Per nome utente</legend>
-		<form action="searchbyname" method="post"><p>
+		<form action="searchbyname" method="post">	
 			<table>
 				<tr>
 					<td><b>Nome:</b></td>
@@ -39,23 +49,23 @@
 					<td><input type="text" name="cognome"/></td>
 				</tr>
 			</table>
-			<br/>
 			<p>
 				<input style="float:right;" class="likeConfirm" type="submit" value="Cerca">
 			</p>
 		</form>	
 	</fieldset>
-		
+	<br/>
 	<fieldset>
 		<legend>Per abilit&agrave;</legend>
-		<form action="searchbyability" method="post"><p>
-			<%
-			List<String> lstAbilities = (List<String>)request.getSession().getAttribute("totalabilities");
-			for (String ability : lstAbilities) {
-				out.print("<input name='ability' type='radio' value='" + ability.split("\t")[0] + "'/>" + ability.split("\t")[1] + "<br/>");
-			}
-			%>
-			<br/><input style="float:right;" class="likeConfirm" type="submit" value="Cerca">
+		<form action="searchbyability" method="post">
+			<p>
+				<%
+				List<String> lstAbilities = (List<String>)request.getSession().getAttribute("totalabilities");
+				for (String ability : lstAbilities) {
+					out.print("<input name='ability' type='radio' value='" + ability.split("\t")[0] + "'/>" + ability.split("\t")[1] + "<br/>");
+				}
+				%>
+				<input style="float:right;" class="likeConfirm" type="submit" value="Cerca">
 			</p>
 		</form>
 	</fieldset>
