@@ -8,7 +8,11 @@
 </jsp:include>
 
   <div class="content">
-  <div style="width:80%;">
+<div style="float:right;width:38%;min-width:250px;margin-top:10px">
+	<img src="images/mess.jpg" style="width:100%;height:100%;box-shadow: 0px 0px 3px 2px rgb(204, 204, 204);border-radius: 5px 5px 5px 5px;"/>
+</div>
+	  
+<div style="width:57%;min-width:200px;max-width:550px;margin:0px">
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
@@ -32,48 +36,69 @@
 	%>
 	<h1>La tua Messagebox!</h1>
 	<p>
-		Qui di seguito puoi visualizzare i messaggi inviati e ricevuti da e verso i tuoi amici<br/>
+		Qui di seguito puoi visualizzare i messaggi inviati e ricevuti da e verso i tuoi amici
 		<a href="sendmessage.jsp">Clicca qui</a> per inviare un nuovo messaggio
+		<br/>
+		<fieldset id="outbox">
+			<legend>Outbox</legend>
+			<%
+				List<String> outbox = (List<String>)request.getSession().getAttribute("outbox");
+				if (outbox != null) {
+					if (outbox.size() == 0) {
+						out.print("<p>Nessun messaggio inviato.</p>");
+					}
+					else {
+						for (String message : outbox) {
+							String[] details = message.split("\t");
+							String nome = details[3];
+							String cognome = details[4];
+							String email = details[5];
+							String data = details[6];
+							String corpo = details[7];
+							out.print("<p class='message' style='text-align:right;margin:0;'>" + data + "</p>");
+							out.print("<p class='message'>A: " + nome + " " + cognome + " (" + email + ")");
+							out.print("<br/>TESTO: " + corpo + "</p>");
+						}
+					}
+				}
+			%>
+		</fieldset>
+		<br/>
+		<fieldset id="inbox">
+			<form action='feedback' name='feedbackForm' method='post' style='display:inline;'>
+			<legend>Inbox</legend>
+			<%
+				List<String> inbox = (List<String>)request.getSession().getAttribute("inbox");
+				if (inbox != null) {
+					if (outbox.size() == 0) {
+						out.print("<p>Nessun messaggio inviato.</p>");
+					}
+					else {
+						for (String message : inbox) {
+							String[] details = message.split("\t");
+							String nome = details[0];
+							String cognome = details[1];
+							String email = details[2];
+							String data = details[6];
+							String corpo = details[7];
+							out.print("<p class='message' style='text-align:right;margin:0;'>" + data + "</p>");
+							out.print("<p class='message'>DA: " + nome + " " + cognome + " (" + email + ")");
+							if (!request.getSession().getAttribute("email").toString().equals(email))
+								out.print("<input type='hidden' value='" + email + "' name='feedbackEmail'/><select name='feedbackValue' size='1' default='5' onchange='document.feedbackForm.submit();' style='float:right;'><option value='0'>1</option><option value='1'>2</option><option value='2'>3</option><option value='3'>4</option><option value='4'>5</option></select>");
+							out.print("<br/>TESTO: " + corpo + "</p>");
+						}
+					}
+				}
+			%>
+			</form>
+		</fieldset>
+		</form>
+		<br/>
+		<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
+			help@swim.net
+		</p>
 	</p>
-	<p id="outbox">
-	<%
-		out.print("<b>Outbox:</b><br/>");
-		List<String> outbox = (List<String>)request.getSession().getAttribute("outbox");
-		if (outbox != null) {
-			for (String message : outbox) {
-				String[] details = message.split("\t");
-				String nome = details[3];
-				String cognome = details[4];
-				String email = details[5];
-				String data = details[6];
-				String corpo = details[7];
-				out.print("<p class='message'>TO: " + nome + " " + cognome + " (" + email + ")<span style='float:right;'>" + data + "</span><br/>");
-				out.print("TESTO: " + corpo + "</p></form>");
-			}
-		}
-	%>
-	</p>
-	<p id="inbox">
-	<%
-		out.print("<b>Inbox:</b><br/>");
-		List<String> inbox = (List<String>)request.getSession().getAttribute("inbox");
-		if (inbox != null) {
-			for (String message : inbox) {
-				String[] details = message.split("\t");
-				String nome = details[0];
-				String cognome = details[1];
-				String email = details[2];
-				String data = details[6];
-				String corpo = details[7];
-				out.print("<form action='feedback' name='feedbackForm' method='post'><p class='message'>FROM: " + nome + " " + cognome + " (" + email + ")<input type='hidden' value='" + email + "' name='feedbackEmail'/><select name='feedbackValue' size='1' default='5' onchange='document.feedbackForm.submit();'><option value='0'>0</option><option value='1'>2</option><option value='2'>3</option><option value='3'>4</option><option value='4'>5</option></select><span style='float:right;'>" + data + "</span><br/>");
-				out.print("TESTO: " + corpo + "</p></form>");
-			}
-		}
-	%>
-	</p></form>
-	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
-		help@swim.net</p>
-		</div>
+</div>
     <!-- end .content --></div>
 
 <jsp:include page="footer.jsp" />
