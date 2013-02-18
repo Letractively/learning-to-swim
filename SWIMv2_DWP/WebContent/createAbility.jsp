@@ -7,15 +7,31 @@
 	<jsp:param name="page" value="ability"/>
 </jsp:include>
 
-  <div class="content">
-  <div style="width:80%;">
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
-			out.print("<p>" + alert + "</p>");
+			if(alert.equals("Abilita' creata con successo!")){
+				%>
+				<div align="center">
+				<img alt="" src="images/goro.jpg">
+				</div>
+				<%
+			}
+			else if(alert.equals("Esiste gia' un' abilita' con questo nome !")){
+				%>
+				<div align="center">
+				<img alt="" src="images/bulma.jpg">
+				</div>
+				<%
+			}
+			//out.print("<p>" + alert + "</p>");
 			session.removeAttribute("alert");
 		} 
 	%>
+
+  <div class="content">
+  <div style="width:80%;">
+	
 	<h1>Modifica delle abilit&agrave;</h1>
 	<p>
 		In questa pagina potrai inserire, eliminare e modificare il set di abilit&agrave; associato al tuo profilo
