@@ -8,7 +8,11 @@
 </jsp:include>
 
   <div class="content">
-  <div style="width:600px;">
+<div style="float:right;width:38%;min-width:250px;margin-top:10px">
+	<img src="images/sendmail.jpg" style="width:100%;height:100%;box-shadow: 0px 0px 3px 2px rgb(204, 204, 204);border-radius: 5px 5px 5px 5px;"/>
+</div>
+	  
+<div style="width:57%;min-width:200px;max-width:550px;margin:0px">
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {

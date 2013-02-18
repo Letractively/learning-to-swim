@@ -5,11 +5,17 @@
 	<jsp:param name="page" value="profile"/>
 </jsp:include>
 
-	<p>
-		<h1>Profilo di <%=session.getAttribute("nome") %> <%=session.getAttribute("cognome") %></h1>
-		<p id="profile">
-		<b>Benvenuto ecco i tuoi dati personali:</b>
-		<div class="profileDiv">
+<div>
+
+	<div style="float:right;width:38%;min-width:250px;margin-top:50px">
+		<img src="images/agenda.jpg" style="width:100%;height:100%;box-shadow: 0px 0px 3px 2px rgb(204, 204, 204);border-radius: 5px 5px 5px 5px;"/>
+	</div>
+	  
+	<div style="width:57%;min-width:200px;max-width:550px;margin:0px">
+		<h1 style="white-space:nowrap;padding:0px">Profilo di <%=session.getAttribute("nome") %> <%=session.getAttribute("cognome") %></h1>
+		<fieldset id="profile">
+		<legend>Benvenuto ecco i tuoi dati personali:</legend>
+		<div>
 			<div style="width:150px;float:left;">
 			<%
 			String style = "";
@@ -31,8 +37,10 @@
 		    	<span style="<%=style%>">Feedback:</span> <%=session.getAttribute("avg") %>
     		</div>
     	</div>
-    	</p>
-	</p>
+    	</fieldset>
+	</div>
+
+</div>
 
 <jsp:include page="footer.jsp" />
 

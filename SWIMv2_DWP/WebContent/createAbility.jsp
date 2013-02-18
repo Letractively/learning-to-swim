@@ -36,29 +36,26 @@
 	<p>
 		In questa pagina potrai inserire, eliminare e modificare il set di abilit&agrave; associato al tuo profilo
 	</p>
-	<h1>Crea Abilita'</h1>
+	<h1>Crea Abilit&agrave;</h1>
 
-	<p>Per creare un abilita' riempire i campi sottostanti. <br />
+	<p>Per creare un abilit&agrave; riempire i campi sottostanti. <br />
 	Al termine, cliccare sul pulsante Crea.</p>
 	
-	<form action="createability" method="post">
+	<form action="createability" method="post" style="padding-left:9px;">
 		<table cellspacing="5" border="0">
 		<tr>
-		  <td align="right">Nome abilita':</td>
+		  <td>Nome abilit&agrave;:</td>
 		  <td><input type="text" name="abilityName" /></td>
 		</tr>
 		<tr>
-		  <td align="right">Descrizione:</td>
+		  <td>Descrizione:</td>
 		  <td><input type="text" name="abilityDescription" /></td>
 		</tr>
-		<tr>
-		  <td></td>
-		  <td><input type="submit" value="Crea" /></td>
-		</tr>
 		</table>
+		<button class="likeConfirm" type="submit" style="float:right;">Crea</button>
 	</form>
 	
-	<p>Se hai bisogno di ulteriore aiuto puoi contattarci all'email
+	<p style="clear:both;">Se hai bisogno di ulteriore aiuto puoi contattarci all'email
 		help@swim.net</p>
 		</div>
     <!-- end .content --></div>
