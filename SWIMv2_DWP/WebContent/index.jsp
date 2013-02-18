@@ -38,19 +38,42 @@
 	<%
 	String loginError = (String)session.getAttribute("alert");
 	if(loginError!=null) {
-		 out.print("<p>" + loginError + "</p>");
+		if(loginError.equals("Grazie per esserti registrato; riceverai presto una mail di attivazione account.")){
+			%>
+			<div align="center">
+			<img alt="" src="images/junior.jpg">
+			</div>
+			<%
+		}
+		 //out.print("<p>" + loginError + "</p>");
 		 session.removeAttribute("alert");
 	} 
 	
 	loginError = (String)session.getAttribute("alertconfirmed");
 	if(loginError!=null) {
-		 out.print("<p>" + loginError + "</p>");
+		if(loginError.equals("Non puoi fare il login prima di aver confermato il tuo account")){
+			%>
+			<div align="center">
+			<a href="images/drogba.jpg">
+			<img alt="" src="images/ovrebo.jpg">
+			</a>
+			</div>
+			<%
+		}
+		 //out.print("<p>" + loginError + "</p>");
 		 session.removeAttribute("alertconfirmed");
 	} 
 	
 	loginError = (String)session.getAttribute("alertLogin");
 	if(loginError!=null) {
-		 out.print("<p>" + loginError + "</p>");
+		if(loginError.equals("Login fallito, controlla meglio i dati che inserisci e riprova")){
+			%>
+			<div align="center">
+			<img alt="" src="images/karatekid.jpg">
+			</div>
+			<%
+		}
+		 //out.print("<p>" + loginError + "</p>");
 		 session.removeAttribute("alertLogin");
 	} 
 	%>
