@@ -12,7 +12,14 @@
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
-			out.print("<p>" + alert + "</p>");
+			if(alert.equals("Invio fallito: better luck next time!")){
+				%>
+				<div align="center">
+				<img alt="" src="images/youcannotsend.jpg">
+				</div>
+				<%
+			}
+			//out.print("<p>" + alert + "</p>");
 			session.removeAttribute("alert");
 		}
 	%>
