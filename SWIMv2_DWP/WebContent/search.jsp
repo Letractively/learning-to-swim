@@ -7,18 +7,14 @@
 	<jsp:param name="page" value="search"/>
 </jsp:include>
 
-<!--  
-<<<<<<< .mine
-  <div class="content">
+<div class="content">
   
 	<div style="float:right;width:40%;min-width:250px;margin-top:50px">
 		<img src="images/Help.jpg" style="width:100%;height:100%;box-shadow: 0px 0px 3px 2px rgb(204, 204, 204);border-radius: 5px 5px 5px 5px;"/>
 	</div>
   
   <div style="width:60%;min-width:200px;max-width:550px;margin:0px">
-=======
->>>>>>> .r291
--->
+  
 	<% 
 		String alert = (String)session.getAttribute("alert");
 		if(alert!=null) {
@@ -31,22 +27,8 @@
 			}
 			//out.print("<p>" + alert + "</p>");
 			session.removeAttribute("alert");
-		} 
-		else{
-			%>
-			<div class="content">
-  
-	        <div style="float:right;width:40%;min-width:250px;margin-top:50px">
-		      <img src="images/Help.jpg" style="width:100%;height:100%;box-shadow: 0px 0px 3px 2px rgb(204, 204, 204);border-radius: 5px 5px 5px 5px;"/>
-	        </div>
-  
-            <div style="width:60%;min-width:200px;max-width:550px;margin:0px">
-			<%
 		}
 	%>
-
-  <div class="content">
-  <div style="width:80%;">
 	
 	<h1>Cerca</h1>
 	<fieldset>
